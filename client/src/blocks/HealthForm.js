@@ -28,8 +28,29 @@ const HealthForm = () => {
         staggerChildren: 0.7
       }
     }
-  };
-  
+  }
+
+  const formVariants = {
+    hidden: {
+      opacity: 0,
+      x: "-100vw"
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        type: "spring",
+        stiffness: 50
+      }
+    },
+    exit: {
+      opacity: 0,
+      x: "100vw",
+      transition: {
+        ease: "easeInOut"
+      }
+    }
+  }
 
   return (
     <motion.div className="healthForm"
@@ -38,7 +59,6 @@ const HealthForm = () => {
       animate='visible'
     >
       <motion.div
-        variants={formVariants}
       >
         <FormChecks
           checksChange={checksChange}
@@ -47,9 +67,6 @@ const HealthForm = () => {
         />
       </motion.div>
       <motion.div
-        variants={formVariants}
-        initial='hidden'
-        animate='visible'
       >
         <FormCounters 
           countersChange={countersChange}

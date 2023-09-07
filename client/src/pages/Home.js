@@ -56,8 +56,10 @@ const Home = () => {
         setCheckingUser(false)
       }
     }
-    fetchData()
-  }, [])
+    if (user) {
+      fetchData()
+    }
+  }, [user])
 
 
   useEffect(() => {
@@ -120,7 +122,7 @@ const Home = () => {
         modalData={logoutModalData}
         modal={logoutModal}
         setModal={setLogoutModal}
-        btn1Fun={() => {setLogoutModal(false); setLogReg(true); localStorage.clear()}}
+        btn1Fun={() => {setLogoutModal(false); setLogReg(true); localStorage.clear(); setUserData([]);}}
         btn2fun={() => setLogoutModal(false)}
         SVGComponent={LogoutSVG}
       />

@@ -73,7 +73,7 @@ const Login = ({ setLogReg }) => {
       <div className="login">
         <h2 className="logreg-title">Welcome back,</h2>
         <p className="logreg-subtitle">Log in to continue</p>
-          <form action="" className="loginForm">
+          <form action="" className="loginForm" onSubmit={(e) => {e.preventDefault(); onSubmit();}}>
             <input 
               type="username" 
               placeholder="Username"
@@ -94,8 +94,7 @@ const Login = ({ setLogReg }) => {
             <div className="button-block">
               <button 
                 className="submit-btn"
-                type="button"
-                onClick={onSubmit}
+                type="submit"
               >
                 Login
               </button>
