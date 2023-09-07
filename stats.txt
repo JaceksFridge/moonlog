@@ -1,0 +1,60 @@
+
+
+JavaScript | 58.63% ▓▓▓▓▓▓▓▓▓▓▓▓░░░░░░░░
+SCSS       | 38.77% ▓▓▓▓▓▓▓▓░░░░░░░░░░░░
+Text       |   2.6% ▓░░░░░░░░░░░░░░░░░░░
+                                    100%
+
+
+================  =======  ==========
+files               lines  language
+================  =======  ==========
+Forms.scss            150  SCSS
+HomePage.scss         146  SCSS
+Home.js               146  JavaScript
+IntroPage.scss        109  SCSS
+App.scss              107  SCSS
+Forms.js              103  JavaScript
+Login.js               96  JavaScript
+LogReg2.js             94  JavaScript
+Modal.js               90  JavaScript
+Login.scss             89  SCSS
+Register.js            82  JavaScript
+FormChecks.js          74  JavaScript
+HealthForm.js          72  JavaScript
+userRoutes.js          71  JavaScript
+FormCounters.js        71  JavaScript
+Modal.scss             69  SCSS
+Checkbox.scss          65  SCSS
+App.js                 55  JavaScript
+constants.js           53  JavaScript
+stats.txt              52  Text
+FormSlider.js          43  JavaScript
+auth.js                42  JavaScript
+Scores.js              42  JavaScript
+LogReg2.scss           40  SCSS
+HappinessForm.js       38  JavaScript
+================  =======  ==========
+ * showing 25/52 files
+
+
+
+ file               |   all hooks |   useState |   useEffect |   useContext |   otherHooks |   customHooks
+--------------------+-------------+------------+-------------+--------------+--------------+---------------
+ Home.js            |          10 |          6 |           0 |            2 |            0 |             2
+ Forms.js           |           5 |          2 |           0 |            1 |            0 |             2
+ Register.js        |           4 |          3 |           0 |            1 |            0 |             0
+ Login.js           |           4 |          3 |           0 |            1 |            0 |             0
+ useLocalStorage.js |           2 |          1 |           0 |            0 |            0 |             1
+ FormSlider.js      |           2 |          1 |           0 |            0 |            0 |             1
+ NodoForm.js        |           1 |          0 |           0 |            0 |            0 |             1
+ FormChecks.js      |           1 |          0 |           0 |            0 |            0 |             1
+ useCurrentDate.js  |           1 |          1 |           0 |            0 |            0 |             0
+ userContext.js     |           1 |          1 |           0 |            0 |            0 |             0
+ HappinessForm.js   |           1 |          0 |           0 |            0 |            0 |             1
+ WealthForm.js      |           1 |          0 |           0 |            0 |            0 |             1
+ HealthForm.js      |           1 |          0 |           0 |            0 |            0 |             1
+ FormCounters.js    |           1 |          0 |           0 |            0 |            0 |             1
+ IntroPage.js       |           1 |          0 |           0 |            0 |            0 |             1
+ Scores.js          |           1 |          1 |           0 |            0 |            0 |             0
+ LogReg2.js         |           1 |          1 |           0 |            0 |            0 |             0
