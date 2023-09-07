@@ -1,0 +1,27 @@
+
+
+.scoresPage{
+    padding: 1.5rem;
+}
+
+.card{
+    border: 1px solid $white-50;
+    border-radius: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 1rem;
+    padding: 2rem;
+
+    .subSums{
+        border: 1px solid orange;
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    h5, h4{
+        color: white;
+
+    }
+}

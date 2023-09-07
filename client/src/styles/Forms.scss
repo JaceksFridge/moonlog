@@ -1,0 +1,187 @@
+
+
+
+.healthForm, .wealthForm, .nodoForm, .happinessForm{
+
+    padding: 0rem 1.5rem;
+
+    .slider-container{
+        border: 1px solid $nav-button;
+        border-radius: 1.5rem;
+        height: 12rem;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(144.71deg, #030303 0.63%, #242328 127.55%);
+        padding: 0rem 2rem;
+
+
+        .hour-count{
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+
+            h2{
+                font-family: reckless-4;
+                font-size: 3.5rem;
+                color: $click;
+            }
+    
+            .small-slider{
+                color: $click;
+                font-size: 0.8rem;
+            }
+        }
+        .hour-slider{
+            margin-top: 1rem;
+            width: 100%;
+
+            .the-slider{
+                width: 100%;
+                height: 5px;
+                border-radius: 2px;
+                background: $nav-button;
+                -webkit-appearance: none; 
+                appearance: none;
+
+                --sliderValue: 0%;
+                background: linear-gradient(to right, white, pink var(--sliderValue), grey var(--sliderValue));
+            }
+
+            .the-slider::-webkit-slider-runnable-track{
+                -webkit-appearence: none;
+                height: 5px;
+            }
+
+            .the-slider::-moz-track{
+                -moz-appearance: none;
+                height: 5px;
+            }
+
+            .the-slider::-ms-track{
+                appearance: none;
+                height: 5px;
+            }
+
+
+            .the-slider::-webkit-slider-thumb {
+                -webkit-appearance: none;
+                appearance: none;
+                width: 10px;
+                height: 25px;
+                background: pink;
+                border-radius: 4px;
+                cursor: pointer;
+                margin-top: -10px;
+            }
+            
+            .the-slider::-moz-range-thumb {
+                width: 10px;
+                height: 25px;
+                background: pink;
+                border-radius: 4px;
+                cursor: pointer;
+                margin-top: -10px;
+            }
+        }
+    }
+
+    .form-container, .wealth-container-repeats, .slider-container{
+        position: relative;
+        border: 1px solid $nav-button;
+        border-radius: 1.5rem;
+        margin-top: 4rem;
+        background: linear-gradient(144.71deg, #030303 0.63%, #242328 127.55%);
+
+        .form-title{
+            position: absolute;
+            top: -2rem;
+            left: 2rem;
+            color: $nav-button;
+            font-size: 1rem;
+        }
+
+
+        .form-block{
+            border: 0px solid blue;
+            height: 4rem;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0rem;
+            margin: 0rem 2rem;
+            border-bottom: 0.5px solid $nav-button;
+
+            .conicon{
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+
+                margin-right: 1rem;
+                border: 0px solid orange;
+            }
+
+            h5{
+                font-size: 1rem;
+                letter-spacing: 0.02rem;
+                font-family: satoshi;
+                font-weight: 500;
+                // margin-left: 1.5rem;
+                color: $white-50;
+            
+            }
+
+            .checkbox-container{
+                border: 0px solid red;
+                width: auto;
+
+                padding: 0 1.75rem;
+                display: grid;
+                place-items: center;
+            }
+
+            .counter-container{
+                border: 0px solid slateblue;
+                width: auto;
+
+                display: flex;
+                justify-content: space-evenly;
+
+                .plus, .minus, .count{
+                    width: 1.5rem;
+                    height: 1.5rem;
+                    color: $nav-text;
+                }
+
+                .plus, .minus{
+                    background: none;
+                    border: 1px solid $grey;
+                    border-radius: 5px;
+                }
+
+                .count{
+                    display: grid;
+                    place-items: center;
+                    font-family: satoshi;
+                }
+
+                .count.active{
+                    color: white;
+                } 
+            }
+        }
+    }
+    .hour-count h2.slider.active {
+        color: white !important;
+    }
+    .healthForm:first-child{
+        margin-top: 5rem;
+    }
+}

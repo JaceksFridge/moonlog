@@ -1,0 +1,82 @@
+.backdrop{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0; left: 0;
+    background: rgba(30, 30, 30, 0.8);
+    z-index: 11;
+
+
+
+    .modal{
+        position: absolute;
+        bottom: 0;
+        height: 70%;
+        width: 100%;
+        background: black;
+        border: 0.5px solid $modal-grey;
+        border-top-left-radius: 2rem;
+        border-top-right-radius: 2rem;
+        padding: 1.5rem 1.5rem 3rem 1.5rem;
+
+
+        .modal-inner-container{
+            position: relative;
+            border: 0px solid red;
+            height: 100%;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .modal-close{
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
+
+            .modal-icon{
+                margin-top: 4rem;
+                margin-bottom: 2rem;
+            }
+
+            .modal-title{
+                font-size: 2rem;
+                color: white;
+                font-family: reckless-middle;
+                margin-bottom: 3rem;
+            }
+
+            .modal-text{
+                color: $modal-grey;
+                line-height: 1.9rem;
+                margin-bottom: 3rem;
+            }
+
+            .modal-buttons{
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                button{
+                    height: 3.5rem;
+                    width: 100%;
+                    border: 1px solid $modal-grey;
+                    border-radius: 1rem;
+                    margin-bottom: 1.5rem;
+                    text-transform: lowercase;
+                }
+
+                .modal-btn1{
+                    background: white;
+                    color: $modal-black;
+                }
+                .modal-btn2{
+                    background: none;
+                    color: $modal-grey;
+                }
+            }
+        }
+    }
+}

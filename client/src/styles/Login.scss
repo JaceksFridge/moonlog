@@ -1,0 +1,111 @@
+
+
+.logreg-title{
+    margin-top: 2.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 2rem;
+}
+.logreg-subtitle{
+    color: $grey;
+    margin-bottom: 3rem;
+}
+
+.loginForm, .registerForm{
+    display: flex;
+    flex-direction: column;
+    border: 0px solid salmon;
+
+    p{
+        font-size: 1rem;
+    }
+
+    input{
+        border: none;
+        outline: none;
+        border: 0px solid blue;
+
+        margin-bottom: 1.5rem;
+        height: 3.5rem;
+        background: none;
+        color: $grey;
+        border-bottom: 1px solid $grey;
+
+
+        &:focus{
+            border-bottom: 2px solid $white;
+            color: $white;
+        }
+    }
+
+
+    .err-block{
+        border: 0px solid yellow;
+        width: 100%;
+        height: 100%;
+        .error-message{
+            text-align: right;
+            text-transform: lowercase;
+            border: 0px solid green;
+            color: #ff3333;
+            font-size: 0.8rem;
+            font-family: satoshi;
+        }
+    }
+
+
+    .button-block{
+        border: 0px solid green;
+        margin-top: 3rem;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        button{
+            background: white;
+            border: 0px solid green;
+            height: 3.5rem;
+            width: 100%;
+            border-radius: 1rem;
+        }
+        .google-btn{
+            border: 1px solid $grey;
+            background: none;
+            color: $grey;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .google-logo{
+                height: 20px;
+                width: 20px;
+                background: url(../../public/logos/google-logo.png);
+                background-size: cover;
+                background-position: center;
+                margin-right: 0.5rem;
+            }
+        }
+
+        .or-line{
+            border: 0px solid green;
+            padding: 1.5rem 0;
+            display: flex;
+            align-items: center;
+            
+
+            .line{
+                width: 100%;
+                height: 1px;
+                background: $grey;
+            }
+
+            .or{
+                color: $grey;
+                margin: 0 0.5rem;
+            }
+        }
+    }
+
+
+}

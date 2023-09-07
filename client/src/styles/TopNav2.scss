@@ -1,0 +1,38 @@
+
+
+
+.topnav2{
+    border: 0px solid white;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+    height: 3rem;
+    padding: 1rem 1.5rem;
+
+    div{
+        border: 0px solid red;
+        background: $nav-button;
+        height: 2rem;
+        width: 5rem;
+        border-radius: 0.5rem;
+
+        display: grid;
+        place-items: center;
+
+        h5{
+            font-family: reckless-middle;
+            font-size: 0.9rem;
+            color: $nav-text;
+        }
+    }
+    
+    .nodoBtn{
+        width: 100%;
+        background: $lightmode;
+        h5{
+            color: $nav-button;
+        }
+    }
+}
+
