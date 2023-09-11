@@ -20,12 +20,8 @@ const HomeDesktop = ({ user, userData }) => {
           <div className="scrollable-container">
             <div className="card-container">
               <div className="home-card"></div>
-              <div className="home-card"></div>
-              <div className="home-card"></div>
-              <div className="home-card"></div>
-              <div className="home-card"></div>
-              <div className="home-card"></div>
-              <div className="home-card"></div>
+              <div className="home-card two"></div>
+              <div className="home-card three"></div>
             </div>
 
           </div>
