@@ -33,9 +33,9 @@
 
             
             video{
-                margin-top: -20%;
+                margin-top: -10%;
                 width: 100%;
-                padding: 0 20% 0% 20%;
+                padding: 0 35% 0% 20%;
             }
         }
         .home-absolute{
@@ -101,6 +101,11 @@
                         display: flex;
                         justify-content: center;
                         margin-bottom: 1.5rem;
+                    }
+
+                    .home-card.two{
+                        box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.05);
+                        backdrop-filter: blur(10px);
                     }
                 }
             }
