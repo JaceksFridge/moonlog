@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import axios from 'axios'
+import { useMediaQuery } from 'react-responsive'
+import HomeDesktop from '../Desktop/HomeDesktop'
 
 import useCurrentDate from '../blocks/useCurrentDate'
 import { UserContext } from '../blocks/userContext'
@@ -104,6 +106,9 @@ const Home = () => {
     jump('./forms')
   }
 
+  const isDesktoporLaptop = useMediaQuery({
+    query: '(min-device-width: 1224px)'
+  })
 
   return (
     <div className="homePage">
@@ -126,47 +131,53 @@ const Home = () => {
         btn2fun={() => setLogoutModal(false)}
         SVGComponent={LogoutSVG}
       />
-      <div className="home-container">
-        <video autoPlay muted loop>
-            <source src="/videos/moonanim.mp4" type="video/mp4" />
-        </video>
-        <h1 className="home-welcome">Welcome <span>{user ? user.username : "Guest"}</span></h1>
-        <div className="home-score">
-          <div className="home-score-container">
-            <div className="big-score">
-              <h2 className="last-score">{userData && userData.sum ? userData.sum : "0000"}</h2>
-              <h6 className="score-change">{userData && userData.change 
-                ? (userData.change > 0 ? '+' : '') + userData.change : '0'}%
-              </h6>
-            </div>          
-          <h6 className="score-descrip">points collected yesterday</h6>
+      { isDesktoporLaptop ? (
+        <HomeDesktop user={user} userData={userData} setLogoutModal={setLogoutModal}/>
+      ) : (
+        <>
+          <div className="home-container">
+            <video autoPlay muted loop>
+              <source src="/videos/moonanim.mp4" type="video/mp4" />
+            </video>
+            <h1 className="home-welcome">Welcome <span>{user ? user.username : "Guest"}</span></h1>
+            <div className="home-score">
+              <div className="home-score-container">
+                <div className="big-score">
+                  <h2 className="last-score">{userData && userData.sum ? userData.sum : "0000"}</h2>
+                  <h6 className="score-change">{userData && userData.change 
+                    ? (userData.change > 0 ? '+' : '') + userData.change : '0'}%
+                  </h6>
+                </div>          
+              <h6 className="score-descrip">points collected yesterday</h6>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <div className="home-cards">
-        <div
-          //onClick={isDataLoaded ? checkDate : null}
-          onClick={() => jump('/forms')}
-          href="/forms" 
-          className="link"
-        >
-          <Card 
-            title="new log"
-            text="Enter your activities and find out your score"
-            id="newlog"
-            icon="/icons/newcard.svg"
-          />
-        </div>
-        <Link to="/scores" className="link">
-          <Card 
-            title="check scores"
-            text="Enter your activities and find out your score"
-            id="checkscores"
-            icon="/icons/checkcard.svg"
-          />
-        </Link>
-        <button onClick={() => setLogoutModal(true)} className="btn-logout">Logout</button>
-      </div>
+          <div className="home-cards">
+            <div
+              //onClick={isDataLoaded ? checkDate : null}
+              onClick={() => jump('/forms')}
+              href="/forms" 
+              className="link"
+            >
+              <Card 
+                title="new log"
+                text="Enter your activities and find out your score"
+                id="newlog"
+                icon="/icons/newcard.svg"
+              />
+            </div>
+            <Link to="/scores" className="link">
+              <Card 
+                title="check scores"
+                text="Enter your activities and find out your score"
+                id="checkscores"
+                icon="/icons/checkcard.svg"
+              />
+            </Link>
+            <button onClick={() => setLogoutModal(true)} className="btn-logout">Logout</button>
+          </div>
+        </>
+      )}
     </div>
   )
 }

@@ -123,9 +123,8 @@ button {
 
 
 
-
+@import "./styles/Home.scss";
 @import "./styles/IntroPage.scss";
-@import "./styles//HomePage.scss";
 @import "./styles/Footer.scss";
 @import "./styles/Header.scss";
 @import "./styles/TopNav1.scss";
@@ -139,3 +138,5 @@ button {
 @import "./styles//Login.scss";
 
 
+// Desktop Styles
+@import "./styles/Desktop/HomeDesktop.scss"
