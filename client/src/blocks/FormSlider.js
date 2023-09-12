@@ -2,17 +2,18 @@ import React, { useState, useEffect } from 'react'
 import { useLocalStorage } from './useLocalStorage'
 
 
-const FormSlider = ({ sliderChange, stk }) => {
-
+const FormSlider = ({ sliderChange, form, stk }) => {
+    console.log('Form received in FormSlider:', form);
     const [slider, setSlider] = useLocalStorage(stk, 0)
     const [currentSlider, setCurrentSlider] = useState(slider)
 
     const sliderHandler = (event) => {
         const newSliderValue = event.target.value
 
-        setSlider(newSliderValue)
-        sliderChange(newSliderValue - currentSlider)
+        const sliderObject = { [form.key]: newSliderValue * form.weight }
 
+        setSlider(newSliderValue)
+        sliderChange(sliderObject)
         setCurrentSlider(newSliderValue)
     }
     useEffect(() => {
@@ -30,7 +31,7 @@ const FormSlider = ({ sliderChange, stk }) => {
                 className={slider > 0 ? "slider active" : ""}
             >
                 {slider}</h2>
-            <div className="small-slider">hours of work</div>
+            <div className="small-slider">{form ? form.title : ""}</div>
             </div>
             <h6 className="hour-desc">some explanation</h6>
             <div className="hour-slider">
@@ -40,7 +41,7 @@ const FormSlider = ({ sliderChange, stk }) => {
                 onChange={sliderHandler} 
                 value={slider}
                 min="0"
-                max="10"
+                max={form.range}
                 step="0.5"
             />
             </div>

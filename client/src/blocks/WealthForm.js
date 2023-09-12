@@ -1,7 +1,7 @@
 import React from 'react'
 import { useLocalStorage } from './useLocalStorage'
 
-import { wealthRepeats } from './constants'
+import { wealthSlider, wealthRepeats } from './constants'
 
 import FormCounters from './FormCounters'
 import FormSlider from './FormSlider'
@@ -12,12 +12,15 @@ const WealthForm = () => {
 
   const [wealthScores, setWealthScores] = useLocalStorage('wealth', {})
 
-  const sliderChange = (sliderDifference) => {
-    setWealthScore(wealthScore => wealthScore + sliderDifference * 50)
+  const sliderChange = (sliderValues) => {
+    setWealthScores({
+      ...wealthScores,
+      ...sliderValues
+    })
   }
 
   const countersChange = (counterValues) => {
-    setWealthScore({
+    setWealthScores({
       ...wealthScores,
       ...counterValues
     })
@@ -28,6 +31,7 @@ const WealthForm = () => {
     <div className="wealthForm">
       <FormSlider 
         sliderChange={sliderChange}
+        form={wealthSlider}
         stk="wealthSlider"
       />
       <FormCounters 
@@ -35,7 +39,7 @@ const WealthForm = () => {
         form={wealthRepeats}
         stk="wealthCounters"
       />
-      <h2 className="invisible">{JSON.stringify(wealthScore)}</h2>
+      <h2 className="invisible">{JSON.stringify(wealthScores)}</h2>
     </div>
   )
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { happinessChecks, happinessRepeats } from './constants'
+import { happinessSlider, happinessChecks, happinessRepeats } from './constants'
 import { useLocalStorage } from './useLocalStorage'
 
 import FormCounters from './FormCounters';
@@ -31,6 +31,7 @@ const HappinessForm = () => {
     <div className="happinessForm">
       <FormSlider 
         sliderChange={sliderChange}
+        form={happinessSlider}
         stk="happinessSlider"
       />
       <FormChecks

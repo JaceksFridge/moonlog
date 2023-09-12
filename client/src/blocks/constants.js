@@ -1,12 +1,18 @@
 
 
 export const wealthRepeats = {
-    work: 100,
+    build: 100,
     learn: 100,
     app: 50,
     post: 50
 }
 
+export const wealthSlider = {
+    title: 'hours of work',
+    key: 'work',
+    range: 10,
+    weight: 50
+}
 
 export const healthChecks = {
     love: 200,
@@ -31,10 +37,16 @@ export const happinessChecks = {
     new: 100
 }
 
-export const happinessRepeats ={
+export const happinessRepeats = {
     number: 100,
     hangout: 100,
     chat: 50
+}
+
+export const happinessSlider = {
+    title: 'how was your day',
+    range: 10,
+    weight: 50
 }
 
 export const nodoChecks = {
