@@ -68,6 +68,12 @@
                         font-family: reckless-middle;
                     }
                 }
+
+                .stats-container{
+                    position: absolute;
+                    bottom: 25%; left: 10%;
+                    border: 1px solid salmon;
+                }
             
             }
 
@@ -116,6 +122,31 @@
                         border: 1px solid rgba(255, 255, 255, 0.2);
                         box-shadow: 0px 20px 40px rgba(255, 255, 255, 0.05);
                         backdrop-filter: blur(10px);
+                    }
+
+                    .lset{
+                        height: 5rem;
+                        width: 100%;
+                        display: flex;
+                        gap: 2rem;
+
+                        div{
+                            height: 100%;
+                            width: 100%;
+                            flex: 1;
+                            border-radius: 1rem;
+                            border: 1px solid $white-20;
+                            box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.05);
+                            backdrop-filter: blur(10px);
+                        }
+
+                        .logout-btn{
+                            display: block;
+                        }
+
+                        .settings-btn{
+                            display: block;
+                        }
                     }
                 }
             }
