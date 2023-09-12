@@ -24,6 +24,10 @@ const HealthForm = () => {
       ...counterValues})
   }
 
+  console.log("healthScores incomming")
+  console.log(healthScores)
+
+
   const pageVariants = {
     hidden: {
       
@@ -80,7 +84,7 @@ const HealthForm = () => {
           stk="healthCounters"
         />
       </motion.div>
-      <h2 className="invisible">{healthScore}</h2>
+      <h2 className="invisible">{JSON.stringify(healthScores)}</h2>
     </motion.div>
   )
 }
