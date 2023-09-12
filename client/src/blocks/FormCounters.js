@@ -9,17 +9,12 @@ const FormCounters = ({ countersChange, form, stk }) => {
 
   const handlePlusMinus = (key, isPlus) => {
     const currentCounterValue = counters[key] || 0
-    const updatedCounterValue = isPlus 
-      ? currentCounterValue + 1 
-      : Math.max(currentCounterValue - 1, 0)
-
-    const updatedCounters = {...counters, [key]: updatedCounterValue}
-
-    setCounters(updatedCounters)
-
-    const scoreDifference = (updatedCounterValue - currentCounterValue) * form[key];
-    countersChange(scoreDifference);
-  }
+    const updatedCounterValue = isPlus ? currentCounterValue + 1 : Math.max(currentCounterValue - 1, 0)
+    const weightedCounterValue = updatedCounterValue * form[key]
+  
+    setCounters(prevCounters => ({...prevCounters, [key]: updatedCounterValue}))
+    countersChange({ [key]: weightedCounterValue });
+  };
 
 
   const formVariants = {
