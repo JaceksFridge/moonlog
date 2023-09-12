@@ -10,14 +10,17 @@ import FormSlider from './FormSlider'
 
 const WealthForm = () => {
 
-  const [wealthScore, setWealthScore] = useLocalStorage('wealth', 0)
+  const [wealthScores, setWealthScores] = useLocalStorage('wealth', {})
 
   const sliderChange = (sliderDifference) => {
     setWealthScore(wealthScore => wealthScore + sliderDifference * 50)
   }
 
-  const countersChange = (countersDifference) => {
-    setWealthScore(wealthScore => wealthScore + countersDifference)
+  const countersChange = (counterValues) => {
+    setWealthScore({
+      ...wealthScores,
+      ...counterValues
+    })
   }
 
 
@@ -32,7 +35,7 @@ const WealthForm = () => {
         form={wealthRepeats}
         stk="wealthCounters"
       />
-      <h2 className="invisible">{wealthScore}</h2>
+      <h2 className="invisible">{JSON.stringify(wealthScore)}</h2>
     </div>
   )
 }

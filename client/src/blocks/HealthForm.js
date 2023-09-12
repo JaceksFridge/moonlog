@@ -9,7 +9,6 @@ import FormChecks from './FormChecks'
 const HealthForm = () => {
 
   const [healthScores, setHealthScores] = useLocalStorage('health', {})
-  // localStorage.setItem('health', {})
 
   const checksChange = (checkValues) => {
     setHealthScores({
@@ -21,7 +20,8 @@ const HealthForm = () => {
   const countersChange = (counterValues) => {
     setHealthScores({
       ...healthScores, 
-      ...counterValues})
+      ...counterValues
+    })
   }
 
   console.log("healthScores incomming")
