@@ -8,7 +8,7 @@ require('dotenv').config();
 
 
 const connectDB = require("./db.js")
-const LandingSite = require("./schema.js")
+const ScoreLog = require("./schema.js")
 const userRoutes = require("./userRoutes")
 const authRoutes = require('./auth.js')
 
@@ -39,8 +39,8 @@ app.post('/api/my-endpoint', async (req, res) => {
     let object = req.body
 
     try {
-        const landingSite = new LandingSite(object);
-        await landingSite.save();
+        const scoreLog = new ScoreLog(object);
+        await scoreLog.save();
        
         res.json({message: 'Data received and saved successfully.'})
 

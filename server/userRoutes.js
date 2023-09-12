@@ -2,7 +2,7 @@ const express = require("express")
 const router = express.Router()
 const User = require("./userSchema")
 const jwt = require("jsonwebtoken")
-const LandingSite = require("./schema.js")
+const ScoreLog = require("./schema.js")
 const middleware = require('./middleware')
 
 
@@ -50,7 +50,7 @@ router.post('/login', async (req, res) => {
 // get data as home loads
 router.get('/home', middleware, async (req, res) => {
     try{
-        const latestEntry = await LandingSite.findOne({ userId: req.user.id }).sort({ _id: -1 })
+        const latestEntry = await ScoreLog.findOne({ userId: req.user.id }).sort({ _id: -1 })
         console.log("latest entry:", latestEntry)
         res.json(latestEntry)
     } catch (err) {
@@ -67,7 +67,7 @@ router.delete('/delete-score', async (req, res) => {
       const { userId, date } = req.body
       console.log(userId, date)
 
-      const deletedEntries = await LandingSite.deleteMany({ userId: userId, date: date })
+      const deletedEntries = await ScoreLog.deleteMany({ userId: userId, date: date })
 
       if (deletedEntries.n === 0) {
         return res.status(404).send({ url: '/delete-score/:userId', message: "No matching entry found" });
@@ -88,8 +88,8 @@ router.delete('/delete-score', async (req, res) => {
 router.get('/scores/:userId', async (req, res) => {
     try {
         const userId = req.params.userId
-        const landingSites = await LandingSite.find({ userId: userId }).sort({ _id: -1 });
-        res.json(landingSites);
+        const scoreLogs = await ScoreLog.find({ userId: userId }).sort({ _id: -1 });
+        res.json(scoreLogs);
     } catch (err) {
         console.log("Error getting documents", err);
         res.status(500).json({message: 'Error getting data.'});
