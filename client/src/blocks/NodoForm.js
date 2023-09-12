@@ -8,17 +8,23 @@ import FormChecks from './FormChecks'
 const NodoForm = () => {
 
 
-  const [nodoScore, setNodoScore] = useLocalStorage('nodo', 0)
+  const [nodoScores, setNodoScores] = useLocalStorage('nodo', {})
 
-  const checksChange = (checksDifference) => {
-    setNodoScore(nodoScore => nodoScore + checksDifference)
+  const checksChange = (checkValues) => {
+    setNodoScores({
+      ...nodoScores, 
+      ...checkValues
+    })
   }
 
-  const countersChange = (countersDifference) => {
-    setNodoScore(nodoScore => nodoScore + countersDifference)
+  const countersChange = (counterValues) => {
+    setNodoScores({
+      ...nodoScores, 
+      ...counterValues
+    })
   }
 
-    return (
+  return (
     <div className="nodoForm">
       <FormChecks
         checksChange={checksChange}
@@ -30,8 +36,8 @@ const NodoForm = () => {
         form={nodoRepeats}
         stk="nodoCounters"
       />
-      <h2 className="invisible">{nodoScore}</h2>
-  </div>
+      <h2 className="invisible">{JSON.stringify(nodoScores)}</h2>
+    </div>
   )
 }
 

@@ -24,9 +24,6 @@ const HealthForm = () => {
     })
   }
 
-  console.log("healthScores incomming")
-  console.log(healthScores)
-
 
   const pageVariants = {
     hidden: {
