@@ -50,6 +50,23 @@ const Forms = () => {
   const [data, setData] = useState("")
 
   const dataToServer = async () => {
+
+    const healthScores = JSON.parse(localStorage.getItem("health")) || 0
+    const wealthScores = JSON.parse(localStorage.getItem("wealth")) || 0
+    const happinessScores = JSON.parse(localStorage.getItem("happiness")) || 0
+    const nodoScores = JSON.parse(localStorage.getItem("nodo")) || 0
+
+    const subscores = {healthScores, wealthScores, happinessScores, nodoScores}
+
+    console.log("subscores: ",subscores)
+
+    let healthSum = 0
+    Object.values(healthScores).forEach((value) => {
+      healthSum += value
+    })
+
+    console.log("healthSum: ", healthSum)
+
     const healthPoints = Number(localStorage.getItem("health")) || 0
     const wealthPoints = Number(localStorage.getItem("wealth")) || 0
     const happinessPoints = Number(localStorage.getItem("happiness")) || 0
@@ -61,7 +78,8 @@ const Forms = () => {
       health: healthPoints,
       wealth: wealthPoints,
       happiness: happinessPoints,
-      nodo: (negNodoPoints)
+      nodo: (negNodoPoints),
+      subscores: subscores
     }
 
     // add Sum
@@ -82,19 +100,14 @@ const Forms = () => {
       theData.change = 100
     }
     
-    console.log('change:', theData.change)
-  
-    console.log("userId:", userId)
     theData.userId = userId
   
     try {
       const response = await axios.post('http://localhost:8000/api/my-endpoint', theData)
       setData(response.data)
       console.log("Data Submitted:", theData)
-      // console.log(data.message)
+
       jump("/scores")
-  
-      // configure localstorage
 
       const toTrash = ['health', 'wealth', 'happiness', 'nodo', 
       'healthChecks', 'healthCounters', 'happinessSlider', 
@@ -104,7 +117,6 @@ const Forms = () => {
       toTrash.forEach((item) => {
         localStorage.removeItem(item)
       })
-
 
       localStorage.setItem("lastSubmission" + user.username, currentDate)
   
