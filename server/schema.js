@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const landingSiteSchema = new mongoose.Schema({
+const scoreLogSchema = new mongoose.Schema({
   health: Number,
   wealth: Number,
   happiness: Number,
@@ -14,6 +14,6 @@ const landingSiteSchema = new mongoose.Schema({
   }
 });
 
-const LandingSite = mongoose.model('LandingSite', landingSiteSchema);
+const ScoreLog = mongoose.model('ScoreLog', scoreLogSchema);
 
-module.exports = LandingSite;
+module.exports = ScoreLog;
