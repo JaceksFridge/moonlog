@@ -8,14 +8,20 @@ import FormChecks from './FormChecks'
 
 const HealthForm = () => {
 
-  const [healthScore, setHealthScore] = useLocalStorage('health', 0)
+  const [healthScores, setHealthScores] = useLocalStorage('health', {})
+  // localStorage.setItem('health', {})
 
-  const checksChange = (checksDifference) => {
-    setHealthScore(healthScore => healthScore + checksDifference)
+  const checksChange = (checkValues) => {
+    setHealthScores({
+      ...healthScores, 
+      ...checkValues
+    })
   }
 
-  const countersChange = (countersDifference) => {
-    setHealthScore(healthScore => healthScore + countersDifference)
+  const countersChange = (counterValues) => {
+    setHealthScores({
+      ...healthScores, 
+      ...counterValues})
   }
 
   const pageVariants = {

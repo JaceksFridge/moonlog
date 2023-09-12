@@ -8,9 +8,9 @@ const FormChecks = ({ form, checksChange, stk }) => {
 
   const handleChange = (event) => {
       const { name, checked } = event.target
-      const scoreDifference = checked 
-        ? form[name] 
-        : -form[name]
+      // const scoreDifference = checked 
+      //   ? form[name] 
+      //   : -form[name]
   
       const newCheckedBoxes = {
         ...checkedBoxes, [name]: checked

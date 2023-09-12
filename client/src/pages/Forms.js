@@ -34,9 +34,6 @@ const Forms = () => {
   
   const currentIndex = formOrder.indexOf(activeTab)
 
-  useEffect(() => {
-    // jejr
-  })
 
   const handleBack = () => {
     if (currentIndex > 0) {

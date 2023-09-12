@@ -3,7 +3,7 @@
 import {useState, useEffect} from 'react'
 
 
-export function useLocalStorage(key, defaultValue) {
+export const useLocalStorage = (key, defaultValue) => {
     const [state, setState] = useState(() => {
         const storedValue = localStorage.getItem(key);
         if (storedValue) {
