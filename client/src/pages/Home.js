@@ -128,7 +128,7 @@ const Home = () => {
         modal={logoutModal}
         setModal={setLogoutModal}
         btn1Fun={() => {setLogoutModal(false); setLogReg(true); localStorage.clear(); setUserData([]);}}
-        btn2fun={() => setLogoutModal(false)}
+        btn2Fun={() => setLogoutModal(false)}
         SVGComponent={LogoutSVG}
       />
       { isDesktoporLaptop ? (
