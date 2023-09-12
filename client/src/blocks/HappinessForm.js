@@ -9,22 +9,28 @@ import FormSlider from './FormSlider'
 const HappinessForm = () => {
 
 
-  const [happinessScore, setHappinessScore] = useLocalStorage('happiness', 0)
+  const [happinessScores, setHappinessScores] = useLocalStorage('happiness', 0)
 
-
-  const sliderChange = (sliderDifference) => {
-    setHappinessScore(happinessScore => happinessScore + sliderDifference * 50)
+  const sliderChange = (sliderValue) => {
+    setHappinessScores({
+      ...happinessScores,
+      ...sliderValue
+    })
   }
 
-  const checksChange = (checksDifference) => {
-    setHappinessScore(happinessScore => happinessScore + checksDifference)
+  const checksChange = (checkValues) => {
+    setHappinessScores({
+      ...happinessScores,
+      ...checkValues
+    })
   }
 
-  const countersChange = (countersDifference) => {
-    setHappinessScore(happinessScore => happinessScore + countersDifference)
+  const countersChange = (counterValues) => {
+    setHappinessScores({
+      ...happinessScores,
+      ...counterValues
+    })
   }
-
-
 
 
   return (
@@ -44,7 +50,7 @@ const HappinessForm = () => {
         form={happinessRepeats}
         stk="happinessCounters"
       />
-      <h2 className="invisible">{happinessScore}</h2>
+      <h2 className="invisible">{JSON.stringify(happinessScores)}</h2>
     </div>
   )
 }
