@@ -7,7 +7,7 @@ import IntroPage from "./pages/IntroPage"
 import Forms from './pages/Forms'
 import Scores from './pages/Scores'
 import Dashboard from './pages/Dashboard'
-import GoalSettings from "./blocks/goalSettings"
+import GoalSettings from "./pages/GoalSettings"
 
 function App() {
 
