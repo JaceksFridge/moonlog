@@ -7,6 +7,12 @@ const scoreLogSchema = new mongoose.Schema({
   nodo: Number,
   sum: Number,
   change: Number,
+  subscores: {
+    health: {},
+    wealth: {},
+    happiness: {},
+    nodo: {}
+  },
   date: String,
   userId: {
     type: mongoose.Schema.Types.ObjectId,
