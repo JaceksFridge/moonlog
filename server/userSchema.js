@@ -4,8 +4,30 @@ const bcrypt = require('bcrypt');
 
 const userSchema = new mongoose.Schema({
     username: { type: String, required: true, unique: true },
-    password: { type: String },
-    googleId: { type: String }
+    password: { type: String, required: true },
+    googleId: { type: String },
+    settings: {
+        health: {
+            slider: {},
+            checkers: {},
+            counters: {},
+        },
+        wealth: {
+            slider: {},
+            checkers: {},
+            counters: {},
+        },
+        happiness: {
+            slider: {},
+            checkers: {},
+            counters: {},
+        },
+        nodo: {
+            slider: {},
+            checkers: {},
+            counters: {},
+        }
+    }
 })
 
 userSchema.pre("save", async function (next) {

@@ -1,5 +1,19 @@
 
 
+export const healthChecks = {
+    love: 200,
+    run: 100,
+    meditation: 100,
+    journal: 50
+}
+
+export const healthRepeats = {
+    walk: 50,
+    exercise: 20,
+    read: 10,
+    meals: 5,
+}
+
 export const wealthRepeats = {
     build: 100,
     learn: 100,
@@ -14,19 +28,7 @@ export const wealthSlider = {
     weight: 50
 }
 
-export const healthChecks = {
-    love: 200,
-    run: 100,
-    meditation: 100,
-    journal: 50
-}
 
-export const healthRepeats = {
-    walk: 50,
-    exercise: 20,
-    read: 10,
-    meals: 5,
-}
 
 
 export const happinessChecks = {
