@@ -182,6 +182,14 @@ const Home = () => {
                 icon="/icons/checkcard.svg"
               />
             </Link>
+            <Link to="/goalsettings" className="link">
+              <Card 
+                title="goalsettings"
+                text="Enter your activities and find out your score"
+                id="goalsettings"
+                icon="/icons/checkcard.svg"
+              />
+            </Link>
             <button onClick={() => setLogoutModal(true)} className="btn-logout">Logout</button>
           </div>
         </>
