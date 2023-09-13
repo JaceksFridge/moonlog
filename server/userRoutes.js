@@ -84,7 +84,7 @@ router.delete('/delete-score', async (req, res) => {
   
 
 
-// get all the score for scores.js
+// Get all scores for scores.js
 router.get('/scores/:userId', async (req, res) => {
     try {
         const userId = req.params.userId
@@ -95,6 +95,33 @@ router.get('/scores/:userId', async (req, res) => {
         res.status(500).json({message: 'Error getting data.'});
     }
 })
+
+
+// GET user Settings from client
+router.get('settings/:userId', async (req, res) => {
+    try{
+        
+    } catch (error) {
+        console.log("Can't fetch user data from client")
+    }
+})
+
+
+
+// POST user settings
+router.post('settings/:userId', async (req, res) => {
+    try {
+        const userId = req.params.userId
+    } catch (error) {
+        console.log("Error posting settings", err)
+    }
+})
+
+
+
+
+
+
 
 
 module.exports = router
