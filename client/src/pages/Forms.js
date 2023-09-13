@@ -19,6 +19,7 @@ import NodoForm from '../blocks/NodoForm'
 const Forms = () => {
 
   const currentDate = useCurrentDate()
+  const currentTime = new Date().toLocaleTimeString()
   const jump = useNavigate()
   const { user } = useContext(UserContext)
 
@@ -86,6 +87,9 @@ const Forms = () => {
 
     // add Date
     theData.date = currentDate
+
+    // add Time
+    theData['time'] = currentTime
 
     // add Percentage
     const currSum = Number(localStorage.getItem('currSum'))

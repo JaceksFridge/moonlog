@@ -14,6 +14,7 @@ const scoreLogSchema = new mongoose.Schema({
     nodo: {}
   },
   date: String,
+  time: String,
   userId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
