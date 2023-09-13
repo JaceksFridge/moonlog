@@ -69,7 +69,12 @@ const Forms = () => {
       }
 
       theData[category] = sum
-      totalsum += sum
+      if (category == 'nodo') {
+        totalsum -= sum
+      } else {
+        totalsum += sum
+      }
+      
     })
 
 
