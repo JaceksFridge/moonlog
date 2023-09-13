@@ -154,8 +154,8 @@ const Home = () => {
           </div>
           <div className="home-cards">
             <div
-              onClick={isDataLoaded ? checkDate : null}
-              // onClick={() => jump('/forms')}
+              // onClick={isDataLoaded ? checkDate : null}
+              onClick={() => jump('/forms')}
               href="/forms" 
               className="link"
             >
@@ -171,6 +171,14 @@ const Home = () => {
                 title="check scores"
                 text="Enter your activities and find out your score"
                 id="checkscores"
+                icon="/icons/checkcard.svg"
+              />
+            </Link>
+            <Link to="/dashboard" className="link">
+              <Card 
+                title="dashboard"
+                text="Enter your activities and find out your score"
+                id="dashboard"
                 icon="/icons/checkcard.svg"
               />
             </Link>

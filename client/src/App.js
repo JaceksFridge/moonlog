@@ -6,6 +6,7 @@ import Home from './pages/Home'
 import IntroPage from "./pages/IntroPage"
 import Forms from './pages/Forms'
 import Scores from './pages/Scores'
+import Dashboard from './pages/Dashboard'
 
 function App() {
 
@@ -23,6 +24,10 @@ function App() {
           <Route 
             path="/scores"
             element={<Scores />}
+          />
+          <Route 
+            path="/dashboard"
+            element={<Dashboard />}
           />
           <Route index path="/intro1" element={
             <IntroPage

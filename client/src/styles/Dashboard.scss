@@ -1,0 +1,19 @@
+
+
+.dashboard{
+    border: 1px solid salmon;
+    width: 100%;
+    height: 100%;
+    padding: 2rem;
+
+    .day-logs{
+        border: 1px solid white;
+
+
+        .object{
+            border: 1px solid blue;
+            color: white;
+            padding: 1rem;
+        }
+    }
+}
