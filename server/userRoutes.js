@@ -81,9 +81,6 @@ router.delete('/delete-score', async (req, res) => {
 });
 
 
-  
-
-
 // Get all scores for scores.js
 router.get('/scores/:userId', async (req, res) => {
     try {
@@ -97,23 +94,29 @@ router.get('/scores/:userId', async (req, res) => {
 })
 
 
-// GET user Settings from client
-router.get('settings/:userId', async (req, res) => {
-    try{
-        
-    } catch (error) {
-        console.log("Can't fetch user data from client")
-    }
-})
-
-
 
 // POST user settings
-router.post('settings/:userId', async (req, res) => {
+router.post('/settings/:userId', async (req, res) => {
     try {
         const userId = req.params.userId
+        const settings = req.body
+        console.log(settings)
+
+        const updatedUser = await User.findOneAndUpdate(
+            { _id: userId },
+            { $set: { 'settings': settings } },
+            { new: true, upsert: true }
+        );
+
+        if (updatedUser) {
+            console.log("Updated User:", updatedUser)
+            res.status(200).json({ message: 'Settings updated successfully' })
+        } else {
+            res.status(404).json({ message: 'User not found' })
+        }
+
     } catch (error) {
-        console.log("Error posting settings", err)
+        console.log("Error posting settings", error)
     }
 })
 

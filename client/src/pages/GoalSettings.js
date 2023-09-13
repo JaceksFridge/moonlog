@@ -1,6 +1,5 @@
 
 
-import { useState, useEffect } from 'react'
 
 const GoalSettings = () => {
 
@@ -59,32 +58,32 @@ const GoalSettings = () => {
         }
     }
 
-    useEffect(() => {
-
-        const fetchData = async () => {
-            try {
-
-                const userId = localStorage.getItem("userId")
-                const postData = await fetch(`http://localhost:8000/user/settings/${userId}`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(settings)
-                })
-
-            } catch (error) {
-                console.log("Can't fetch data from constants")
-                console.log(error)
-            }
+    const saveSettings = async () => {
+        console.log("function fired")
+        const userId = localStorage.getItem("userId");
+        try {
+            const response = await fetch(`http://localhost:8000/user/settings/${userId}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(settings)
+            });
+            const data = await response.json();
+            console.log("Data received:", data);
+        } catch (error) {
+            console.log("Fetch error:", error);
         }
-        fetchData()
-    })
+    };
+    
 
 
   return (
     <div className="goalsettings">
         goal settings
+        <button onClick={saveSettings}>
+            click me yeah
+        </button>
     </div>
   )
 }
