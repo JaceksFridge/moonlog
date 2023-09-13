@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useState, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { UserContext } from '../blocks/userContext'
 import useCurrentDate from '../blocks/useCurrentDate'
@@ -51,40 +51,38 @@ const Forms = () => {
 
   const dataToServer = async () => {
 
-    const healthScores = JSON.parse(localStorage.getItem("health")) || 0
-    const wealthScores = JSON.parse(localStorage.getItem("wealth")) || 0
-    const happinessScores = JSON.parse(localStorage.getItem("happiness")) || 0
-    const nodoScores = JSON.parse(localStorage.getItem("nodo")) || 0
+    const categories = ['health', 'wealth', 'happiness', 'nodo']
+    const subscores = {}
+    let theData = {}
+    let totalsum = 0
 
-    const subscores = {healthScores, wealthScores, happinessScores, nodoScores}
+    categories.forEach((category) => {
+      const score = JSON.parse(localStorage.getItem(category)) || 0
+      subscores[category] = score
 
-    console.log("subscores: ",subscores)
+      let sum = 0
+      if (typeof score === 'object') {
+        Object.values(score).forEach((value) => {
+          sum += value
+        })
+      }
 
-    let healthSum = 0
-    Object.values(healthScores).forEach((value) => {
-      healthSum += value
+      theData[category] = sum
+      totalsum += sum
     })
 
-    console.log("healthSum: ", healthSum)
 
-    const healthPoints = Number(localStorage.getItem("health")) || 0
-    const wealthPoints = Number(localStorage.getItem("wealth")) || 0
-    const happinessPoints = Number(localStorage.getItem("happiness")) || 0
-    const nodoPoints = Number(localStorage.getItem("nodo")) || 0
-    const negNodoPoints = (nodoPoints * -1)
+    console.log("subscores: ", subscores)
+    theData['subscores'] = subscores
+    console.log("theData: ", theData)
+
+    theData['nodo'] = theData['nodo'] * -1
     const userId = localStorage.getItem("userId")
   
-    const theData = {
-      health: healthPoints,
-      wealth: wealthPoints,
-      happiness: happinessPoints,
-      nodo: (negNodoPoints),
-      subscores: subscores
-    }
 
     // add Sum
-    const sum = Object.values(theData).reduce((a, b) => a + b, 0)
-    theData.sum = sum
+    // const sum = Object.values(theData).reduce((a, b) => a + b, 0)
+    theData['sum'] = totalsum
 
     // add Date
     theData.date = currentDate
@@ -93,7 +91,7 @@ const Forms = () => {
     const currSum = Number(localStorage.getItem('currSum'))
 
     if (!isNaN(currSum) && currSum !== 0) {
-      const per = ((sum/currSum) - 1) * 100
+      const per = ((totalsum/currSum) - 1) * 100
       theData.change = Number(per.toFixed(2))
     } else {
       console.log("currSum is not a number or it's zero. Can't calculate change.")
