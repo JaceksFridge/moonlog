@@ -57,7 +57,7 @@ const WealthForm = () => {
       { Object.keys(settings.wealth.slider).length !== 0 && (
         <motion.div>
           <FormSlider
-            checksChange={sliderChange}
+            sliderChange={sliderChange}
             form={settings.wealth.slider}  
             stk="wealthSlider"
           />

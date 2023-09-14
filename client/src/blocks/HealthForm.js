@@ -77,7 +77,7 @@ const HealthForm = () => {
       { Object.keys(settings.health.slider).length !== 0 && (
         <motion.div>
           <FormSlider
-            checksChange={sliderChange}
+            sliderChange={sliderChange}
             form={settings.health.slider}  
             stk="healthSlider"
           />

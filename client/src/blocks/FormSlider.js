@@ -17,7 +17,7 @@ const FormSlider = ({ sliderChange, form, stk }) => {
         setCurrentSlider(newSliderValue)
     }
     useEffect(() => {
-        const valPercent = slider * 10
+        const valPercent = ( slider / form.range ) * 100
         const sliderStyle = document.querySelector(".the-slider")
         if(sliderStyle){
           sliderStyle.style.setProperty('--sliderValue', `${valPercent}%`);
