@@ -1,7 +1,6 @@
 
 
 import React from 'react'
-// import { healthChecks, healthRepeats } from './constants'
 import { settings } from './constants'
 import { useLocalStorage } from './useLocalStorage'
 import { motion } from 'framer-motion'
@@ -14,13 +13,18 @@ const HealthForm = () => {
 
   const [healthScores, setHealthScores] = useLocalStorage('health', {})
 
+  const sliderChange = (sliderValue) => {
+    setHealthScores(
+      ...healthScores,
+      ...sliderValue
+    )
+  }
   const checksChange = (checkValues) => {
     setHealthScores({
       ...healthScores, 
       ...checkValues
     })
   }
-
   const countersChange = (counterValues) => {
     setHealthScores({
       ...healthScores, 
@@ -28,12 +32,6 @@ const HealthForm = () => {
     })
   }
 
-  const sliderChange = (sliderValue) => {
-    setHealthScores(
-      ...healthScores,
-      ...sliderValue
-    )
-  }
 
 
   const pageVariants = {
