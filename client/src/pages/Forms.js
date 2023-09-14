@@ -9,7 +9,7 @@ import Header from '../blocks/Header'
 import TopNav1 from '../blocks/TopNav1'
 import TopNav2 from '../blocks/TopNav2'
 
-import { settings } from '../blocks/constants'
+// import { settings } from '../blocks/constants'
 import HealthForm from '../blocks/HealthForm'
 import WealthForm from '../blocks/WealthForm'
 import HappinessForm from '../blocks/HappinessForm'
@@ -19,9 +19,12 @@ import NodoForm from '../blocks/NodoForm'
 
 const Forms = () => {
 
-  useEffect(() => {
+  const [settings, setSettings] = useState({})
+  const [loading, setLoading] = useState(true)
 
+  useEffect(() => {
     const getSettings = async () => {
+      setLoading(true)
 
       const userId = localStorage.getItem('userId')
 
@@ -30,17 +33,24 @@ const Forms = () => {
 
         if (response.status === 200) {
           const data = await response.json()
-          console.log('Settings: ', data)
+          setSettings(data)
+          console.log('Settings: ', settings)
         } else {
           console.log('Failed to fetch settings');
         }
 
       } catch (error) {
         console.log('Fetch Error', error)
+      } finally {
+      setLoading(false)
       }
     }
     getSettings()
   }, [])
+
+  useEffect(() => {
+    console.log('Updated Settings: ', settings);
+  }, [settings]);
 
   const currentDate = useCurrentDate()
   const currentTime = new Date().toLocaleTimeString()
@@ -160,15 +170,21 @@ const Forms = () => {
   return (
     <div className="Forms">
       <Header />
-      {currentIndex !== 3 ? (
-        <TopNav1 activeTab={activeTab} setActiveTab={setActiveTab} />
-      ) :
-        <TopNav2 submit={dataToServer} setActiveTab={setActiveTab} />
-      }
-      {forms[activeTab]}
-      <Footer currentIndex={currentIndex} toBack={handleBack} toNext={handleNext} submit={dataToServer}/>
+      {loading ? (
+        <div>Loading...</div>
+      ) : (
+        <>
+          {currentIndex !== 3 ? (
+            <TopNav1 activeTab={activeTab} setActiveTab={setActiveTab} />
+          ) : (
+            <TopNav2 submit={dataToServer} setActiveTab={setActiveTab} />
+          )}
+          {forms[activeTab]}
+          <Footer currentIndex={currentIndex} toBack={handleBack} toNext={handleNext} submit={dataToServer}/>
+        </>
+      )}
     </div>
-  )
+  )  
 }
 
 export default Forms
