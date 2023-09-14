@@ -93,23 +93,20 @@ const Forms = () => {
 
     categories.forEach((category) => {
       const score = JSON.parse(localStorage.getItem(category)) || 0
-      subscores[category] = score
+      if (Object.keys(score).length > 0) {
 
-      let sum = 0
-      if (typeof score === 'object') {
-        Object.values(score).forEach((value) => {
-          sum += value
-        })
+        subscores[category] = score
+
+        let sum = 0
+        if (typeof score === 'object') {
+          Object.values(score).forEach((value) => {
+            sum += value
+          })
+        }
+  
+        theData[category] = sum
+        totalsum += sum
       }
-
-      theData[category] = sum
-      // if (category == 'nodo') {
-      //   totalsum -= sum
-      // } else {
-      //   totalsum += sum
-      // }
-      totalsum += sum
-      
     })
 
 
