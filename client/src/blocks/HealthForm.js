@@ -12,7 +12,6 @@ import FormChecks from './FormChecks'
 
 const HealthForm = () => {
 
-  console.log(settings.health)
   const [healthScores, setHealthScores] = useLocalStorage('health', {})
 
   const checksChange = (checkValues) => {
