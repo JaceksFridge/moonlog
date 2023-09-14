@@ -150,7 +150,7 @@ const Forms = () => {
 
       const toTrash = ['health', 'wealth', 'happiness', 'nodo', 
       'healthChecks', 'healthCounters', 'happinessSlider', 
-      'wealthSlider', 'wealthCounters','happinessChecks', 
+      'wealthSlider', 'wealthChecks', 'wealthCounters','happinessChecks', 
       'happinessCounters', 'nodoChecks', 'nodoCounters']
   
       toTrash.forEach((item) => {

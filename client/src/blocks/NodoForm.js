@@ -59,7 +59,7 @@ const NodoForm = ({ settings }) => {
           <FormSlider
             sliderChange={sliderChange}
             form={settings.slider}  
-            stk="wealthSlider"
+            stk="nodoSlider"
           />
         </motion.div>
       )},
@@ -68,7 +68,7 @@ const NodoForm = ({ settings }) => {
           <FormChecks
             checksChange={checksChange}
             form={settings.checkers}  
-            stk="wealthChecks"
+            stk="nodoChecks"
           />
         </motion.div>
       )},
@@ -77,7 +77,7 @@ const NodoForm = ({ settings }) => {
           <FormCounters
             countersChange={countersChange}
             form={settings.counters}  
-            stk="wealthCounters"
+            stk="nodoCounters"
           />
         </motion.div>
       )}
