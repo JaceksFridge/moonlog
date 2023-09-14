@@ -52,10 +52,7 @@ app.post('/api/my-endpoint', async (req, res) => {
 })
 
 
-
 const port = process.env.PORT || 8000;
-
-
 
 // Start Live Server
 app.listen(port, () => {
