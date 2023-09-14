@@ -1,5 +1,8 @@
+
+
 import React from 'react'
-import { healthChecks, healthRepeats } from './constants'
+// import { healthChecks, healthRepeats } from './constants'
+import { settings } from './constants'
 import { useLocalStorage } from './useLocalStorage'
 import { motion } from 'framer-motion'
 
@@ -8,6 +11,7 @@ import FormChecks from './FormChecks'
 
 const HealthForm = () => {
 
+  console.log(settings.health)
   const [healthScores, setHealthScores] = useLocalStorage('health', {})
 
   const checksChange = (checkValues) => {
@@ -67,19 +71,19 @@ const HealthForm = () => {
     >
       <motion.div
       >
-        <FormChecks
+        {/* <FormChecks
           checksChange={checksChange}
           form={healthChecks}  
           stk="healthChecks"
-        />
+        /> */}
       </motion.div>
       <motion.div
       >
-        <FormCounters 
+        {/* <FormCounters 
           countersChange={countersChange}
           form={healthRepeats}
           stk="healthCounters"
-        />
+        /> */}
       </motion.div>
       <h2 className="invisible">{JSON.stringify(healthScores)}</h2>
     </motion.div>
