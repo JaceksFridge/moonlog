@@ -9,12 +9,12 @@ const GoalSettings = () => {
             counters: { workout: 50, stretch: 50, walk: 50, }
         },
         wealth: {
-            slider: { title: "hours of work", scale: 10, weight: 20, },
+            slider: { title: "hours of work", scale: 10, weight: 50, },
             checkers: { meetup: 100, },
             counters: { learning: 50, application: 25, },
         },
         happiness: {
-            slider: { title: "how was your day", scale: 10, weight: 20, },
+            slider: { title: "how was your day", scale: 25, weight: 20, },
             checkers: { sex: 200, event: 100, },
             counters: { meeting: 50, convo: 50, },
         },

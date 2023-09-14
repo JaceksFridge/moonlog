@@ -95,7 +95,7 @@ router.get('/scores/:userId', async (req, res) => {
 
 
 
-// POST user settings
+// POST user settings | Client -> Server -> Db |
 router.post('/settings/:userId', async (req, res) => {
     try {
         const userId = req.params.userId
@@ -119,6 +119,32 @@ router.post('/settings/:userId', async (req, res) => {
         console.log("Error posting settings", error)
     }
 })
+
+
+// GET user settings | DB -> Server -> Client |
+router.get('/settings/:userId', async (req, res) => {
+    try {
+        const userId = req.params.userId
+        const user = await User.findById(userId)
+
+        if (user && user.settings) {
+            console.log('found user setiings')
+            console.log(user.settings)
+            res.status(200).json(user.settings)
+        } else if (user && !user.settings) {
+            res.status(404).json({ meassage: "settings not found for this user" })
+        } else {
+            res.status(404).json({ message: "User not Found" })
+        }
+
+    } catch (error) {
+        console.log("Error fetching settings", error)
+        res.status(500).json({ message: "An error occured whilst fetching the settings" })
+    }
+} )
+
+
+
 
 
 
