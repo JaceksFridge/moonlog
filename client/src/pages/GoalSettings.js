@@ -1,6 +1,5 @@
 
 
-
 const GoalSettings = () => {
 
     const settings = {

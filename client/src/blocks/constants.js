@@ -1,5 +1,28 @@
 
 
+export const settings = {
+    health: {
+        slider: {},
+        checkers: { yoga: 100, run: 100, },
+        counters: { workout: 50, stretch: 50, walk: 50, }
+    },
+    wealth: {
+        slider: { title: "hours of work", scale: 10, weight: 20, },
+        checkers: { meetup: 100, },
+        counters: { learning: 50, application: 25, },
+    },
+    happiness: {
+        slider: { title: "how was your day", scale: 10, weight: 20, },
+        checkers: { sex: 200, event: 100, },
+        counters: { meeting: 50, convo: 50, },
+    },
+    nodo: {
+        slider: {},
+        checkers: { weed: -200, alcohol: -100, porn: -100, sugar: -100 },
+        counters: { caffeine: -50, tvshows: -50, badfood: -50 },
+    }
+}
+
 export const healthChecks = {
     love: 200,
     run: 100,
