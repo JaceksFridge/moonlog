@@ -53,10 +53,11 @@ app.post('/api/my-endpoint', async (req, res) => {
 
 
 
+const port = process.env.PORT || 8000;
 
 
 
 // Start Live Server
-app.listen(8000, () => {
+app.listen(port, () => {
     console.log("Server running on Port: 8000")
 })
