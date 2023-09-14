@@ -10,7 +10,7 @@ const FormSlider = ({ sliderChange, form, stk }) => {
     const sliderHandler = (event) => {
         const newSliderValue = event.target.value
 
-        const sliderObject = { [form.key]: newSliderValue * form.weight }
+        const sliderObject = { [form.title]: newSliderValue * form.weight }
 
         setSlider(newSliderValue)
         sliderChange(sliderObject)
