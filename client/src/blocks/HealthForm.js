@@ -6,7 +6,8 @@ import { settings } from './constants'
 import { useLocalStorage } from './useLocalStorage'
 import { motion } from 'framer-motion'
 
-import FormCounters from './FormCounters';
+import FormSlider from './FormSlider'
+import FormCounters from './FormCounters'
 import FormChecks from './FormChecks'
 
 const HealthForm = () => {
@@ -26,6 +27,13 @@ const HealthForm = () => {
       ...healthScores, 
       ...counterValues
     })
+  }
+
+  const sliderChange = (sliderValue) => {
+    setHealthScores(
+      ...healthScores,
+      ...sliderValue
+    )
   }
 
 
@@ -69,22 +77,33 @@ const HealthForm = () => {
       initial='hidden'
       animate='visible'
     >
-      <motion.div
-      >
-        {/* <FormChecks
-          checksChange={checksChange}
-          form={healthChecks}  
-          stk="healthChecks"
-        /> */}
-      </motion.div>
-      <motion.div
-      >
-        {/* <FormCounters 
-          countersChange={countersChange}
-          form={healthRepeats}
-          stk="healthCounters"
-        /> */}
-      </motion.div>
+      { Object.keys(settings.health.slider).length !== 0 && (
+        <motion.div>
+          <FormSlider
+            checksChange={sliderChange}
+            form={settings.health.slider}  
+            stk="healthSlider"
+          />
+        </motion.div>
+      )},
+      { Object.keys(settings.health.checkers).length !== 0 && (
+        <motion.div>
+          <FormChecks
+            checksChange={checksChange}
+            form={settings.health.checkers}  
+            stk="healthChecks"
+          />
+        </motion.div>
+      )},
+      { Object.keys(settings.health.counters).length !== 0 && (
+        <motion.div>
+          <FormCounters
+            countersChange={countersChange}
+            form={settings.health.counters}  
+            stk="healthCounters"
+          />
+        </motion.div>
+      )}
       <h2 className="invisible">{JSON.stringify(healthScores)}</h2>
     </motion.div>
   )
