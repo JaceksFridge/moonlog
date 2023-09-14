@@ -1,7 +1,7 @@
 
 
 import React from 'react'
-import { settings } from './constants'
+// import { settings } from './constants'
 import { useLocalStorage } from './useLocalStorage'
 import { motion } from 'framer-motion'
 
@@ -10,7 +10,7 @@ import FormChecks from './FormChecks'
 import FormSlider from './FormSlider'
 
 
-const HappinessForm = () => {
+const HappinessForm = ({ settings }) => {
 
   const [happinessScores, setHappinessScores] = useLocalStorage('happiness', {})
 
@@ -51,29 +51,29 @@ const HappinessForm = () => {
       initial='hidden'
       animate='visible'
     >
-      { Object.keys(settings.happiness.slider).length !== 0 && (
+      { Object.keys(settings.slider).length !== 0 && (
         <motion.div>
           <FormSlider
             sliderChange={sliderChange}
-            form={settings.happiness.slider}  
+            form={settings.slider}  
             stk="happinessSlider"
           />
         </motion.div>
       )},
-      { Object.keys(settings.happiness.checkers).length !== 0 && (
+      { Object.keys(settings.checkers).length !== 0 && (
         <motion.div>
           <FormChecks
             checksChange={checksChange}
-            form={settings.happiness.checkers}  
+            form={settings.checkers}  
             stk="happinessChecks"
           />
         </motion.div>
       )},
-      { Object.keys(settings.happiness.counters).length !== 0 && (
+      { Object.keys(settings.counters).length !== 0 && (
         <motion.div>
           <FormCounters
             countersChange={countersChange}
-            form={settings.happiness.counters}  
+            form={settings.counters}  
             stk="happinessCounters"
           />
         </motion.div>

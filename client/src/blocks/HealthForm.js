@@ -1,7 +1,7 @@
 
 
 import React from 'react'
-import { settings } from './constants'
+// import { settings } from './constants'
 import { useLocalStorage } from './useLocalStorage'
 import { motion } from 'framer-motion'
 
@@ -9,7 +9,9 @@ import FormSlider from './FormSlider'
 import FormCounters from './FormCounters'
 import FormChecks from './FormChecks'
 
-const HealthForm = () => {
+const HealthForm = ({ settings }) => {
+
+  console.log("S E T T I N G S", settings.checkers)
 
   const [healthScores, setHealthScores] = useLocalStorage('health', {})
 
@@ -74,29 +76,29 @@ const HealthForm = () => {
       initial='hidden'
       animate='visible'
     >
-      { Object.keys(settings.health.slider).length !== 0 && (
+      { Object.keys(settings.slider).length !== 0 && (
         <motion.div>
           <FormSlider
             sliderChange={sliderChange}
-            form={settings.health.slider}  
+            form={settings.slider}  
             stk="healthSlider"
           />
         </motion.div>
       )},
-      { Object.keys(settings.health.checkers).length !== 0 && (
+      { Object.keys(settings.checkers).length !== 0 && (
         <motion.div>
           <FormChecks
             checksChange={checksChange}
-            form={settings.health.checkers}  
+            form={settings.checkers}  
             stk="healthChecks"
           />
         </motion.div>
       )},
-      { Object.keys(settings.health.counters).length !== 0 && (
+      { Object.keys(settings.counters).length !== 0 && (
         <motion.div>
           <FormCounters
             countersChange={countersChange}
-            form={settings.health.counters}  
+            form={settings.counters}  
             stk="healthCounters"
           />
         </motion.div>

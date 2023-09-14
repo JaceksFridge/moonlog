@@ -1,7 +1,7 @@
 
 
 import React from 'react'
-import { settings } from './constants'
+// import { settings } from './constants'
 import { useLocalStorage } from './useLocalStorage'
 import { motion } from 'framer-motion'
 
@@ -11,7 +11,7 @@ import FormCounters from './FormCounters'
 
 
 
-const NodoForm = () => {
+const NodoForm = ({ settings }) => {
 
   const [nodoScores, setNodoScores] = useLocalStorage('nodo', {})
 

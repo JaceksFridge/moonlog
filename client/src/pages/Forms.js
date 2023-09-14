@@ -9,6 +9,7 @@ import Header from '../blocks/Header'
 import TopNav1 from '../blocks/TopNav1'
 import TopNav2 from '../blocks/TopNav2'
 
+import { settings } from '../blocks/constants'
 import HealthForm from '../blocks/HealthForm'
 import WealthForm from '../blocks/WealthForm'
 import HappinessForm from '../blocks/HappinessForm'
@@ -24,10 +25,10 @@ const Forms = () => {
   const { user } = useContext(UserContext)
 
   const forms = {
-    health: <HealthForm />,
-    wealth: <WealthForm />,
-    happiness: <HappinessForm />,
-    nodo: <NodoForm />
+    health: <HealthForm settings={settings.health} />,
+    wealth: <WealthForm settings={settings.wealth} />,
+    happiness: <HappinessForm settings={settings.happiness} />,
+    nodo: <NodoForm settings={settings.nodo} />
   }
   
   const formOrder = ['health', 'wealth', 'happiness', 'nodo']
