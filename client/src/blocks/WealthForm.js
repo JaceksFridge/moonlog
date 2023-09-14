@@ -52,29 +52,29 @@ const WealthForm = ({ settings }) => {
       initial='hidden'
       animate='visible'
     >
-      { Object.keys(settings.wealth.slider).length !== 0 && (
+      { Object.keys(settings.slider).length !== 0 && (
         <motion.div>
           <FormSlider
             sliderChange={sliderChange}
-            form={settings.wealth.slider}  
+            form={settings.slider}  
             stk="wealthSlider"
           />
         </motion.div>
       )},
-      { Object.keys(settings.wealth.checkers).length !== 0 && (
+      { Object.keys(settings.checkers).length !== 0 && (
         <motion.div>
           <FormChecks
             checksChange={checksChange}
-            form={settings.wealth.checkers}  
+            form={settings.checkers}  
             stk="wealthChecks"
           />
         </motion.div>
       )},
-      { Object.keys(settings.wealth.counters).length !== 0 && (
+      { Object.keys(settings.counters).length !== 0 && (
         <motion.div>
           <FormCounters
             countersChange={countersChange}
-            form={settings.wealth.counters}  
+            form={settings.counters}  
             stk="wealthCounters"
           />
         </motion.div>

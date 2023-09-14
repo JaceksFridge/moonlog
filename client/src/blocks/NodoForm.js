@@ -54,29 +54,29 @@ const NodoForm = ({ settings }) => {
       initial='hidden'
       animate='visible'
     >
-      { Object.keys(settings.nodo.slider).length !== 0 && (
+      { Object.keys(settings.slider).length !== 0 && (
         <motion.div>
           <FormSlider
             sliderChange={sliderChange}
-            form={settings.nodo.slider}  
+            form={settings.slider}  
             stk="wealthSlider"
           />
         </motion.div>
       )},
-      { Object.keys(settings.nodo.checkers).length !== 0 && (
+      { Object.keys(settings.checkers).length !== 0 && (
         <motion.div>
           <FormChecks
             checksChange={checksChange}
-            form={settings.nodo.checkers}  
+            form={settings.checkers}  
             stk="wealthChecks"
           />
         </motion.div>
       )},
-      { Object.keys(settings.nodo.counters).length !== 0 && (
+      { Object.keys(settings.counters).length !== 0 && (
         <motion.div>
           <FormCounters
             countersChange={countersChange}
-            form={settings.nodo.counters}  
+            form={settings.counters}  
             stk="wealthCounters"
           />
         </motion.div>
