@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { UserContext } from '../blocks/userContext'
 import useCurrentDate from '../blocks/useCurrentDate'
@@ -18,6 +18,29 @@ import NodoForm from '../blocks/NodoForm'
 
 
 const Forms = () => {
+
+  useEffect(() => {
+
+    const getSettings = async () => {
+
+      const userId = localStorage.getItem('userId')
+
+      try {
+        const response = await fetch(`http://localhost:8000/user/settings/${userId}`)
+
+        if (response.status === 200) {
+          const data = await response.json()
+          console.log('Settings: ', data)
+        } else {
+          console.log('Failed to fetch settings');
+        }
+
+      } catch (error) {
+        console.log('Fetch Error', error)
+      }
+    }
+    getSettings()
+  }, [])
 
   const currentDate = useCurrentDate()
   const currentTime = new Date().toLocaleTimeString()
