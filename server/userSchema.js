@@ -7,23 +7,25 @@ const sliderSchema = new mongoose.Schema({
     title: { type: String },
     range: { type: Number },
     weight: { type: Number }
-})
+}, { _id: false });
 
 const categorySchema = new mongoose.Schema({
-    slider: { type: sliderSchema, default: {} },
-    checkers: { type: mongoose.Schema.Types.Mixed, default: {} },
-    counters: { type: mongoose.Schema.Types.Mixed, default: {} }
-})
+    slider: { type: sliderSchema, default: undefined },
+    checkers: { type: mongoose.Schema.Types.Mixed, default: undefined },
+    counters: { type: mongoose.Schema.Types.Mixed, default: undefined }
+});
+
+
 
 const userSchema = new mongoose.Schema({
     username: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     googleId: { type: String },
     settings: {
-        health: { type: categorySchema, default: {} },
-        wealth: { type: categorySchema, default: {} },
-        happiness: { type: categorySchema, default: {} },
-        nodo: { type: categorySchema, default: {} }
+        health: { type: categorySchema, default: null },
+        wealth: { type: categorySchema, default: null },
+        happiness: { type: categorySchema, default: null },
+        nodo: { type: categorySchema, default: null }
     }
 })
 
