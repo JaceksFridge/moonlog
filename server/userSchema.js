@@ -4,9 +4,9 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
 const sliderSchema = new mongoose.Schema({
-    title: { type: String, default: "Title" },
-    range: { type: Number, default: 10 },
-    weight: { type: Number, default: 50 }
+    title: { type: String },
+    range: { type: Number },
+    weight: { type: Number }
 })
 
 const categorySchema = new mongoose.Schema({
