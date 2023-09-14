@@ -5,11 +5,9 @@ import { settings } from './constants'
 import { useLocalStorage } from './useLocalStorage'
 import { motion } from 'framer-motion'
 
-
 import FormSlider from './FormSlider'
 import FormChecks from './FormChecks'
 import FormCounters from './FormCounters'
-
 
 
 

@@ -1,15 +1,18 @@
+
+
 import React from 'react'
-import { happinessSlider, happinessChecks, happinessRepeats } from './constants'
+import { settings } from './constants'
 import { useLocalStorage } from './useLocalStorage'
+import { motion } from 'framer-motion'
 
 import FormCounters from './FormCounters';
 import FormChecks from './FormChecks'
 import FormSlider from './FormSlider'
 
+
 const HappinessForm = () => {
 
-
-  const [happinessScores, setHappinessScores] = useLocalStorage('happiness', 0)
+  const [happinessScores, setHappinessScores] = useLocalStorage('happiness', {})
 
   const sliderChange = (sliderValue) => {
     setHappinessScores({
@@ -17,14 +20,12 @@ const HappinessForm = () => {
       ...sliderValue
     })
   }
-
   const checksChange = (checkValues) => {
     setHappinessScores({
       ...happinessScores,
       ...checkValues
     })
   }
-
   const countersChange = (counterValues) => {
     setHappinessScores({
       ...happinessScores,
@@ -32,26 +33,53 @@ const HappinessForm = () => {
     })
   }
 
+  const pageVariants = {
+    hidden: {
+      
+    },
+    visible: {
+      transition: {
+        delayChildren: 0.3,
+        staggerChildren: 0.7
+      }
+    }
+  }
 
   return (
-    <div className="happinessForm">
-      <FormSlider 
-        sliderChange={sliderChange}
-        form={happinessSlider}
-        stk="happinessSlider"
-      />
-      <FormChecks
-        checksChange={checksChange}
-        form={happinessChecks}  
-        stk="happinessChecks"
-      />
-      <FormCounters 
-        countersChange={countersChange}
-        form={happinessRepeats}
-        stk="happinessCounters"
-      />
+    <motion.div className="happinessForm"
+      variants={pageVariants}
+      initial='hidden'
+      animate='visible'
+    >
+      { Object.keys(settings.happiness.slider).length !== 0 && (
+        <motion.div>
+          <FormSlider
+            sliderChange={sliderChange}
+            form={settings.happiness.slider}  
+            stk="happinessSlider"
+          />
+        </motion.div>
+      )},
+      { Object.keys(settings.happiness.checkers).length !== 0 && (
+        <motion.div>
+          <FormChecks
+            checksChange={checksChange}
+            form={settings.happiness.checkers}  
+            stk="happinessChecks"
+          />
+        </motion.div>
+      )},
+      { Object.keys(settings.happiness.counters).length !== 0 && (
+        <motion.div>
+          <FormCounters
+            countersChange={countersChange}
+            form={settings.happiness.counters}  
+            stk="happinessCounters"
+          />
+        </motion.div>
+      )}
       <h2 className="invisible">{JSON.stringify(happinessScores)}</h2>
-    </div>
+    </motion.div>
   )
 }
 
