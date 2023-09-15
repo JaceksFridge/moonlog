@@ -17,6 +17,7 @@ import LogReg2 from './LogReg2'
 
 const Home = () => {
 
+  const server = process.env.REACT_APP_SERVER_URL
   const currentDate = useCurrentDate()
 
   const [ repeatModal, setRepeatModal ] = useState(false)
@@ -46,7 +47,7 @@ const Home = () => {
       try {
         const token = localStorage.getItem('token')
         console.log("Data fetched successfully:", token)
-        const response = await axios.get("http://localhost:8000/user/home", {
+        const response = await axios.get(`${server}/user/home`, {
           headers: { 'Authorization': `Bearer ${token}` }
         })
         setUserData(response.data)
@@ -98,7 +99,7 @@ const Home = () => {
     const token = localStorage.getItem('token')
     
     try {
-      await axios.delete('http://localhost:8000/user/delete-score/', {
+      await axios.delete(`${server}/user/delete-score/`, {
         headers: { 'Authorization': `Bearer ${token}` },
         data: { date: currentDate, userId: user.userId }
       })

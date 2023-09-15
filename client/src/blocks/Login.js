@@ -4,6 +4,8 @@ import { UserContext } from './userContext'
 
 const Login = ({ setLogReg }) => {
 
+  const server = process.env.REACT_APP_SERVER_URL
+
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [errorMessage, setErrorMessage] = useState('')
@@ -15,14 +17,12 @@ const Login = ({ setLogReg }) => {
       return
     }
     try {
-      const response = await fetch('http://localhost:8000/user/login', {
-
+      const response = await fetch(`${server}/user/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({ username, password })
-
       })
 
       const user = await response.json()

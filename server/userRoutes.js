@@ -146,11 +146,4 @@ router.get('/settings/:userId', async (req, res) => {
 
 
 
-
-
-
-
-
-
-
 module.exports = router
