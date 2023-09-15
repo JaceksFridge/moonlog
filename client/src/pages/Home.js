@@ -18,6 +18,7 @@ import LogReg2 from './LogReg2'
 const Home = () => {
 
   const server = process.env.REACT_APP_SERVER_URL
+  console.log("server is here: ", server)
   const currentDate = useCurrentDate()
 
   const [ repeatModal, setRepeatModal ] = useState(false)
