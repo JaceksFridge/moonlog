@@ -63,9 +63,15 @@ const Home = () => {
     }
   }, [user])
 
-
   useEffect(() => {
-    if (!checkingUser && !user) {
+    if (!user) {
+      setCheckingUser(false);
+    }
+  }, [user]);
+  useEffect(() => {
+    console.log("checkingUSER: ", checkingUser)
+    console.log("user: ", user)
+    if (!user && !checkingUser) {
       setLogReg(true)
     }
   },[checkingUser, user])
