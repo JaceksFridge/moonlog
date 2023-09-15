@@ -4,7 +4,7 @@ import Header from '../blocks/Header'
 
 const Scores = () => {
 
-
+    const server = process.env.REACT_APP_SERVER_URL
     const [data, setData] = useState([])
 
     useEffect(() => {
@@ -12,7 +12,7 @@ const Scores = () => {
             try {
                 console.log("Data fetched successfully")
                 const userId = localStorage.getItem("userId")
-                const response = await axios.get(`http://localhost:8000/user/scores/${userId}`)
+                const response = await axios.get(`${server}/user/scores/${userId}`)
                 setData(response.data)
             }
             catch (error) {
