@@ -15,10 +15,9 @@ import WealthForm from '../blocks/WealthForm'
 import HappinessForm from '../blocks/HappinessForm'
 import NodoForm from '../blocks/NodoForm'
 
-
-
 const Forms = () => {
 
+  const server = process.env.REACT_APP_SERVER_URL
   const [settings, setSettings] = useState({})
   const [loading, setLoading] = useState(true)
 
@@ -29,7 +28,7 @@ const Forms = () => {
       const userId = localStorage.getItem('userId')
 
       try {
-        const response = await fetch(`http://localhost:8000/user/settings/${userId}`)
+        const response = await fetch(`${server}}/user/settings/${userId}`)
 
         if (response.status === 200) {
           const data = await response.json()
@@ -142,7 +141,7 @@ const Forms = () => {
     theData.userId = userId
   
     try {
-      const response = await axios.post('http://localhost:8000/api/my-endpoint', theData)
+      const response = await axios.post(`${server}/api/my-endpoint`, theData)
       setData(response.data)
       console.log("Data Submitted:", theData)
 

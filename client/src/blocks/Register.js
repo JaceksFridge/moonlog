@@ -3,6 +3,7 @@ import { UserContext } from './userContext'
 
 const Register = ({ setLogReg }) => {
 
+  const server = process.env.REACT_APP_SERVER_URL
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [errorMessage, setErrorMessage] = useState('')
@@ -14,7 +15,7 @@ const Register = ({ setLogReg }) => {
       return
     }
     try {
-      const response = await fetch('http://localhost:8000/user/register', {
+      const response = await fetch(`${server}/user/register`, {
 
         method: 'POST',
         headers: {

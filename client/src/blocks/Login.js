@@ -64,7 +64,7 @@ const Login = ({ setLogReg }) => {
 
 
   const handleGoogleSignIn = () => {
-    window.open('http://localhost:8000/auth/google/');
+    window.open(`${server}/auth/google/`);
   }
 
 

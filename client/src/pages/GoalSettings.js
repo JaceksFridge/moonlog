@@ -2,6 +2,7 @@
 
 const GoalSettings = () => {
 
+    const server = process.env.REACT_APP_SERVER_URL
     const settings = {
         health: {
             slider: {},
@@ -29,7 +30,7 @@ const GoalSettings = () => {
         console.log("function fired")
         const userId = localStorage.getItem("userId");
         try {
-            const response = await fetch(`http://localhost:8000/user/settings/${userId}`, {
+            const response = await fetch(`${server}/user/settings/${userId}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

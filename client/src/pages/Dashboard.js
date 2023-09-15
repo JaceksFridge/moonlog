@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 
 const Dashboard = () => {
 
+    const server = process.env.REACT_APP_SERVER_URL
     const [data, setData] = useState([])
 
     useEffect(() => {
@@ -13,7 +14,7 @@ const Dashboard = () => {
             try {
                 const userId = localStorage.getItem("userId")
 
-                const response = await fetch(`http://localhost:8000/user/scores/${userId}`)
+                const response = await fetch(`${server}/user/scores/${userId}`)
                 const data = await response.json()
                 setData(data)
             } catch (error) {
