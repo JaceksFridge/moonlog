@@ -28,7 +28,7 @@ const Forms = () => {
       const userId = localStorage.getItem('userId')
 
       try {
-        const response = await fetch(`${server}}/user/settings/${userId}`)
+        const response = await fetch(`${server}/user/settings/${userId}`)
 
         if (response.status === 200) {
           const data = await response.json()
