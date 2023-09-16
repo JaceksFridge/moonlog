@@ -18,7 +18,7 @@ import LogReg2 from './LogReg2'
 const Home = () => {
 
   const server = process.env.REACT_APP_SERVER_URL
-  console.log("server is here: ", server)
+  // console.log("server is here: ", server)
   const currentDate = useCurrentDate()
 
   const [ repeatModal, setRepeatModal ] = useState(false)
@@ -47,7 +47,7 @@ const Home = () => {
     const fetchData = async () => {
       try {
         const token = localStorage.getItem('token')
-        console.log("Data fetched successfully:", token)
+        // console.log("Data fetched successfully:", token)
         const response = await axios.get(`${server}/user/home`, {
           headers: { 'Authorization': `Bearer ${token}` }
         })
@@ -71,8 +71,8 @@ const Home = () => {
     }
   }, [user]);
   useEffect(() => {
-    console.log("checkingUSER: ", checkingUser)
-    console.log("user: ", user)
+    // console.log("checkingUSER: ", checkingUser)
+    // console.log("user: ", user)
     if (!user && !checkingUser) {
       setLogReg(true)
     }
@@ -104,7 +104,7 @@ const Home = () => {
         headers: { 'Authorization': `Bearer ${token}` },
         data: { date: currentDate, userId: user.userId }
       })
-      console.log("Deleted DB entry")
+      // console.log("Deleted DB entry")
     } catch (error) {
       console.log("Error deleting entry:", error)
     }
