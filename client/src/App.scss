@@ -86,19 +86,18 @@ p{
 }
 
 
-
 button {
-  appearance: none;    /* Remove standard appearance */
-  -webkit-appearance: none; /* Remove standard appearance for Safari */
-  background: none;    /* Remove standard background */
-  border: none;        /* Remove border */
-  padding: 0;          /* Remove padding */
-  margin: 0;           /* Remove margin */
-  font-family: inherit; /* Inherit font from parent */
-  font-size: inherit;  /* Inherit font size from parent */
-  color: inherit;      /* Inherit text color from parent */
-  cursor: pointer; 
-  font-family: satoshi;    /* Use a pointer cursor on hover */
+  appearance: none;
+  -webkit-appearance: none;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  cursor: pointer;
+  font-family: satoshi;
 }
 
 

@@ -33,7 +33,6 @@ const Forms = () => {
         if (response.status === 200) {
           const data = await response.json()
           setSettings(data)
-          console.log('Settings: ', settings)
         } else {
           console.log('Failed to fetch settings');
         }
@@ -47,9 +46,9 @@ const Forms = () => {
     getSettings()
   }, [])
 
-  useEffect(() => {
-    console.log('Updated Settings: ', settings);
-  }, [settings]);
+  // useEffect(() => {
+  //   console.log('Updated Settings: ', settings);
+  // }, [settings]);
 
   const currentDate = useCurrentDate()
   const currentTime = new Date().toLocaleTimeString()
@@ -109,9 +108,9 @@ const Forms = () => {
     })
 
 
-    console.log("subscores: ", subscores)
+    // console.log("subscores: ", subscores)
     theData['subscores'] = subscores
-    console.log("theData: ", theData)
+    // console.log("theData: ", theData)
 
     theData['nodo'] = theData['nodo'] * -1
     const userId = localStorage.getItem("userId")
@@ -143,7 +142,7 @@ const Forms = () => {
     try {
       const response = await axios.post(`${server}/api/my-endpoint`, theData)
       setData(response.data)
-      console.log("Data Submitted:", theData)
+      // console.log("Data Submitted:", theData)
 
       jump("/scores")
 
