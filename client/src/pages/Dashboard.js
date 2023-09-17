@@ -28,6 +28,7 @@ const Dashboard = () => {
         <div className="dashboard">
             Dashboard
             <div className="day-logs">
+                <div></div>
                 {data.map((obj) => (
                     <div className="object" key={obj._id}>
                         <h3>{obj.date}</h3>
