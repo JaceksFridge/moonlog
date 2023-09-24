@@ -3,6 +3,7 @@
 const GoalSettings = () => {
 
     const server = process.env.REACT_APP_SERVER_URL
+    // dummy settings -> must be replaced
     const settings = {
         health: {
             slider: {},
