@@ -17,10 +17,11 @@ const HomeDesktop = ({ user, userData }) => {
             <h1 className="home-welcome">Welcome, <span>{user ? user.username : "Guest"}</span></h1>
             <div className="stats-container">
               <div className="stats-left">
-                <div className="stats-total">total</div>
+                <div className="stats-total">total score:</div>
                 <div className="stats-change">change</div>
               </div>
               <div className="stats-right">
+              <div className="stats-total">total subscores:</div>
                 <div className="stats-health">health</div>
                 <div className="stats-happiness">happiness</div>
                 <div className="stats-wealth">wealth</div>
