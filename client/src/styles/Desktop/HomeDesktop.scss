@@ -82,7 +82,7 @@
                     color: white;
 
                     display: flex;
-                    border: 0px solid green;
+                    border: 1px solid green;
                     
                     .stats-left{
                         width: 100%;
@@ -112,36 +112,43 @@
                     }
                     .stats-right{
                         width: 100%;
-                        border: 0px solid red;
+                        border: 1px solid red;
 
                         .sub-score-container{
                             height: 100%;
                             display: flex;
                             flex-direction: column;
-                            justify-content: space-between;
-                            border: 0px solid yellow;
 
-                            .stat-title{
-                                margin: 0;
-                            }
-                            .sub-score{
+                            .title-values{
+                                height: 100%;
                                 display: flex;
                                 gap: 1rem;
+
+                                div{
+                                    border: 1px solid peru;
+                                    height: 100%;
+                                    display: flex;
+                                    flex-direction: column;
+                                    justify-content: space-between;
     
-                                .sub-score-value{
-                                    color: $white;
-                                    font-family: reckless-middle;
+                                    .sub-score-value{
+                                        color: $white;
+                                        font-family: reckless-middle;
+                                    }
+    
+    
+                                    .sub-score-title{
+                                        font-family: reckless-2;
+                                    }
                                 }
                             }
                         }
-
                     }
                     .stat-title{
-                        border: 0px solid purple;
+                        border: 1px solid purple;
                         margin-bottom: 0.75rem;
                     }
                 }
-            
             }
 
             .scrollable-container{

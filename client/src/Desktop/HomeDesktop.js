@@ -28,18 +28,20 @@ const HomeDesktop = ({ user, userData }) => {
               </div>
               <div className="stats-right">
                 <div className="sub-score-container">
-                <h4 className="stat-title">sub-scores:</h4>
-                  <div className="sub-score-values">
-                    <h4 className="sub-score-value">000</h4>
-                    <h4 className="sub-score-value">000</h4>
-                    <h4 className="sub-score-value">000</h4>
-                    <h4 className="sub-score-value">-000</h4>
-                  </div>
-                  <div className="sub-score-titles">
-                    <h4 className="sub-score-title">health</h4>
-                    <h4 className="sub-score-title">wealth</h4>
-                    <h4 className="sub-score-title">happiness</h4>
-                    <h4 className="sub-score-title">nodo</h4>
+                  <h4 className="stat-title">sub-scores:</h4>
+                  <div className="title-values">
+                    <div className="sub-score-values">
+                      <h4 className="sub-score-value">000</h4>
+                      <h4 className="sub-score-value">000</h4>
+                      <h4 className="sub-score-value">000</h4>
+                      <h4 className="sub-score-value">-000</h4>
+                    </div>
+                    <div className="sub-score-titles">
+                      <h4 className="sub-score-title">health</h4>
+                      <h4 className="sub-score-title">wealth</h4>
+                      <h4 className="sub-score-title">happiness</h4>
+                      <h4 className="sub-score-title">nodo</h4>
+                    </div>
                   </div>
                 </div>
               </div>
