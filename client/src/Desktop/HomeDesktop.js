@@ -30,10 +30,10 @@ const HomeDesktop = ({ user, userData }) => {
                 <div className="stats-total">
                   <h4 className="stat-title">sub-scores:</h4>
                 </div>
-                <div className="stats-health">health</div>
-                <div className="stats-happiness">happiness</div>
-                <div className="stats-wealth">wealth</div>
-                <div className="stats-nodo">nodo</div>
+                <div className="sub-score">
+                  <h4 className="sub-score-value">000</h4>
+                  <h4 className="sub-score-title">health</h4>
+                </div>
               </div>
             </div>
           </div>

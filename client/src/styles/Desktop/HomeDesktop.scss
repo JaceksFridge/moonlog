@@ -106,13 +106,23 @@
                                 font-size: 1.5rem;
                             }
                         }
-                        .stat-title{
-                            margin-bottom: 1rem;
-                        }
                     }
                     .stats-right{
                         width: 100%;
                         border: 1px solid red;
+
+                        .sub-score{
+                            display: flex;
+                            gap: 1rem;
+
+                            .sub-score-value{
+                                color: $white;
+                                font-family: reckless-middle;
+                            }
+                        }
+                    }
+                    .stat-title{
+                        margin-bottom: 1rem;
                     }
                 }
             
