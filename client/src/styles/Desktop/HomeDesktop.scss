@@ -59,12 +59,12 @@
 
                 .home-welcome{
                     position: absolute;
-                    top: 5%; left: 10%;
+                    top: 0%; left: 10%;
                     z-index: 10;
                     font-size: 6rem;
                     font-family: reckless-1;
                     color: $white;
-                    border: 1px solid green;
+                    border: 0px solid green;
 
                     span{
                         margin-top: -5%;
@@ -82,7 +82,7 @@
                     color: white;
 
                     display: flex;
-                    border: 1px solid green;
+                    border: 0px solid green;
                     
                     .stats-left{
                         width: 100%;
@@ -97,32 +97,48 @@
                         .stats-total{
                             .stat-value{
                                 color: $white;
+                                margin: 0;
+                                font-family: reckless-middle;
                                 font-size: 4rem;
                             }
                         }
                         .stats-change{
                             .stat-value{
                                 color: $white;
+                                font-family: reckless-middle;
                                 font-size: 1.5rem;
                             }
                         }
                     }
                     .stats-right{
                         width: 100%;
-                        border: 1px solid red;
+                        border: 0px solid red;
 
-                        .sub-score{
+                        .sub-score-container{
+                            height: 100%;
                             display: flex;
-                            gap: 1rem;
+                            flex-direction: column;
+                            justify-content: space-between;
+                            border: 0px solid yellow;
 
-                            .sub-score-value{
-                                color: $white;
-                                font-family: reckless-middle;
+                            .stat-title{
+                                margin: 0;
+                            }
+                            .sub-score{
+                                display: flex;
+                                gap: 1rem;
+    
+                                .sub-score-value{
+                                    color: $white;
+                                    font-family: reckless-middle;
+                                }
                             }
                         }
+
                     }
                     .stat-title{
-                        margin-bottom: 1rem;
+                        border: 0px solid purple;
+                        margin-bottom: 0.75rem;
                     }
                 }
             
