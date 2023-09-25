@@ -38,10 +38,10 @@ const HomeDesktop = ({ user, userData, cards }) => {
                   <h4 className="stat-title">sub-scores:</h4>
                   <div className="title-values">
                     <div className="sub-score-values">
-                      <h4 className="sub-score-value">000</h4>
-                      <h4 className="sub-score-value">000</h4>
-                      <h4 className="sub-score-value">000</h4>
-                      <h4 className="sub-score-value">-000</h4>
+                      <h4 className="sub-score-value">{userData && userData.health ? userData.health : "000"}</h4>
+                      <h4 className="sub-score-value">{userData && userData.wealth ? userData.wealth : "000"}</h4>
+                      <h4 className="sub-score-value">{userData && userData.happiness ? userData.happiness : "000"}</h4>
+                      <h4 className="sub-score-value">{userData && userData.nodo ? (userData.nodo > 0 ? '-' : '') + userData.nodo : "000"}</h4>
                     </div>
                     <div className="sub-score-titles">
                       <h4 className="sub-score-title">health</h4>
