@@ -44,7 +44,6 @@ const HomeDesktop = ({ user, userData }) => {
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </div>
