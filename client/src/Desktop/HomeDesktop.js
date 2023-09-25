@@ -1,6 +1,8 @@
+
+
 import React from 'react'
 
-const HomeDesktop = ({ user, userData }) => {
+const HomeDesktop = ({ user, userData, cards }) => {
   return (
     <div className="home-desktop">
       <div className="topbar">
@@ -50,10 +52,7 @@ const HomeDesktop = ({ user, userData }) => {
           <div className="empty-scroll"></div>
           <div className="scrollable-container">
             <div className="card-container">
-              <div className="home-card one"></div>
-              <div className="home-card two"></div>
-              <div className="home-card three"></div>
-              <div className="home-card"></div>
+              {cards}
               <div className="lset">
                 <div className="logout-btn">
                     <div className="text">logout</div>

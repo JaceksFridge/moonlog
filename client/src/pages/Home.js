@@ -1,3 +1,5 @@
+
+
 import React, { useState, useEffect, useContext } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import axios from 'axios'
@@ -118,6 +120,51 @@ const Home = () => {
     query: '(min-device-width: 1224px)'
   })
 
+
+
+  const cardsJSX = (
+    <div className="home-cards">
+      <div
+        // onClick={isDataLoaded ? checkDate : null}
+        onClick={() => jump('/forms')}
+        href="/forms" 
+        className="link"
+      >
+        <Card 
+          title="new log"
+          text="Enter your activities and find out your score"
+          id="newlog"
+          icon="/icons/newcard.svg"
+        />
+      </div>
+      <Link to="/scores" className="link">
+        <Card 
+          title="check scores"
+          text="Enter your activities and find out your score"
+          id="checkscores"
+          icon="/icons/checkcard.svg"
+        />
+      </Link>
+      <Link to="/dashboard" className="link">
+        <Card 
+          title="dashboard"
+          text="Enter your activities and find out your score"
+          id="dashboard"
+          icon="/icons/checkcard.svg"
+        />
+      </Link>
+      <Link to="/goalsettings" className="link">
+        <Card 
+          title="goalsettings"
+          text="Enter your activities and find out your score"
+          id="goalsettings"
+          icon="/icons/checkcard.svg"
+        />
+      </Link>
+      <button onClick={() => setLogoutModal(true)} className="btn-logout">Logout</button>
+    </div>
+  )
+
   return (
     <div className="homePage">
       { logReg && (
@@ -140,7 +187,7 @@ const Home = () => {
         SVGComponent={LogoutSVG}
       />
       { isDesktoporLaptop ? (
-        <HomeDesktop user={user} userData={userData} setLogoutModal={setLogoutModal}/>
+        <HomeDesktop user={user} userData={userData} setLogoutModal={setLogoutModal} cards={cardsJSX}/>
       ) : (
         <>
           <div className="home-container">
@@ -160,46 +207,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="home-cards">
-            <div
-              // onClick={isDataLoaded ? checkDate : null}
-              onClick={() => jump('/forms')}
-              href="/forms" 
-              className="link"
-            >
-              <Card 
-                title="new log"
-                text="Enter your activities and find out your score"
-                id="newlog"
-                icon="/icons/newcard.svg"
-              />
-            </div>
-            <Link to="/scores" className="link">
-              <Card 
-                title="check scores"
-                text="Enter your activities and find out your score"
-                id="checkscores"
-                icon="/icons/checkcard.svg"
-              />
-            </Link>
-            <Link to="/dashboard" className="link">
-              <Card 
-                title="dashboard"
-                text="Enter your activities and find out your score"
-                id="dashboard"
-                icon="/icons/checkcard.svg"
-              />
-            </Link>
-            <Link to="/goalsettings" className="link">
-              <Card 
-                title="goalsettings"
-                text="Enter your activities and find out your score"
-                id="goalsettings"
-                icon="/icons/checkcard.svg"
-              />
-            </Link>
-            <button onClick={() => setLogoutModal(true)} className="btn-logout">Logout</button>
-          </div>
+          {cardsJSX}
         </>
       )}
     </div>
