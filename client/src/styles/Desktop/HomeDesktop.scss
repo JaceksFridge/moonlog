@@ -32,7 +32,6 @@
             flex: 1;
             height: 100%;
             width: 100%;
-            border: 1px solid peru;
 
             
             video{
@@ -45,7 +44,6 @@
             margin-top: 7rem;
             width: 100%;
             display: flex;
-            border: 1px solid blue;
 
             .empty-scroll{
                 flex: 1;
@@ -57,7 +55,6 @@
                 flex: 1;
                 width: 100%;
                 height: calc(100vh - 7rem);
-                border: 1px solid green;
 
 
                 .home-welcome{
@@ -67,7 +64,6 @@
                     font-size: 6rem;
                     font-family: reckless-1;
                     color: $white;
-                    border: 1px solid purple;
 
                     span{
                         margin-top: -5%;
