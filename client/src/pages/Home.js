@@ -150,7 +150,7 @@ const Home = () => {
           title="dashboard"
           text="Enter your activities and find out your score"
           id="dashboard"
-          icon="/icons/checkcard.svg"
+          icon="/icons/dashboard.svg"
         />
       </Link>
       <Link to="/goalsettings" className="link">

@@ -196,12 +196,12 @@
                         backdrop-filter: blur(20px);
                     }
 
-                    .home-card.three{
-                        background: linear-gradient(114.83deg, rgba(175, 175, 175, 0.08) 5.95%, rgba(174, 174, 174, 0.04) 93.77%);
-                        border: 1px solid rgba(255, 255, 255, 0.2);
-                        box-shadow: 0px 20px 40px rgba(255, 255, 255, 0.05);
-                        backdrop-filter: blur(10px);
-                    }
+                    // .home-card.three{
+                    //     background: linear-gradient(114.83deg, rgba(175, 175, 175, 0.08) 5.95%, rgba(174, 174, 174, 0.04) 93.77%);
+                    //     border: 1px solid rgba(255, 255, 255, 0.2);
+                    //     box-shadow: 0px 20px 40px rgba(255, 255, 255, 0.05);
+                    //     backdrop-filter: blur(10px);
+                    // }
 
                     .mini-cards{
                         position: relative;
@@ -226,14 +226,22 @@
                         .home-card{
                             padding: 3rem 3rem;
                             justify-content: space-between;
+                            transition: 1s;
                             .home-card-left{
                                 justify-content: center;
                             }
+                        }
+                        .home-card:hover{
+                            border: 1px solid $white;
                         }
                     }
 
                 }
             }
+        }
+
+        .home-absolute::-webkit-scrollbar {
+            display: none;
         }
     }
 }
