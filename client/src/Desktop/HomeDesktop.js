@@ -3,6 +3,9 @@
 import React from 'react'
 
 const HomeDesktop = ({ user, userData, cards }) => {
+
+  console.log(userData)
+
   return (
     <div className="home-desktop">
       <div className="topbar">
@@ -21,11 +24,13 @@ const HomeDesktop = ({ user, userData, cards }) => {
               <div className="stats-left">
                 <div className="stats-total">
                   <h4 className="stat-title">total score:</h4>
-                  <h4 className="stat-value">1240</h4>
+                  <h4 className="stat-value">{userData && userData.sum ? userData.sum : "0000"}</h4>
                 </div>
                 <div className="stats-change">
                   <h4 className="stat-title">change:</h4>
-                  <h4 className="stat-value">+23.56%</h4>
+                  <h4 className="stat-value">{userData && userData.change 
+                    ? (userData.change > 0 ? '+' : '') + userData.change : '0'}%
+                  </h4>
                 </div>
               </div>
               <div className="stats-right">
