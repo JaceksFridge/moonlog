@@ -19,7 +19,7 @@ const HomeDesktop = ({ user, userData }) => {
               <div className="stats-left">
                 <div className="stats-total">
                   <h4 className="stat-title">total score:</h4>
-                  <h4 className="stat-value">+1240</h4>
+                  <h4 className="stat-value">1240</h4>
                 </div>
                 <div className="stats-change">
                   <h4 className="stat-title">change:</h4>
@@ -27,11 +27,9 @@ const HomeDesktop = ({ user, userData }) => {
                 </div>
               </div>
               <div className="stats-right">
-              <div className="stats-total">
-                <h4 className="stat-title">
-                  total subscores:
-                </h4>
-              </div>
+                <div className="stats-total">
+                  <h4 className="stat-title">sub-scores:</h4>
+                </div>
                 <div className="stats-health">health</div>
                 <div className="stats-happiness">happiness</div>
                 <div className="stats-wealth">wealth</div>
