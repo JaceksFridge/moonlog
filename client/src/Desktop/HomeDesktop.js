@@ -53,14 +53,6 @@ const HomeDesktop = ({ user, userData, cards }) => {
           <div className="scrollable-container">
             <div className="card-container">
               {cards}
-              <div className="lset">
-                <div className="logout-btn">
-                    <div className="text">logout</div>
-                </div>
-                <div className="settings-btn">
-                  <div className="text">settings</div>
-                </div>
-              </div>
             </div>
           </div>
         </div>

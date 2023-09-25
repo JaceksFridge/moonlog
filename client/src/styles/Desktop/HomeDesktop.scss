@@ -185,7 +185,8 @@
                         margin-bottom: 3rem;
                         box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.05);
                         backdrop-filter: blur(10px);
-            
+                        
+                        cursor: pointer;
                         display: flex;
                         justify-content: center;
                     }
@@ -202,7 +203,9 @@
                         backdrop-filter: blur(10px);
                     }
 
-                    .lset{
+                    .mini-cards{
+                        position: relative;
+                        z-index: 10;
                         height: 5rem;
                         width: 100%;
                         display: flex;
@@ -217,15 +220,18 @@
                             box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.05);
                             backdrop-filter: blur(10px);
                         }
+                    }
 
-                        .logout-btn{
-                            display: block;
-                        }
-
-                        .settings-btn{
-                            display: block;
+                    .home-cards{
+                        .home-card{
+                            padding: 3rem 3rem;
+                            justify-content: space-between;
+                            .home-card-left{
+                                justify-content: center;
+                            }
                         }
                     }
+
                 }
             }
         }

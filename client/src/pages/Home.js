@@ -161,7 +161,10 @@ const Home = () => {
           icon="/icons/checkcard.svg"
         />
       </Link>
-      <button onClick={() => setLogoutModal(true)} className="btn-logout">Logout</button>
+      <div className="mini-cards">
+        <button onClick={() => setLogoutModal(true)} className="btn-logout">Logout</button>
+        <button onClick={() => setLogoutModal(true)} className="btn-logout">Settings</button>
+      </div>
     </div>
   )
 
