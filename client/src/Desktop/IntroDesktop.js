@@ -8,8 +8,15 @@ const IntroDesktop = ({ bg, title, text, prog, next }) => {
 
     const jump = useNavigate()
 
+    const handleKeyPress = (event) => {
+        if 
+    }
+
   return (
-    <div className="introPage-desktop">
+    <div 
+        className="introPage-desktop"
+        onKeyPress={}
+    >
         <div className="intro-bg-desktop">
             <img src={bg} alt="Background" className="background-image"/>
             <div className="dark-overlay">
