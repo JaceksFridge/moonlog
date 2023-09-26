@@ -28,5 +28,55 @@
         clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%);
         margin-left: -10%;
         background: $black;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+
+        h2{
+            font-size: 3rem;
+            color: white;
+            text-transform: capitalize;
+        }
+        p{
+            width: 50%;
+            font-size: 1.1rem;
+            font-weight: 300;
+            line-height: 150%;
+            color: $white-50;
+            text-align: center;
+            padding: 0 3rem;
+            margin-top: 3rem;
+        }
+
+        .intro-button{
+            height: 60px;
+            width: 60px;
+            background: $button-dark;
+            border-radius: 1rem;
+            border: 1px solid $button-line;
+            margin-top: 3rem;
+      
+            display: grid;
+            place-items: center;
+            animation: pulse 3s linear infinite;
+            transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+      
+            .arrow{
+              height: 19px;
+              width: 22px;
+              background: url(../../../public/icons/arrow.svg);
+              background-size: cover;
+              background-position: contain;
+            }
+        }
+
+        .intro-button:hover{
+            cursor: pointer;
+            background: $button-line;
+            box-shadow: 0 0 30px 0 white;
+        }
     }
 }
