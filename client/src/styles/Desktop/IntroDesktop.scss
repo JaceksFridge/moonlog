@@ -28,6 +28,24 @@
             height: 100%;
             width: 100%;
             background: rgba(0, 0, 0, 0.3);
+
+
+            .intro-nav{
+                position: absolute;
+                z-index: 22;
+                width: 100%;
+                padding: 2rem 3rem;
+
+                display: flex;
+                justify-content: space-between;
+                border: 0px solid pink;
+
+                .intro-skip{
+                    cursor: pointer;
+                    font-family: satoshi;
+                    font-weight: 500;
+                }
+            }
         }
     }
 
