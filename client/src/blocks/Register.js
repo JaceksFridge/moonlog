@@ -39,7 +39,7 @@ const Register = ({ setLogReg }) => {
         localStorage.setItem('userId', user.userId)
         localStorage.setItem('token', user.token)
 
-        jump('/intro')
+        jump('/intro1')
         setLogReg(false)
 
       } else if (user.error === 'Username already taken')
