@@ -125,8 +125,8 @@ const Home = () => {
   const cardsJSX = (
     <div className="home-cards">
       <div
-        // onClick={isDataLoaded ? checkDate : null}
-        onClick={() => jump('/forms')}
+        onClick={isDataLoaded ? checkDate : null}
+        // onClick={() => jump('/forms')}
         href="/forms" 
         className="link"
       >
