@@ -58,7 +58,7 @@ function App() {
               title="potential"
               text="Harness the power of consistency. Make progress visible."
               prog="/icons/prog3.png"
-              next="/logreg"
+              next="/home"
             />
           } />
       </Routes>
