@@ -2,10 +2,15 @@
 
 import React from 'react'
 
-const IntroDesktop = () => {
+const IntroDesktop = ({ bg, title, text, prog, next }) => {
   return (
     <div className="introPage-desktop">
-        <div>Intro Page</div>
+        <div className="intro-bg-desktop">
+            <img src={bg} alt="Background" className="background-image"/>
+        </div>
+        <div className="intro-bg-side">
+            <div>Intro Page</div>
+        </div>
     </div>
   )
 }
