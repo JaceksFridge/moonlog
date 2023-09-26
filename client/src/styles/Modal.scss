@@ -85,14 +85,13 @@
 @media (min-width: 1224px) {
   .backdrop{
     background: rgba(20, 20, 20, 0.95);
-    padding: 5rem;
-    display: grid;
-    place-items: center;
+    // display: grid;
+    // place-items: center;
 
     .modal{
 
-        width: auto;
-        height: 100%;
+        // width: 100%;
+        // height: 100%;
 
         // top: 20%;
         // bottom: 20%;
