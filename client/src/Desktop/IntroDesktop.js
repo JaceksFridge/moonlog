@@ -7,15 +7,20 @@ import { Link, useNavigate } from 'react-router-dom'
 const IntroDesktop = ({ bg, title, text, prog, next }) => {
 
     const jump = useNavigate()
+    
 
     const handleKeyPress = (event) => {
-        if 
+        if (event.key === 'Enter' || event.key === ' ') {
+            jump(next)
+        }
     }
+    
 
   return (
     <div 
         className="introPage-desktop"
-        onKeyPress={}
+        tabIndex="0"
+        onKeyPress={handleKeyPress}
     >
         <div className="intro-bg-desktop">
             <img src={bg} alt="Background" className="background-image"/>
