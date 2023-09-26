@@ -1,5 +1,8 @@
+
+
 import React, { useState, useContext } from 'react'
 import { UserContext } from './userContext'
+import { useNavigate } from 'react-router-dom'
 
 const Register = ({ setLogReg }) => {
 
@@ -8,6 +11,7 @@ const Register = ({ setLogReg }) => {
   const [password, setPassword] = useState('')
   const [errorMessage, setErrorMessage] = useState('')
   const { setUser } = useContext(UserContext)
+  const jump = useNavigate()
 
   const onSubmit = async (e) => {
     if (username === '' || password === '') {
@@ -35,6 +39,7 @@ const Register = ({ setLogReg }) => {
         localStorage.setItem('userId', user.userId)
         localStorage.setItem('token', user.token)
 
+        jump('/intro')
         setLogReg(false)
 
       } else if (user.error === 'Username already taken')
