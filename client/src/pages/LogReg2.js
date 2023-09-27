@@ -1,7 +1,10 @@
+
+
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Login from '../blocks/Login'
 import Register from '../blocks/Register'
+import { useMediaQuery } from 'react-responsive'
 
 const LogReg2 = ({ logReg, setLogReg }) => {
 
@@ -50,6 +53,10 @@ const LogReg2 = ({ logReg, setLogReg }) => {
             y: 0,
         }
       }
+
+      const isDesktoporLaptop = useMediaQuery({
+        query: '(min-device-width: 1224px)'
+      })
 
     return (
         <motion.div className="backdrop"
