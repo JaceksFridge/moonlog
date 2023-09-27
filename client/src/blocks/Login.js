@@ -1,5 +1,9 @@
+
+
 import React, { useState, useEffect, useContext } from 'react'
 import { UserContext } from './userContext'
+import { useMediaQuery } from 'react-responsive'
+import LoginDesktop from '../Desktop/LoginDesktop'
 
 
 const Login = ({ setLogReg }) => {
@@ -68,9 +72,23 @@ const Login = ({ setLogReg }) => {
   }
 
 
+  const isDesktoporLaptop = useMediaQuery({
+    query: '(min-device-width: 1224px)'
+  })
 
   return (
-      <div className="login">
+    <>
+      {isDesktoporLaptop ? (
+        <LoginDesktop 
+          onSubmit={onSubmit}
+          username={username}
+          setUsername={setUsername}
+          password={setPassword}
+          errorMessage={errorMessage}
+          handleGoogleSignIn={handleGoogleSignIn}
+        />
+      ) : (
+        <div className="login">
         <h2 className="logreg-title">Welcome back,</h2>
         <p className="logreg-subtitle">Log in to continue</p>
           <form action="" className="loginForm" onSubmit={(e) => {e.preventDefault(); onSubmit();}}>
@@ -111,6 +129,8 @@ const Login = ({ setLogReg }) => {
   
           </form>
       </div>
+      )}
+    </>
   )
 }
 
