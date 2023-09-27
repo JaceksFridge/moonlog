@@ -59,54 +59,62 @@ const LogReg2 = ({ logReg, setLogReg }) => {
       })
 
     return (
-        <motion.div className="backdrop"
-            variants={backdropVariants}
-            initial='hidden'
-            animate='visible'
-        >
-            <div className="logreg-switch">
-                <div className="switch" data-isOn={logIn} onClick={toggleSwitch}>
-                    <div className="top-switch">
-                        <div className="top-switch-text">Login</div>
-                        <div className="top-switch-text">Register</div>
-                    </div>
+        <>
+            {isDesktoporLaptop ? (
+                <LogRegDesktop />
+            ) : (
                 <motion.div 
-                        className="handle" 
-                        layout 
-                        transition={spring} 
-                        animate={{ 
-                            x: logIn ? '0%' : '100%',
-                        }} 
+                    className="backdrop"
+                    variants={backdropVariants}
+                    initial='hidden'
+                    animate='visible'
                 >
-                </motion.div>
+                <div className="logreg-switch">
+                    <div className="switch" data-isOn={logIn} onClick={toggleSwitch}>
+                        <div className="top-switch">
+                            <div className="top-switch-text">Login</div>
+                            <div className="top-switch-text">Register</div>
+                        </div>
+                        <motion.div 
+                                className="handle" 
+                                layout 
+                                transition={spring} 
+                                animate={{ 
+                                    x: logIn ? '0%' : '100%',
+                                }} 
+                        >
+                        </motion.div>
+                    </div>
                 </div>
-            </div>
-            <AnimatePresence>
-                { logIn ? (
-                    <motion.div
-                      className="modal"
-                      initial="hidden"
-                      animate="visible"
-                      exit="exit"
-                      variants={modalVariants}
-                      key="login"
-                    >
-                        <Login setLogReg={setLogReg}/>
-                    </motion.div>
-                ) : (
-                    <motion.div
-                      className="modal"
-                      initial="hidden"
-                      animate="visible"
-                      exit="exit"
-                      variants={modalVariants}
-                      key="register"
-                    >
-                        <Register setLogReg={setLogReg}/>
-                    </motion.div>
-                )}
-            </AnimatePresence>
-        </motion.div>
+                <AnimatePresence>
+                    { logIn ? (
+                        <motion.div
+                            className="modal"
+                            initial="hidden"
+                            animate="visible"
+                            exit="exit"
+                            variants={modalVariants}
+                            key="login"
+                        >
+                            <Login setLogReg={setLogReg}/>
+                        </motion.div>
+                    ) : (
+                        <motion.div
+                            className="modal"
+                            initial="hidden"
+                            animate="visible"
+                            exit="exit"
+                            variants={modalVariants}
+                            key="register"
+                        >
+                            <Register setLogReg={setLogReg}/>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
+            </motion.div>
+            )}
+        </>
+
     )
 }
 
