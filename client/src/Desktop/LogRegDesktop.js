@@ -5,7 +5,9 @@ import React from 'react'
 const LogRegDesktop = () => {
   return (
     <div className="logreg-desktop">
-        <div>LogReg Desktop</div>
+        <div className="logreg-background">
+            <div className="logreg-card"></div>
+        </div>
     </div>
   )
 }
