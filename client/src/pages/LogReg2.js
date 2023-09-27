@@ -59,13 +59,15 @@ const LogReg2 = ({ logReg, setLogReg }) => {
         query: '(min-device-width: 1224px)'
       })
 
+      console.log(`Helllo the login is ${logIn}`)
+
     return (
         <>
             {isDesktoporLaptop ? (
                 <LogRegDesktop 
-                    toggleSwitch={toggleSwitch}
-                    login={logIn}
+                    logIn={logIn}
                     setLogIn={setLogIn}
+                    toggleSwitch={toggleSwitch}
                 />
             ) : (
                 <motion.div 
@@ -101,7 +103,7 @@ const LogReg2 = ({ logReg, setLogReg }) => {
                             variants={modalVariants}
                             key="login"
                         >
-                            <Login setLogReg={setLogReg}/>
+                            <Login setLogReg={setLogReg} />
                         </motion.div>
                     ) : (
                         <motion.div
@@ -112,7 +114,7 @@ const LogReg2 = ({ logReg, setLogReg }) => {
                             variants={modalVariants}
                             key="register"
                         >
-                            <Register setLogReg={setLogReg}/>
+                            <Register setLogReg={setLogReg} />
                         </motion.div>
                     )}
                 </AnimatePresence>

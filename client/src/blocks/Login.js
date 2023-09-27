@@ -6,7 +6,7 @@ import { useMediaQuery } from 'react-responsive'
 import LoginDesktop from '../Desktop/LoginDesktop'
 
 
-const Login = ({ setLogReg }) => {
+const Login = ({ setLogReg, logIn, setLogIn, toggleSwitch }) => {
 
   const server = process.env.REACT_APP_SERVER_URL
 
@@ -89,6 +89,9 @@ const Login = ({ setLogReg }) => {
           setErrorMessage={setErrorMessage}
           handleGoogleSignIn={handleGoogleSignIn}
           setLogReg={setLogReg}
+          logIn={logIn}
+          setLogIn={setLogIn}
+          toggleSwitch={toggleSwitch}
         />
       ) : (
         <div className="login">
@@ -129,7 +132,6 @@ const Login = ({ setLogReg }) => {
                 <div>Sign in with Google</div>
               </button>
             </div>
-  
           </form>
       </div>
       )}

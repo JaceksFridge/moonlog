@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'
 import { useMediaQuery } from 'react-responsive'
 import RegisterDesktop from '../Desktop/RegisterDesktop'
 
-const Register = ({ setLogReg }) => {
+const Register = ({ setLogReg, logIn, setLogIn, toggleSwitch }) => {
 
   const server = process.env.REACT_APP_SERVER_URL
   const [username, setUsername] = useState('')
@@ -71,6 +71,9 @@ const Register = ({ setLogReg }) => {
           errorMessage={errorMessage}
           setErrorMessage={setErrorMessage}
           setLogReg={setLogReg}
+          logIn={logIn}
+          setLogIn={setLogIn}
+          toggleSwitch={toggleSwitch}
         />
       ) : (
           <div className="register">
@@ -111,7 +114,7 @@ const Register = ({ setLogReg }) => {
                 <div className="google-logo"></div>
                 <div>Sign in with Google</div>
               </button>
-                </div>
+            </div>
           </form>
       </div>
       )}

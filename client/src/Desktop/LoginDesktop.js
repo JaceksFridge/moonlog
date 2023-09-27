@@ -3,7 +3,16 @@
 import React from 'react'
 
 const LoginDesktop = ({
-  onSubmit, username, setUsername, password, setPassword, errorMessage, handleGoogleSignIn
+  onSubmit, 
+  username, 
+  setUsername, 
+  password, 
+  setPassword, 
+  errorMessage, 
+  handleGoogleSignIn,
+  logIn,
+  setLogIn,
+  toggleSwitch
 }) => {
   return (
     <div className="login-desktop">
@@ -44,7 +53,12 @@ const LoginDesktop = ({
             <div>Sign in with Google</div>
           </button>
           <div className="logreg-toggle">
-            <p>Don't have an account?<span>Register</span></p>
+            <p>Don't have an account?</p>
+            <a 
+              onClick={(e) => {e.preventDefault(); toggleSwitch()}}
+              href=""
+            >Register
+            </a>
           </div>
         </div>
       </form>

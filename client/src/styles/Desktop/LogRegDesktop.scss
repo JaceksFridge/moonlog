@@ -63,11 +63,16 @@
         margin: 0;
         margin-bottom: 0.5rem;
     }
+    .logreg-toggle{
+        display: grid;
+        place-items: center;
+
+        p{
+            color: white;
+        }
+    }
 }
-.logreg-title{
-    margin: 0;
-    margin-bottom: 0.5rem;
-}
+
 
 
 .loginForm, .registerForm{
