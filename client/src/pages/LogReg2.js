@@ -62,7 +62,11 @@ const LogReg2 = ({ logReg, setLogReg }) => {
     return (
         <>
             {isDesktoporLaptop ? (
-                <LogRegDesktop />
+                <LogRegDesktop 
+                    toggleSwitch={toggleSwitch}
+                    login={logIn}
+                    setLogIn={setLogIn}
+                />
             ) : (
                 <motion.div 
                     className="backdrop"

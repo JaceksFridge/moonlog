@@ -83,9 +83,12 @@ const Login = ({ setLogReg }) => {
           onSubmit={onSubmit}
           username={username}
           setUsername={setUsername}
-          password={setPassword}
+          password={password}
+          setPassword={setPassword}
           errorMessage={errorMessage}
+          setErrorMessage={setErrorMessage}
           handleGoogleSignIn={handleGoogleSignIn}
+          setLogReg={setLogReg}
         />
       ) : (
         <div className="login">

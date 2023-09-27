@@ -63,3 +63,12 @@
         margin: 0;
     }
 }
+
+
+.loginForm, .registerForm{
+    .button-block{
+        button{
+            border-radius: 0.5rem;
+        }
+    }
+}
