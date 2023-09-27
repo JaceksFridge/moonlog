@@ -41,7 +41,7 @@
             position: absolute;
             left: 10%;
             width: 490px;
-            height: 600px;
+            height: auto;
             border-radius: 1rem;
             border: 1px solid $white-20;
 
@@ -61,7 +61,12 @@
 
     .logreg-title{
         margin: 0;
+        margin-bottom: 0.5rem;
     }
+}
+.logreg-title{
+    margin: 0;
+    margin-bottom: 0.5rem;
 }
 
 

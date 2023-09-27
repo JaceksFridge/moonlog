@@ -43,6 +43,9 @@ const LoginDesktop = ({
             <div className="google-logo"></div>
             <div>Sign in with Google</div>
           </button>
+          <div className="logreg-toggle">
+            <p>Don't have an account?<span>Register</span></p>
+          </div>
         </div>
       </form>
     </div>
