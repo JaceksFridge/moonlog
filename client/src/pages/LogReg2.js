@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import Login from '../blocks/Login'
 import Register from '../blocks/Register'
 import { useMediaQuery } from 'react-responsive'
+import LogRegDesktop from '../Desktop/LogRegDesktop'
 
 const LogReg2 = ({ logReg, setLogReg }) => {
 

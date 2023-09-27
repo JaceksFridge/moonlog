@@ -4,8 +4,8 @@ import React from 'react'
 
 const LogRegDesktop = () => {
   return (
-    <div>
-      LogReg Desktop
+    <div className="logreg-desktop">
+        <div>LogReg Desktop</div>
     </div>
   )
 }
