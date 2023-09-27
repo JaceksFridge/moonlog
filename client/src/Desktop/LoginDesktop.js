@@ -7,8 +7,8 @@ const LoginDesktop = ({
 }) => {
   return (
     <div className="login-desktop">
-      <h2 className="logreg-title">Moonlog</h2>
-      <p className="logreg-subtitle">Transcend your Life</p>
+      <h2 className="logreg-title">Welcome back,</h2>
+      <p className="logreg-subtitle">Log in to continue</p>
       <form action="" className="loginForm" onSubmit={(e) => {e.preventDefault(); onSubmit();}}>
         <input 
           type="username" 

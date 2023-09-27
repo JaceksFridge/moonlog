@@ -62,7 +62,16 @@ const Register = ({ setLogReg }) => {
   return (
     <>
       { isDesktoporLaptop ? (
-        <RegisterDesktop />
+        <RegisterDesktop 
+          onSubmit={onSubmit}
+          username={username}
+          setUsername={setUsername}
+          password={password}
+          setPassword={setPassword}
+          errorMessage={errorMessage}
+          setErrorMessage={setErrorMessage}
+          setLogReg={setLogReg}
+        />
       ) : (
           <div className="register">
           <h2 className="logreg-title">Start your Journey!</h2>
