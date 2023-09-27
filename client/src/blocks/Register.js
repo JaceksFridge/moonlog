@@ -3,6 +3,8 @@
 import React, { useState, useContext } from 'react'
 import { UserContext } from './userContext'
 import { useNavigate } from 'react-router-dom'
+import { useMediaQuery } from 'react-responsive'
+import RegisterDesktop from '../Desktop/RegisterDesktop'
 
 const Register = ({ setLogReg }) => {
 
@@ -53,49 +55,58 @@ const Register = ({ setLogReg }) => {
     }
   }
 
+  const isDesktoporLaptop = useMediaQuery({
+    query: '(min-device-width: 1224px)'
+  })
 
   return (
-    <div className="register">
-      <h2 className="logreg-title">Start your Journey!</h2>
-      <p className="logreg-subtitle">Create an account to continue</p>
-      <form action="" className="registerForm">
-        <input 
-          type="username" 
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <input 
-          type="password" 
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <div className="err-block">
-          <div className="error-message">
-            *{errorMessage}
-          </div>
-        </div>
-        <div className="button-block">
-          <button 
-            className="submit-btn"
-            type="button"
-            onClick={onSubmit}
-          >
-            Register
-          </button>
-          <div className="or-line">
-            <div className="line"></div>
-            <div className="or">or</div>
-            <div className="line"></div>
-          </div>
-          <button className="google-btn">
-            <div className="google-logo"></div>
-            <div>Sign in with Google</div>
-          </button>
+    <>
+      { isDesktoporLaptop ? (
+        <RegisterDesktop />
+      ) : (
+          <div className="register">
+          <h2 className="logreg-title">Start your Journey!</h2>
+          <p className="logreg-subtitle">Create an account to continue</p>
+          <form action="" className="registerForm">
+            <input 
+              type="username" 
+              placeholder="Username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+            <input 
+              type="password" 
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <div className="err-block">
+              <div className="error-message">
+                *{errorMessage}
+              </div>
             </div>
-      </form>
-  </div>
+            <div className="button-block">
+              <button 
+                className="submit-btn"
+                type="button"
+                onClick={onSubmit}
+              >
+                Register
+              </button>
+              <div className="or-line">
+                <div className="line"></div>
+                <div className="or">or</div>
+                <div className="line"></div>
+              </div>
+              <button className="google-btn">
+                <div className="google-logo"></div>
+                <div>Sign in with Google</div>
+              </button>
+                </div>
+          </form>
+      </div>
+      )}
+    </>
   )
 }
 
