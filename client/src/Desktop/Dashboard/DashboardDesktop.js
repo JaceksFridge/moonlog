@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import DashboardSidebarDesktop from './DashboardSidebarDesktop'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 
 const DashboardDesktop = () => {
 
@@ -14,9 +14,8 @@ const DashboardDesktop = () => {
   }
 
   const sidebarVariants = {
-    hidden: { x: -250 },
+    hidden: { x: '-100%' },
     visible: { x: 0 },
-    exit: { x: -250 }
   }
 
   return (
@@ -24,21 +23,25 @@ const DashboardDesktop = () => {
         <div className="open-button" onClick={toggleSidebar}>
           <img src="/icons/sidebarIcon.svg" alt="sidebar" />
         </div>
-        { sidebar && (
-
-          <motion.div 
-            className="sidebar-container"
-            initial="hidden"
-            animate={ sidebar ? "visible" : "exit" }
-            variants={sidebarVariants}
-            transition={{ duration: 0.5 }}
-          >
-            <DashboardSidebarDesktop />
-          </motion.div>
-          
-        )}
+        <AnimatePresence>
+          {sidebar && (
+            <motion.div
+              className="sidebar-container"
+              key="sidebar"
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+              variants={sidebarVariants}
+              transition={{ duration: 0.5 }}
+            >
+              <DashboardSidebarDesktop toggleSidebar={toggleSidebar}/>
+            </motion.div>
+          )}
+        </AnimatePresence>
         <div className="main">
           <h1>dashbaord desktop</h1>
+
+          <div className="test-div">test</div>
         </div>
     </div>
   )
