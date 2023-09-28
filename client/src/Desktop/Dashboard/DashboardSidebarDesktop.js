@@ -16,7 +16,7 @@ const DashboardSidebarDesktop = ({ toggleSidebar }) => {
             <div className="tab chart-btn-health"><p>health</p></div>
             <div className="tab chart-btn-weatlth"><p>wealth</p></div>
             <div className="tab chart-btn-happiness"><p>happiness</p></div>
-            <div className="tab chart-btn-nodo">nodo</div>
+            <div className="tab chart-btn-nodo"><p>nodo</p></div>
             <div className="tab chart-btn-logs">logs</div>
           </div>
         </div>
