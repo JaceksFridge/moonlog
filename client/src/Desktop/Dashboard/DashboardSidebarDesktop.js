@@ -13,9 +13,9 @@ const DashboardSidebarDesktop = ({ toggleSidebar }) => {
           <h5>chart tabs</h5>
           <div className="chart-tabs">
             <div className="tab chart-btn-scores">scores</div>
-            <div className="tab chart-btn-scores">health</div>
-            <div className="tab chart-btn-scores">wealth</div>
-            <div className="tab chart-btn-scores">happiness</div>
+            <div className="tab chart-btn-health">health</div>
+            <div className="tab chart-btn-weatlth">wealth</div>
+            <div className="tab chart-btn-happiness">happiness</div>
             <div className="tab chart-btn-nodo">nodo</div>
             <div className="tab chart-btn-logs">logs</div>
           </div>
