@@ -49,8 +49,13 @@
 
         .sidebar-tabs{
             .chart-tabs{
+
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 1.5rem;
                 .tab{
-                    height: 3.5rem;
+                    height: 2.5rem;
 
                     display: flex;
                     justify-content: center;
@@ -60,7 +65,7 @@
                     border: 0px solid $white;
 
                     p{
-                        text-transform: uppercase;
+                        text-transform: capitalize;
                     }
                 }
 
