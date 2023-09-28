@@ -5,10 +5,8 @@ import Login from '../blocks/Login'
 import Register from '../blocks/Register'
 import { AnimatePresence } from 'framer-motion'
 
-const LogRegDesktop = ({ logIn, setLogIn, toggleSwitch }) => {
+const LogRegDesktop = ({ logIn, setLogIn, toggleSwitch, setLogReg, logReg }) => {
 
-    console.log("loginnnnn")
-    console.log(logIn)
   return (
     <div className="logreg-desktop">
         <div className="logreg-background">
@@ -20,6 +18,8 @@ const LogRegDesktop = ({ logIn, setLogIn, toggleSwitch }) => {
                             logIn={logIn}
                             setLogIn={setLogIn}
                             toggleSwitch={toggleSwitch}
+                            logReg={logReg}
+                            setLogReg={setLogReg}
                         />
                     </div>
                 ) : (
@@ -28,6 +28,8 @@ const LogRegDesktop = ({ logIn, setLogIn, toggleSwitch }) => {
                             logIn={logIn}
                             setLogIn={setLogIn}
                             toggleSwitch={toggleSwitch}
+                            logReg={logReg}
+                            setLogReg={setLogReg}
                         />
                     </div>
                 )}

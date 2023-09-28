@@ -10,6 +10,7 @@ import LogRegDesktop from '../Desktop/LogRegDesktop'
 const LogReg2 = ({ logReg, setLogReg }) => {
 
 
+    console.log("LogReg2::: ",typeof setLogReg)
     useEffect(() => {
         if (logReg) {
           document.body.style.overflow = 'hidden';
@@ -59,8 +60,6 @@ const LogReg2 = ({ logReg, setLogReg }) => {
         query: '(min-device-width: 1224px)'
       })
 
-      console.log(`Helllo the login is ${logIn}`)
-
     return (
         <>
             {isDesktoporLaptop ? (
@@ -68,6 +67,8 @@ const LogReg2 = ({ logReg, setLogReg }) => {
                     logIn={logIn}
                     setLogIn={setLogIn}
                     toggleSwitch={toggleSwitch}
+                    logReg={logReg}
+                    setLogReg={setLogReg}
                 />
             ) : (
                 <motion.div 

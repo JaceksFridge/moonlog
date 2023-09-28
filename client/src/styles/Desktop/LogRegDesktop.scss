@@ -1,8 +1,8 @@
 
 
 .logreg-desktop{
-    position: absolute;
-    z-index: 25;
+    position: fixed;
+    z-index: 50;
     display: grid;
     place-items: center;
     background: black;
@@ -68,8 +68,12 @@
         place-items: center;
 
         p{
-            color: white;
+            color: $white-20;
         }
+        p.toggle-switch{
+            color: $white;
+        }
+
     }
 }
 

@@ -4,8 +4,6 @@ import React from 'react'
 
 const HomeDesktop = ({ user, userData, cards }) => {
 
-  console.log(userData)
-
   return (
     <div className="home-desktop">
       <div className="topbar">

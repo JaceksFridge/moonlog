@@ -36,8 +36,12 @@ const Home = () => {
   const [ checkingUser, setCheckingUser ] = useState(true)
 
 
+  console.log("LogRegDesktop::: ",typeof setLogReg)
+
+
   // Scroll to top on page load
   useEffect(() => {
+    console.log("LogReg Changin")
     if (!logReg) {
       window.scrollTo(0,0)
     }
@@ -190,7 +194,7 @@ const Home = () => {
         SVGComponent={LogoutSVG}
       />
       { isDesktoporLaptop ? (
-        <HomeDesktop user={user} userData={userData} setLogoutModal={setLogoutModal} cards={cardsJSX}/>
+        <HomeDesktop user={user} userData={userData} setLogoutModal={setLogoutModal} cards={cardsJSX} />
       ) : (
         <>
           <div className="home-container">

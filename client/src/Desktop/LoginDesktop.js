@@ -9,16 +9,18 @@ const LoginDesktop = ({
   password, 
   setPassword, 
   errorMessage, 
+  setLogReg,
   handleGoogleSignIn,
-  logIn,
-  setLogIn,
   toggleSwitch
 }) => {
+
+  console.log("LoginDesktop::: ",typeof setLogReg)
+
   return (
     <div className="login-desktop">
       <h2 className="logreg-title">Welcome back,</h2>
       <p className="logreg-subtitle">Log in to continue</p>
-      <form action="" className="loginForm" onSubmit={(e) => {e.preventDefault(); onSubmit();}}>
+      <form action="" className="loginForm" onSubmit={(e) => {e.preventDefault(); onSubmit(); setLogReg(false);}}>
         <input 
           type="username" 
           placeholder="Username"
@@ -54,11 +56,11 @@ const LoginDesktop = ({
           </button>
           <div className="logreg-toggle">
             <p>Don't have an account?</p>
-            <a 
-              onClick={(e) => {e.preventDefault(); toggleSwitch()}}
-              href=""
+            <p 
+              className="toggle-switch"
+              onClick={(e) => {e.preventDefault(); toggleSwitch();}}
             >Register
-            </a>
+            </p>
           </div>
         </div>
       </form>

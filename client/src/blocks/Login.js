@@ -2,11 +2,14 @@
 
 import React, { useState, useEffect, useContext } from 'react'
 import { UserContext } from './userContext'
+import { useNavigate } from 'react-router-dom'
 import { useMediaQuery } from 'react-responsive'
 import LoginDesktop from '../Desktop/LoginDesktop'
 
 
 const Login = ({ setLogReg, logIn, setLogIn, toggleSwitch }) => {
+
+  console.log("Login::: ",typeof setLogReg)
 
   const server = process.env.REACT_APP_SERVER_URL
 
@@ -14,10 +17,13 @@ const Login = ({ setLogReg, logIn, setLogIn, toggleSwitch }) => {
   const [password, setPassword] = useState('')
   const [errorMessage, setErrorMessage] = useState('')
   const { setUser } = useContext(UserContext)
+  const jump = useNavigate()
+
 
   const onSubmit = async (e) => {
+
     if (username === '' || password === '') {
-      setErrorMessage("Username and or the password")
+      setErrorMessage("Username and or the password empty")
       return
     }
     try {
@@ -40,7 +46,10 @@ const Login = ({ setLogReg, logIn, setLogIn, toggleSwitch }) => {
         localStorage.setItem('userId', user.userId)
         localStorage.setItem('token', user.token)
 
+        // jump('/intro1')
+        // jump('/')
         setLogReg(false)
+
 
       } else {
         setErrorMessage(user.error || 'Failed to Login')
@@ -119,6 +128,7 @@ const Login = ({ setLogReg, logIn, setLogIn, toggleSwitch }) => {
               <button 
                 className="submit-btn"
                 type="submit"
+                onClick={onSubmit}
               >
                 Login
               </button>

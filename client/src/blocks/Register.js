@@ -22,13 +22,11 @@ const Register = ({ setLogReg, logIn, setLogIn, toggleSwitch }) => {
     }
     try {
       const response = await fetch(`${server}/user/register`, {
-
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({ username, password })
-
       })
 
       const user = await response.json()
