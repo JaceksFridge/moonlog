@@ -49,6 +49,8 @@ const DashboardDesktop = () => {
               <div className="cell top2"></div>
               <div className="cell top3"></div>
             </div>
+            <div className="cell box-scores"></div>
+            <div className="cell box-logs"></div>
           </div>
           <div className="main-right">
             <div className="cell box-rainbow"></div>

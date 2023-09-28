@@ -4,7 +4,7 @@
 
     position: relative;
     width: 100%;
-    height: 100vh;
+    height: 100%;
 
     display: flex;
     justify-content: center;
@@ -97,7 +97,7 @@
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
-            border: 1px solid peru;
+            border: 0px solid peru;
 
             .main-top{
                 width: 100%;
@@ -112,11 +112,24 @@
                     height: 10rem;
                 }
             }
+            .cell{
+                width: 100%;
+                background: $dark;
+                border-radius: 1rem;
+            }
+            .box-scores{
+                margin-top: 1.5rem;
+                height: 24rem;
+            }
+            .box-logs{
+                margin-top: 1.5rem;
+                height: 30rem;
+            }
         }
         .main-right{
             width: 25%;
-            height: 100%;
-            border: 1px solid blue;
+            height: 100vh;
+            border: 0px solid blue;
 
             display: flex;
             flex-direction: column;
