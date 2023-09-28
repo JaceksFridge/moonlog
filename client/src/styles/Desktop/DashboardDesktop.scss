@@ -1,7 +1,6 @@
 
 
 .dashboard-desktop{
-
     position: relative;
     width: 100%;
     height: 100%;
@@ -30,6 +29,7 @@
     .sidebar-container{
         width: 25%;
         height: 100%;
+        align-self: flex-start;
     }
     .desktop-sidebar{
         width: 100%;
@@ -49,14 +49,13 @@
 
         .sidebar-tabs{
             .chart-tabs{
-
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 gap: 1.5rem;
+
                 .tab{
                     height: 2.5rem;
-
                     display: flex;
                     justify-content: center;
                     align-items: center;
@@ -129,6 +128,7 @@
         .main-right{
             width: 25%;
             height: 100vh;
+            align-self: flex-start;
             border: 0px solid blue;
 
             display: flex;
