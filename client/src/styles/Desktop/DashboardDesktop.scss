@@ -51,7 +51,22 @@
             .chart-tabs{
                 .tab{
                     height: 3.5rem;
-                    border: 1px solid $white;
+
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    color: $white;
+                    border-radius: 1rem;
+                    border: 0px solid $white;
+
+                    p{
+                        text-transform: uppercase;
+                    }
+                }
+
+                .tab:hover{
+                    background: $white;
+                    color: $black;
                 }
             }
         }
