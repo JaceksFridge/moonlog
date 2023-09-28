@@ -20,7 +20,11 @@ const DashboardDesktop = () => {
 
   return (
     <div className="dashboard-desktop">
-        <div className="open-button" onClick={toggleSidebar}>
+        <div 
+          className="open-button" 
+          onClick={toggleSidebar}
+          
+        >
           <img src="/icons/sidebarIcon.svg" alt="sidebar" />
         </div>
         <AnimatePresence>
