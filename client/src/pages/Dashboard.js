@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { useMediaQuery } from 'react-responsive'
+import DashboardDesktop from '../Desktop/DashboardDesktop'
 
 const Dashboard = () => {
 
@@ -25,18 +26,29 @@ const Dashboard = () => {
         fetchData()
     }, [])
 
+    const isDesktoporLaptop = useMediaQuery({
+        query: '(min-device-width: 1224px)'
+    })
+
     return (
-        <div className="dashboard">
-            Dashboard
-            <div className="day-logs">
-                <div></div>
-                {data.map((obj) => (
-                    <div className="object" key={obj._id}>
-                        <h3>{obj.date}</h3>
-                    </div>
-                ))}
+        <>
+        { isDesktoporLaptop ? (
+                <DashboardDesktop />
+            ) : (
+                <div className="dashboard">
+                Dashboard
+                <div className="day-logs">
+                    <div></div>
+                    {data.map((obj) => (
+                        <div className="object" key={obj._id}>
+                            <h3>{obj.date}</h3>
+                        </div>
+                    ))}
+                </div>
             </div>
-        </div>
+            )
+        }
+        </>
     )
 }
 
