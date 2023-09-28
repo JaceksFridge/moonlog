@@ -1,11 +1,50 @@
 
 
 .dashboard-desktop{
+
+    position: relative;
+    width: 100%;
+    height: 100vh;
+
     display: flex;
     justify-content: center;
     align-items: center;
 
-    h1{
-        color: white;
+    .open-button{
+        position: absolute;
+        cursor: pointer;
+        top: 2rem; left: 2rem;
+        height: 3.5rem; width: 3.5rem;
+        border-radius: 0.5rem;
+        border: 1px solid $white-50;
+
+        display: grid;
+        place-items: center;
+    }
+
+    .open-button:hover{
+        border: 1px solid $white-80;
+    }
+
+
+    .desktop-sidebar{
+        width: 30%;
+        height: 100%;
+        background: pink;
+    }
+
+    .main{
+
+        width: 100%;
+        height: 100%;
+        background: black;
+        border: 1px solid white;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        h1{
+            color: white;
+        }
     }
 }

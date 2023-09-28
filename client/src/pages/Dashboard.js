@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { useMediaQuery } from 'react-responsive'
-import DashboardDesktop from '../Desktop/DashboardDesktop'
+import DashboardDesktop from '../Desktop/Dashboard/DashboardDesktop'
 
 const Dashboard = () => {
 
