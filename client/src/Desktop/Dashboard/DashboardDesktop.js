@@ -14,8 +14,8 @@ const DashboardDesktop = () => {
   }
 
   const sidebarVariants = {
-    hidden: { x: '-100%' },
-    visible: { x: 0 },
+    hidden: { width: '0%' },
+    visible: { width: '20%' },
   }
 
   return (
