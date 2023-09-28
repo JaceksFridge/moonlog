@@ -76,6 +76,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            transition: 0.3s ease-in-out;
 
             .google-logo{
                 height: 20px;
@@ -85,6 +86,11 @@
                 background-position: center;
                 margin-right: 0.5rem;
             }
+        }
+
+        .google-btn:hover{
+            color: $white-80;
+            border: 1px solid $white-80;
         }
 
         .or-line{

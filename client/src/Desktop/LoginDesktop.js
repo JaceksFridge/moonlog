@@ -55,7 +55,7 @@ const LoginDesktop = ({
             <div>Sign in with Google</div>
           </button>
           <div className="logreg-toggle">
-            <p>Don't have an account?</p>
+            <p>Don't have an account? </p>
             <p 
               className="toggle-switch"
               onClick={(e) => {e.preventDefault(); toggleSwitch();}}

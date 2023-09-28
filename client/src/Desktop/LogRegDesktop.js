@@ -34,6 +34,17 @@ const LogRegDesktop = ({ logIn, setLogIn, toggleSwitch, setLogReg, logReg }) => 
                     </div>
                 )}
             </AnimatePresence>
+            <div className="logo-card">
+                <div className="glitch-solid">
+                    <h1>Moonlog</h1>
+                    <p>Transcend your Life</p>
+                </div>
+                {/* <div class="glitch" data-text="Moonlog">Moonlog</div>
+                    <div class="glow">Moonlog</div>
+                    <p>Transcend your Life</p>
+                </div>
+                <div class="scanlines"></div> */}
+            </div>
         </div>
     </div>
   )

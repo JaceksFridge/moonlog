@@ -52,12 +52,12 @@ const LoginDesktop = ({
             <div>Sign in with Google</div>
           </button>
           <div className="logreg-toggle">
-            <p>Already have an account?</p>
-            <a 
-                onClick={(e) => {e.preventDefault(); toggleSwitch()}}
-                href=""
+          <p>Already have an account? </p>
+            <p 
+              className="toggle-switch"
+              onClick={(e) => {e.preventDefault(); toggleSwitch();}}
             >Login
-            </a>
+            </p>
           </div>
         </div>
       </form>

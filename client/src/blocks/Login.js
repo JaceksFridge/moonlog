@@ -45,9 +45,7 @@ const Login = ({ setLogReg, logIn, setLogIn, toggleSwitch }) => {
         localStorage.setItem('username', user.username)
         localStorage.setItem('userId', user.userId)
         localStorage.setItem('token', user.token)
-
-        // jump('/intro1')
-        // jump('/')
+        
         setLogReg(false)
 
 
