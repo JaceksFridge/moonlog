@@ -34,18 +34,26 @@
     .desktop-sidebar{
         width: 100%;
         height: 100%;
-        padding-top: 2rem;
-        background: pink;
+        padding: 2rem;
+        background: #171717;
 
         .close-button{
             cursor: pointer;
-            margin-left: 2rem;
             height: 3.5rem; width: 3.5rem;
             border-radius: 0.5rem;
             border: 1px solid $white-50;
     
             display: grid;
             place-items: center;
+        }
+
+        .sidebar-tabs{
+            .chart-tabs{
+                .tab{
+                    height: 3.5rem;
+                    border: 1px solid $white;
+                }
+            }
         }
     }
 
