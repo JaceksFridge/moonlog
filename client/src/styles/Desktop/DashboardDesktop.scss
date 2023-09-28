@@ -30,16 +30,16 @@
     .sidebar-container{
         width: 25%;
         height: 100%;
-
     }
     .desktop-sidebar{
         width: 100%;
         height: 100%;
+        padding-top: 2rem;
         background: pink;
 
         .close-button{
             cursor: pointer;
-            margin-top: 2rem; margin-left: 2rem;
+            margin-left: 2rem;
             height: 3.5rem; width: 3.5rem;
             border-radius: 0.5rem;
             border: 1px solid $white-50;
@@ -57,18 +57,54 @@
         border: 1px solid white;
 
         display: flex;
-        flex-direction: column;
         justify-content: center;
         align-items: center;
-        h1{
-            color: white;
-        }
+        gap: 1.5rem;
+        padding: 1.5rem;
+    
+        .main-big{
+            width: 75%;
+            height: 100%;
 
-        .test-div{
-            background: cyan;
-            border-radius: 1rem;
-            width: 50%;
-            height: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            border: 1px solid peru;
+
+            .main-top{
+                width: 100%;
+                display: flex;
+                gap: 1.5rem;
+                .cell{
+                    width: 33.3%;
+                    background: $dark;
+                    border-radius: 1rem;
+                }
+                .top1, .top2, .top3{
+                    height: 10rem;
+                }
+            }
+        }
+        .main-right{
+            width: 25%;
+            height: 100%;
+            border: 1px solid blue;
+
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+
+            .cell{
+                width: 100%;
+                background: $dark;
+                border-radius: 1rem;
+            }
+            .box-rainbow{
+                height: 38.2%;   
+            }
+            .box-circles{
+                height: 61.4%;
+            }
         }
     }
 }

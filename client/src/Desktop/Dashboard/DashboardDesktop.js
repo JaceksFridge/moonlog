@@ -23,7 +23,7 @@ const DashboardDesktop = () => {
         <div 
           className="open-button" 
           onClick={toggleSidebar}
-          
+
         >
           <img src="/icons/sidebarIcon.svg" alt="sidebar" />
         </div>
@@ -43,9 +43,17 @@ const DashboardDesktop = () => {
           )}
         </AnimatePresence>
         <div className="main">
-          <h1>dashbaord desktop</h1>
-
-          <div className="test-div">test</div>
+          <div className="main-big">
+            <div className="main-top">
+              <div className="cell top1"></div>
+              <div className="cell top2"></div>
+              <div className="cell top3"></div>
+            </div>
+          </div>
+          <div className="main-right">
+            <div className="cell box-rainbow"></div>
+            <div className="cell box-circles"></div>
+          </div>
         </div>
     </div>
   )
