@@ -3,17 +3,47 @@
 import React from 'react'
 import Login from '../blocks/Login'
 import Register from '../blocks/Register'
-import { AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 
 const LogRegDesktop = ({ logIn, setLogIn, toggleSwitch, setLogReg, logReg }) => {
 
+
+    const modalVariants = {
+        hidden: {
+            opacity: 0,
+            x: -1000,
+        },
+        visible: {
+            opacity: 1,
+            x: 0,
+            transition: {
+                duration: 0.5,
+                ease: 'easeInOut',
+            },
+        },
+        exit: {
+            opacity: 0,
+            x: 2000,
+            transition: {
+                duration: 0.5,
+                ease: 'easeInOut',
+            }
+        }
+    }
   return (
     <div className="logreg-desktop">
         <div className="logreg-background">
             <div className="logreg-card"></div>
             <AnimatePresence>
                 { logIn ? (
-                    <div className="logreg-card2">
+                    <motion.div 
+                        className="logreg-card2"
+                        initial="hidden"
+                        animate="visible"
+                        exit="exit"
+                        key="login"
+                        variants={modalVariants}
+                    >
                         <Login 
                             logIn={logIn}
                             setLogIn={setLogIn}
@@ -21,9 +51,16 @@ const LogRegDesktop = ({ logIn, setLogIn, toggleSwitch, setLogReg, logReg }) => 
                             logReg={logReg}
                             setLogReg={setLogReg}
                         />
-                    </div>
+                    </motion.div>
                 ) : (
-                    <div className="logreg-card2">
+                    <motion.div 
+                        className="logreg-card2"
+                        initial="hidden"
+                        animate="visible"
+                        exit="exit"
+                        key="register"
+                        variants={modalVariants}
+                    >
                         <Register 
                             logIn={logIn}
                             setLogIn={setLogIn}
@@ -31,7 +68,7 @@ const LogRegDesktop = ({ logIn, setLogIn, toggleSwitch, setLogReg, logReg }) => 
                             logReg={logReg}
                             setLogReg={setLogReg}
                         />
-                    </div>
+                    </motion.div>
                 )}
             </AnimatePresence>
             <div className="logo-card">

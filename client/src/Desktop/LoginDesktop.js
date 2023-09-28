@@ -14,8 +14,6 @@ const LoginDesktop = ({
   toggleSwitch
 }) => {
 
-  console.log("LoginDesktop::: ",typeof setLogReg)
-
   return (
     <div className="login-desktop">
       <h2 className="logreg-title">Welcome back,</h2>
