@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import DashboardSidebarDesktop from './DashboardSidebarDesktop'
 import { motion, AnimatePresence } from 'framer-motion'
+import ScoreChart from './ScoreChart'
 
 const DashboardDesktop = ({ data }) => {
 
@@ -75,7 +76,9 @@ const DashboardDesktop = ({ data }) => {
               <div className="cell top2"></div>
               <div className="cell top3"></div>
             </div>
-            <div className="cell box-scores"></div>
+            <div className="cell box-scores">
+              <ScoreChart />
+            </div>
             <div className="cell box-logs"></div>
           </div>
           <div className="main-placeholder-right" ref={rightPlaceholderRef}></div>
