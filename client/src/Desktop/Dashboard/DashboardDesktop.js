@@ -4,8 +4,14 @@ import React, { useState, useEffect, useRef } from 'react'
 import DashboardSidebarDesktop from './DashboardSidebarDesktop'
 import { motion, AnimatePresence } from 'framer-motion'
 
-const DashboardDesktop = () => {
+const DashboardDesktop = ({ data }) => {
 
+  console.log(data)
+  if (data) {
+    for (const [key, value] of Object.entries(data)) {
+      console.log("key:", key, "value:", value['sum']);
+    }
+  }
 
   const [ sidebar, setSidebar ] = useState(false)
 
