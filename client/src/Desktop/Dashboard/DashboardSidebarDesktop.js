@@ -10,7 +10,9 @@ const DashboardSidebarDesktop = ({ toggleSidebar }) => {
           <img src="/icons/sidebarIcon.svg" alt="sidebar" />
         </div>
         <div className="sidebar-tabs">
-          <h5>chart tabs</h5>
+          <div className="chart-title">
+            <h5>chart tabs</h5>
+          </div>
           <div className="chart-tabs">
             <div className="tab chart-btn-scores"><p>scores</p></div>
             <div className="tab chart-btn-health"><p>health</p></div>

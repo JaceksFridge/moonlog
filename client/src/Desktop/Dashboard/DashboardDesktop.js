@@ -14,8 +14,8 @@ const DashboardDesktop = () => {
   }
 
   const sidebarVariants = {
-    hidden: { width: '0%' },
-    visible: { width: '20%' },
+    collapsed: { width: '5%' },
+    expanded: { width: '25%' },
   }
 
   return (
@@ -28,21 +28,18 @@ const DashboardDesktop = () => {
           <img src="/icons/sidebarIcon.svg" alt="sidebar" />
       </div>
       )}
-        <AnimatePresence>
-          { sidebar && (
-            <motion.div
-              className="sidebar-container"
-              key="sidebar"
-              initial="hidden"
-              animate="visible"
-              exit="hidden"
-              variants={sidebarVariants}
-              transition={{ duration: 0.5 }}
-            >
-              <DashboardSidebarDesktop toggleSidebar={toggleSidebar}/>
-            </motion.div>
-          )}
-        </AnimatePresence>
+
+        <motion.div
+          className="sidebar-container"
+          key="sidebar"
+          initial="collapsed"
+          animate={ sidebar ? "expanded" : "collapse" }
+          variants={sidebarVariants}
+          transition={{ duration: 0.5 }}
+        >
+          <DashboardSidebarDesktop toggleSidebar={toggleSidebar} isExpanded={sidebar}/>
+        </motion.div>
+
         <div className="main">
           <div className="main-big">
             <div className="main-top">
