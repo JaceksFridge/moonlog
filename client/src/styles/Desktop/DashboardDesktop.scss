@@ -150,9 +150,7 @@
                 margin-top: 1.5rem;
                 height: 24rem;
 
-                #chart-div{
-                    height: 100%;
-                }
+
             }
             .box-logs{
                 margin-top: 1.5rem;
@@ -182,8 +180,10 @@
 
             .cell{
                 width: 100%;
+                height: 100%;
                 background: $dark;
                 border-radius: 1rem;
+                // padding: 1.5rem;
             }
             .box-rainbow{
                 height: 38.2%;   
@@ -193,4 +193,34 @@
             }
         }
     }
+}
+
+
+
+
+#chart-div{
+    width: 100%;
+    height: 100%;
+
+    position: relative;
+    z-index: 21;
+
+    .watermark-cover{
+        position: absolute;
+        bottom: 0;
+        height: 1.25rem;
+        width: 4rem;
+        background: $dark;
+        z-index: 4000;
+    }
+}
+
+#chart-amlines{
+    width: 100%;
+    height: 400px;
+}
+
+.piechart1{
+    height: 100%;
+    width: 100%;
 }

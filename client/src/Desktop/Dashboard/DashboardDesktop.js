@@ -3,7 +3,10 @@
 import React, { useState, useEffect, useRef } from 'react'
 import DashboardSidebarDesktop from './DashboardSidebarDesktop'
 import { motion, AnimatePresence } from 'framer-motion'
+
 import ScoreChart from './ScoreChart'
+import PieChart1 from './PieChart1'
+import AmLinesChart from './AmLinesChart'
 
 const DashboardDesktop = ({ data }) => {
 
@@ -49,10 +52,6 @@ const DashboardDesktop = ({ data }) => {
     { value: 10, category: "One" },
     { value: 9, category: "Two" },
     { value: 6, category: "Three" },
-    { value: 5, category: "Four" },
-    { value: 4, category: "Five" },
-    { value: 3, category: "Six" },
-    { value: 1, category: "Seven" },
   ]
 
 
@@ -78,14 +77,18 @@ const DashboardDesktop = ({ data }) => {
               <div className="cell top3"></div>
             </div>
             <div className="cell box-scores">
-              <ScoreChart dataArray={dataArray} />
+              <AmLinesChart />
             </div>
             <div className="cell box-logs"></div>
           </div>
           <div className="main-placeholder-right" ref={rightPlaceholderRef}></div>
           <div className="main-right" ref={mainRightRef}>
-            <div className="cell box-rainbow"></div>
-            <div className="cell box-circles"></div>
+            <div className="cell box-rainbow">
+              <ScoreChart dataArray={dataArray} />
+            </div>
+            <div className="cell box-circles">
+              <PieChart1 />
+            </div>
           </div>
         </div>
     </div>
