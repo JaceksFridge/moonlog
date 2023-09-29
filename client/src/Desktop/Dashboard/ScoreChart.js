@@ -27,7 +27,7 @@ const ScoreChart = () => {
         alignLabels: false,
       }));
 
-      series.data.setAll([
+      let dataArray = [
         { value: 10, category: "One" },
         { value: 9, category: "Two" },
         { value: 6, category: "Three" },
@@ -35,7 +35,9 @@ const ScoreChart = () => {
         { value: 4, category: "Five" },
         { value: 3, category: "Six" },
         { value: 1, category: "Seven" },
-      ]);
+      ]
+
+      series.data.setAll(dataArray);
 
       series.appear(1000, 100);
     });
