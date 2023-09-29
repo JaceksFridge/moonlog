@@ -1,8 +1,19 @@
 
 
 import React from 'react'
+import AdbIcon from '@mui/icons-material/Adb';
 
 const DashboardSidebarDesktop = ({ toggleSidebar }) => {
+
+
+  const TabItem = ({ icon: Icon, name, link }) => {
+    return (
+      <div className={`tab chart-btn-${name}`}>
+        <Icon />
+        <p>{name}</p>
+      </div>
+    )
+  }
 
   return (
     <div className="desktop-sidebar">
@@ -14,16 +25,16 @@ const DashboardSidebarDesktop = ({ toggleSidebar }) => {
             <h5>chart tabs</h5>
           </div>
           <div className="chart-tabs">
-            <div className="tab chart-btn-scores"><p>scores</p></div>
-            <div className="tab chart-btn-health"><p>health</p></div>
-            <div className="tab chart-btn-weatlth"><p>wealth</p></div>
-            <div className="tab chart-btn-happiness"><p>happiness</p></div>
-            <div className="tab chart-btn-nodo"><p>nodo</p></div>
-            <div className="tab chart-btn-logs"><p>logs</p></div>
+            <TabItem icon={AdbIcon} name="scores" />
+            <TabItem icon={AdbIcon} name="health" />
+            <TabItem icon={AdbIcon} name="wealth" />
           </div>
         </div>
     </div>
   )
+
+
+
 }
 
 export default DashboardSidebarDesktop
