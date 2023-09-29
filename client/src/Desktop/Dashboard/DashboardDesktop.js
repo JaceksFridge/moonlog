@@ -45,18 +45,19 @@ const DashboardDesktop = ({ data }) => {
     };
   }, []);
 
+  let dataArray = [
+    { value: 10, category: "One" },
+    { value: 9, category: "Two" },
+    { value: 6, category: "Three" },
+    { value: 5, category: "Four" },
+    { value: 4, category: "Five" },
+    { value: 3, category: "Six" },
+    { value: 1, category: "Seven" },
+  ]
 
 
   return (
     <div className="dashboard-desktop">
-      {/* { !sidebar && (
-        <div 
-          className="open-button" 
-          onClick={toggleSidebar}
-        >
-          <img src="/icons/sidebarIcon.svg" alt="sidebar" />
-      </div>
-      )} */}
 
         <motion.div
           className="sidebar-container"
@@ -77,7 +78,7 @@ const DashboardDesktop = ({ data }) => {
               <div className="cell top3"></div>
             </div>
             <div className="cell box-scores">
-              <ScoreChart />
+              <ScoreChart dataArray={dataArray} />
             </div>
             <div className="cell box-logs"></div>
           </div>

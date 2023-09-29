@@ -3,7 +3,7 @@ import * as am5 from "@amcharts/amcharts5";
 import * as am5percent from "@amcharts/amcharts5/percent";
 import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
 
-const ScoreChart = () => {
+const ScoreChart = ({ dataArray }) => {
   let root;
 
   useEffect(() => {
@@ -26,16 +26,6 @@ const ScoreChart = () => {
         categoryField: "category",
         alignLabels: false,
       }));
-
-      let dataArray = [
-        { value: 10, category: "One" },
-        { value: 9, category: "Two" },
-        { value: 6, category: "Three" },
-        { value: 5, category: "Four" },
-        { value: 4, category: "Five" },
-        { value: 3, category: "Six" },
-        { value: 1, category: "Seven" },
-      ]
 
       series.data.setAll(dataArray);
 
