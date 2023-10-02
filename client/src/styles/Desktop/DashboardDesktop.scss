@@ -134,6 +134,7 @@
                 display: flex;
                 gap: 1.5rem;
                 .cell{
+                    position: relative;
                     width: 33.3%;
                     background: linear-gradient(114.83deg, hsla(0, 0%, 100%, 0.1) 5.95%, hsla(0, 0%, 100%, 0.05) 93.77%);
                     border-radius: 1rem;
@@ -143,6 +144,7 @@
                 }
             }
             .cell{
+                position: relative;
                 width: 100%;
                 background: $black;
                 border-radius: 1rem;
@@ -182,6 +184,7 @@
             gap: 1.5rem;
 
             .cell{
+                position: relative;
                 width: 100%;
                 height: 100%;
                 background: $black;
@@ -201,7 +204,13 @@
 }
 
 
-
+.chart-title{
+    position: absolute;
+    top: 1.5rem; left: 1.5rem;
+    color: $white-50;
+    font-family: satoshi;
+    text-transform: capitalize;
+}
 
 #day-half-doughnut{
     width: 100%;
@@ -212,7 +221,7 @@
     position: relative;
     z-index: 21;
 
-    border: 1px solid yellow;
+    border: 0px solid yellow;
 
     .watermark-cover{
         position: absolute;

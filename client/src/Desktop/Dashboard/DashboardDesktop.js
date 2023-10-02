@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import DashboardSidebarDesktop from './DashboardSidebarDesktop'
 import { motion, AnimatePresence } from 'framer-motion'
 
-import ScoreChart from './ScoreChart'
+import DayHalfDoughnutChart from './DayHalfDoughnutChart'
 import PieChart1 from './PieChart1'
 import AmLinesChart from './AmLinesChart'
 
@@ -88,10 +88,11 @@ const DashboardDesktop = ({ data }) => {
           <div className="main-placeholder-right" ref={rightPlaceholderRef}></div>
           <div className="main-right" ref={mainRightRef}>
             <div className="cell box-rainbow">
-              <ScoreChart dataArray={dataArray} />
+            <div className="chart-title">total score</div>
+              <DayHalfDoughnutChart dataArray={dataArray} />
             </div>
             <div className="cell box-circles">
-              <PieChart1 />
+              <div className="chart-title">subscores</div>
             </div>
           </div>
         </div>
