@@ -18,7 +18,7 @@ const DayFullHealth = () => {
 
         let chart = root.container.children.push(am5percent.PieChart.new(root, {
           layout: root.horizontalLayout,
-          innerRadius: am5.percent(80)
+          innerRadius: am5.percent(75)
         }))
 
         const series = chart.series.push(am5percent.PieSeries.new(root, {
@@ -29,14 +29,25 @@ const DayFullHealth = () => {
           height: 10
         }))
 
+        let gradient = am5.LinearGradient.new(root, {
+          stops: [{
+            color: am5.color("#F26642")
+          }, {
+            color: am5.color("#FFC363")
+          }]
+        })
         series.labels.template.set("forceHidden", true);
 
-
+        series.slices.template.setAll({
+          fillGradient: gradient,
+          stroke: am5.color("#000000")
+        })
 
       let dataArray2 = [
-        { value: 100, category: "Health" },
-        { value: 90, category: "Wealth" },
-        { value: 60, category: "Happiness" },
+        { value: 100, category: "Activity 1" },
+        { value: 90, category: "Activity 2" },
+        { value: 60, category: "Activity 3" },
+        { value: 60, category: "Other" },
       ]
 
       series.data.setAll(dataArray2)

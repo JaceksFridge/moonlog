@@ -100,9 +100,9 @@ const DashboardDesktop = ({ data }) => {
                     <DayFullHealth />
                   </div>
                   <div className="day-full-legend">
-                    <div className="legend-title">
+                    <h3 className="legend-title">
                       health
-                    </div>
+                    </h3>
                     <div className="legend h-1">
                       <div className="legend-block h-1"></div>
                       <p>placehold</p>
