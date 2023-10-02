@@ -8,6 +8,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background: $black;
 
     // .open-button{
     //     position: absolute;
@@ -43,7 +44,7 @@
         width: 100%;
         height: 100%;
         padding: 1.5rem;
-        background: #171717;
+        background: none;
 
 
         .button-container{
@@ -109,7 +110,7 @@
     .main{
         width: 100%;
         height: 100%;
-        background: black;
+        background: none;
         border: 0px solid white;
 
         display: flex;
@@ -134,7 +135,7 @@
                 gap: 1.5rem;
                 .cell{
                     width: 33.3%;
-                    background: $dark;
+                    background: linear-gradient(114.83deg, hsla(0, 0%, 100%, 0.1) 5.95%, hsla(0, 0%, 100%, 0.05) 93.77%);
                     border-radius: 1rem;
                 }
                 .top1, .top2, .top3{
@@ -143,8 +144,10 @@
             }
             .cell{
                 width: 100%;
-                background: $dark;
+                background: $black;
                 border-radius: 1rem;
+                border: 1px solid $white-20;
+                overflow: hidden;
             }
             .box-scores{
                 margin-top: 1.5rem;
@@ -172,7 +175,7 @@
             align-self: flex-start;
             padding: 1.5rem 0;
             overflow: hidden;
-            border: 1px solid blue;
+            border: 0px solid blue;
 
             display: flex;
             flex-direction: column;
@@ -181,8 +184,10 @@
             .cell{
                 width: 100%;
                 height: 100%;
-                background: $dark;
+                background: $black;
                 border-radius: 1rem;
+                border: 1px solid $white-20;
+                overflow: hidden;
                 // padding: 1.5rem;
             }
             .box-rainbow{
@@ -198,10 +203,12 @@
 
 
 
-#chart-div{
+#day-half-doughnut{
     width: 100%;
     height: 100%;
 
+    margin-top: 2rem;
+    // color: white;
     position: relative;
     z-index: 21;
 
@@ -217,10 +224,12 @@
 
 #chart-amlines{
     width: 100%;
-    height: 400px;
+    height: 27rem;
 }
 
 .piechart1{
     height: 100%;
     width: 100%;
-}
+
+
+}   

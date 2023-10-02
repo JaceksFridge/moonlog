@@ -8,6 +8,8 @@ import ScoreChart from './ScoreChart'
 import PieChart1 from './PieChart1'
 import AmLinesChart from './AmLinesChart'
 
+import Re2DoughnutChart from './Re2DoughnutChart'
+
 const DashboardDesktop = ({ data }) => {
 
   console.log(data)
@@ -79,7 +81,9 @@ const DashboardDesktop = ({ data }) => {
             <div className="cell box-scores">
               <AmLinesChart />
             </div>
-            <div className="cell box-logs"></div>
+            <div className="cell box-logs">
+              <Re2DoughnutChart />
+            </div>
           </div>
           <div className="main-placeholder-right" ref={rightPlaceholderRef}></div>
           <div className="main-right" ref={mainRightRef}>
