@@ -18,11 +18,11 @@ const  MainBarchart = () => {
 
 
             let chart = root.container.children.push(am5xy.XYChart.new(root, {
-                panX: true,
-                panY: true,
-                wheelX: "panX",
-                wheelY: "zoomX",
-                pinchZoomX: true
+                panX: false,
+                panY: false,
+                wheelX: undefined,
+                wheelY: undefined,
+                pinchZoomX: false
             }));
 
 
