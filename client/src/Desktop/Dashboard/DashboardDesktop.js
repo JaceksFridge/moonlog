@@ -5,7 +5,9 @@ import DashboardSidebarDesktop from './DashboardSidebarDesktop'
 import { motion, AnimatePresence } from 'framer-motion'
 
 import DayHalfDoughnutChart from './DayHalfDoughnutChart'
+import Legend from './Legend'
 import DayFullHealth from './DayFullHealth'
+import DayFullHappiness from './DayFullHappiness'
 
 import MainBarchart from './ MainBarchart'
 
@@ -100,27 +102,12 @@ const DashboardDesktop = ({ data }) => {
             <div className="chart-title">subscores</div>
               <div className="subscores-container">
                 <div className="sub-box">
-                  <div className="day-full-container">
-                    <DayFullHealth />
-                  </div>
-                  <div className="day-full-legend">
-                    <h3 className="legend-title">
-                      health
-                    </h3>
-                    <div className="legend h-1">
-                      <div className="legend-block h-1"></div>
-                      <p>placehold</p>
-                    </div>
-                    <div className="legend h-2">
-                      <div className="legend-block h-2"></div>
-                      <p>placehold</p>
-                    </div>
-                    <div className="legend h-3">
-                      <div className="legend-block h-3"></div>
-                      <p>placehold</p>
-                    </div>
-                  </div>
+                  <div className="day-full-container"><DayFullHealth /></div>
+                  <Legend />
                 </div>
+                <div className="sub-box"><DayFullHappiness /></div>
+                  <Legend />
+                <div className="sub-box"></div>
                 <div className="sub-box"></div>
               </div>
             </div>
