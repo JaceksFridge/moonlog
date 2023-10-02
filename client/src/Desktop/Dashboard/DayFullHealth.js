@@ -17,8 +17,8 @@ const DayFullHealth = () => {
 
 
         let chart = root.container.children.push(am5percent.PieChart.new(root, {
-          layout: root.verticalLayout,
-          innerRadius: am5.percent(50)
+          layout: root.horizontalLayout,
+          innerRadius: am5.percent(80)
         }))
 
         const series = chart.series.push(am5percent.PieSeries.new(root, {
@@ -46,12 +46,20 @@ const DayFullHealth = () => {
 
 
       // Legend
-      var legend = chart.children.push(am5.Legend.new(root, {
-        centerX: am5.percent(50),
-        x: am5.percent(50),
-        marginTop: 15,
-        marginBottom: 15,
+      var legend = chart.children.unshift(am5.Legend.new(root, {
+        // centerX: am5.percent(50),
+        // x: am5.percent(50),
+        // marginTop: 15,
+        // marginBottom: 15,
+
+        y: am5.percent(50),
+        centerY: am5.percent(50)
       }))
+
+      legend.markers.template.setAll({
+        width: 24,
+        height: 24
+      });
 
       series.data.setAll(dataArray2)
       legend.data.setAll(series.dataItems);

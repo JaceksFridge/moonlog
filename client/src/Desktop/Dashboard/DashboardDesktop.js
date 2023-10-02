@@ -94,11 +94,11 @@ const DashboardDesktop = ({ data }) => {
             </div>
             <div className="cell box-circles">
             <div className="chart-title">subscores</div>
-              <h2>change ...</h2>
               <div className="subscores-container">
                 <div className="sub-box">
                   <DayFullHealth />
                 </div>
+                <div className="sub-box"></div>
               </div>
             </div>
           </div>
