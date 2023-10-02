@@ -212,6 +212,8 @@
     position: relative;
     z-index: 21;
 
+    border: 1px solid yellow;
+
     .watermark-cover{
         position: absolute;
         bottom: 0;
@@ -219,6 +221,15 @@
         width: 4rem;
         background: $dark;
         z-index: 4000;
+    }
+
+    .day-main-score{
+        position: absolute;
+
+        bottom: 30%;
+        left: 50%; 
+        transform: translate(-50%, 0%);
+        color: $white;
     }
 }
 

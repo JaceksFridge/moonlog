@@ -29,7 +29,7 @@ const ScoreChart = ({ dataArray }) => {
         startAngle: 180,
         endAngle: 360,
         layout: root.verticalLayout,
-        innerRadius: am5.percent(85),
+        innerRadius: am5.percent(80),
       }));
 
     
@@ -46,10 +46,13 @@ const ScoreChart = ({ dataArray }) => {
       });
       
       series.slices.template.setAll({
-        cornerRadius: 5,
+        cornerRadius: 3,
         templateField: "sliceSettings",
-
+        tooltipText: ""
       });
+
+      series.labels.template.set("forceHidden", true);
+
     
 
       let hey = dataArray
@@ -70,9 +73,9 @@ const ScoreChart = ({ dataArray }) => {
         2: "rgba(102, 67, 104, 0.5)"
       }
       const gradientColors = {
-        0: ["#584063", "#E33A4E"],
-        1: ["#CF283C", "#E84519"],
-        2: ["#F26642", "#FFC363"]
+        0: ["#F26642", "#FFC363"],
+        1: ["#E84519", "#CF283C"],
+        2: ["#E33A4E", "#584063"],
       }
 
 
@@ -80,9 +83,9 @@ const ScoreChart = ({ dataArray }) => {
 
         let gradient =  am5.LinearGradient.new(root, {
           stops: [{
-            color: am5.color(0xffffff)
+            color: am5.color(gradientColors[index][0])
           }, {
-            color: am5.color(0x946b49)
+            color: am5.color(gradientColors[index][1])
           }]
         })
 
@@ -91,7 +94,7 @@ const ScoreChart = ({ dataArray }) => {
           sliceSettings: {
             fillGradient: gradient,
             // fill: sliceFill[index],
-            stroke: sliceBorder[index]
+            stroke: am5.color('#000000')
             // stroke: "#FFFFFF"
           }
         }
@@ -128,6 +131,7 @@ const ScoreChart = ({ dataArray }) => {
 
     <div id="day-half-doughnut">
         <div className="watermark-cover"></div>
+        <h2 className="day-main-score">1440</h2>
     </div>
   
   );
