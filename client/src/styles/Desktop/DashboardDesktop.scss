@@ -257,18 +257,29 @@
     height: .8rem;
     border-radius: 2px;
     background: blue;
-    border: .2px solid $white-50;
+    border: .2px solid $white-20;
 }
 
 .legend-block.h-1{
-    background: blue;
+    background: linear-gradient(180deg, #F26743 0%, #F7854E 100%);
 }
 .legend-block.h-2{
-    background: yellow;
+    background: linear-gradient(180deg, #F7854E 0%, #FBA459 100%);
 }
 .legend-block.h-3{
-    background: peru;
+    background: linear-gradient(180deg, #FBA559 0%, #FFC364 100%);
+
 }
+
+
+
+
+
+
+
+
+
+
 
 .chart-title{
     position: absolute;
@@ -285,7 +296,7 @@
     bottom: 0;
     height: 1.25rem;
     width: 4rem;
-    background: $dark;
+    background: $black;
     z-index: 4000;
 }
 
@@ -293,7 +304,7 @@
     width: 100%;
     height: 100%;
 
-    margin-top: 2rem;
+    margin-top: 0rem;
     // color: white;
     position: relative;
     z-index: 21;

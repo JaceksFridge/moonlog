@@ -10,38 +10,34 @@ const DayFullHealth = () => {
     let root
 
     useEffect(() => {
-        am5.ready(function() {
+      am5.ready(function() {
 
-        root = am5.Root.new("day-full-health")
-        root.setThemes([am5themes_Animated.new(root)])
+      root = am5.Root.new("day-full-health")
+      root.setThemes([am5themes_Animated.new(root)])
 
 
-        let chart = root.container.children.push(am5percent.PieChart.new(root, {
-          layout: root.horizontalLayout,
-          innerRadius: am5.percent(75)
-        }))
+      let chart = root.container.children.push(am5percent.PieChart.new(root, {
+        layout: root.horizontalLayout,
+        innerRadius: am5.percent(75)
+      }))
 
-        const series = chart.series.push(am5percent.PieSeries.new(root, {
-          valueField: "value",
-          categoryField: "category",
-          alignLabels: false,
-          width: 10,
-          height: 10
-        }))
+      const series = chart.series.push(am5percent.PieSeries.new(root, {
+        startAngle: 180,
+        endAngle: 540,
+        valueField: "value",
+        categoryField: "category",
+        alignLabels: false,
+        width: 10,
+        height: 10
+      }))
 
-        let gradient = am5.LinearGradient.new(root, {
-          stops: [{
-            color: am5.color("#F26642")
-          }, {
-            color: am5.color("#FFC363")
-          }]
-        })
-        series.labels.template.set("forceHidden", true);
+      series.labels.template.set("forceHidden", true);
 
-        series.slices.template.setAll({
-          fillGradient: gradient,
-          stroke: am5.color("#000000")
-        })
+      series.slices.template.setAll({
+        cornerRadius: 3,
+        templateField: "sliceSettings",
+        tooltipText: ""
+      });
 
       let dataArray2 = [
         { value: 100, category: "Activity 1" },
@@ -50,7 +46,35 @@ const DayFullHealth = () => {
         { value: 60, category: "Other" },
       ]
 
-      series.data.setAll(dataArray2)
+
+      const gradientColors = {
+        0: ["#FFC364", "#FBA559"],
+        1: ["#FBA459", "#F7854E"],
+        2: ["#F7854E", "#F26743"],
+        3: ["#323232", "#323232"]
+      }
+
+
+      const styledData = dataArray2.map((item, index) => {
+
+        let gradient =  am5.LinearGradient.new(root, {
+          stops: [{
+            color: am5.color(gradientColors[index][0])
+          }, {
+            color: am5.color(gradientColors[index][1])
+          }]
+        })
+
+        return {
+          ...item,
+          sliceSettings: {
+            fillGradient: gradient,
+            stroke: am5.color('#000000')
+          }
+        }
+      })
+
+      series.data.setAll(styledData)
       series.appear(1000, 100);
 
     })
