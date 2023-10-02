@@ -5,6 +5,7 @@ import DashboardSidebarDesktop from './DashboardSidebarDesktop'
 import { motion, AnimatePresence } from 'framer-motion'
 
 import DayHalfDoughnutChart from './DayHalfDoughnutChart'
+import DayFullHealth from './DayFullHealth'
 import PieChart1 from './PieChart1'
 import AmLinesChart from './AmLinesChart'
 
@@ -93,6 +94,7 @@ const DashboardDesktop = ({ data }) => {
             </div>
             <div className="cell box-circles">
               <div className="chart-title">subscores</div>
+              <DayFullHealth />
             </div>
           </div>
         </div>
