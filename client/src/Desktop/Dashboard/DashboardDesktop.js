@@ -105,8 +105,11 @@ const DashboardDesktop = ({ data }) => {
                   <div className="day-full-container"><DayFullHealth /></div>
                   <Legend />
                 </div>
-                <div className="sub-box"><DayFullHappiness /></div>
+
+                <div className="sub-box">
+                  <div className="day-full-container"><DayFullHappiness /></div>
                   <Legend />
+                </div>
                 <div className="sub-box"></div>
                 <div className="sub-box"></div>
               </div>

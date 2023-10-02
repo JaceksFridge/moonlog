@@ -38,7 +38,6 @@ const DayFullHappiness = () => {
                 tooltipText: ""
             })
 
-
             let dataArray2 = [
                 { value: 40, category: "Activity 1" },
                 { value: 50, category: "Activity 2" },
@@ -52,7 +51,6 @@ const DayFullHappiness = () => {
                 2: ["#F7854E", "#F26743"],
                 3: ["#323232", "#323232"]
             }   
-
 
             const styledData = dataArray2.map((item, index) => {
 
