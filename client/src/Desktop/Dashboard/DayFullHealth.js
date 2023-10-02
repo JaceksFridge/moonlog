@@ -27,13 +27,13 @@ const DayFullHealth = () => {
           alignLabels: false
         }))
 
-        series.labels.template.setAll({
-          textType: "circular",
-          centerX: 0,
-          centerY: 0
-        })
+        // series.labels.template.setAll({
+        //   textType: "circular",
+        //   centerX: 0,
+        //   centerY: 0
+        // })
 
-        // series.labels.template.set("forceHidden", true);
+        series.labels.template.set("forceHidden", true);
 
 
 

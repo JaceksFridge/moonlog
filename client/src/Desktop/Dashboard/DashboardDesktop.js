@@ -93,8 +93,13 @@ const DashboardDesktop = ({ data }) => {
               <DayHalfDoughnutChart dataArray={dataArray} />
             </div>
             <div className="cell box-circles">
-              <div className="chart-title">subscores</div>
-              <DayFullHealth />
+            <div className="chart-title">subscores</div>
+              <h2>change ...</h2>
+              <div className="subscores-container">
+                <div className="sub-box">
+                  <DayFullHealth />
+                </div>
+              </div>
             </div>
           </div>
         </div>

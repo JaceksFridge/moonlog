@@ -187,7 +187,7 @@
                 position: relative;
                 width: 100%;
                 height: 100%;
-                background: $black;
+                background: $dark;
                 border-radius: 1rem;
                 border: 1px solid $white-20;
                 overflow: hidden;
@@ -198,6 +198,16 @@
             }
             .box-circles{
                 height: 61.4%;
+
+                .subscores-container{
+                    height: 100%;
+                    width: 100%;
+
+                    .sub-box{
+                        border: 1px solid $white-20;
+
+                    }
+                }
             }
         }
     }
