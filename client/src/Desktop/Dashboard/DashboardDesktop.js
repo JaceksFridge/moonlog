@@ -96,8 +96,26 @@ const DashboardDesktop = ({ data }) => {
             <div className="chart-title">subscores</div>
               <div className="subscores-container">
                 <div className="sub-box">
-                  <DayFullHealth />
-                  <div className="day-full-legend"></div>
+                  <div className="day-full-container">
+                    <DayFullHealth />
+                  </div>
+                  <div className="day-full-legend">
+                    <div className="legend-title">
+                      health
+                    </div>
+                    <div className="legend h-1">
+                      <div className="legend-block h-1"></div>
+                      <p>placehold</p>
+                    </div>
+                    <div className="legend h-2">
+                      <div className="legend-block h-2"></div>
+                      <p>placehold</p>
+                    </div>
+                    <div className="legend h-3">
+                      <div className="legend-block h-3"></div>
+                      <p>placehold</p>
+                    </div>
+                  </div>
                 </div>
                 <div className="sub-box"></div>
               </div>
