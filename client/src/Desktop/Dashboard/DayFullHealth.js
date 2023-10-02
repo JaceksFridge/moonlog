@@ -24,14 +24,10 @@ const DayFullHealth = () => {
         const series = chart.series.push(am5percent.PieSeries.new(root, {
           valueField: "value",
           categoryField: "category",
-          alignLabels: false
+          alignLabels: false,
+          width: 10,
+          height: 10
         }))
-
-        // series.labels.template.setAll({
-        //   textType: "circular",
-        //   centerX: 0,
-        //   centerY: 0
-        // })
 
         series.labels.template.set("forceHidden", true);
 
@@ -43,26 +39,7 @@ const DayFullHealth = () => {
         { value: 60, category: "Happiness" },
       ]
 
-
-
-      // Legend
-      var legend = chart.children.unshift(am5.Legend.new(root, {
-        // centerX: am5.percent(50),
-        // x: am5.percent(50),
-        // marginTop: 15,
-        // marginBottom: 15,
-
-        y: am5.percent(50),
-        centerY: am5.percent(50)
-      }))
-
-      legend.markers.template.setAll({
-        width: 24,
-        height: 24
-      });
-
       series.data.setAll(dataArray2)
-      legend.data.setAll(series.dataItems);
       series.appear(1000, 100);
 
     })

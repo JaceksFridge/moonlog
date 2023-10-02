@@ -97,6 +97,7 @@ const DashboardDesktop = ({ data }) => {
               <div className="subscores-container">
                 <div className="sub-box">
                   <DayFullHealth />
+                  <div className="day-full-legend"></div>
                 </div>
                 <div className="sub-box"></div>
               </div>
