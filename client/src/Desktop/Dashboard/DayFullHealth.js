@@ -10,14 +10,10 @@ const DayFullHealth = () => {
     let root
 
     useEffect(() => {
-
         am5.ready(function() {
-
-
 
         root = am5.Root.new("day-full-health")
         root.setThemes([am5themes_Animated.new(root)])
-        })
 
 
         let chart = root.container.children.push(am5percent.PieChart.new(root, {
@@ -48,6 +44,7 @@ const DayFullHealth = () => {
       ]
 
 
+
       // Legend
       var legend = chart.children.push(am5.Legend.new(root, {
         centerX: am5.percent(50),
@@ -56,17 +53,24 @@ const DayFullHealth = () => {
         marginBottom: 15,
       }))
 
+      series.data.setAll(dataArray2)
       legend.data.setAll(series.dataItems);
       series.appear(1000, 100);
 
     })
 
+    return () => {
+      if (root) {
+        root.dispose();
+      }
+    };
+  }, []);
 
   return (
     <div id="day-full-health">
         <div className="watermark-cover"></div>
     </div>
   )
-}
+};
 
 export default DayFullHealth
