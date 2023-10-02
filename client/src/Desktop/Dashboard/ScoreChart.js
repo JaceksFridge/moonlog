@@ -48,13 +48,7 @@ const ScoreChart = ({ dataArray }) => {
       series.slices.template.setAll({
         cornerRadius: 5,
         templateField: "sliceSettings",
-        fillGradient: am5.LinearGradient.new(root, {
-          stops: [{
-            color: am5.color(0xff621f)
-          }, {
-            color: am5.color(0x946b49)
-          }]
-        })
+
       });
     
 
@@ -84,13 +78,18 @@ const ScoreChart = ({ dataArray }) => {
 
       const styledData = dataArray2.map((item, index) => {
 
-
-        let gradient = "#FF00EE"
+        let gradient =  am5.LinearGradient.new(root, {
+          stops: [{
+            color: am5.color(0xffffff)
+          }, {
+            color: am5.color(0x946b49)
+          }]
+        })
 
         return {
           ...item,
           sliceSettings: {
-            fill: gradient,
+            fillGradient: gradient,
             // fill: sliceFill[index],
             stroke: sliceBorder[index]
             // stroke: "#FFFFFF"
