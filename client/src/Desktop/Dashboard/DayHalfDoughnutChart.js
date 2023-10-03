@@ -78,7 +78,7 @@ const DayHalfDoughnut = ({ dataDay }) => {
         console.log(dataArray)
   
         
-        const styledData = dataArray2.map((item, index) => {
+        const styledData = dataArray.map((item, index) => {
   
           let gradient =  am5.LinearGradient.new(root, {
             stops: [{

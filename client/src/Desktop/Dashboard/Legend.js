@@ -2,7 +2,11 @@
 
 import React from 'react'
 
-const Legend = () => {
+const Legend = ({ name, data }) => {
+
+    console.log(name)
+    console.log(data)
+
   return (
     <div className="day-full-legend">
         <h3 className="legend-title">

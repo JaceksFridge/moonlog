@@ -93,7 +93,7 @@ const DashboardDesktop = ({ data }) => {
               <div className="subscores-container">
                 <div className="sub-box">
                   <div className="day-full-container"><DayFullHealth /></div>
-                  <Legend />
+                  <Legend name='health' data={activeDay ? activeDay.subscores.health : null}/>
                 </div>
 
                 <div className="sub-box">
