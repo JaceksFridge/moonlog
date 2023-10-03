@@ -9,9 +9,6 @@ const DayHalfDoughnut = ({ dataDay }) => {
 
   let root
 
-  console.log(dataDay)
-
-
 
   useEffect(() => {
     am5.ready(function () {
@@ -49,8 +46,6 @@ const DayHalfDoughnut = ({ dataDay }) => {
       series.labels.template.set("forceHidden", true);
 
     
-
-      let hey = dataArray
       let dataArray2 = [
         { value: 100, category: "Health" },
         { value: 90, category: "Wealth" },
@@ -73,7 +68,10 @@ const DayHalfDoughnut = ({ dataDay }) => {
         2: ["#E33A4E", "#584063"],
       }
 
-
+      if (dataDay) {
+        
+      }
+      
       const styledData = dataArray2.map((item, index) => {
 
         let gradient =  am5.LinearGradient.new(root, {
@@ -88,25 +86,11 @@ const DayHalfDoughnut = ({ dataDay }) => {
           ...item,
           sliceSettings: {
             fillGradient: gradient,
-            // fill: sliceFill[index],
             stroke: am5.color('#000000')
-            // stroke: "#FFFFFF"
           }
         }
       })
 
-
-      // series.ticks.template.setAll({
-      //   forceHidden: true
-      // });
-
-      // columnSeries.columns.template.set("fillGradient", am5.LinearGradient.new(root, {
-      //   stops: [{
-      //     color: am5.color(0xff621f)
-      //   }, {
-      //     color: am5.color(0x946b49)
-      //   }]
-      // }));
 
 
       // set data
@@ -126,7 +110,7 @@ const DayHalfDoughnut = ({ dataDay }) => {
 
     <div id="day-half-doughnut">
         <div className="watermark-cover"></div>
-        <h2 className="day-main-score">1440</h2>
+        <h2 className="day-main-score">{dataDay ? dataDay.sum : "0000"}</h2>
     </div>
   
   );

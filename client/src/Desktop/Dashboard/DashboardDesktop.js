@@ -35,8 +35,27 @@ const DashboardDesktop = ({ data }) => {
   useEffect(() => {
     if (data) {
       setActiveDay(data[0])
+
     }
   }, [data])
+
+
+  const prepareDataTotal = (activeDay) => {
+    let dataArray = [
+      { value: activeDay.health, category: "health" },
+      { value: activeDay.wealth, category: "wealth" },
+      { value: activeDay.happiness, category: "happiness" }
+    ]
+    return dataArray
+  }
+  if (activeDay) {
+    const dataArray = prepareDataTotal(activeDay)
+    console.log(dataArray)
+  }
+
+
+
+ 
 
 
   const toggleSidebar = () => {
@@ -68,11 +87,7 @@ const DashboardDesktop = ({ data }) => {
     };
   }, []);
 
-  let dataArray = [
-    { value: 10, category: "One" },
-    { value: 9, category: "Two" },
-    { value: 6, category: "Three" },
-  ]
+
 
 
   return (
