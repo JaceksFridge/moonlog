@@ -49,8 +49,8 @@ const DashboardDesktop = ({ data }) => {
     return dataArray
   }
   if (activeDay) {
-    const dataArray = prepareDataTotal(activeDay)
-    console.log(dataArray)
+    const dayFull = prepareDataTotal(activeDay)
+    console.log(dayFull)
   }
 
 
@@ -122,7 +122,7 @@ const DashboardDesktop = ({ data }) => {
           <div className="main-right" ref={mainRightRef}>
             <div className="cell box-rainbow">
             <div className="chart-title">total score</div>
-              <DayHalfDoughnutChart dataDay={activeDay} />
+              <DayHalfDoughnutChart dataDay={dayFull} />
             </div>
             <div className="cell box-circles">
             <div className="chart-title">subscores</div>

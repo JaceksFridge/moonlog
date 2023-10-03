@@ -46,11 +46,11 @@ const DayHalfDoughnut = ({ dataDay }) => {
       series.labels.template.set("forceHidden", true);
 
     
-      let dataArray2 = [
-        { value: 100, category: "Health" },
-        { value: 90, category: "Wealth" },
-        { value: 60, category: "Happiness" },
-      ]
+      // let dataArray2 = [
+      //   { value: 100, category: "Health" },
+      //   { value: 90, category: "Wealth" },
+      //   { value: 60, category: "Happiness" },
+      // ]
 
       const sliceBorder = {
         0: "#F52028",
@@ -68,11 +68,11 @@ const DayHalfDoughnut = ({ dataDay }) => {
         2: ["#E33A4E", "#584063"],
       }
 
-      if (dataDay) {
+      // if (dataDay) {
         
-      }
+      // }
       
-      const styledData = dataArray2.map((item, index) => {
+      const styledData = dataDay.map((item, index) => {
 
         let gradient =  am5.LinearGradient.new(root, {
           stops: [{
