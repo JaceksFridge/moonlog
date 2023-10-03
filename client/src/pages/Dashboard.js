@@ -33,7 +33,7 @@ const Dashboard = () => {
     return (
         <>
         { isDesktoporLaptop ? (
-                <DashboardDesktop data={data}/>
+                <DashboardDesktop data={data} />
             ) : (
                 <div className="dashboard">
                 Dashboard

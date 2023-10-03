@@ -1,62 +1,30 @@
 
 
-import React, { useState, useEffect, useRef } from 'react'
-import DashboardSidebarDesktop from './DashboardSidebarDesktop'
-import { motion, AnimatePresence } from 'framer-motion'
+import React, { useState, useEffect, useRef } from 'react';
+import DashboardSidebarDesktop from './DashboardSidebarDesktop';
+import { motion } from 'framer-motion';
 
-import DayHalfDoughnutChart from './DayHalfDoughnutChart'
-import Legend from './Legend'
-import DayFullHealth from './DayFullHealth'
-import DayFullHappiness from './DayFullHappiness'
-import DayFullWealth from './DayFullWealth'
+import DayHalfDoughnutChart from './DayHalfDoughnutChart';
+import Legend from './Legend';
+import DayFullHealth from './DayFullHealth';
+import DayFullHappiness from './DayFullHappiness';
+import DayFullWealth from './DayFullWealth';
 
-import MainBarchart from './ MainBarchart'
+import MainBarchart from './MainBarchart'
+import Re2DoughnutChart from './Re2DoughnutChart';
 
 
-import PieChart1 from './PieChart1'
-import AmLinesChart from './AmLinesChart'
-
-import Re2DoughnutChart from './Re2DoughnutChart'
 
 const DashboardDesktop = ({ data }) => {
+  const [sidebar, setSidebar] = useState(false)
+  const [activeDay, setActiveDay] = useState(null)
 
-  console.log("scores data coming")
-  console.log(data)
-  if (data) {
-    for (const [key, value] of Object.entries(data)) {
-      console.log("key:", key, "value:", value['sum']);
-    }
-  }
-
-  const [ sidebar, setSidebar ] = useState(false)
-  const [ activeDay, setActiveDay ] = useState(false)
-
-  
   useEffect(() => {
-    if (data) {
+    if (data && data[0]) {
       setActiveDay(data[0])
-
+      console.log(activeDay)
     }
   }, [data])
-
-
-  const prepareDataTotal = (activeDay) => {
-    let dataArray = [
-      { value: activeDay.health, category: "health" },
-      { value: activeDay.wealth, category: "wealth" },
-      { value: activeDay.happiness, category: "happiness" }
-    ]
-    return dataArray
-  }
-  if (activeDay) {
-    const dayFull = prepareDataTotal(activeDay)
-    console.log(dayFull)
-  }
-
-
-
- 
-
 
   const toggleSidebar = () => {
     setSidebar(!sidebar)
@@ -66,8 +34,6 @@ const DashboardDesktop = ({ data }) => {
     collapsed: { width: 'auto' },
     expanded: { width: '25%' },
   }
-
-
 
   const mainRef = useRef(null)
   const mainRightRef = useRef(null)
@@ -86,8 +52,6 @@ const DashboardDesktop = ({ data }) => {
       resizeObserver.disconnect();
     };
   }, []);
-
-
 
 
   return (
@@ -122,7 +86,7 @@ const DashboardDesktop = ({ data }) => {
           <div className="main-right" ref={mainRightRef}>
             <div className="cell box-rainbow">
             <div className="chart-title">total score</div>
-              <DayHalfDoughnutChart dataDay={dayFull} />
+              <DayHalfDoughnutChart dataDay={activeDay} />
             </div>
             <div className="cell box-circles">
             <div className="chart-title">subscores</div>
@@ -147,6 +111,6 @@ const DashboardDesktop = ({ data }) => {
         </div>
     </div>
   )
-}
+};
 
-export default DashboardDesktop
+export default DashboardDesktop;
