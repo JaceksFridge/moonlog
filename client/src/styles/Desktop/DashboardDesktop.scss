@@ -202,10 +202,16 @@
                 .subscores-container{
                     height: 100%;
                     width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    margin-top: 2rem;
 
                     .sub-box{
                         border: 1px solid $white-20;
-                        height: 10rem;
+                        height: 100%;
+                        width: 100%;
                         // padding:  0 1rem;
                         display: flex;
 
@@ -228,7 +234,7 @@
                             justify-content: center;
                             align-items: start;
                             gap: 5px;
-
+                            padding: 1rem;
                         }
                     }
                 }
@@ -326,6 +332,11 @@
     border: 0px solid peru;
 }
 #day-full-happiness{
+    width: 100%;
+    height: 100%;
+    border: 0px solid peru;
+}
+#day-full-wealth{
     width: 100%;
     height: 100%;
     border: 0px solid peru;

@@ -8,6 +8,7 @@ import DayHalfDoughnutChart from './DayHalfDoughnutChart'
 import Legend from './Legend'
 import DayFullHealth from './DayFullHealth'
 import DayFullHappiness from './DayFullHappiness'
+import DayFullWealth from './DayFullWealth'
 
 import MainBarchart from './ MainBarchart'
 
@@ -19,6 +20,7 @@ import Re2DoughnutChart from './Re2DoughnutChart'
 
 const DashboardDesktop = ({ data }) => {
 
+  console.log("scores data coming")
   console.log(data)
   if (data) {
     for (const [key, value] of Object.entries(data)) {
@@ -27,6 +29,15 @@ const DashboardDesktop = ({ data }) => {
   }
 
   const [ sidebar, setSidebar ] = useState(false)
+  const [ activeDay, setActiveDay ] = useState(false)
+
+  
+  useEffect(() => {
+    if (data) {
+      setActiveDay(data[0])
+    }
+  }, [data])
+
 
   const toggleSidebar = () => {
     setSidebar(!sidebar)
@@ -96,7 +107,7 @@ const DashboardDesktop = ({ data }) => {
           <div className="main-right" ref={mainRightRef}>
             <div className="cell box-rainbow">
             <div className="chart-title">total score</div>
-              <DayHalfDoughnutChart dataArray={dataArray} />
+              <DayHalfDoughnutChart dataDay={activeDay} />
             </div>
             <div className="cell box-circles">
             <div className="chart-title">subscores</div>
@@ -110,7 +121,10 @@ const DashboardDesktop = ({ data }) => {
                   <div className="day-full-container"><DayFullHappiness /></div>
                   <Legend />
                 </div>
-                <div className="sub-box"></div>
+                <div className="sub-box">
+                  <div className="day-full-container"><DayFullWealth /></div>
+                  <Legend />
+                </div>
                 <div className="sub-box"></div>
               </div>
             </div>

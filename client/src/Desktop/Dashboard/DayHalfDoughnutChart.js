@@ -5,22 +5,17 @@ import * as am5 from "@amcharts/amcharts5";
 import * as am5percent from "@amcharts/amcharts5/percent";
 import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
 
-const DayHalfDoughnut = ({ dataArray }) => {
-  let root;
+const DayHalfDoughnut = ({ dataDay }) => {
+
+  let root
+
+  console.log(dataDay)
 
 
 
   useEffect(() => {
     am5.ready(function () {
 
-
-      // let gradientoo = am5.LinearGradient.new(root, {
-      //   stops: [{
-      //     color: am5.color(0xFF621F)
-      //   }, {
-      //     color: am5.color(0x946B49)
-      //   }]
-      // });
 
       root = am5.Root.new("day-half-doughnut");
       root.setThemes([am5themes_Animated.new(root)]);
