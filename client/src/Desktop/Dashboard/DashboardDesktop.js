@@ -10,6 +10,8 @@ import DayFullHealth from './DayFullHealth';
 import DayFullHappiness from './DayFullHappiness';
 import DayFullWealth from './DayFullWealth';
 
+import LogGrid from './LogGrid';
+
 import MainBarchart from './MainBarchart'
 import Re2DoughnutChart from './Re2DoughnutChart';
 
@@ -25,6 +27,14 @@ const DashboardDesktop = ({ data }) => {
       console.log(activeDay)
     }
   }, [data])
+
+
+
+  const cutData = () => {
+
+  }
+
+
 
   const toggleSidebar = () => {
     setSidebar(!sidebar)
@@ -79,7 +89,7 @@ const DashboardDesktop = ({ data }) => {
               <MainBarchart />
             </div>
             <div className="cell box-logs">
-              <Re2DoughnutChart />
+              <LogGrid />
             </div>
           </div>
           <div className="main-placeholder-right" ref={rightPlaceholderRef}></div>
@@ -93,16 +103,16 @@ const DashboardDesktop = ({ data }) => {
               <div className="subscores-container">
                 <div className="sub-box">
                   <div className="day-full-container"><DayFullHealth /></div>
-                  <Legend name='health' data={activeDay ? activeDay.subscores.health : null}/>
+                  <Legend name='health' data={activeDay ? activeDay.subscores.health : null} />
                 </div>
 
                 <div className="sub-box">
                   <div className="day-full-container"><DayFullHappiness /></div>
-                  <Legend />
+                  <Legend name="wealth" data={activeDay ? activeDay.subscores.wealth : null} />
                 </div>
                 <div className="sub-box">
                   <div className="day-full-container"><DayFullWealth /></div>
-                  <Legend />
+                  <Legend name="happiness" data={activeDay ? activeDay.subscores.happiness : null} />
                 </div>
                 <div className="sub-box"></div>
               </div>

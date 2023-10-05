@@ -146,7 +146,7 @@
             .cell{
                 position: relative;
                 width: 100%;
-                background: $black;
+                background: $dark;
                 border-radius: 1rem;
                 border: 1px solid $white-20;
                 overflow: hidden;
@@ -160,6 +160,11 @@
             .box-logs{
                 margin-top: 1.5rem;
                 height: 30rem;
+
+                .log-grid{
+                    height: 100%;
+                    width: 100%;
+                }
             }
         }
 
@@ -226,6 +231,7 @@
 
                         .day-full-legend{
                             flex: 1;
+                            height: 100%;
                             width: 100%;
                             border: 0px solid green;
 
@@ -262,19 +268,59 @@
     width: .8rem;
     height: .8rem;
     border-radius: 2px;
-    background: blue;
+    background: $dark;
     border: .2px solid $white-20;
 }
 
-.legend-block.h-0{
+.legend-block.health-0{
     background: linear-gradient(180deg, #FBA559 0%, #FFC364 100%);
 }
-.legend-block.h-1{
+.legend-block.health-1{
     background: linear-gradient(180deg, #F7854E 0%, #FBA459 100%);
 }
-.legend-block.h-2{
+.legend-block.health-2{
     background: linear-gradient(180deg, #F26743 0%, #F7854E 100%);
 }
+
+
+.legend-block.wealth-0{
+    background: linear-gradient(180deg, #E03C25 0%, #E8461A 100%);
+}
+.legend-block.wealth-1{
+    background: linear-gradient(180deg, #D83231 0%, #E03C25 100%);
+}
+.legend-block.wealth-2{
+    background: linear-gradient(180deg, #CF283C 0%, #D83231 100%);
+}
+
+
+
+.legend-block.happiness-0{
+    background: linear-gradient(180deg, #B53857 0%, #E33B4F 100%);
+}
+.legend-block.happiness-1{
+    background: linear-gradient(180deg, #86365F 0%, #B43857 100%);
+}
+.legend-block.happiness-2{
+    background: linear-gradient(180deg, #583468 0%, #86365F 100%);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

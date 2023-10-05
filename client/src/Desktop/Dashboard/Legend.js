@@ -22,8 +22,8 @@ const Legend = ({ name, data }) => {
             {name}
         </h3>
         { data && cutData.map(([key, value], index) => (
-            <div className={`legend h-${index}`}>
-                <div className={`legend-block h-${index}`}></div>
+            <div className={`legend ${name}-${index}`}>
+                <div className={`legend-block ${name}-${index}`}></div>
                 <p>{key}</p>
                 <p>{value}</p>
             </div>
