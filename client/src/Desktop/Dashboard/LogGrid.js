@@ -58,7 +58,7 @@ const LogGrid = () => {
 
   return (
     <div className="log-grid">
-        <button onClick={pushMeClicked}>push me</button>
+        {/* <button onClick={pushMeClicked}>push me</button> */}
         <AgGridReact 
             {...gridOptions}
             ref={gridRef}

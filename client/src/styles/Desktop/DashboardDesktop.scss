@@ -165,20 +165,20 @@
                     height: 100%;
                     width: 100%;
 
-                    // .ag-theme-alpine-dark {
-                    //     --ag-background-color: pink;
-                    // }
-                    // .ag-header{
-                    //     background: peru;
-                    // }
+                    .ag-theme-alpine-dark {
+                        --ag-background-color: $black;
+                    }
+                    .ag-header{
+                        background: $black;
+                    }
                     // .ag-row:nth-child(odd){
                     //     background: peru;
                     // }
                     .super-dark{
-                        background: blue;
+                        background: $black;
                     }
                     .soft-dark{
-                        background: violet;
+                        background: $black;
                     }
                 }
             }
