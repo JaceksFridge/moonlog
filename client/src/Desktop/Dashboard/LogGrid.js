@@ -7,9 +7,10 @@ import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-alpine.css";
 
 
-const LogGrid = () => {
+const LogGrid = ({ data }) => {
 
 
+    console.log("data in loggrid", data)
     const gridRef = useRef()
 
     const [rowData, setRowData] = useState([

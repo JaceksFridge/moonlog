@@ -24,16 +24,9 @@ const DashboardDesktop = ({ data }) => {
   useEffect(() => {
     if (data && data[0]) {
       setActiveDay(data[0])
-      console.log(activeDay)
+      // console.log(activeDay)
     }
   }, [data])
-
-
-
-  const cutData = () => {
-
-  }
-
 
 
   const toggleSidebar = () => {
@@ -89,7 +82,7 @@ const DashboardDesktop = ({ data }) => {
               <MainBarchart />
             </div>
             <div className="cell box-logs">
-              <LogGrid />
+              <LogGrid data={data ? data : null}/>
             </div>
           </div>
           <div className="main-placeholder-right" ref={rightPlaceholderRef}></div>

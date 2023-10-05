@@ -67,15 +67,12 @@ const DayHalfDoughnut = ({ dataDay }) => {
           1: ["#E84519", "#CF283C"],
           2: ["#E33A4E", "#584063"],
         }
-  
-        console.log("DATA DYA")
-        console.log(dataDay)
+   
         let dataArray = [
           { value: dataDay.health, category: "health" },
           { value: dataDay.wealth, category: "wealth" },
           { value: dataDay.happiness, category: "happiness" }
         ]
-        console.log(dataArray)
   
         
         const styledData = dataArray.map((item, index) => {
