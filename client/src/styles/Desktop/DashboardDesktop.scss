@@ -218,7 +218,7 @@
                         .day-full-container{
                             width: 100%;
                             flex: 1;
-                            padding: 0 1rem;
+                            margin: 0 1rem;
                             display: grid;
                             place-items: center;
                             border: 0px solid red;
@@ -267,14 +267,13 @@
 }
 
 .legend-block.h-0{
-    background: linear-gradient(180deg, #F26743 0%, #F7854E 100%);
+    background: linear-gradient(180deg, #FBA559 0%, #FFC364 100%);
 }
 .legend-block.h-1{
     background: linear-gradient(180deg, #F7854E 0%, #FBA459 100%);
 }
 .legend-block.h-2{
-    background: linear-gradient(180deg, #FBA559 0%, #FFC364 100%);
-
+    background: linear-gradient(180deg, #F26743 0%, #F7854E 100%);
 }
 
 
@@ -294,8 +293,6 @@
     font-family: satoshi;
     text-transform: capitalize;
 }
-
-
 
 .watermark-cover{
     position: absolute;
@@ -325,7 +322,6 @@
         color: $white;
     }
 }
-
 #day-full-health{
     width: 100%;
     height: 100%;
