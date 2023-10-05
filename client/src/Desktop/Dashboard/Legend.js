@@ -7,23 +7,27 @@ const Legend = ({ name, data }) => {
     console.log(name)
     console.log(data)
 
+    let cutData = []
+    if (data) {
+        const entries = Object.entries(data)
+        const sortedEntries = entries.sort((a, b) => b[1] - a[1])
+        cutData = sortedEntries.slice(0, 3)
+    }
+
+
+
   return (
     <div className="day-full-legend">
         <h3 className="legend-title">
-            health
+            {name}
         </h3>
-        <div className="legend h-1">
-            <div className="legend-block h-1"></div>
-            <p>placehold</p>
-        </div>
-        <div className="legend h-2">
-            <div className="legend-block h-2"></div>
-            <p>placehold</p>
-        </div>
-        <div className="legend h-3">
-            <div className="legend-block h-3"></div>
-            <p>placehold</p>
-        </div>
+        { data && cutData.map(([key, value], index) => (
+            <div className={`legend h-${index}`}>
+                <div className={`legend-block h-${index}`}></div>
+                <p>{key}</p>
+                <p>{value}</p>
+            </div>
+        ))}
   </div>
   )
 }

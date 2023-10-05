@@ -7,7 +7,7 @@ const GoalSettings = () => {
     const settings = {
         health: {
             slider: {},
-            checkers: { yoga: 100, run: 100, climb: 50, read: 100 },
+            checkers: { yoga: 100, run: 100, climb: 50 },
             counters: { workout: 50, stretch: 50, walk: 50, }
         },
         wealth: {
