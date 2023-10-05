@@ -146,7 +146,7 @@
             .cell{
                 position: relative;
                 width: 100%;
-                background: $dark;
+                background: $black;
                 border-radius: 1rem;
                 border: 1px solid $white-20;
                 overflow: hidden;
@@ -164,6 +164,22 @@
                 .log-grid{
                     height: 100%;
                     width: 100%;
+
+                    // .ag-theme-alpine-dark {
+                    //     --ag-background-color: pink;
+                    // }
+                    // .ag-header{
+                    //     background: peru;
+                    // }
+                    // .ag-row:nth-child(odd){
+                    //     background: peru;
+                    // }
+                    .super-dark{
+                        background: blue;
+                    }
+                    .soft-dark{
+                        background: violet;
+                    }
                 }
             }
         }
