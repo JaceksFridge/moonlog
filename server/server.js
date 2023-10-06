@@ -59,48 +59,48 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-async function generateDocuments() {
-    const startDate = moment("6 October 2023", "D MMMM YYYY");
-    for (let i = 0; i < 50; i++) {
-      const date = startDate.add(1, 'days').format("D. MMMM YYYY");
-      const healthValue = getRandomInt(100, 500);
-      const wealthValue = getRandomInt(100, 500);
-      const happinessValue = getRandomInt(100, 500);
-      const nodoValue = getRandomInt(100, 500);
-      const sumValue = getRandomInt(500, 3000);
-      const changeValue = getRandomInt(0, 100);
+// async function generateDocuments() {
+//     const startDate = moment("6 October 2023", "D MMMM YYYY");
+//     for (let i = 0; i < 50; i++) {
+//       const date = startDate.add(1, 'days').format("D. MMMM YYYY");
+//       const healthValue = getRandomInt(100, 500);
+//       const wealthValue = getRandomInt(100, 500);
+//       const happinessValue = getRandomInt(100, 500);
+//       const nodoValue = getRandomInt(100, 500);
+//       const sumValue = getRandomInt(500, 3000);
+//       const changeValue = getRandomInt(0, 100);
   
-      const documentData = {
-        health: healthValue,
-        wealth: wealthValue,
-        happiness: happinessValue,
-        nodo: nodoValue,
-        sum: sumValue,
-        change: changeValue,
-        subscores: {
-          health: { "yoga": 200, "run": 100, "food": 350 },
-          wealth: { "learn": 450, "app": 200, "work": 100 },
-          happiness: { "day": 550, "fun": 100, "new_thing": 50 },
-          nodo: { "caffeine": -250, "alcohol": -100 }
-        },
-        date: date,
-        time: new Date().toLocaleTimeString(),
+//       const documentData = {
+//         health: healthValue,
+//         wealth: wealthValue,
+//         happiness: happinessValue,
+//         nodo: nodoValue,
+//         sum: sumValue,
+//         change: changeValue,
+//         subscores: {
+//           health: { "yoga": 200, "run": 100, "food": 350 },
+//           wealth: { "learn": 450, "app": 200, "work": 100 },
+//           happiness: { "day": 550, "fun": 100, "new_thing": 50 },
+//           nodo: { "caffeine": -250, "alcohol": -100 }
+//         },
+//         date: date,
+//         time: new Date().toLocaleTimeString(),
         
-        userId: new mongoose.Types.ObjectId('6489ee3f42d5e930b417fa36')  
-      };
+//         userId: new mongoose.Types.ObjectId('6489ee3f42d5e930b417fa36')  
+//       };
       
-      try {
-        const scoreLog = new ScoreLog(documentData);
-        await scoreLog.save();
-        console.log('Document saved successfully:', scoreLog);
-      } catch (error) {
-        console.error('Error:', error);
-        throw error;
-      }
-    }
-  }
+//       try {
+//         const scoreLog = new ScoreLog(documentData);
+//         await scoreLog.save();
+//         console.log('Document saved successfully:', scoreLog);
+//       } catch (error) {
+//         console.error('Error:', error);
+//         throw error;
+//       }
+//     }
+//   }
 
-generateDocuments()
+// generateDocuments()
 
 
 
