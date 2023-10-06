@@ -23,7 +23,7 @@ const MainBarchart = ({ data }) => {
               panY: false,
               wheelX: undefined,
               wheelY: undefined,
-              pinchZoomX: false
+              pinchZoomX: false,
           }));
 
 
@@ -60,14 +60,14 @@ const MainBarchart = ({ data }) => {
 
 
           const XaxisLabelsTemplate = xAxis.get("renderer").labels.template;
-          XaxisLabelsTemplate.setAll({ fill: am5.color("#FCFCFC"), stroke: am5.color(0xFFFFFF) });
+          XaxisLabelsTemplate.setAll({ fill: am5.color("#FCFCFC"), stroke: am5.color(0xFFFFFF), fillOpacity: 0.5 });
 
           const YaxisLabelsTemplate = yAxis.get("renderer").labels.template;
-          YaxisLabelsTemplate.setAll({ fill: am5.color("#F7F7F7"), stroke: am5.color(0xFFFFFF) });
+          YaxisLabelsTemplate.setAll({ fill: am5.color("#F7F7F7"), stroke: am5.color(0xFFFFFF), fillOpacity: 0.5 });
 
           const myTheme = am5.Theme.new(root);
           myTheme.rule("Grid").setAll({ stroke: am5.color("#F2F2F2") });
-          root.setThemes([myTheme]);
+          // root.setThemes([myTheme]);
 
 
           // Series
@@ -75,7 +75,9 @@ const MainBarchart = ({ data }) => {
               name: "Series 1",
               xAxis: xAxis,
               yAxis: yAxis,
+              valueXField: "day",
               valueYField: "value",
+              fill: am5.color(0xFFFFFF),
               sequencedInterpolation: true,
               categoryXField: "day",
               tooltip: am5.Tooltip.new(root, {
@@ -83,14 +85,23 @@ const MainBarchart = ({ data }) => {
               })
           }))
             
-          series.columns.template.setAll({ cornerRadiusTL: 5, cornerRadiusTR: 5, strokeOpacity: 0 });
+          series.columns.template.setAll({ 
+            cornerRadiusTL: 3, 
+            cornerRadiusTR: 3, 
+            strokeOpacity: 0.8,
+            fillOpacity: 0.8,
+          });
           series.columns.template.adapters.add("fill", function(fill, target) {
-              return chart.get("colors").getIndex(series.columns.indexOf(target));
+            return am5.color("#F7F7F7");
           })
-          
+            
           series.columns.template.adapters.add("stroke", function(stroke, target) {
-              return chart.get("colors").getIndex(series.columns.indexOf(target));
+              return am5.color("#F7F7F7");
           })
+        
+
+
+
 
           let cutData = data.map((item, index) => {
             
