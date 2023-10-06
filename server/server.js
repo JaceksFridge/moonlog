@@ -52,12 +52,12 @@ app.post('/api/my-endpoint', async (req, res) => {
 })
 
 
-const moment = require('moment');
-const mongoose = require('mongoose');
+// const moment = require('moment');
+// const mongoose = require('mongoose');
 
-function getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) + min);
-}
+// function getRandomInt(min, max) {
+//     return Math.floor(Math.random() * (max - min + 1) + min);
+// }
 
 // async function generateDocuments() {
 //     const startDate = moment("6 October 2023", "D MMMM YYYY");
