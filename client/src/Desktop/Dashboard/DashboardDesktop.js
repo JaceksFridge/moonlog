@@ -16,7 +16,6 @@ import MainBarchart from './MainBarchart'
 import Re2DoughnutChart from './Re2DoughnutChart';
 
 
-
 const DashboardDesktop = ({ data }) => {
   const [sidebar, setSidebar] = useState(false)
   const [activeDay, setActiveDay] = useState(null)
@@ -79,7 +78,7 @@ const DashboardDesktop = ({ data }) => {
               <div className="cell top3"></div>
             </div>
             <div className="cell box-scores">
-              <MainBarchart />
+              <MainBarchart data={data ? data : null}/>
             </div>
             <div className="cell box-logs">
               <LogGrid data={data ? data : null}/>

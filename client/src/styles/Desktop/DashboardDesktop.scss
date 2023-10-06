@@ -167,6 +167,11 @@
 
                     .ag-theme-alpine-dark {
                         --ag-background-color: $black;
+                        width: 100%;
+
+                        .ag-center-cols-container{
+                            width: 100px;
+                        }
                     }
                     .ag-header{
                         background: $black;

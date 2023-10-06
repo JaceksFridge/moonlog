@@ -14,15 +14,18 @@ const LogGrid = ({ data }) => {
     const gridRef = useRef()
 
     const [rowData, setRowData] = useState([
-        { make: "Ford", model: "focus", price: 40000 },
-        { make: "Toyota", model: "Celica", price: 45000 },
-        { make: "BMW", model: "4 series", price: 50000 },
+        { date: "1 January 2000", sum: "1000", change: "10%", health: "000", wealth: '000', happiness: "000", nodo: "-000", time: "00:00" },
     ])
 
     const [columnDefs, setColumnDefs] = useState([
-        { field: "make" },
-        { field: "model" },
-        { field: "price" }
+        { field: "date" },
+        { field: "sum" },
+        { field: "change" },
+        { filed: "health" },
+        { field: "wealth" },
+        { field: "happiness" },
+        { field: "nodo" },
+        { field: "time" } 
     ])
 
     const defaultColDef = useMemo(() => ({
@@ -40,7 +43,6 @@ const LogGrid = ({ data }) => {
     })
 
     const gridOptions = {
-
         rowClass: "super-dark",
         getRowClass: params => {
             if (params.node.rowIndex % 2 === 0) {
@@ -51,9 +53,12 @@ const LogGrid = ({ data }) => {
    
 
     useEffect(() => {
-        fetch('https://ag-grid.com/example-assets/row-data.json')
-            .then(response => response.json())
-            .then(rowData => setRowData(rowData))
+        // fetch('https://ag-grid.com/example-assets/row-data.json')
+        //     .then(response => response.json())
+        //     .then(rowData => setRowData(rowData))
+        if (data) {
+            setRowData(data)
+        }
     }, [])
  
 

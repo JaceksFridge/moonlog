@@ -82,6 +82,7 @@ const Forms = () => {
 
   const [data, setData] = useState("")
 
+
   const dataToServer = async () => {
 
     const categories = ['health', 'wealth', 'happiness', 'nodo']
