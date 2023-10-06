@@ -17,7 +17,7 @@ import Re2DoughnutChart from './Re2DoughnutChart';
 
 
 const DashboardDesktop = ({ data }) => {
-  const [sidebar, setSidebar] = useState(false)
+  const [sidebar, setSidebar] = useState(true)
   const [activeDay, setActiveDay] = useState(null)
 
   useEffect(() => {
@@ -81,7 +81,7 @@ const DashboardDesktop = ({ data }) => {
               <MainBarchart data={data ? data : null}/>
             </div>
             <div className="cell box-logs">
-              <LogGrid data={data ? data : null}/>
+              <LogGrid data={data ? data : null} setActiveDay={setActiveDay}/>
             </div>
           </div>
           <div className="main-placeholder-right" ref={rightPlaceholderRef}></div>

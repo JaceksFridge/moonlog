@@ -25,8 +25,10 @@ const DashboardSidebarDesktop = ({ toggleSidebar, isExpanded }) => {
         </div>
       </div>
       <div className="sidebar-tabs">
-        <div className="chart-title">
-          <h5>chart tabs</h5>
+        <div className="sidebar-tabs-title">
+          { isExpanded && (
+            <p>chart tabs</p>
+          )}
         </div>
         <div className="chart-tabs">
           <TabItem icon={AdbIcon} name="scores" />
