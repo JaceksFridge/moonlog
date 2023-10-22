@@ -1,14 +1,14 @@
 
 
-JavaScript | 51.02% ▓▓▓▓▓▓▓▓▓▓░░░░░░░░░░
-SCSS       | 48.98% ▓▓▓▓▓▓▓▓▓▓░░░░░░░░░░
+JavaScript | 51.26% ▓▓▓▓▓▓▓▓▓▓░░░░░░░░░░
+SCSS       | 48.74% ▓▓▓▓▓▓▓▓▓▓░░░░░░░░░░
                                     100%
 
 
 =======================  =======  ==========
 files                      lines  language
 =======================  =======  ==========
-DashboardDesktop.scss        332  SCSS
+DashboardDesktop.scss        324  SCSS
 HomeDesktop.scss             204  SCSS
 LogRegDesktop.scss           203  SCSS
 Home.js                      190  JavaScript
@@ -22,11 +22,11 @@ userRoutes.js                109  JavaScript
 Register.js                  109  JavaScript
 IntroPage.scss               109  SCSS
 AmLinesChart.js              103  JavaScript
+MainBarchart.js              100  JavaScript
 DashboardDesktop.js           97  JavaScript
 HealthForm.js                 95  JavaScript
 DayHalfDoughnutChart.js       94  JavaScript
 Login.scss                    94  SCSS
-MainBarchart.js               93  JavaScript
 IntroDesktop.scss             91  SCSS
 Modal.js                      90  JavaScript
 constants.js                  86  JavaScript
@@ -34,7 +34,7 @@ Modal.scss                    85  SCSS
 LogRegDesktop.js              84  JavaScript
 FormChecks.js                 75  JavaScript
 =======================  =======  ==========
- * showing 25/76 files
+ * showing 25/77 files
 
 
 
