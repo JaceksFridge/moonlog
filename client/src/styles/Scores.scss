@@ -15,18 +15,33 @@
 
     .big-box{
         width: 100%;
+        padding: 2.5rem;
         margin-bottom: 1rem;
         border: 1px solid $white-20;
         border-radius: 1rem;
 
 
+        .svg-container{
+            width: 100%;
+            display: grid;
+            place-items: center;
+            margin-bottom: 2.5rem;
+        }
+
+
         .sub-score-list{
             width: 100%;
-            padding: 2.5rem;
+            
             .sub-score-item{
                 width: 100%;
                 display: flex;
                 justify-content: space-between;
+                margin-bottom: 1.5rem;
+
+                .item-title{
+                    font-weight: 300;
+                    color: $white-50;
+                }
             }
         }
 
