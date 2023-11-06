@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import Header from '../blocks/Header'
+import { checkMarkSVG } from '../blocks/svg'
 
 const Scores = () => {
 
@@ -14,7 +14,7 @@ const Scores = () => {
   return (
     <div className="feedback-page">
         <div className="big-box">
-            // check
+            <checkMarkSVG />
             <div className="sub-score-list">
                 <div className="sub-score-item">
                     <div className="item-title">health</div>
@@ -26,11 +26,11 @@ const Scores = () => {
                 </div>
                 <div className="sub-score-item">
                     <div className="item-title">happiness</div>
-                    <div className="item-value">{scores.happiness}</div>
+                    <div className="item-value">{scores.happiness ? scores.happiness : 0}</div>
                 </div>
                 <div className="sub-score-item">
                     <div className="item-title">nodo</div>
-                    <div className="item-value">{scores.nodo}</div>
+                    <div className="item-value">{scores.nodo ? scores.happiness : 0}</div>
                 </div>
             </div>
         </div>
