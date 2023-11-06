@@ -1,48 +1,44 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
 import Header from '../blocks/Header'
 
 const Scores = () => {
 
     const server = process.env.REACT_APP_SERVER_URL
-    const [data, setData] = useState([])
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                console.log("Data fetched successfully")
-                const userId = localStorage.getItem("userId")
-                const response = await axios.get(`${server}/user/scores/${userId}`)
-                setData(response.data)
-            }
-            catch (error) {
-                console.log("Error", error)
-            }
-        }
-        fetchData()
-    }, [])
+
+    const scores = JSON.parse(localStorage.getItem("prevSubmission"))
+    console.log(scores)
 
 
 
   return (
-    <div className="scoresPage">pp
-        <Header />
-        <h1>Scores</h1>
-        <div className="scoreboard">
-            {data.map((item) => (
-                <div className="card" key={item._id}>
-                    <h4>{`total sum = ${item.sum}`}</h4>
-                    <h4>{`current date = ${item.date}`}</h4>
-                    <div className="subSums">
-                        <h5>{item.health}</h5>
-                        <h5>{item.wealth}</h5>
-                        <h5>{item.happiness}</h5>
-                        <h5>{item.nodo}</h5>
-                        <h5>{item.change}</h5>
-                    </div>
+    <div className="feedback-page">
+        <div className="big-box">
+            // check
+            <div className="sub-score-list">
+                <div className="sub-score-item">
+                    <div className="item-title">health</div>
+                    <div className="item-value">{scores.health ? scores.health : 0}</div>
                 </div>
-            ))}
+                <div className="sub-score-item">
+                    <div className="item-title">wealth</div>
+                    <div className="item-value">{scores.wealth ? scores.wealth: 0}</div>
+                </div>
+                <div className="sub-score-item">
+                    <div className="item-title">happiness</div>
+                    <div className="item-value">{scores.happiness}</div>
+                </div>
+                <div className="sub-score-item">
+                    <div className="item-title">nodo</div>
+                    <div className="item-value">{scores.nodo}</div>
+                </div>
+            </div>
         </div>
+        <div className="small-box satoshi-btn">
+            Go to Dashboard
+        </div>
+        <div className="total-box"></div>
+        <div className="continue-btn"></div>
     </div>
   )
 }

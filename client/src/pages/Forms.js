@@ -158,7 +158,8 @@ const Forms = () => {
       })
 
       localStorage.setItem("lastSubmission" + user.username, currentDate)
-  
+      localStorage.setItem("prevSubmission", JSON.stringify(theData))
+
     } catch (error) {
       console.log("Error:", error)
     }
