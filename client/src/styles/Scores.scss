@@ -55,4 +55,37 @@
         border: 1px solid $white-20;
         border-radius: 1rem;
     }
+    .total-box{
+        padding: 2.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+
+        .total-score{
+            font-size: 3rem;
+        }
+
+        .total-text{
+            max-width: 60%;
+            text-align: center;
+            line-height: 1.5rem;
+            font-size: 0.75rem;
+            font-family: satoshi;
+            font-weight: 300;
+            color: $white-50;
+        }
+    }
+    .next{
+        position: absolute;
+        bottom: 1.5rem;
+        right: 1.5rem;
+        width: 3.5rem;
+        height: 3.5rem;
+        background: none;
+        border-radius: 1rem;
+        background: $white;
+        border: 1px solid white;
+    }
 }
