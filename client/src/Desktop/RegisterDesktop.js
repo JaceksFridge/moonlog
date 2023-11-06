@@ -38,7 +38,8 @@ const LoginDesktop = ({
         <div className="button-block">
           <button 
             className="submit-btn"
-            type="submit"
+            type="button"
+            onClick={onSubmit}
           >
             Register
           </button>

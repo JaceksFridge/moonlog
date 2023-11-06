@@ -31,7 +31,6 @@ const Register = ({ setLogReg, logIn, setLogIn, toggleSwitch }) => {
 
       const user = await response.json()
       if (response.ok) {
-        console.log("user", user)
        
         setUser({token: user.token, username: user.username})
 

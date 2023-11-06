@@ -46,6 +46,7 @@ const Forms = () => {
     getSettings()
   }, [])
 
+  // SOME EFFECT
   // useEffect(() => {
   //   console.log('Updated Settings: ', settings);
   // }, [settings]);

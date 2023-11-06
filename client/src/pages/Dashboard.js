@@ -32,7 +32,7 @@ const Dashboard = () => {
 
     return (
         <>
-        { isDesktoporLaptop && data.length > 0 ? (
+        { isDesktoporLaptop  ? (
                 <DashboardDesktop data={data} />
             ) : (
                 <div className="dashboard">

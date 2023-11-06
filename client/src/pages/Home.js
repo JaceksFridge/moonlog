@@ -198,7 +198,7 @@ const Home = () => {
       ) : (
         <>
           <div className="home-container">
-            <video autoPlay muted loop>
+            <video autoPlay muted loop className="skeleton">
               <source src="/videos/moonanim.mp4" type="video/mp4" />
             </video>
             <h1 className="home-welcome">Welcome <span>{user ? user.username : "Guest"}</span></h1>

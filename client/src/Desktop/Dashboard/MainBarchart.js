@@ -129,9 +129,7 @@ const MainBarchart = ({ data }) => {
     }, [data])
 
     return (
-        <div id="main-bar-chart">
-
-        </div>
+        <div id="main-bar-chart"></div>
     )
 }
 
