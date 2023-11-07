@@ -13,8 +13,6 @@ const Scores = () => {
     const jump = useNavigate()
 
     const scores = JSON.parse(localStorage.getItem("prevSubmission"))
-    console.log(scores)
-
 
     const pathVariantsOG = {
         hidden: {
@@ -76,7 +74,7 @@ const Scores = () => {
                 </div>
             </div>
         </div>
-        <div className="small-box satoshi-btn">
+        <div className="small-box satoshi-btn" onClick={() => jump('/dashboard')}>
             Go to Dashboard
         </div>
         <div className="total-box">
