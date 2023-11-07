@@ -5,6 +5,8 @@ import { CheckMarkSVG } from '../blocks/svg'
 import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useSpring, animated } from '@react-spring/web'
+import Lottie from "lottie-react";
+import confettiAnimation from "../blocks/confetti.json";
 import Footer from '../blocks/Footer'
 
 const Scores = () => {
@@ -14,6 +16,7 @@ const Scores = () => {
 
     const scores = JSON.parse(localStorage.getItem("prevSubmission"))
     const [animationComplete, setAnimationComplete] = useState(false);
+    const [confetti, setConfetti] = useState(true)
 
     const pathVariantsOG = {
         hidden: {
@@ -50,7 +53,7 @@ const Scores = () => {
         from: { number: 0 },
         number: n,
         delay: animationComplete ? 200 : 1100,
-        config: { mass: 1, tension: 20, friction: 10}
+        config: { mass: 1, tension: 20, friction: 10},
       })
       return (
         <animated.div>
@@ -58,6 +61,7 @@ const Scores = () => {
         </animated.div>
       )
     }
+
 
     const scoreCategories = ['health', 'wealth', 'happiness', 'nodo']
     const totalItems = scoreCategories.length
@@ -98,6 +102,9 @@ const Scores = () => {
           <img src="/icons/nav_arrow.png" alt="" />
           </div>
         </button>
+        <div className="lottie-wrapper">
+            { confetti && <Lottie animationData={confettiAnimation} loop={false} /> }
+        </div>
     </div>
   )
 }
