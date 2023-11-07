@@ -81,7 +81,7 @@ const About = () => {
                 </div>
                 <div className="card">
                     <div className="icon-container">
-                        <TechnologySVG />
+                        <GithubSVG />
                     </div>
                     <div className="card-title">Github</div>
                     <div className="card-value">JacekFridge</div>
