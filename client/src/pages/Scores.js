@@ -5,9 +5,10 @@ import { CheckMarkSVG } from '../blocks/svg'
 import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useSpring, animated } from '@react-spring/web'
+import { useMediaQuery } from 'react-responsive'
 import Lottie from "lottie-react";
 import confettiAnimation from "../blocks/confetti.json";
-import Footer from '../blocks/Footer'
+
 
 const Scores = () => {
 
@@ -66,6 +67,11 @@ const Scores = () => {
     const scoreCategories = ['health', 'wealth', 'happiness', 'nodo']
     const totalItems = scoreCategories.length
 
+
+    const isDesktoporLaptop = useMediaQuery({
+      query: '(min-device-width: 1224px)'
+    })
+
   return (
     <div className="feedback-page">
         <div className="big-box">
@@ -105,6 +111,13 @@ const Scores = () => {
         <div className="lottie-wrapper">
             { confetti && <Lottie animationData={confettiAnimation} loop={false} /> }
         </div>
+        { isDesktoporLaptop && (
+          <div className="moon">
+            <video autoPlay muted loop>
+              <source src="/videos/moonanim.mp4" type="video/mp4" />
+            </video>
+          </div>
+        )}
     </div>
   )
 }
