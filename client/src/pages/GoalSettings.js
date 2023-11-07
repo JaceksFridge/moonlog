@@ -1,4 +1,7 @@
 
+import Header from "../blocks/Header"
+import TopNav from "../blocks/TopNav"
+import { useState } from "react"
 
 const GoalSettings = () => {
 
@@ -46,13 +49,14 @@ const GoalSettings = () => {
     };
     
 
+    const [activeTab, setActiveTab] = useState('health')
 
   return (
     <div className="goalsettings">
+        <Header />
+        <TopNav activeTab={activeTab} />
         goal settings
-        <button onClick={saveSettings}>
-            click me yeah
-        </button>
+
     </div>
   )
 }
