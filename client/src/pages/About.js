@@ -2,7 +2,7 @@
 
 import React from 'react'
 import Header from '../blocks/Header'
-import { CalendarSVG, TechnologySVG } from '../blocks/svg'
+import { CalendarSVG, TechnologySVG, GithubSVG } from '../blocks/svg'
 
 const About = () => {
   return (
@@ -79,13 +79,13 @@ const About = () => {
                     <div className="card-title">Technologies</div>
                     <div className="card-value">React | Node</div>
                 </div>
-                <div className="card">
+                <a className="card" target="_blank" href="https://github.com/JaceksFridge">
                     <div className="icon-container">
                         <GithubSVG />
                     </div>
                     <div className="card-title">Github</div>
                     <div className="card-value">JacekFridge</div>
-                </div>
+                </a>
             </div>
         </div>
     </div>

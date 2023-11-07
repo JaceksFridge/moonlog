@@ -9,8 +9,8 @@ const middleware = require('./middleware')
 // save username + password in db
 router.post('/register', async (req, res) => {
     try {
-        const { username, password } = req.body
-        const user = new User({ username, password })
+        const { username, password, settings } = req.body
+        const user = new User({ username, password, settings })
     
         await user.save()
         const token = jwt.sign({ id: user._id }, 'your_jwt_secret')
@@ -100,7 +100,6 @@ router.post('/settings/:userId', async (req, res) => {
     try {
         const userId = req.params.userId
         const settings = req.body
-        console.log(settings)
 
         const updatedUser = await User.findOneAndUpdate(
             { _id: userId },
