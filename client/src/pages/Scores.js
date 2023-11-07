@@ -13,6 +13,7 @@ const Scores = () => {
     const jump = useNavigate()
 
     const scores = JSON.parse(localStorage.getItem("prevSubmission"))
+    const [animationComplete, setAnimationComplete] = useState(false);
 
     const pathVariantsOG = {
         hidden: {
@@ -29,12 +30,26 @@ const Scores = () => {
         }
     }
 
+    const itemVariants = (i, totalItems) => ({
+        visible: {
+          opacity: 1,
+          y: 0,
+          transition: { type: "spring", stiffness: 300, damping: 24, delay: i * 0.2 },
+          onAnimationComplete: () => {
+            if (i === totalItems - 1) {
+              setAnimationComplete(true);
+            }
+          }
+        },
+        hidden: { opacity: 0, y: 20, transition: { duration: 0.2 } }
+      })
+
   
     const Number = ({ n }) => {
       const { number } = useSpring({
         from: { number: 0 },
         number: n,
-        delay: 200,
+        delay: animationComplete ? 200 : 1100,
         config: { mass: 1, tension: 20, friction: 10}
       })
       return (
@@ -44,6 +59,8 @@ const Scores = () => {
       )
     }
 
+    const scoreCategories = ['health', 'wealth', 'happiness', 'nodo']
+    const totalItems = scoreCategories.length
 
   return (
     <div className="feedback-page">
@@ -56,22 +73,14 @@ const Scores = () => {
                 />
             </motion.div>
             <div className="sub-score-list">
-                <div className="sub-score-item">
-                    <div className="item-title satoshi-btn">health</div>
-                    <div className="item-value satoshi-btn">+{scores.health ? scores.health : 0}</div>
-                </div>
-                <div className="sub-score-item">
-                    <div className="item-title satoshi-btn">wealth</div>
-                    <div className="item-value satoshi-btn">+{scores.wealth ? scores.wealth: 0}</div>
-                </div>
-                <div className="sub-score-item">
-                    <div className="item-title satoshi-btn">happiness</div>
-                    <div className="item-value satoshi-btn">+{scores.happiness ? scores.happiness : 0}</div>
-                </div>
-                <div className="sub-score-item">
-                    <div className="item-title satoshi-btn">nodo</div>
-                    <div className="item-value satoshi-btn">-{scores.nodo ? scores.happiness : 0}</div>
-                </div>
+            {scoreCategories.map((category, i) => (
+                <motion.div className="sub-score-item" key={category} variants={itemVariants(i)} initial='hidden' animate='visible'>
+                    <div className="item-title satoshi-btn">{category}</div>
+                    <div className="item-value satoshi-btn">
+                        {category !== 'nodo' ? '+' : '-'}{scores[category] ? scores[category] : 0}
+                    </div>
+                </motion.div>
+            ))}
             </div>
         </div>
         <div className="small-box satoshi-btn" onClick={() => jump('/dashboard')}>
