@@ -1,5 +1,6 @@
 
 import Header from "../blocks/Header"
+import HealthForm from "../blocks/HealthForm"
 import TopNav from "../blocks/TopNav"
 import { useState, useRef } from "react"
 
@@ -54,7 +55,7 @@ const GoalSettings = () => {
     const healthRef = useRef(null)
     const wealthRef = useRef(null)
     const happinessRef = useRef(null)
-    const nodo = useRef(null)
+    const nodoRef = useRef(null)
 
     const clickHandler = (tab) => {
 
@@ -63,7 +64,19 @@ const GoalSettings = () => {
         switch(tab) {
             case 'health':
                 console.log('health')
-                healthRef.scrollIntoView({ behaviour: 'smooth' })
+                healthRef.current.scrollIntoView({ behaviour: 'smooth' })
+                break
+            case 'wealth':
+                console.log('wealth')
+                wealthRef.current.scrollIntoView({ behaviour: 'smooth' })
+                break
+            case 'happiness':
+                console.log('happiness')
+                happinessRef.current.scrollIntoView({ behaviour: 'smooth' })
+                break
+            case 'nodo':
+                console.log('nodo')
+                nodoRef.current.scrollIntoView({ behaviour: 'smooth' })
                 break
         }
     }
@@ -73,7 +86,10 @@ const GoalSettings = () => {
         <Header />
         <TopNav activeTab={activeTab} onTabClick={clickHandler}/>
         goal settings
-
+        <div ref={healthRef} className="section">Health Section</div>
+        <div ref={wealthRef} className="section">Wealth Section</div>
+        <div ref={happinessRef} className="section">Happiness Section</div>
+        <div ref={nodoRef} className="section">Nodo Section</div>
     </div>
   )
 }

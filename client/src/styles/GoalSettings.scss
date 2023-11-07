@@ -2,24 +2,46 @@
 
 .goalsettings{
     width: 100vw;
-    height: 100vh;
+    height: 100%;
+    overflow-x: hidden;
     border: 1px solid salmon;
 
     .topnav{
-        border: 1px solid peru;
-        color: white;
+        position: sticky;
+        top: 0;
+        overflow-x: scroll;
+        width: 150%;
+        padding: 1.5rem 0;
+
         display: flex;
         justify-content: center;
         align-items: center;
         gap: 0.75rem;
+        
+        border: 1px solid peru;
+        color: white;
 
         .nav-item{
-            width: 6rem;
+            min-width: 20rem;
             height: auto;
             padding: 0.5rem 0;
             background: #343434;
             display: grid;
             place-items: center;
         }
+
+        .nav-item.active{
+            background: peru;
+        }
+    }
+    .section{
+        height: 100vh;
+        width: 100vw;
+        border: 1px solid pink;
+        display: grid;
+        place-items: center;
+
+        color: white;
+        font-size: 2.5rem;
     }
 }
