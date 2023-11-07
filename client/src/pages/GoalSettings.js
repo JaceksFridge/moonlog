@@ -1,7 +1,7 @@
 
 import Header from "../blocks/Header"
 import TopNav from "../blocks/TopNav"
-import { useState } from "react"
+import { useState, useRef } from "react"
 
 const GoalSettings = () => {
 
@@ -51,10 +51,27 @@ const GoalSettings = () => {
 
     const [activeTab, setActiveTab] = useState('health')
 
+    const healthRef = useRef(null)
+    const wealthRef = useRef(null)
+    const happinessRef = useRef(null)
+    const nodo = useRef(null)
+
+    const clickHandler = (tab) => {
+
+        setActiveTab(tab)
+
+        switch(tab) {
+            case 'health':
+                console.log('health')
+                healthRef.scrollIntoView({ behaviour: 'smooth' })
+                break
+        }
+    }
+
   return (
     <div className="goalsettings">
         <Header />
-        <TopNav activeTab={activeTab} />
+        <TopNav activeTab={activeTab} onTabClick={clickHandler}/>
         goal settings
 
     </div>
