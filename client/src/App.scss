@@ -88,6 +88,7 @@ h4{
 p{
   font-family: satoshi;
   font-weight: normal;
+  color: $white-50;
 }
 
 .link{
@@ -158,6 +159,7 @@ button {
 @import "./styles/Login.scss";
 @import "./styles/Dashboard.scss";
 @import "./styles/GoalSettings.scss";
+@import "./styles/About.scss";
 
 
 // Desktop Styles

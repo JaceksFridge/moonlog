@@ -141,9 +141,9 @@ const Home = () => {
           icon="/icons/newcard.svg"
         />
       </div>
-      <Link to="/scores" className="link">
+      <Link to="/about" className="link">
         <Card 
-          title="check scores"
+          title="About"
           text="Enter your activities and find out your score"
           id="checkscores"
           icon="/icons/checkcard.svg"

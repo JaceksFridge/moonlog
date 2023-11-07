@@ -8,6 +8,7 @@ import Forms from './pages/Forms'
 import Scores from './pages/Scores'
 import Dashboard from './pages/Dashboard'
 import GoalSettings from "./pages/GoalSettings"
+import About from "./pages/About"
 
 function App() {
 
@@ -33,6 +34,10 @@ function App() {
           <Route 
             path="/goalsettings"
             element={<GoalSettings />}
+          />
+          <Route
+            path="/about"
+            element={<About />}
           />
           <Route index path="/intro1" element={
             <IntroPage
