@@ -71,6 +71,16 @@ export const GithubSVG = ({ variants }) => {
 };
 
 
+export const BoomerangSVG = ({ variants }) => {
+  return (
+    <div className="random-icon">
+      <motion.svg width="31" height="56" viewBox="0 0 31 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <motion.path variants={variants} d="M3 53L28 28L3 3" stroke="white" strokeOpacity="0.5" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"/>
+      </motion.svg>
+    </div>
+  );
+};
+
 
 
 
