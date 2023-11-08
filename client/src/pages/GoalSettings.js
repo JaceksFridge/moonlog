@@ -3,8 +3,7 @@ import Header from "../blocks/Header"
 import HealthForm from "../blocks/HealthForm"
 import TopNav from "../blocks/TopNav"
 import { useState, useEffect, useRef } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import { BoomerangSVG } from "../blocks/svg"
+import AccordionCheckers from "../blocks/AccordionCheckers"
 
 const GoalSettings = () => {
 
@@ -101,13 +100,6 @@ const GoalSettings = () => {
     }
 
 
-    const [isOpen, setIsOpen] = useState(false)
-
-
-    const AccordionContentVariants = {
-        hidden: { opacity: 0, height: 0, transition:{ duration: 0.8, ease: [0.04, 0.62, 0.23, 0.98] } },
-        visible: { opacity: 1, height: "auto", transition: { duration: 0.8, ease: [0.04, 0.62, 0.23, 0.98] } }
-    }
 
   return (
     <div className="goalsettings">
@@ -115,44 +107,12 @@ const GoalSettings = () => {
             <Header />
             <TopNav activeTab={activeTab} onTabClick={clickHandler}/>
         </div>
-
-        goal settings
+        <div className="invisible-top"></div>        
         <div ref={healthRef} className="section" id="health-section" >
             <h2 className="section-title">health section</h2>
-            <div className="section-container">
-                <div className="accordion-header">
-                    <div className="checkbox"></div>
-                    <h3 className="title">Chckers</h3>
-                    <div className="miniscores-container">
-                        7 7 7 7 7
-                    </div>
-                    <div className="icon-container" onClick={() => setIsOpen(!isOpen)}>
-                        <BoomerangSVG />
-                    </div>
-                    
-                </div>
-                <AnimatePresence initial={false}>
-                    { isOpen && (
-                        <motion.div 
-                            className="accordion-content"
-                            key="content"
-                            variants={AccordionContentVariants}
-                            initial="hidden"
-                            animate="visible"
-                            exit="hidden"
-                            
-                        >
-                            this is the content bitch
-                            <h1>hello</h1>
-                            <h1>jacek</h1>
-                            <h1>space</h1>
-                        </motion.div>
-                    )}
-                </AnimatePresence>
-
-                
-
-            </div>
+            <AccordionCheckers />
+            <AccordionCheckers />
+            <AccordionCheckers />
         </div>
         <div ref={wealthRef} className="section" id="wealth-section" >Wealth Section</div>
         <div ref={happinessRef} className="section" id="happiness-section" >Happiness Section</div>

@@ -51,13 +51,15 @@
             background: $white-80;
         }
     }
+    .invisible-top{
+        width: 100%;
+        height: 40vh;
+    }
     .section{
-        height: 100vh;
+        height: 100%;
         width: 100vw;
-        padding: 1.5rem;
+        padding: 15rem 1.5rem;
         border: 0px solid pink;
-        display: grid;
-        place-items: center;
 
         color: white;
         // display: flex;
@@ -77,10 +79,11 @@
             width: 100%;
             height: auto;
             padding: 1rem 0;
-            border: 1px solid $white-20;
+            border: 0px solid $white-20;
 
 
             .accordion-header{
+                max-height: 5rem;
                 padding: 1.5rem;
                 border-radius: 0.5rem;
                 border: 1px solid $white-50;
@@ -104,7 +107,43 @@
                     margin-right: 1rem;
                 }
                 .miniscores-container{
-                    border: 1px solid $white-20;
+                    margin-right: 0.5rem;
+                    border: 0px solid pink;
+                    width: 100%;
+                    overflow: hidden;
+                    display: flex;
+
+                    .mini-score{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        .mini-title{
+                            white-space: nowrap;
+                            overflow: hidden;
+                            font-family: satoshi;
+                            font-weight: 300;
+                            color: $white-50;
+                        }
+                        .mini-value{
+                            font-size: 0.65rem;
+                            font-family: satoshi;
+                            font-weight: 300;
+                            color: $white-50;
+                            padding: 0.25rem;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            border: 0.5px solid $white-50;
+                            border-radius: 2px;
+                        }
+                        .dot{
+                            background: $white-80;
+                            height: 5px;
+                            width: 5px;
+                            border-radius: 4px;
+                            margin: 0 0.75rem;
+                        }
+                    }
                 }
 
                 .icon-container{
@@ -121,13 +160,34 @@
             .accordion-content{
                 width: 100%;
                 background: #131313;
+                border-left: 1px solid $white-20;
+                border-right: 1px solid $white-20;
+                border-bottom: 1px solid $white-20;
+                border-bottom-left-radius: 0.5rem;
+                border-bottom-right-radius: 0.5rem;
 
-                display: grid;
-                place-items: center;
+                .accordion-inner-content{
+                    height: 700px;
+                    padding: 2rem 1.5rem;
 
+                    h3{
+                        font-family: reckless-middle;
+                        margin-bottom: 1.5rem;
+                    }
+                    p.content-text{
+                        font-size: 0.75rem;
+                        margin-bottom: 3rem;
+                    }
 
-                h1{
-                    padding: 2rem;
+                    .value-box{
+                        border: 1px solid $white-50;
+                        border-radius: 0.5rem;
+                        height: 250px;
+
+                        .topbar{
+                            background: black;
+                        }
+                    }
                 }
             }
         }
