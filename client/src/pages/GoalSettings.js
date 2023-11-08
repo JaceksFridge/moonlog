@@ -114,9 +114,30 @@ const GoalSettings = () => {
             <AccordionCheckers />
             <AccordionCheckers />
         </div>
-        <div ref={wealthRef} className="section" id="wealth-section" >Wealth Section</div>
-        <div ref={happinessRef} className="section" id="happiness-section" >Happiness Section</div>
-        <div ref={nodoRef} className="section" id="nodo-section" >Nodo Section</div>
+        <div ref={wealthRef} className="section" id="wealth-section" >
+        <h2 className="section-title">wealth section</h2>
+            <AccordionCheckers />
+            <AccordionCheckers />
+            <AccordionCheckers />
+        </div>
+        <div ref={happinessRef} className="section" id="happiness-section" >
+        <h2 className="section-title">happiness section</h2>
+            <AccordionCheckers />
+            <AccordionCheckers />
+        </div>
+        <div ref={nodoRef} className="section" id="nodo-section" >
+        <h2 className="section-title">nodo section</h2>
+            <AccordionCheckers />
+        </div>
+        <div className="save-container">
+            <div className="info-message">
+                <div className="icon">!</div>
+                <p className="text">you can only select one checker per page</p>
+            </div>
+            <div className="save-btn active">
+                save
+            </div>
+        </div>
     </div>
   )
 }

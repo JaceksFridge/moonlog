@@ -12,7 +12,7 @@ import { UserContext } from '../blocks/userContext'
 import Card from '../blocks/HomeCard'
 import Modal from '../blocks/Modal'
 import { repeatModalData, logoutModalData } from '../blocks/constants'
-import { RepeatSVG, LogoutSVG } from '../blocks/svg'
+import { RepeatSVG, LogoutSVG, CheckMarkSVG } from '../blocks/svg'
 
 import LogReg2 from './LogReg2'
 

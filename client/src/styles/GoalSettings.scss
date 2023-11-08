@@ -1,6 +1,7 @@
 
 
 .goalsettings{
+    position: relative;
     width: 100vw;
     height: 100%;
     overflow-x: hidden;
@@ -53,24 +54,27 @@
     }
     .invisible-top{
         width: 100%;
-        height: 40vh;
+        height: 25vh;
     }
     .section{
+        min-height: 75vh;
         height: 100%;
         width: 100vw;
-        padding: 15rem 1.5rem;
+        padding: 3rem 1.5rem;
         border: 0px solid pink;
 
         color: white;
-        // display: flex;
-        // flex-direction: column;
-        // justify-content: center;
-        // align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
 
 
         h2{
+            margin-bottom: 3rem;
             font-size: 1.5rem;
             font-family: reckless-middle;
+            text-transform: capitalize;
             color: $white-80;
 
         }
@@ -192,6 +196,61 @@
             }
         }
     }
+
+    .save-container{
+        // position: absolute;
+        // bottom: 3rem;
+        // right: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        padding: 1.5rem;
+        width: auto;
+        height: auto;
+        // border: 1px solid green;
+
+        .info-message{
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+
+            .text{
+                color: $white-80;
+                font-family: satoshi;
+            }
+
+            .icon{
+                width: 1.5rem;
+                height: 1.5rem;
+                border-radius: 1rem;
+                background: $white;
+                color: $dark;
+                display: grid;
+                place-items: center;
+                font-size: 1.5rem;
+            }
+        }
+
+        .save-btn{
+            margin-left: auto;
+            height: 3rem;
+            width: 8rem;
+            display: grid;
+            place-items: center;
+            border: 1px solid $white-20;
+            border-radius: 0.5rem;
+            font-family: satoshi;
+            font-weight: 500;
+            font-size: 1rem;
+            text-transform: capitalize;
+            color: $white-20;
+        }
+        .save-btn.active{
+            background: $white;
+            color: $dark;
+        }
+    }
+
 }
 
 
