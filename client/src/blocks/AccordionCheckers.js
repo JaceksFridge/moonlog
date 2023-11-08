@@ -96,6 +96,20 @@ const AccordionCheckers = () => {
                                 <p className="activity-value">{sum}</p>
                             </div>
                         </div>
+                        <div className="settings-form">
+                            <div className="name-container">
+                                <label htmlFor="">Activity/Task</label>
+                                <input type="text" placeholder="some activity"/>
+                            </div>
+                            <div className="value-container">
+                                <label htmlFor="">Importance</label>
+                                <input type="text" placeholder="250"/>
+                            </div>
+                            <div className="add-btn">
+                                add
+                            </div>
+                        </div>
+
                     </motion.div>
 
                 </motion.div>

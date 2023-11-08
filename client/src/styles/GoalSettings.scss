@@ -9,6 +9,7 @@
 
     .top-top{
         position: fixed;
+        z-index: 101;
         background: black;
         width: 100vw;
         overflow-x: hidden;
@@ -23,7 +24,6 @@
     }
     .topnav{
         position: relative;
-        z-index: 100;
         top: 0;
         left: 0;
         overflow-x: auto;
@@ -171,6 +171,7 @@
                 border-bottom-right-radius: 0.5rem;
 
                 .accordion-inner-content{
+                    position: relative;
                     height: 700px;
                     padding: 2rem 1.5rem;
 
@@ -191,6 +192,7 @@
                         overflow: hidden;
 
                         .topbar{
+                            margin-bottom: 0.5rem;
                             display: flex;
                             background: black;
                             border-bottom: 1px solid $white-20;
@@ -225,6 +227,39 @@
                             .bin{
                                 opacity: 1;
                             }
+                        }
+                    }
+                    .settings-form{
+                        position: absolute;
+                        bottom: 1.5rem;
+                        right: 1.5rem; left: 1.5rem;
+
+                        display: grid;
+                        grid-template-columns: 1fr 1fr;
+                        grid-template-rows: auto auto;
+                        gap: 1.5rem;
+
+
+                        input{
+                            width: 100%;
+                            height: 3rem;
+                            background: black;
+                            color: $white;
+                            border-radius: 0.25rem;
+                        }
+
+                        .add-btn{
+                            grid-column: 1 / -1;
+                            height: 3rem;
+                            border-radius: 0.25rem;
+                            border: 1px solid $white-50;
+                            display: grid;
+                            place-items: center;
+                        }
+                        .add-btn:hover{
+    
+                            background: $white-80;
+                            color: $dark;
                         }
                     }
                 }
