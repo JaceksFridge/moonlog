@@ -2,7 +2,7 @@
 import Header from "../blocks/Header"
 import HealthForm from "../blocks/HealthForm"
 import TopNav from "../blocks/TopNav"
-import { useState, useRef } from "react"
+import { useState, useEffect, useRef } from "react"
 
 const GoalSettings = () => {
 
@@ -57,39 +57,59 @@ const GoalSettings = () => {
     const happinessRef = useRef(null)
     const nodoRef = useRef(null)
 
-    const clickHandler = (tab) => {
 
-        setActiveTab(tab)
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        switch(entry.target.id) {
+                            case 'health-section':
+                                setActiveTab('health');
+                                break;
+                            case 'wealth-section':
+                                setActiveTab('wealth');
+                                break;
+                            case 'happiness-section':
+                                setActiveTab('happiness');
+                                break;
+                            case 'nodo-section':
+                                setActiveTab('nodo');
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                });
+            },
+            { threshold: 0.5 }
+        )
+        observer.observe(healthRef.current)
+        observer.observe(wealthRef.current)
+        observer.observe(happinessRef.current)
+        observer.observe(nodoRef.current)
 
-        switch(tab) {
-            case 'health':
-                console.log('health')
-                healthRef.current.scrollIntoView({ behaviour: 'smooth' })
-                break
-            case 'wealth':
-                console.log('wealth')
-                wealthRef.current.scrollIntoView({ behaviour: 'smooth' })
-                break
-            case 'happiness':
-                console.log('happiness')
-                happinessRef.current.scrollIntoView({ behaviour: 'smooth' })
-                break
-            case 'nodo':
-                console.log('nodo')
-                nodoRef.current.scrollIntoView({ behaviour: 'smooth' })
-                break
+        return () => {
+            observer.disconnect();
         }
+    }, [])
+
+    const clickHandler = (tab) => {
+        console.log(tab)
     }
 
   return (
     <div className="goalsettings">
-        <Header />
-        <TopNav activeTab={activeTab} onTabClick={clickHandler}/>
+        <div className="top-top">
+            <Header />
+            <TopNav activeTab={activeTab} onTabClick={clickHandler}/>
+        </div>
+
         goal settings
-        <div ref={healthRef} className="section">Health Section</div>
-        <div ref={wealthRef} className="section">Wealth Section</div>
-        <div ref={happinessRef} className="section">Happiness Section</div>
-        <div ref={nodoRef} className="section">Nodo Section</div>
+        <div ref={healthRef} className="section" id="health-section" >Health Section</div>
+        <div ref={wealthRef} className="section" id="wealth-section" >Wealth Section</div>
+        <div ref={happinessRef} className="section" id="happiness-section" >Happiness Section</div>
+        <div ref={nodoRef} className="section" id="nodo-section" >Nodo Section</div>
     </div>
   )
 }

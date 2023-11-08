@@ -4,40 +4,57 @@
     width: 100vw;
     height: 100%;
     overflow-x: hidden;
-    border: 1px solid salmon;
+    border: 0px solid salmon;
 
+    .top-top{
+        position: fixed;
+        background: black;
+        width: 100vw;
+        overflow-x: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .header{
+        position: relative;
+    }
     .topnav{
-        position: sticky;
+        position: relative;
+        z-index: 100;
         top: 0;
-        overflow-x: scroll;
-        width: 150%;
-        padding: 1.5rem 0;
+        left: 0;
+        overflow-x: auto;
+        width: auto;
+        padding: 1.5rem;
 
         display: flex;
         justify-content: center;
         align-items: center;
         gap: 0.75rem;
         
-        border: 1px solid peru;
+        border: 0px solid peru;
         color: white;
 
         .nav-item{
-            min-width: 20rem;
+            min-width: 8rem;
             height: auto;
-            padding: 0.5rem 0;
+            padding: 0.75rem 0;
             background: #343434;
+            border-radius: 0.5rem;
             display: grid;
             place-items: center;
         }
 
         .nav-item.active{
-            background: peru;
+            background: $white-80;
         }
     }
     .section{
         height: 100vh;
         width: 100vw;
-        border: 1px solid pink;
+        border: 0px solid pink;
         display: grid;
         place-items: center;
 
