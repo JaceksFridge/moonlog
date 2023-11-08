@@ -1,6 +1,6 @@
 
 
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { CheckMarkSVG } from '../blocks/svg'
 import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
@@ -12,7 +12,7 @@ import confettiAnimation from "../blocks/confetti.json";
 
 const Scores = () => {
 
-    const server = process.env.REACT_APP_SERVER_URL
+    // const server = process.env.REACT_APP_SERVER_URL
     const jump = useNavigate()
 
     const scores = JSON.parse(localStorage.getItem("prevSubmission"))
@@ -108,7 +108,7 @@ const Scores = () => {
           <img src="/icons/nav_arrow.png" alt="" />
           </div>
         </button>
-        <div className="lottie-wrapper">
+        <div className="lottie-wrapper" onClick={() => jump('/dashboard')}>
             { confetti && <Lottie animationData={confettiAnimation} loop={false} /> }
         </div>
         { isDesktoporLaptop && (

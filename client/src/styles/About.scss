@@ -95,3 +95,49 @@
         }
     }
 }
+
+
+@media only screen and (min-width: 1200px) {
+    .about-page{
+        padding: 0 10%; 
+        .page-top{
+            padding-top: 4rem;
+            h2{
+                font-family: reckless-middle;
+                font-size: 3rem;
+            }
+        }
+
+        .main{
+            margin-top: 20%;
+            display: flex;
+
+
+            .info-blob, .card-container{
+                flex: 1;
+                width: 100%;
+                height: 100%;
+
+            }
+
+            .info-blob{
+                padding-top: 0;
+
+                .blob-item{
+                    margin-bottom: 20%;
+                }
+            }
+            .card-container{
+                // padding: 0 0 0 25%;
+                justify-content: center;
+                align-items: flex-end;
+                gap: 3rem;
+
+                .card{
+                    width: 60%;
+                }
+            }
+
+        }
+    }
+}
