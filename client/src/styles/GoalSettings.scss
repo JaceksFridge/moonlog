@@ -184,12 +184,47 @@
                     }
 
                     .value-box{
-                        border: 1px solid $white-50;
+                        position: relative;
+                        border: 1px solid $white-20;
                         border-radius: 0.5rem;
                         height: 250px;
+                        overflow: hidden;
 
                         .topbar{
+                            display: flex;
                             background: black;
+                            border-bottom: 1px solid $white-20;
+
+                            .topbar-title{
+                                padding: 1rem 1.25rem;
+                                flex: 1;
+                            }
+                        }
+                        .activity, .total-activity{
+                            position: relative;
+                            width: 100%;
+                            display: flex;
+
+                            p{
+                                padding: 0.5rem 1.25rem;
+                                width: 100%;
+                                flex: 1;
+                            }
+                            .bin{
+                                position: absolute;
+                                right: 1rem;
+                                opacity: 0;
+                            }
+                        }
+                        .total-activity{
+                            position: absolute;
+                            bottom: 1rem;
+                        }
+                        .activity:hover{
+                            background: black;
+                            .bin{
+                                opacity: 1;
+                            }
                         }
                     }
                 }

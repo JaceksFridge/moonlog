@@ -14,7 +14,11 @@ const AccordionCheckers = () => {
     const minValue = 0
     const maxValue = 250
 
-
+    const mockData = {
+        "morning run": 20,
+        "meditation": 50,
+        "take viatmins": 100,
+    }
 
 
     const AccordionContentVariants = {
@@ -22,13 +26,15 @@ const AccordionCheckers = () => {
         visible: { opacity: 1, height: "auto", transition: { duration: 0.8, ease: [0.04, 0.62, 0.23, 0.98] } }
     }
     const ChildVariants = {
-        hidden: { scale: 0.2, opacity: 0 },
+        hidden: { scale: 0.5, opacity: 0 },
         visible: { 
             scale: 1, 
             opacity: 1,
             transition: { duration: 0.5 }
         }
     };
+
+    let sum = 0
 
 
 
@@ -72,6 +78,22 @@ const AccordionCheckers = () => {
                         <div className="value-box">
                             <div className="topbar">
                                 <div className="topbar-title">activity</div>
+                                <div className="topbar-title">points</div>
+                            </div>
+                            {
+                                Object.entries(mockData).map(([key, value]) => {
+                                sum += value
+                                return (
+                                    <div className="activity">
+                                        <p className="activity-title">{key}</p>
+                                        <p className="activity-value">{value}</p>
+                                        <div className="bin">x</div>
+                                    </div>
+                                )
+                            })}
+                            <div className="total-activity">
+                                <p className="activity-title">total points</p>
+                                <p className="activity-value">{sum}</p>
                             </div>
                         </div>
                     </motion.div>
