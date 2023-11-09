@@ -37,8 +37,8 @@
             }
 
             .modal-icon{
-                margin-top: 4rem;
-                margin-bottom: 2rem;
+                margin-top: 3rem;
+                margin-bottom: 1.5rem;
             }
 
             .modal-title{
@@ -93,17 +93,43 @@
             }
 
             .menu-items{
+                width: 100%;
+                padding: 1rem 0;
                 border-bottom: 1px solid $white-20;
                 margin-bottom: 1.5rem;
                 .item{
                     display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    padding: 1rem 1.25rem;
+                    border-radius: 0.5rem;
+
+                    .icon-container{
+                        margin: 0;
+                        padding: 0;
+                        margin-right: 1rem;
+                        border: 0px solid peru;
+                        .random-svg{
+                            margin: 0;
+                            padding: 0;
+                        }
+                    }
+
+                    .text{
+                        color: $white-50;
+                        font-family: satoshi;
+                        border: 0spx solid purple;
+                    }
+                }
+                .item:hover{
+                    background: #131313;
                 }
             }
 
             button{
                 height: 3.5rem;
                 width: 100%;
-                border: 1px solid $modal-grey;
+                border: 1px solid $white-20;
                 border-radius: 0.5rem;
                 margin-bottom: 1.5rem;
                 text-transform: lowercase;

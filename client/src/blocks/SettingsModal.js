@@ -2,10 +2,9 @@
 
 import React from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { SettingsInfoSVG, SettingsResetSVG, SettingsBinSVG } from './svg'
 
 const InfoModal = ({ modal, setModal, btn1Fun, btn2Fun, SVGComponent }) => {
-
-
 
     const closeModal = () => {
         setModal(false)
@@ -91,8 +90,22 @@ const InfoModal = ({ modal, setModal, btn1Fun, btn2Fun, SVGComponent }) => {
             </div>
             <div className="menu-items">
               <div className="item">
-                <div className="icon-container"></div>
-                <div className="text"></div>
+                <div className="icon-container">
+                  <SettingsInfoSVG />
+                </div>
+                <div className="text">Info About</div>
+              </div>
+              <div className="item">
+                <div className="icon-container">
+                  <SettingsResetSVG />
+                </div>
+                <div className="text">Reset Settings</div>
+              </div>
+              <div className="item">
+                <div className="icon-container">
+                  <SettingsBinSVG />
+                </div>
+                <div className="text">Delete Account</div>
               </div>
             </div>
             <button className="modal-btn">
