@@ -104,3 +104,17 @@ export const logoutModalData = {
     button2: "cancel"
 }
 
+
+export const resetModalData = {
+    title: "Reset Settings",
+    text: "Hold on! Our telepathic data gnome just informed us that you've already submitted your score today. If you want to submit again, no worries! But your old score will have to pack its bags. Up for it?",
+    button1: "Reset",
+    button2: "Cancel"
+}
+
+export const deleteModalData = {
+    title: "Delete Account",
+    text: "Are you sure you want to log out? Please make sure you have saved all your work before proceeding. Once you log out, any unsaved changes will be lost.",
+    button1: "Delete",
+    button2: "Cancel"
+}

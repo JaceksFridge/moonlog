@@ -12,7 +12,7 @@ import { UserContext } from '../blocks/userContext'
 import Card from '../blocks/HomeCard'
 import Modal from '../blocks/Modal'
 import SettingsModal from "../blocks/SettingsModal"
-import { repeatModalData, logoutModalData } from '../blocks/constants'
+import { repeatModalData, logoutModalData, resetModalData, deleteModalData } from '../blocks/constants'
 import { RepeatSVG, LogoutSVG, SettingsSVG } from '../blocks/svg'
 
 import LogReg2 from './LogReg2'
@@ -27,6 +27,8 @@ const Home = () => {
   const [ repeatModal, setRepeatModal ] = useState(false)
   const [ logoutModal, setLogoutModal ] = useState(false)
   const [ settingsModal, setSettingsModal ] = useState(true)
+  const [ resetModal, setResetModal ] = useState(false)
+  const [ deleteModal, setDeleteModal ] = useState(false)
   const [ logReg, setLogReg ] = useState(false)
 
   const jump = useNavigate()
@@ -184,6 +186,22 @@ const Home = () => {
         btnLogout={setLogoutModal}
         btn2Fun={newEntry}
         SVGComponent={SettingsSVG}
+      />
+      <Modal 
+        modalData={deleteModalData}
+        modal={deleteModal}
+        setModal={setDelteModal} 
+        btn1Fun={() => setDeleteModal(false)}
+        btn2Fun={console.log("deleting")}
+        SVGComponent={RepeatSVG}
+      />
+      <Modal 
+        modalData={resetModalData}
+        modal={resetModal}
+        setModal={setResetModal} 
+        btn1Fun={() => setRepeatModal(false)}
+        btn2Fun={console.log('resetting')}
+        SVGComponent={RepeatSVG}
       />
       <Modal 
         modalData={repeatModalData}
