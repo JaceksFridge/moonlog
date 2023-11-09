@@ -32,6 +32,12 @@ const GoalSettings = () => {
         }
     }
 
+    const mockData = {
+        "morning run": 20,
+        "meditation": 50,
+        "take viatmins": 100,
+    }
+
     const saveSettings = async () => {
         console.log("function fired")
         const userId = localStorage.getItem("userId");
@@ -110,7 +116,7 @@ const GoalSettings = () => {
         <div className="invisible-top"></div>        
         <div ref={healthRef} className="section" id="health-section" >
             <h2 className="section-title">health section</h2>
-            <AccordionCheckers />
+            <AccordionCheckers settings={mockData}/>
             <AccordionCheckers />
             <AccordionCheckers />
         </div>
