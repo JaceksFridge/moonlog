@@ -1,3 +1,4 @@
+
 .backdrop{
     position: fixed;
     width: 100%;
@@ -8,10 +9,10 @@
 
 
 
-    .modal{
+    .settings-modal{
         position: absolute;
         bottom: 0;
-        height: 70%;
+        height: 80%;
         width: 100%;
         background: black;
         border: 0.5px solid $modal-grey;
@@ -53,30 +54,58 @@
                 margin-bottom: 3rem;
             }
 
-            .modal-buttons{
+            .user-box{
                 width: 100%;
+                padding: 1rem;
+                border-bottom: 1px solid $white-20;
+                border-top: 1px solid $white-20;
+
                 display: flex;
-                flex-direction: column;
-                justify-content: center;
 
-                button{
+                .user-pic{
                     height: 3.5rem;
-                    width: 100%;
-                    border: 1px solid $modal-grey;
-                    border-radius: 0.5rem;
-                    margin-bottom: 1.5rem;
-                    text-transform: lowercase;
+                    width: 3.5rem;
+                    
+                    border-radius: 3rem;
+                    background: #131313;
+                    display: grid;
+                    place-items: center;
+                    margin-right: 1.5rem;
+
+                    color: $white-50;
+                    font-family: satoshi;
+                    font-size: 1.5rem;
+                    font-weight: 300;
                 }
 
-                .modal-btn1{
-                    background: white;
-                    color: $modal-black;
-                }
-                .modal-btn2{
-                    background: none;
-                    color: $modal-grey;
+                .user-info{
+                    border: 0px solid peru;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    .user-name, .user-mail{
+                        font-family: satoshi;
+                        font-weight: 300;
+                        font-size: 1.1rem;
+                        color: $white-50;
+                    }
                 }
             }
+
+            button{
+                height: 3.5rem;
+                width: 100%;
+                border: 1px solid $modal-grey;
+                border-radius: 0.5rem;
+                margin-bottom: 1.5rem;
+                text-transform: lowercase;
+            }
+            .modal-btn{
+                background: none;
+                color: $modal-grey;
+                text-transform: capitalize;
+            }
+            
         }
     }
 }

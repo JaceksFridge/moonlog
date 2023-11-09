@@ -11,9 +11,9 @@ import { UserContext } from '../blocks/userContext'
 
 import Card from '../blocks/HomeCard'
 import Modal from '../blocks/Modal'
-import InfoModal from '../blocks/InfoModal'
+import SettingsModal from "../blocks/SettingsModal"
 import { repeatModalData, logoutModalData } from '../blocks/constants'
-import { RepeatSVG, LogoutSVG, CheckMarkSVG } from '../blocks/svg'
+import { RepeatSVG, LogoutSVG, SettingsSVG } from '../blocks/svg'
 
 import LogReg2 from './LogReg2'
 
@@ -26,7 +26,7 @@ const Home = () => {
 
   const [ repeatModal, setRepeatModal ] = useState(false)
   const [ logoutModal, setLogoutModal ] = useState(false)
-  const [ infoModal, setInfoModal ] = useState(true)
+  const [ settingsModal, setSettingsModal ] = useState(true)
   const [ logReg, setLogReg ] = useState(false)
 
   const jump = useNavigate()
@@ -49,13 +49,12 @@ const Home = () => {
     }
   }, [logReg]);
 
-  
-  // fetching user data
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         const token = localStorage.getItem('token')
-        // console.log("Data fetched successfully:", token)
+
         const response = await axios.get(`${server}/user/home`, {
           headers: { 'Authorization': `Bearer ${token}` }
         })
@@ -179,13 +178,12 @@ const Home = () => {
       { logReg && (
         <LogReg2 setLogReg={setLogReg} logReg={logReg}/>
       )}
-      <InfoModal 
-        modalData={repeatModalData}
-        modal={infoModal}
-        setModal={setInfoModal} 
-        btn1Fun={() => setInfoModal(false)}
+      <SettingsModal 
+        modal={settingsModal}
+        setModal={setSettingsModal} 
+        btn1Fun={() => setSettingsModal(false)}
         btn2Fun={newEntry}
-        SVGComponent={RepeatSVG}
+        SVGComponent={SettingsSVG}
       />
       <Modal 
         modalData={repeatModalData}

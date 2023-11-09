@@ -3,7 +3,7 @@
 import React from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
-const InfoModal = ({ modalData, modal, setModal, btn1Fun, btn2Fun, SVGComponent }) => {
+const InfoModal = ({ modal, setModal, btn1Fun, btn2Fun, SVGComponent }) => {
 
 
 
@@ -69,7 +69,7 @@ const InfoModal = ({ modalData, modal, setModal, btn1Fun, btn2Fun, SVGComponent 
         animate='visible'
         exit='hidden'
       >
-        <motion.div className="modal" onClick={(e) => e.stopPropagation()}
+        <motion.div className="settings-modal" onClick={(e) => e.stopPropagation()}
           variants={modalVariants}
         >
           <div className="modal-inner-container">
@@ -81,12 +81,17 @@ const InfoModal = ({ modalData, modal, setModal, btn1Fun, btn2Fun, SVGComponent 
               initial='hidden'
               animate='visible'
             />
-            <h2 className="modal-title">{modalData.title}</h2>
-            <p className="modal-text">{modalData.text}</p>
-            <div className="modal-buttons">
-              <button className="modal-btn1" onClick={btn1Fun} >{modalData.button1}</button>
-              <button className="modal-btn2" onClick={btn2Fun} >{modalData.button2}</button>
+            <h2 className="modal-title">Settings</h2>
+            <div className="user-box">
+              <div className="user-pic">D</div>
+              <div className="user-info">
+                <div className="user-name">Derick</div>
+                <div className="user-mail">derickrose@gmail.com</div>
+              </div>
             </div>
+            <button className="modal-btn">
+              logout
+            </button>
           </div>
         </motion.div>
       </motion.div>

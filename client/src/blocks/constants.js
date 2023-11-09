@@ -103,3 +103,4 @@ export const logoutModalData = {
     button1: "confirm",
     button2: "cancel"
 }
+
