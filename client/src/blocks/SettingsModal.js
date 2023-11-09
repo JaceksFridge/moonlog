@@ -3,12 +3,24 @@
 import React from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { SettingsInfoSVG, SettingsResetSVG, SettingsBinSVG } from './svg'
+import { useNavigate } from 'react-router-dom'
 
-const InfoModal = ({ modal, setModal, btn1Fun, btn2Fun, SVGComponent }) => {
+const InfoModal = ({ modal, setModal, btnLogout, btn2Fun, SVGComponent }) => {
+
+    const jump = useNavigate()
 
     const closeModal = () => {
+      setModal(false)
+    }
+    const handleLogout = () => {
         setModal(false)
-      }
+        btnLogout(true)
+    }
+
+    const handleAbout = () => {
+      setModal(false)
+      jump('/about')
+    }
     
     
       const backdropVariants = {
@@ -93,7 +105,10 @@ const InfoModal = ({ modal, setModal, btn1Fun, btn2Fun, SVGComponent }) => {
                 <div className="icon-container">
                   <SettingsInfoSVG />
                 </div>
-                <div className="text">Info About</div>
+                <div 
+                  className="text"
+                  onClick={handleAbout}
+                >Info About</div>
               </div>
               <div className="item">
                 <div className="icon-container">
@@ -108,7 +123,10 @@ const InfoModal = ({ modal, setModal, btn1Fun, btn2Fun, SVGComponent }) => {
                 <div className="text">Delete Account</div>
               </div>
             </div>
-            <button className="modal-btn">
+            <button 
+              className="modal-btn"
+              onClick={handleLogout}
+            >
               logout
             </button>
           </div>

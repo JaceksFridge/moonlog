@@ -181,7 +181,7 @@ const Home = () => {
       <SettingsModal 
         modal={settingsModal}
         setModal={setSettingsModal} 
-        btn1Fun={() => setSettingsModal(false)}
+        btnLogout={setLogoutModal}
         btn2Fun={newEntry}
         SVGComponent={SettingsSVG}
       />

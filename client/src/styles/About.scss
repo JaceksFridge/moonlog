@@ -4,8 +4,8 @@
 .about-page{
     width: 100%;
     height: 100vw;
-
     padding: 1.5rem;
+
 
 
     .header{
@@ -13,7 +13,7 @@
     }
 
     .page-top{
-        padding-top: 11rem;
+        padding-top: 6rem;
 
         h2{
             color: $white-80;
@@ -25,12 +25,14 @@
             color: $white-50;
         }
     }
+    .main{
+        padding-bottom: 1.5rem;
+    }
 
     .info-blob{
         padding: 8rem 0;
 
         .blob-item{
-            // border: 1px solid peru;
             margin-bottom: 8rem;
             h3{
                 margin-bottom: 2rem;
