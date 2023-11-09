@@ -11,6 +11,7 @@ import { UserContext } from '../blocks/userContext'
 
 import Card from '../blocks/HomeCard'
 import Modal from '../blocks/Modal'
+import InfoModal from '../blocks/InfoModal'
 import { repeatModalData, logoutModalData } from '../blocks/constants'
 import { RepeatSVG, LogoutSVG, CheckMarkSVG } from '../blocks/svg'
 
@@ -25,6 +26,7 @@ const Home = () => {
 
   const [ repeatModal, setRepeatModal ] = useState(false)
   const [ logoutModal, setLogoutModal ] = useState(false)
+  const [ infoModal, setInfoModal ] = useState(true)
   const [ logReg, setLogReg ] = useState(false)
 
   const jump = useNavigate()
@@ -177,6 +179,14 @@ const Home = () => {
       { logReg && (
         <LogReg2 setLogReg={setLogReg} logReg={logReg}/>
       )}
+      <InfoModal 
+        modalData={repeatModalData}
+        modal={infoModal}
+        setModal={setInfoModal} 
+        btn1Fun={() => setInfoModal(false)}
+        btn2Fun={newEntry}
+        SVGComponent={RepeatSVG}
+      />
       <Modal 
         modalData={repeatModalData}
         modal={repeatModal}
