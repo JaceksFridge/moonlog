@@ -10,9 +10,16 @@ const sliderSchema = new mongoose.Schema({
 }, { _id: false });
 
 const categorySchema = new mongoose.Schema({
-    slider: { type: sliderSchema, default: undefined },
-    checkers: { type: mongoose.Schema.Types.Mixed, default: undefined },
-    counters: { type: mongoose.Schema.Types.Mixed, default: undefined }
+    inactive: { 
+        slider: { type: sliderSchema, default: undefined },
+        checkers: { type: mongoose.Schema.Types.Mixed, default: undefined },
+        counters: { type: mongoose.Schema.Types.Mixed, default: undefined }
+     },
+    active: {
+        slider: { type: sliderSchema, default: undefined },
+        checkers: { type: mongoose.Schema.Types.Mixed, default: undefined },
+        counters: { type: mongoose.Schema.Types.Mixed, default: undefined }
+     }
 });
 
 

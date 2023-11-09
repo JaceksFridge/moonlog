@@ -19,32 +19,42 @@ const Forms = () => {
 
   const server = process.env.REACT_APP_SERVER_URL
   const [settings, setSettings] = useState({})
-  const [loading, setLoading] = useState(true)
 
+
+  // context trying
+  const { user, loadingUser } = useContext(UserContext)
+ 
   useEffect(() => {
-    const getSettings = async () => {
-      setLoading(true)
-
-      const userId = localStorage.getItem('userId')
-
-      try {
-        const response = await fetch(`${server}/user/settings/${userId}`)
-
-        if (response.status === 200) {
-          const data = await response.json()
-          setSettings(data)
-        } else {
-          console.log('Failed to fetch settings');
-        }
-
-      } catch (error) {
-        console.log('Fetch Error', error)
-      } finally {
-      setLoading(false)
-      }
+    if (user && user.settings) {
+      setSettings(user.settings);
+      console.log("logging user",user)
     }
-    getSettings()
-  }, [])
+  }, [user]);
+
+  // useEffect(() => {
+  //   const getSettings = async () => {
+  //     setLoading(true)
+
+  //     const userId = localStorage.getItem('userId')
+
+  //     try {
+  //       const response = await fetch(`${server}/user/settings/${userId}`)
+
+  //       if (response.status === 200) {
+  //         const data = await response.json()
+  //         setSettings(data)
+  //       } else {
+  //         console.log('Failed to fetch settings');
+  //       }
+
+  //     } catch (error) {
+  //       console.log('Fetch Error', error)
+  //     } finally {
+  //     setLoading(false)
+  //     }
+  //   }
+  //   getSettings()
+  // }, [])
 
   // SOME EFFECT
   // useEffect(() => {
@@ -54,13 +64,12 @@ const Forms = () => {
   const currentDate = useCurrentDate()
   const currentTime = new Date().toLocaleTimeString()
   const jump = useNavigate()
-  const { user } = useContext(UserContext)
 
   const forms = {
-    health: <HealthForm settings={settings.health} />,
-    wealth: <WealthForm settings={settings.wealth} />,
-    happiness: <HappinessForm settings={settings.happiness} />,
-    nodo: <NodoForm settings={settings.nodo} />
+    health: settings.health ? <HealthForm settings={settings.health.active} /> : null,
+    wealth: settings.wealth ? <WealthForm settings={settings.wealth.active} /> : null,
+    happiness: settings.happiness ? <HappinessForm settings={settings.happiness.active} /> : null,
+    nodo: settings.nodo ? <NodoForm settings={settings.nodo.active} /> : null
   }
   
   const formOrder = ['health', 'wealth', 'happiness', 'nodo']
@@ -149,9 +158,9 @@ const Forms = () => {
       jump("/scores")
 
       const toTrash = ['health', 'wealth', 'happiness', 'nodo', 
-      'healthChecks', 'healthCounters', 'happinessSlider', 
+      'healthChecks', 'healthCounters', 'healthSlider', 'happinessSlider', 
       'wealthSlider', 'wealthChecks', 'wealthCounters','happinessChecks', 
-      'happinessCounters', 'nodoChecks', 'nodoCounters']
+      'happinessCounters', 'nodoChecks', 'nodoCounters', 'nodoSlider']
   
       toTrash.forEach((item) => {
         localStorage.removeItem(item)
@@ -168,7 +177,7 @@ const Forms = () => {
   return (
     <div className="Forms">
       <Header />
-      {loading ? (
+      {loadingUser ? (
         <div>Loading...</div>
       ) : (
         <>

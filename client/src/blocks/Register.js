@@ -18,24 +18,39 @@ const Register = ({ setLogReg, logIn, setLogIn, toggleSwitch }) => {
   // Dummy Settings
   const settings = {
     health: {
-        slider: {},
-        checkers: { yoga: 100, run: 100, climb: 50 },
-        counters: { workout: 50, stretch: 50, walk: 50, }
+        inactive: {
+          slider: {},
+          checkers: { yoga: 100, run: 100, climb: 50 },
+          counters: { workout: 50, stretch: 50, walk: 50, }
+        },
+        active: {
+          checkers: { yoga: 100, run: 100, climb: 50 },
+          counters: { workout: 50, stretch: 50, walk: 50, }
+        }
     },
     wealth: {
+        inactive: {},
+        active: {
+          slider: { title: "hours of work", range: 10, weight: 50, },
+          checkers: { meetup: 100, },
+          counters: { learning: 50, application: 25, },
+        }
+    },
+    happiness: {
+      inactive: {},
+      active: {
         slider: { title: "hours of work", range: 10, weight: 50, },
         checkers: { meetup: 100, },
         counters: { learning: 50, application: 25, },
-    },
-    happiness: {
-        slider: { title: "how was your day", range: 25, weight: 20, },
-        checkers: { sex: 200, event: 100, },
-        counters: { meeting: 50, convo: 50, },
+      }
     },
     nodo: {
-        slider: {},
-        checkers: { weed: -200, alcohol: -100, porn: -100, sugar: -100 },
-        counters: { caffeine: -50, tvshows: -50, badfood: -50 },
+      inactive: {},
+      active: {
+        slider: { title: "hours of workkk", range: 10, weight: 50, },
+        checkers: { meetup: 100, },
+        counters: { learning: 50, application: 25, },
+      }
     }
   }
 

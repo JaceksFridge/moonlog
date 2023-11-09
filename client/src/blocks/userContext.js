@@ -9,6 +9,7 @@ export const UserContext = createContext()
 export function UserProvider({ children }) {
     
     const [ user, setUser ] = useState(null)
+    const [ loadingUser, setLoadingUser] = useState(true)
     const server = process.env.REACT_APP_SERVER_URL;
 
     const fetchUserData = async (userId) => {
@@ -17,13 +18,14 @@ export function UserProvider({ children }) {
 
             if (response.ok) {
                 const userData = await response.json()
-                // console.log('fetchedUserData', userData)
                 setUser(userData)
             } else {
                 console.log("error fetching user data")
             }
         } catch (err) {
             console.log('Fetch Error', err)
+        } finally {
+            setLoadingUser(false)
         }
     }
 
@@ -47,7 +49,7 @@ export function UserProvider({ children }) {
     };
 
     return (
-        <UserContext.Provider value={{ user, setUser, logout }}>
+        <UserContext.Provider value={{ user, setUser, logout, loadingUser }}>
             {children}
         </UserContext.Provider>
     )

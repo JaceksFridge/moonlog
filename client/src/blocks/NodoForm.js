@@ -14,6 +14,7 @@ import FormCounters from './FormCounters'
 const NodoForm = ({ settings }) => {
 
   const [nodoScores, setNodoScores] = useLocalStorage('nodo', {})
+  console.log("nodo settings", settings)
 
   const sliderChange = (sliderValues) => {
     setNodoScores({

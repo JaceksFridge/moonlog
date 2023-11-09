@@ -87,7 +87,7 @@ const Scores = () => {
                 <motion.div className="sub-score-item" key={category} variants={itemVariants(i)} initial='hidden' animate='visible'>
                     <div className="item-title satoshi-btn">{category}</div>
                     <div className="item-value satoshi-btn">
-                        {category !== 'nodo' ? '+' : '-'}{scores[category] ? scores[category] : 0}
+                        {category !== 'nodo' ? '+' : ''}{scores[category] ? scores[category] : 0}
                     </div>
                 </motion.div>
             ))}
