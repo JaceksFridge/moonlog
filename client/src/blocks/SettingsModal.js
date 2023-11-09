@@ -89,6 +89,12 @@ const InfoModal = ({ modal, setModal, btn1Fun, btn2Fun, SVGComponent }) => {
                 <div className="user-mail">derickrose@gmail.com</div>
               </div>
             </div>
+            <div className="menu-items">
+              <div className="item">
+                <div className="icon-container"></div>
+                <div className="text"></div>
+              </div>
+            </div>
             <button className="modal-btn">
               logout
             </button>

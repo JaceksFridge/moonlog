@@ -92,6 +92,14 @@
                 }
             }
 
+            .menu-items{
+                border-bottom: 1px solid $white-20;
+                margin-bottom: 1.5rem;
+                .item{
+                    display: flex;
+                }
+            }
+
             button{
                 height: 3.5rem;
                 width: 100%;
