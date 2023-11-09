@@ -129,7 +129,7 @@ router.get('/settings/:userId', async (req, res) => {
         if (user && user.settings) {
             console.log('found user setiings')
             console.log(user.settings)
-            res.status(200).json(user.settings)
+            res.status(200).json(user)
         } else if (user && !user.settings) {
             res.status(404).json({ meassage: "settings not found for this user" })
         } else {

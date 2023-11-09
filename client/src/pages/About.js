@@ -6,12 +6,7 @@ import { CalendarSVG, TechnologySVG, GithubSVG } from '../blocks/svg'
 import { useMediaQuery } from 'react-responsive'
 
 
-
-
-
 const About = () => {
-
-
 
     const isDesktoporLaptop = useMediaQuery({
         query: '(min-device-width: 1224px)'
