@@ -86,29 +86,7 @@ const DashboardDesktop = ({ data }) => {
           </div>
           <div className="main-placeholder-right" ref={rightPlaceholderRef}></div>
           <div className="main-right" ref={mainRightRef}>
-            <div className="cell box-rainbow">
-            <div className="chart-title">total score</div>
-              <DayHalfDoughnutChart dataDay={activeDay} />
-            </div>
-            <div className="cell box-circles">
-            <div className="chart-title">subscores</div>
-              <div className="subscores-container">
-                <div className="sub-box">
-                  <div className="day-full-container"><DayFullHealth /></div>
-                  <Legend name='health' data={activeDay ? activeDay.subscores.health : null} />
-                </div>
-
-                <div className="sub-box">
-                  <div className="day-full-container"><DayFullHappiness /></div>
-                  <Legend name="wealth" data={activeDay ? activeDay.subscores.wealth : null} />
-                </div>
-                <div className="sub-box">
-                  <div className="day-full-container"><DayFullWealth /></div>
-                  <Legend name="happiness" data={activeDay ? activeDay.subscores.happiness : null} />
-                </div>
-                <div className="sub-box"></div>
-              </div>
-            </div>
+            <div className="inner-content"></div>
           </div>
         </div>
     </div>

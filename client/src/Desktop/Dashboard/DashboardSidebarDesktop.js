@@ -2,6 +2,8 @@
 
 import React from 'react'
 import AdbIcon from '@mui/icons-material/Adb';
+import { SidebarArrowSVG, SidebarLogoSVG, SidebarNewLogSVG
+ } from '../../blocks/svg';
 
 const DashboardSidebarDesktop = ({ toggleSidebar, isExpanded }) => {
 
@@ -19,21 +21,37 @@ const DashboardSidebarDesktop = ({ toggleSidebar, isExpanded }) => {
 
   return (
     <div className="desktop-sidebar">
-      <div className="button-container">
-        <div className="close-button" onClick={toggleSidebar}>
-          <img src="/icons/sidebarIcon.svg" alt="sidebar" />
+      <div className="inner-sidebar">
+        <div className="sidebar-heading">
+          <div className="icon">
+            <SidebarLogoSVG />
+          </div>
+          <h2 className="sidebar-title">
+            Moonlog
+          </h2>
         </div>
-      </div>
-      <div className="sidebar-tabs">
-        <div className="sidebar-tabs-title">
-          { isExpanded && (
-            <p>chart tabs</p>
-          )}
+        <div className="menu">
+          <div className="menu-top">
+            Navigation
+          </div>
+          <div className="menu-item">
+            <div className="icon">
+              <SidebarNewLogSVG />
+            </div>
+            <div className="item-name">New Log</div>
+          </div>
+          <div className="menu-item">
+            <div className="icon">
+              <SidebarNewLogSVG />
+            </div>
+            <div className="item-name">Goalsettings</div>
+          </div>
         </div>
-        <div className="chart-tabs">
-          <TabItem icon={AdbIcon} name="scores" />
-          <TabItem icon={AdbIcon} name="health" />
-          <TabItem icon={AdbIcon} name="wealth" />
+        <div 
+          className="sidebar-btn"
+          onClick={toggleSidebar}
+        >
+          <SidebarArrowSVG />
         </div>
       </div>
     </div>

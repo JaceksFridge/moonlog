@@ -17,82 +17,15 @@
 
 
     .sidebar-container{
-        // position: fixed;
-        // left: 0; top: 0;
-        width: 25%;
+        width: 100%;
         height: 100%;
         align-self: flex-start;
     }
 
     .sidebar-placeholder{
-        width: 25%;
-        height: 100%;
-        align-self: flex-start;
-    }
-    .desktop-sidebar{
         width: 100%;
         height: 100%;
-        padding: 1.5rem;
-        background: none;
-
-        .button-container{
-            width: 100%;
-            height: 3rem;
-            display: grid;
-            place-items: center;
-            border: 0px solid orange;
-
-            .close-button{
-                cursor: pointer;
-                height: 3rem; width: 3rem;
-                border-radius: 0.5rem;
-                border: 1px solid $white-50;
-        
-                display: grid;
-                place-items: center;
-            }
-    
-            .close-button:hover{
-                border: 1px solid $white-80;
-            }
-        }
-
-        .sidebar-tabs{
-
-            border: 0px solid purple;
-            .sidebar-tabs-title{
-                color: $white-50;
-                height: 3rem;
-                display: grid;
-                place-items: center;
-            }
-            .chart-tabs{
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                gap: 1.5rem;
-
-                .tab{
-                    height: 2.5rem;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    gap: 1rem;
-                    color: $white;
-                    border-radius: 1rem;
-                    border: 0px solid $white;
-
-                    p{
-                        text-transform: capitalize;
-                    }
-                }
-
-                .tab:hover{
-                    background: $white;
-                    color: $black;
-                }
-            }
-        }
+        align-self: flex-start;
     }
 
     .main{
