@@ -152,10 +152,29 @@
 @media (min-width: 1224px) {
   .backdrop{
     background: rgba(20, 20, 20, 0.95);
+    display: grid;
+    place-items: center;
 
 
-    .modal{
+
+    .settings-modal{
+        // top: 10%;
+        // left: 20%;
+        // bottom: none;
+        position: relative;
+        padding: 1.5rem;
+        border-radius: 1.5rem;
+
+        width: 30%;
+        height: auto;
         border: 0.5px $white-50;
+
+
+        .modal-inner-container{
+            .modal-btn{
+                margin-bottom: 0;
+            }
+        }
     }
   }
 }
