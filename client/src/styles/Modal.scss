@@ -64,15 +64,16 @@
                     width: 100%;
                     border: 1px solid $modal-grey;
                     border-radius: 0.5rem;
-                    margin-bottom: 1.5rem;
                     text-transform: lowercase;
                 }
 
                 .modal-btn1{
+                    margin-bottom: 1.5rem;
                     background: white;
                     color: $modal-black;
                 }
                 .modal-btn2{
+                    margin-bottom: 1.5rem;
                     background: none;
                     color: $modal-grey;
                 }
@@ -85,10 +86,31 @@
 @media (min-width: 1224px) {
   .backdrop{
     background: rgba(20, 20, 20, 0.95);
+    display: grid;
+    place-items: center;
 
 
     .modal{
+        position: relative;
+        padding: 1.5rem;
+        width: 30%;
+        height: auto;
+
+        border-radius: 1.5rem;
         border: 0.5px $white-50;
+
+        .modal-inner-container{
+            .modal-buttons {
+                button.modal-btn2{
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+
+
     }
+
+
   }
 }
