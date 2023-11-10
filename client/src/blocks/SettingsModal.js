@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { SettingsInfoSVG, SettingsResetSVG, SettingsBinSVG } from './svg'
 import { useNavigate } from 'react-router-dom'
 
-const InfoModal = ({ modal, setModal, btnLogout, btn2Fun, SVGComponent }) => {
+const InfoModal = ({ modal, setModal, btnLogout, btnReset, btnDelete, SVGComponent }) => {
 
     const jump = useNavigate()
 
@@ -20,6 +20,16 @@ const InfoModal = ({ modal, setModal, btnLogout, btn2Fun, SVGComponent }) => {
     const handleAbout = () => {
       setModal(false)
       jump('/about')
+    }
+
+    const handleReset = () => {
+      setModal(false)
+      btnReset(true)
+    }
+
+    const handleDelete = () => {
+      setModal(false)
+      btnDelete(true)
     }
     
     
@@ -101,22 +111,28 @@ const InfoModal = ({ modal, setModal, btnLogout, btn2Fun, SVGComponent }) => {
               </div>
             </div>
             <div className="menu-items">
-              <div className="item">
+              <div 
+                className="item"
+                onClick={handleAbout}
+              >
                 <div className="icon-container">
                   <SettingsInfoSVG />
                 </div>
-                <div 
-                  className="text"
-                  onClick={handleAbout}
-                >Info About</div>
+                <div className="text">Info About</div>
               </div>
-              <div className="item">
+              <div 
+                className="item"
+                onClick={handleReset}
+              >
                 <div className="icon-container">
                   <SettingsResetSVG />
                 </div>
                 <div className="text">Reset Settings</div>
               </div>
-              <div className="item">
+              <div 
+                className="item"
+                onClick={handleDelete}
+              >
                 <div className="icon-container">
                   <SettingsBinSVG />
                 </div>
