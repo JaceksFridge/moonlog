@@ -58,13 +58,14 @@
                 display: flex;
                 justify-content: flex-start;
                 align-items: center;
+                gap: 1rem;
 
                 &:hover{
-                    background: #131313;
+                    background: $white-50;
                 }
 
                 .icon .random-icon svg{
-                    height: 1rem;
+                    width: 1rem; height: auto;
                     border: 0px solid peru;
                 }
                 .item-name{

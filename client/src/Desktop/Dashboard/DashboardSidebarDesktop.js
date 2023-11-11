@@ -2,7 +2,9 @@
 
 import React from 'react'
 import AdbIcon from '@mui/icons-material/Adb';
-import { SidebarArrowSVG, SidebarLogoSVG, SidebarNewLogSVG
+import { SidebarArrowSVG, SidebarLogoSVG, SidebarNewLogSVG,
+ SidebarLogEntriesSVG, SidebarGoalsettingsSVG, SidebarProgressSVG,
+ SidebarHealthSVG
  } from '../../blocks/svg';
 
 const DashboardSidebarDesktop = ({ toggleSidebar, isExpanded }) => {
@@ -45,6 +47,24 @@ const DashboardSidebarDesktop = ({ toggleSidebar, isExpanded }) => {
               <SidebarNewLogSVG />
             </div>
             <div className="item-name">Goalsettings</div>
+          </div>
+          <div className="menu-item">
+            <div className="icon">
+              <SidebarLogEntriesSVG />
+            </div>
+            <div className="item-name">Log Entries</div>
+          </div>
+          <div className="menu-item">
+            <div className="icon">
+              <SidebarProgressSVG />
+            </div>
+            <div className="item-name">Progress</div>
+          </div>
+          <div className="menu-item">
+            <div className="icon">
+              <SidebarHealthSVG />
+            </div>
+            <div className="item-name">Health</div>
           </div>
         </div>
         <div 
