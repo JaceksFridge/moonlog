@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { UserContext } from '../blocks/userContext'
 import useCurrentDate from '../blocks/useCurrentDate'
+import { useMediaQuery } from 'react-responsive'
 import axios from 'axios'
 
 import Footer from '../blocks/Footer'
@@ -31,35 +32,11 @@ const Forms = () => {
     }
   }, [user]);
 
-  // useEffect(() => {
-  //   const getSettings = async () => {
-  //     setLoading(true)
 
-  //     const userId = localStorage.getItem('userId')
+  const isDesktoporLaptop = useMediaQuery({
+    query: '(min-device-width: 1224px)'
+  })
 
-  //     try {
-  //       const response = await fetch(`${server}/user/settings/${userId}`)
-
-  //       if (response.status === 200) {
-  //         const data = await response.json()
-  //         setSettings(data)
-  //       } else {
-  //         console.log('Failed to fetch settings');
-  //       }
-
-  //     } catch (error) {
-  //       console.log('Fetch Error', error)
-  //     } finally {
-  //     setLoading(false)
-  //     }
-  //   }
-  //   getSettings()
-  // }, [])
-
-  // SOME EFFECT
-  // useEffect(() => {
-  //   console.log('Updated Settings: ', settings);
-  // }, [settings]);
 
   const currentDate = useCurrentDate()
   const currentTime = new Date().toLocaleTimeString()
@@ -176,23 +153,73 @@ const Forms = () => {
 
   return (
     <div className="Forms">
-      <Header />
-      {loadingUser ? (
-        <div>Loading...</div>
+    { !isDesktoporLaptop ? (
+      <>
+        <Header />
+        { loadingUser ? (
+          <div>Loading...</div>
+        ) : (
+          <>
+            {currentIndex !== 3 ? (
+              <TopNav1 activeTab={activeTab} setActiveTab={setActiveTab} />
+            ) : (
+              <TopNav2 submit={dataToServer} setActiveTab={setActiveTab} />
+            )}
+            {forms[activeTab]}
+            <Footer currentIndex={currentIndex} toBack={handleBack} toNext={handleNext} submit={dataToServer}/>
+          </>
+        )}
+      </>
       ) : (
-        <>
-          {currentIndex !== 3 ? (
-            <TopNav1 activeTab={activeTab} setActiveTab={setActiveTab} />
-          ) : (
-            <TopNav2 submit={dataToServer} setActiveTab={setActiveTab} />
-          )}
-          {forms[activeTab]}
-          <Footer currentIndex={currentIndex} toBack={handleBack} toNext={handleNext} submit={dataToServer}/>
-        </>
-      )}
+      <>
+        { settings &&           
+        <div className="forms-desktop">
+            <div className="top-progress">
+              <div className="top-container">
+              <div className="top-element health">
+                <div className="number">1</div>
+                <div className="name">health</div>
+              </div>
+              <div className="top-element wealth">
+                <div className="number">2</div>
+                <div className="name">wealth</div>
+              </div>
+              <div className="top-element happiness">
+                <div className="number">3</div>
+                <div className="name">happiness</div>
+              </div>
+              <div className="top-element nodo">
+                <div className="number">4</div>
+                <div className="name">nodo</div>
+              </div>
+              <div className="progress-line"></div>
+              </div>
+          </div>
+          <div className="section-container">
+            <section id="health-form">
+              <h2>Health</h2>
+              { settings.health && <HealthForm settings={settings.health.active} /> }
+            </section>
+            <section id="wealth-form">
+              <h2>Wealth</h2>
+              { settings.wealth && <HealthForm settings={settings.wealth.active} /> }
+            </section>
+            <section id="happiness-form">
+              <h2>Happiness</h2>
+              { settings.happiness && <HealthForm settings={settings.happiness.active} /> }
+            </section>
+            <section id="nodo-form">
+              <h2>Nodo</h2>
+              { settings.nodo && <HealthForm settings={settings.nodo.active} /> }
+            </section>
+          </div>
+        </div>
+        }
+      </>
+      )  
+    }
     </div>
-  )  
-}
+  )}
 
 export default Forms
 

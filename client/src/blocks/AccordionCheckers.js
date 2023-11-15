@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from "framer-motion"
 import { BoomerangSVG } from "../blocks/svg"
 
-const AccordionCheckers = ({ settings }) => {
+const AccordionCheckers = ({ settings, category, accordionKey ,isActive, toggleAccordion }) => {
 
     const addButtonRef = useRef(null)
     const [isOpen, setIsOpen] = useState(false)
@@ -83,9 +83,16 @@ const AccordionCheckers = ({ settings }) => {
 
   return (
     <div className="section-container">
-        <div className="accordion-header">
-            <div className="checkbox"></div>
-            <h3 className="title">Chckers</h3>
+        <div className={`accordion-header ${isActive ? 'active' : 'inactive'}`}>
+            <div className="checkbox">
+            <input 
+                type="checkbox" 
+                checked={isActive} 
+                onChange={() => toggleAccordion(category, accordionKey, isActive)} 
+                // onChange={() => console.log(accordionKey)}
+            />
+            </div>
+            <h3 className="title">Checkers</h3>
             <div className="miniscores-container">
           
                 <div className="mini-score">

@@ -73,19 +73,21 @@ const GoalSettings = () => {
             const newSettings = {...prevSettings};
             const accordionType = accordionKey.split('-')[0]
     
+            
+            if (!isActive) {
 
-            if (!isActive) {
-                Object.keys(newSettings[category].active).forEach(key => {
-                    if (key.startsWith(accordionType)) {
-                        newSettings[category].inactive[key] = newSettings[category].active[key];
-                        delete newSettings[category].active[key];
-                    }
-                });
-            }
-    
-            if (!isActive) {
-                newSettings[category].active[accordionKey] = newSettings[category].inactive[accordionKey];
+                // remove current active
+                if (newSettings[category].active[accordionType]) {
+                    console.log("type already exists")
+                    
+                    newSettings[category].inactive[accordionKey] = newSettings[category].inactive[accordionType]
+                    delete newSettings[category].active[accordionType]
+                }
+                // adding to active
+                
+                newSettings[category].active[accordionType] = newSettings[category].inactive[accordionKey];
                 delete newSettings[category].inactive[accordionKey];
+                console.log("added new active iteme")
             } else {
                 console.log("trying to deactivate:", accordionKey)
                 newSettings[category].inactive[accordionKey] = newSettings[category].inactive[accordionType] 
@@ -155,7 +157,7 @@ const GoalSettings = () => {
                                         {accordionType == "checkers" && <AccordionCheckers  
                                             accordionKey={`${key}-${index}`} 
                                             category="health" 
-                                            settings={value} 
+                                            settings={value}
                                             isActive={true} 
                                             toggleAccordion={toggleAccordion}
                                         />}

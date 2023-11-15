@@ -85,12 +85,14 @@
             padding: 1rem 0;
             border: 0px solid $white-20;
 
-
+            .accordion-header.active{
+                border: 1px solid $white-80;
+            }
             .accordion-header{
                 max-height: 5rem;
                 padding: 1.5rem;
                 border-radius: 0.5rem;
-                border: 1px solid $white-50;
+                border: 1px solid $white-20;
 
                 display: flex;
                 justify-content: flex-start;
