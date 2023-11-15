@@ -77,7 +77,25 @@ const Forms = () => {
         if (happinessRef.current) observer.unobserve(happinessRef.current);
         if (nodoRef.current) observer.unobserve(nodoRef.current);
     };
-}, []);
+  }, []);
+
+  const TabClick = (tab) => {
+    const tabToRef = {
+      health: healthRef,
+      wealth: wealthRef,
+      happiness: happinessRef,
+      nodo: nodoRef,
+    }
+
+    const ref = tabToRef[tab]
+    if (ref && ref.current) {
+      console.log(ref)
+      ref.current.scrollIntoView({ behavior: 'smooth'})
+    }
+    setActiveTab(tab)
+  }
+
+
 
 
   const isDesktoporLaptop = useMediaQuery({
@@ -223,19 +241,31 @@ const Forms = () => {
         <div className="forms-desktop">
             <div className="top-progress">
               <div className="top-container">
-              <div className={`top-element health ${activeTab === 'health' ? 'active' : ''}`}>
+              <div 
+                className={`top-element health ${activeTab === 'health' ? 'active' : ''}`}
+                onClick={() => TabClick('health')}
+              >
                 <div className="number">1</div>
                 <div className="name">health</div>
               </div>
-              <div className={`top-element wealth ${activeTab === 'wealth' ? 'active' : ''}`}>
+              <div 
+                className={`top-element wealth ${activeTab === 'wealth' ? 'active' : ''}`}
+                onClick={() => TabClick('wealth')}
+              >
                 <div className="number">2</div>
                 <div className="name">wealth</div>
               </div>
-              <div className={`top-element happiness ${activeTab === 'happiness' ? 'active' : ''}`}>
+              <div 
+                className={`top-element happiness ${activeTab === 'happiness' ? 'active' : ''}`}
+                onClick={() => TabClick('happiness')}
+              >
                 <div className="number">3</div>
                 <div className="name">happiness</div>
               </div>
-              <div className={`top-element nodo ${activeTab === 'nodo' ? 'active' : ''}`}>
+              <div 
+                className={`top-element nodo ${activeTab === 'nodo' ? 'active' : ''}`}
+                onClick={() => TabClick('nodo')}
+              >
                 <div className="number">4</div>
                 <div className="name">nodo</div>
               </div>
