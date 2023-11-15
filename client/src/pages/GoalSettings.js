@@ -67,10 +67,40 @@ const GoalSettings = () => {
         };
     }, []);
 
+    const toggleAccordion = (category, accordionKey, isActive) => {
+        console.log(`Before toggle: `, settings);
+        setSettings(prevSettings => {
+            const newSettings = {...prevSettings};
+            const accordionType = accordionKey.split('-')[0]
+    
 
+            if (!isActive) {
+                Object.keys(newSettings[category].active).forEach(key => {
+                    if (key.startsWith(accordionType)) {
+                        newSettings[category].inactive[key] = newSettings[category].active[key];
+                        delete newSettings[category].active[key];
+                    }
+                });
+            }
+    
+            if (!isActive) {
+                newSettings[category].active[accordionKey] = newSettings[category].inactive[accordionKey];
+                delete newSettings[category].inactive[accordionKey];
+            } else {
+                console.log("trying to deactivate:", accordionKey)
+                newSettings[category].inactive[accordionKey] = newSettings[category].inactive[accordionType] 
+                delete newSettings[category].active[accordionType]
+            }
+
+            console.log("the correct category is", category, "and the key is ", accordionType)
+            console.log(`After toggle: `, newSettings);
+            return newSettings;
+        });
+    };
+    
+    
 
     const saveSettings = async () => {
-        console.log("function fired")
         const userId = localStorage.getItem("userId");
         try {
             const response = await fetch(`${server}/user/settings/${userId}`, {
@@ -81,9 +111,9 @@ const GoalSettings = () => {
                 body: JSON.stringify(settings)
             });
             const data = await response.json();
-            console.log("Data received:", data);
+            // console.log("Data received:", data);
         } catch (error) {
-            console.log("Fetch error:", error);
+            // console.log("Fetch error:", error);
         }
     };
 
@@ -91,11 +121,6 @@ const GoalSettings = () => {
         console.log(tab)
     }
 
-
-    console.log("settings:", settings)
-    if (settings) {
-        console.log(settings.health)
-    }
 
     console.log("settings object", settings)
 
@@ -113,17 +138,79 @@ const GoalSettings = () => {
             <Header />
             <TopNav activeTab={activeTab} onTabClick={clickHandler}/>
         </div>
-        { userLoading ? (
+        { !settings ? (
             <div className="loading">loading...</div>
         ) : (
             <div className="main">
                 <div className="invisible-top"></div>
                     <div ref={healthRef} className="section" id="health-section" >
                         <h2 className="section-title">health section</h2>
-                        <AccordionCheckers settings={mockData}/>
-                        <AccordionCheckers />
-                        <AccordionCheckers />
-                        
+                        <div className="actives-box">
+                            <h5>actives</h5>
+                        { settings.health && settings.health.active && 
+                            Object.entries(settings.health.active).map(([key, value], index) => {
+                                const accordionType = key.split('-')[0];
+                                return (
+                                    <div key={index} className='active-accordion'>
+                                        {accordionType == "checkers" && <AccordionCheckers  
+                                            accordionKey={`${key}-${index}`} 
+                                            category="health" 
+                                            settings={value} 
+                                            isActive={true} 
+                                            toggleAccordion={toggleAccordion}
+                                        />}
+                                        {accordionType == "counters" && <AccordionCounters 
+                                            accordionKey={`${key}-${index}`} 
+                                            category="health" 
+                                            settings={value} 
+                                            isActive={true} 
+                                            toggleAccordion={toggleAccordion}
+                                        />}
+                                        {accordionType == "slider" && <AccordionSlider 
+                                            accordionKey={`${key}-${index}`} 
+                                            category="health" 
+                                            settings={value} 
+                                            isActive={true} 
+                                            toggleAccordion={toggleAccordion} 
+                                        />}
+                                    </div>
+                                )
+                            })
+                        }
+                        </div>
+                        <div className="inactives-box">
+                            <h5>inactives</h5>
+                            { settings.health && settings.health.inactive && 
+                            Object.entries(settings.health.inactive).map(([key, value], index) => {
+                                const accordionType = key.split('-')[0];
+                                return (
+                                    <div key={index} className='inactive-accordion'>
+                                        {accordionType == "checkers" && <AccordionCheckers  
+                                            accordionKey={`${key}-${index}`} 
+                                            category="health" 
+                                            settings={value} 
+                                            isActive={false} 
+                                            toggleAccordion={toggleAccordion}
+                                        />}
+                                        {accordionType == "counters" && <AccordionCounters 
+                                            accordionKey={`${key}-${index}`} 
+                                            category="health" 
+                                            settings={value} 
+                                            isActive={false} 
+                                            toggleAccordion={toggleAccordion}
+                                        />}
+                                        {accordionType == "slider" && <AccordionSlider 
+                                            accordionKey={`${key}-${index}`} 
+                                            category="health" 
+                                            settings={value} 
+                                            isActive={false} 
+                                            toggleAccordion={toggleAccordion} 
+                                        />}
+                                    </div>
+                                )
+                            })
+                        }
+                        </div>
                         <div ref={wealthRef} className="section" id="wealth-section" >
                             <h2 className="section-title">wealth section</h2>
                         </div>
