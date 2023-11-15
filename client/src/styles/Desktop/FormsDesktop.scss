@@ -17,8 +17,15 @@
         .health{
             margin-left: 6rem;
         }
-        .nodo{
+        .top-element.nodo{
             margin-right: 2rem;
+            color: $white-50;
+            .number{
+                color: $white-50;
+            }
+            .name{
+                color: $white-50;
+            }
         }
 
         .top-element{
@@ -26,6 +33,7 @@
             flex: 1;
             width: 100%;
             height: 100%;
+            padding: 1rem;
             color: $white-50;
             cursor: pointer;
     
@@ -50,6 +58,25 @@
     
             .name{
                 text-transform: capitalize;
+            }
+        }
+
+        .top-element.active{
+            color: $white;
+            // border-left: 1px solid $white;
+
+            .number{
+                border: 1.5px solid $white;
+            }
+        }
+        .top-element.active.nodo{
+            color: $white;
+            .number{
+                color: $white;
+                border: 1.5px solid $white;
+            }
+            .name{
+                color: $white;
             }
         }
 

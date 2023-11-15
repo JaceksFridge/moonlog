@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useEffect, useContext, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { UserContext } from '../blocks/userContext'
 import useCurrentDate from '../blocks/useCurrentDate'
@@ -20,17 +20,64 @@ const Forms = () => {
 
   const server = process.env.REACT_APP_SERVER_URL
   const [settings, setSettings] = useState({})
+  const [activedTab, setActivedTab] = useState('health');
+  const healthRef = useRef(null);
+  const wealthRef = useRef(null);
+  const happinessRef = useRef(null);
+  const nodoRef = useRef(null);
 
 
   // context trying
   const { user, loadingUser } = useContext(UserContext)
  
+  // checking if settings loaded
   useEffect(() => {
     if (user && user.settings) {
       setSettings(user.settings);
       console.log("logging user",user)
     }
   }, [user]);
+
+  // observer for scrolling
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    switch(entry.target.id) {
+                        case 'health-form':
+                            setActiveTab('health');
+                            break;
+                        case 'wealth-form':
+                            setActiveTab('wealth');
+                            break;
+                        case 'happiness-form':
+                            setActiveTab('happiness');
+                            break;
+                        case 'nodo-form':
+                            setActiveTab('nodo');
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            });
+        },
+        { threshold: 0.5 }
+    );
+
+    if (healthRef.current) observer.observe(healthRef.current);
+    if (wealthRef.current) observer.observe(wealthRef.current);
+    if (happinessRef.current) observer.observe(happinessRef.current);
+    if (nodoRef.current) observer.observe(nodoRef.current);
+
+    return () => {
+        if (healthRef.current) observer.unobserve(healthRef.current);
+        if (wealthRef.current) observer.unobserve(wealthRef.current);
+        if (happinessRef.current) observer.unobserve(happinessRef.current);
+        if (nodoRef.current) observer.unobserve(nodoRef.current);
+    };
+}, []);
 
 
   const isDesktoporLaptop = useMediaQuery({
@@ -176,19 +223,19 @@ const Forms = () => {
         <div className="forms-desktop">
             <div className="top-progress">
               <div className="top-container">
-              <div className="top-element health">
+              <div className={`top-element health ${activeTab === 'health' ? 'active' : ''}`}>
                 <div className="number">1</div>
                 <div className="name">health</div>
               </div>
-              <div className="top-element wealth">
+              <div className={`top-element wealth ${activeTab === 'wealth' ? 'active' : ''}`}>
                 <div className="number">2</div>
                 <div className="name">wealth</div>
               </div>
-              <div className="top-element happiness">
+              <div className={`top-element happiness ${activeTab === 'happiness' ? 'active' : ''}`}>
                 <div className="number">3</div>
                 <div className="name">happiness</div>
               </div>
-              <div className="top-element nodo">
+              <div className={`top-element nodo ${activeTab === 'nodo' ? 'active' : ''}`}>
                 <div className="number">4</div>
                 <div className="name">nodo</div>
               </div>
@@ -196,19 +243,19 @@ const Forms = () => {
               </div>
           </div>
           <div className="section-container">
-            <section id="health-form">
+            <section id="health-form" ref={healthRef} >
               <h2>Health</h2>
               { settings.health && <HealthForm settings={settings.health.active} /> }
             </section>
-            <section id="wealth-form">
+            <section id="wealth-form" ref={wealthRef} >
               <h2>Wealth</h2>
               { settings.wealth && <HealthForm settings={settings.wealth.active} /> }
             </section>
-            <section id="happiness-form">
+            <section id="happiness-form" ref={happinessRef} >
               <h2>Happiness</h2>
               { settings.happiness && <HealthForm settings={settings.happiness.active} /> }
             </section>
-            <section id="nodo-form">
+            <section id="nodo-form" ref={nodoRef} >
               <h2>Nodo</h2>
               { settings.nodo && <HealthForm settings={settings.nodo.active} /> }
             </section>
