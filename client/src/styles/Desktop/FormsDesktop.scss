@@ -88,10 +88,6 @@
             background: $white-20;
         }
     }   
-
-
-
-
 }
 
 
@@ -102,5 +98,11 @@
             height: 100%;
             padding: 10rem 6rem;
         }
+    }
+    .submit-btn{
+        background: white;
+        color: black;
+        width: 200px;
+        height: 50px;
     }
 }

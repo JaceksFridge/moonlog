@@ -92,7 +92,7 @@ const Forms = () => {
       console.log(ref)
       ref.current.scrollIntoView({ behavior: 'smooth'})
     }
-    setActiveTab(tab)
+    setActivedTab(tab)
   }
 
 
@@ -239,7 +239,7 @@ const Forms = () => {
       <>
         { settings &&           
         <div className="forms-desktop">
-            <div className="top-progress">
+          <div className="top-progress">
               <div className="top-container">
               <div 
                 className={`top-element health ${activeTab === 'health' ? 'active' : ''}`}
@@ -270,7 +270,7 @@ const Forms = () => {
                 <div className="name">nodo</div>
               </div>
               <div className="progress-line"></div>
-              </div>
+            </div>
           </div>
           <div className="section-container">
             <section id="health-form" ref={healthRef} >
@@ -290,6 +290,12 @@ const Forms = () => {
               { settings.nodo && <HealthForm settings={settings.nodo.active} /> }
             </section>
           </div>
+          <button 
+            className="submit-btn"
+            onClick={dataToServer}
+          >
+            Save
+          </button>
         </div>
         }
       </>

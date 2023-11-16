@@ -65,7 +65,23 @@ const GoalSettings = () => {
             if (happinessRef.current) observer.unobserve(happinessRef.current);
             if (nodoRef.current) observer.unobserve(nodoRef.current);
         };
-    }, []);
+    }, [])
+
+    const TabClick = (tab) => {
+        const tabToRef = {
+          health: healthRef,
+          wealth: wealthRef,
+          happiness: happinessRef,
+          nodo: nodoRef,
+        }
+    
+        const ref = tabToRef[tab]
+        if (ref && ref.current) {
+          console.log(ref)
+          ref.current.scrollIntoView({ behavior: 'smooth'})
+        }
+        setActiveTab(tab)
+    }
 
     const toggleAccordion = (category, accordionKey, isActive) => {
         console.log(`Before toggle: `, settings);
@@ -119,32 +135,54 @@ const GoalSettings = () => {
         }
     };
 
-    const clickHandler = (tab) => {
-        console.log(tab)
-    }
-
 
     console.log("settings object", settings)
 
-
-
-    const mockData = {
-        "morning run": 20,
-        "meditation": 50,
-        "take viatmins": 100,
-    }
 
   return (
     <div className="goalsettings">
         <div className="top-top">
             <Header />
-            <TopNav activeTab={activeTab} onTabClick={clickHandler}/>
+            <TopNav activeTab={activeTab} onTabClick={TabClick}/>
         </div>
         { !settings ? (
             <div className="loading">loading...</div>
         ) : (
             <div className="main">
                 <div className="invisible-top"></div>
+                {/* <div className="top-progress">
+                    <div className="top-container">
+                        <div 
+                            className={`top-element health ${activeTab === 'health' ? 'active' : ''}`}
+                            onClick={() => TabClick('health')}
+                        >
+                            <div className="number">1</div>
+                            <div className="name">health</div>
+                        </div>
+                        <div 
+                            className={`top-element wealth ${activeTab === 'wealth' ? 'active' : ''}`}
+                            onClick={() => TabClick('wealth')}
+                        >
+                            <div className="number">2</div>
+                            <div className="name">wealth</div>
+                        </div>
+                        <div 
+                            className={`top-element happiness ${activeTab === 'happiness' ? 'active' : ''}`}
+                            onClick={() => TabClick('happiness')}
+                        >
+                            <div className="number">3</div>
+                            <div className="name">happiness</div>
+                        </div>
+                        <div 
+                            className={`top-element nodo ${activeTab === 'nodo' ? 'active' : ''}`}
+                            onClick={() => TabClick('nodo')}
+                        >
+                            <div className="number">4</div>
+                            <div className="name">nodo</div>
+                        </div>
+                    </div>
+                    <div className="progress-line"></div>
+                </div> */}
                     <div ref={healthRef} className="section" id="health-section" >
                         <h2 className="section-title">health section</h2>
                         <div className="actives-box">

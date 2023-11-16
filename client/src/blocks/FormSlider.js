@@ -3,7 +3,7 @@ import { useLocalStorage } from './useLocalStorage'
 
 
 const FormSlider = ({ sliderChange, form, stk }) => {
-    console.log('Form received in FormSlider:', form);
+
     const [slider, setSlider] = useLocalStorage(stk, 0)
     const [currentSlider, setCurrentSlider] = useState(slider)
 
@@ -13,8 +13,11 @@ const FormSlider = ({ sliderChange, form, stk }) => {
         const sliderObject = { [form.title]: newSliderValue * form.weight }
 
         setSlider(newSliderValue)
+        console.log("error chekc", sliderObject)
         sliderChange(sliderObject)
+
         setCurrentSlider(newSliderValue)
+ 
     }
     useEffect(() => {
         const valPercent = ( slider / form.range ) * 100

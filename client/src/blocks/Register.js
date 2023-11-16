@@ -31,7 +31,7 @@ const Register = ({ setLogReg, logIn, setLogIn, toggleSwitch }) => {
     wealth: {
         inactive: {},
         active: {
-          slider: { title: "hours of work", range: 10, weight: 50, },
+          slider: { title: "hoursofwork", range: 10, weight: 50, },
           checkers: { meetup: 100, },
           counters: { learning: 50, application: 25, },
         }
@@ -39,7 +39,7 @@ const Register = ({ setLogReg, logIn, setLogIn, toggleSwitch }) => {
     happiness: {
       inactive: {},
       active: {
-        slider: { title: "hours of work", range: 10, weight: 50, },
+        slider: { title: "hoursofwork", range: 10, weight: 50, },
         checkers: { meetup: 100, },
         counters: { learning: 50, application: 25, },
       }

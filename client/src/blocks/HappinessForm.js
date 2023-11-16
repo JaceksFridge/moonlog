@@ -15,11 +15,22 @@ const HappinessForm = ({ settings }) => {
   const [happinessScores, setHappinessScores] = useLocalStorage('happiness', {})
 
   const sliderChange = (sliderValue) => {
+    console.log("functiooooon")
+    if (typeof happinessScores !== 'object' || happinessScores === null) {
+      console.error('happinessScores is not an object:', happinessScores);
+      return;
+    }
+    if (typeof sliderValue !== 'object' || sliderValue === null) {
+      console.error('sliderValue is not an object:', sliderValue);
+      return;
+    }
+  
     setHappinessScores({
       ...happinessScores,
       ...sliderValue
-    })
-  }
+    });
+  };
+  
   const checksChange = (checkValues) => {
     setHappinessScores({
       ...happinessScores,
