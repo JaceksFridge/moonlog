@@ -224,6 +224,41 @@ export const SettingsBin2SVG = ({ variants }) => {
 }
 
 
+export const SettingsAccordionCheckers = ({ variants }) => {
+  return (
+    <div className="random-icon">
+      <svg width="77" height="55" viewBox="0 0 77 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fillRule="evenodd" clipRule="evenodd" d="M75.0645 1.40034C75.9611 2.29724 76.4648 3.51354 76.4648 4.78176C76.4648 6.04999 75.9611 7.26629 75.0645 8.16319L29.628 53.5997C28.7311 54.4963 27.5148 55 26.2466 55C24.9783 55 23.762 54.4963 22.8651 53.5997L1.34259 32.0771C0.471364 31.1751 -0.0107164 29.9669 0.000180801 28.7129C0.011078 27.4589 0.51408 26.2593 1.40085 25.3725C2.28761 24.4858 3.4872 23.9828 4.74123 23.9719C5.99526 23.961 7.2034 24.443 8.10544 25.3143L26.2466 43.4554L68.3016 1.40034C69.1985 0.503702 70.4148 0 71.683 0C72.9512 0 74.1675 0.503702 75.0645 1.40034Z" fill="white"/>
+      </svg>
+    </div>
+  )
+}
+
+export const SettingsAccordionSlider = ({ variants }) => {
+  return (
+    <div className="random-icon">
+      <svg width="94" height="68" viewBox="0 0 94 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M24.3775 56.6414L18.2532 13.7843C18.0795 12.5685 18.169 11.3296 18.5157 10.1514C18.8625 8.97319 19.4584 7.88329 20.2631 6.95547C21.0677 6.02765 22.0624 5.2836 23.1797 4.77369C24.297 4.26378 25.5108 3.99992 26.739 4H41.2589C42.4871 3.99992 43.7009 4.26378 44.8182 4.77369C45.9355 5.2836 46.9302 6.02765 47.7348 6.95547C48.5395 7.88329 49.1354 8.97319 49.4822 10.1514C49.8289 11.3296 49.9184 12.5685 49.7447 13.7843L43.6204 56.6414C43.3284 58.6839 42.3095 60.5525 40.7507 61.9043C39.192 63.256 37.1979 64.0001 35.1347 64H32.8632C30.8 64.0001 28.8059 63.256 27.2471 61.9043C25.6884 60.5525 24.6695 58.6839 24.3775 56.6414Z" stroke="white" strokeWidth="7"/>
+        <path d="M4 34H21.1429M89.7143 34H46.8571" stroke="white" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    </div>
+  )
+}
+
+export const SettingsAccordionCounters = ({ variants }) => {
+  return (
+    <div className="random-icon">
+      <svg width="73" height="73" viewBox="0 0 73 73" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M36.5 4V69ZM69 36.5H4Z" fill="white"/>
+        <path d="M36.5 4V69M69 36.5H4" stroke="white" stroke-width="8" stroke-linecap="round"/>
+      </svg>
+    </div>
+  )
+}
+
+
+
+
 
 
 

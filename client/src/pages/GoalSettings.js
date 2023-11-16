@@ -7,6 +7,7 @@ import AccordionCounters from "../blocks/AccordionCounters"
 import AccordionSlider from "../blocks/AccordionSlider"
 import { UserContext } from "../blocks/userContext"
 import { v4 as uuidv4 } from 'uuid';
+import { SettingsAccordionCheckers, SettingsAccordionCounters, SettingsAccordionSlider } from "../blocks/svg"
 
 
 const GoalSettings = () => {
@@ -302,23 +303,30 @@ const GoalSettings = () => {
                                 className="add-checkers"
                                 onClick={addNewCheckers}
                             >
-                                <div className="add-accordion"></div>
+                                <div className="add-accordion">
+                                    <SettingsAccordionCheckers />
+                                </div>
                                 <h4 className="add-text">checkers</h4>
                             </div>
                             <div 
-                                className="add-checkers"
-                                onClick={addNewCounters}
-                            >
-                                <div className="add-accordion"></div>
-                                <h4 className="add-text">counters</h4>
-                            </div>
-                            <div 
-                                className="add-checkers"
+                                className="add-slider"
                                 onClick={addNewSlider}
                             >
-                                <div className="add-accordion"></div>
+                                <div className="add-accordion">
+                                    <SettingsAccordionSlider />
+                                </div>
                                 <h4 className="add-text">slider</h4>
                             </div>
+                            <div 
+                                className="add-counters"
+                                onClick={addNewCounters}
+                            >
+                                <div className="add-accordion">
+                                    <SettingsAccordionCounters />
+                                </div>
+                                <h4 className="add-text">counters</h4>
+                            </div>
+
                         </div>
                     </div>
                     <div ref={wealthRef} className="section" id="wealth-section" >
