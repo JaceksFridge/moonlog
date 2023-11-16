@@ -72,7 +72,7 @@
     .section{
         min-height: 75vh;
         height: 100%;
-        width: 100vw;
+        width: 100%;
         padding: 14rem 1.5rem 0rem 1.5rem;
         border: 0px solid pink;
 
@@ -92,6 +92,14 @@
 
         }
 
+        .actives-box, .inactives-box{
+            width: 100%;
+
+            h5{
+                display: none;
+            }
+        }
+
         .section-container{
             width: 100%;
             height: auto;
@@ -99,10 +107,12 @@
             border: 0px solid $white-20;
 
             .accordion-header.active{
-                border: 1px solid $white-80;
+                border: 1px solid $white-50;
             }
             .accordion-header{
+                border: 0px solid purple;
                 max-height: 5rem;
+                min-width: 100%;
                 padding: 1.5rem;
                 border-radius: 0.5rem;
                 border: 1px solid $white-20;
@@ -188,13 +198,14 @@
 
                 .accordion-inner-content{
                     position: relative;
-                    height: 700px;
+                    height: 40rem;
                     padding: 2rem 1.5rem;
 
                     .bin-icon{
                         position: absolute;
                         top: 2rem;
                         right: 1.5rem;
+                        cursor: pointer;
                     }
                     .bin-icon .random-icon svg{
                         height: 1rem;
@@ -214,7 +225,7 @@
                         position: relative;
                         border: 1px solid $white-20;
                         border-radius: 0.5rem;
-                        height: 250px;
+                        height: 16rem;
                         overflow: hidden;
 
                         .topbar{
@@ -247,6 +258,7 @@
                         .total-activity{
                             position: absolute;
                             bottom: 1rem;
+                            background: #121212;
                         }
                         .activity:hover{
                             background: black;
@@ -328,6 +340,7 @@
                 justify-content: center;
                 align-items: center;
                 gap: 0.5rem;
+                cursor: pointer;
 
                 h4{
                     font-size: 0.75rem;
@@ -347,9 +360,6 @@
     }
 
     .save-container{
-        // position: absolute;
-        // bottom: 3rem;
-        // right: 1.5rem;
         display: flex;
         flex-direction: column;
         align-items: flex-end;
