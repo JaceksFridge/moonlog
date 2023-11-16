@@ -132,8 +132,23 @@ const GoalSettings = () => {
             };
         });
     };
-    
-    
+
+
+    const deleteAccordion = ( category, accordionKey) => {
+        setSettings(prevSettings => {
+            const updatedCategory = { ...prevSettings[category]}
+
+            if (updatedCategory.active[accordionKey]) {
+                delete updatedCategory.active[accordionKey];
+            } else if (updatedCategory.inactive[accordionKey]) {
+                delete updatedCategory.inactive[accordionKey];
+            }
+            return {
+                ...prevSettings,
+                [category]: updatedCategory
+            };
+        })
+    }
     
     
 
@@ -187,6 +202,7 @@ const GoalSettings = () => {
                                             isActive={true} 
                                             toggleAccordion={toggleAccordion}
                                             addActivity={(newActivity) => addActivity('health', key, newActivity)}
+                                            deleteAccordion={deleteAccordion}
                                         />}
                                         {accordionType == "counters" && <AccordionCounters 
                                             accordionKey={key} 
@@ -195,6 +211,7 @@ const GoalSettings = () => {
                                             isActive={true} 
                                             toggleAccordion={toggleAccordion}
                                             addActivity={(newActivity) => addActivity('health', key, newActivity)}
+                                            deleteAccordion={deleteAccordion}
                                         />}
                                         {accordionType == "slider" && <AccordionSlider 
                                             accordionKey={key} 
@@ -203,6 +220,7 @@ const GoalSettings = () => {
                                             isActive={true} 
                                             toggleAccordion={toggleAccordion} 
                                             addActivity={(newActivity) => addActivity('health', key, newActivity)}
+                                            deleteAccordion={deleteAccordion}
                                         />}
                                     </div>
                                 )
@@ -223,6 +241,7 @@ const GoalSettings = () => {
                                             isActive={false} 
                                             toggleAccordion={toggleAccordion}
                                             addActivity={(newActivity) => addActivity('health', key, newActivity)}
+                                            deleteAccordion={deleteAccordion}
                                         />}
                                         {accordionType == "counters" && <AccordionCounters 
                                             accordionKey={key} 
@@ -231,6 +250,7 @@ const GoalSettings = () => {
                                             isActive={false} 
                                             toggleAccordion={toggleAccordion}
                                             addActivity={(newActivity) => addActivity('health', key, newActivity)}
+                                            deleteAccordion={deleteAccordion}
                                         />}
                                         {accordionType == "slider" && <AccordionSlider 
                                             accordionKey={key} 
@@ -239,6 +259,7 @@ const GoalSettings = () => {
                                             isActive={false} 
                                             toggleAccordion={toggleAccordion} 
                                             addActivity={(newActivity) => addActivity('health', key, newActivity)}
+                                            deleteAccordion={deleteAccordion}
                                         />}
                                     </div>
                                 )

@@ -2,9 +2,9 @@
 
 import React, { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from "framer-motion"
-import { BoomerangSVG } from "../blocks/svg"
+import { BoomerangSVG, SettingsBinSVG, SettingsBin2SVG } from "../blocks/svg"
 
-const AccordionCheckers = ({ settings, category, accordionKey ,isActive, toggleAccordion, addActivity }) => {
+const AccordionCheckers = ({ settings, category, accordionKey ,isActive, toggleAccordion, addActivity, deleteAccordion }) => {
 
     const addButtonRef = useRef(null)
     const [isOpen, setIsOpen] = useState(false)
@@ -13,11 +13,6 @@ const AccordionCheckers = ({ settings, category, accordionKey ,isActive, toggleA
     const [activityName, setActivityName] = useState('')
     const [activityValue, setActivityValue] = useState('')
     const [maxValue, setMaxValue] = useState(0)
-
-
-
-    console.log(activities)
-
 
     const handleName = (e) => {
         setActivityName(e.target.value)
@@ -126,6 +121,12 @@ const AccordionCheckers = ({ settings, category, accordionKey ,isActive, toggleA
                             Under the checkers tab you’ll find things which won’t be 
                             possible to repeat during the day
                         </p>
+                        <div 
+                            className="bin-icon"
+                            onClick={() => deleteAccordion(category, accordionKey)}
+                        >
+                            <SettingsBinSVG />
+                        </div>
                         <div className="value-box">
                             <div className="topbar">
                                 <div className="topbar-title">activity</div>
