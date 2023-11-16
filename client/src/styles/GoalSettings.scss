@@ -27,7 +27,7 @@
         top: 0;
         left: 0;
         overflow-x: auto;
-        width: auto;
+        width: 100%;
         padding: 1.5rem;
 
         display: flex;
@@ -39,18 +39,30 @@
         color: white;
 
         .nav-item{
-            min-width: 8rem;
+            flex: 1;
+            width: 100%;
             height: auto;
-            padding: 0.75rem 0;
+            padding: 0.5rem 0.75rem;
             background: #343434;
             border-radius: 0.5rem;
             display: grid;
             place-items: center;
+
+            font-family: satoshi;
+            font-size: 0.95rem;
+            font-weight: 400;
         }
 
         .nav-item.active{
             background: $white-80;
+            color: $black;
+            
         }
+    }
+    .scroll-progress{
+        height: 2px;
+        width: 100%;
+        background: $white-20;
     }
     .invisible-top{
         width: 100%;
@@ -60,7 +72,7 @@
         min-height: 75vh;
         height: 100%;
         width: 100vw;
-        padding: 3rem 1.5rem;
+        padding: 14rem 1.5rem 0rem 1.5rem;
         border: 0px solid pink;
 
         color: white;

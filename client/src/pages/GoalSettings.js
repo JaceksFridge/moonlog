@@ -65,7 +65,7 @@ const GoalSettings = () => {
             if (happinessRef.current) observer.unobserve(happinessRef.current);
             if (nodoRef.current) observer.unobserve(nodoRef.current);
         };
-    }, [])
+      }, [])
 
     const TabClick = (tab) => {
         const tabToRef = {
@@ -144,45 +144,13 @@ const GoalSettings = () => {
         <div className="top-top">
             <Header />
             <TopNav activeTab={activeTab} onTabClick={TabClick}/>
+            <div className="scroll-progress"></div>
         </div>
         { !settings ? (
             <div className="loading">loading...</div>
         ) : (
             <div className="main">
                 <div className="invisible-top"></div>
-                {/* <div className="top-progress">
-                    <div className="top-container">
-                        <div 
-                            className={`top-element health ${activeTab === 'health' ? 'active' : ''}`}
-                            onClick={() => TabClick('health')}
-                        >
-                            <div className="number">1</div>
-                            <div className="name">health</div>
-                        </div>
-                        <div 
-                            className={`top-element wealth ${activeTab === 'wealth' ? 'active' : ''}`}
-                            onClick={() => TabClick('wealth')}
-                        >
-                            <div className="number">2</div>
-                            <div className="name">wealth</div>
-                        </div>
-                        <div 
-                            className={`top-element happiness ${activeTab === 'happiness' ? 'active' : ''}`}
-                            onClick={() => TabClick('happiness')}
-                        >
-                            <div className="number">3</div>
-                            <div className="name">happiness</div>
-                        </div>
-                        <div 
-                            className={`top-element nodo ${activeTab === 'nodo' ? 'active' : ''}`}
-                            onClick={() => TabClick('nodo')}
-                        >
-                            <div className="number">4</div>
-                            <div className="name">nodo</div>
-                        </div>
-                    </div>
-                    <div className="progress-line"></div>
-                </div> */}
                     <div ref={healthRef} className="section" id="health-section" >
                         <h2 className="section-title">health section</h2>
                         <div className="actives-box">
@@ -251,27 +219,28 @@ const GoalSettings = () => {
                             })
                         }
                         </div>
-                        <div ref={wealthRef} className="section" id="wealth-section" >
-                            <h2 className="section-title">wealth section</h2>
-                        </div>
-                        <div ref={happinessRef} className="section" id="happiness-section" >
-                            <h2 className="section-title">happiness section</h2>
-              
-                        </div>
-                        <div ref={nodoRef} className="section" id="nodo-section" >
-                            <h2 className="section-title">nodo section</h2>
+                    </div>
+                    <div ref={wealthRef} className="section" id="wealth-section" >
+                        <h2 className="section-title">wealth section</h2>
+                    </div>
+                    <div ref={happinessRef} className="section" id="happiness-section" >
+                        <h2 className="section-title">happiness section</h2>
+            
+                    </div>
+                    <div ref={nodoRef} className="section" id="nodo-section" >
+                        <h2 className="section-title">nodo section</h2>
 
+                    </div>
+                    <div className="save-container">
+                        <div className="info-message">
+                            <div className="icon">!</div>
+                            <p className="text">you can only select one checker per page</p>
                         </div>
-                        <div className="save-container">
-                            <div className="info-message">
-                                <div className="icon">!</div>
-                                <p className="text">you can only select one checker per page</p>
-                            </div>
-                            <div className="save-btn active">
-                                save
-                            </div>
+                        <div className="save-btn active">
+                            save
                         </div>
                     </div>
+                
             </div>
         )}
 
