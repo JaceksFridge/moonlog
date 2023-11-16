@@ -3,23 +3,15 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
-const sliderSchema = new mongoose.Schema({
-    title: { type: String },
-    range: { type: Number },
-    weight: { type: Number }
-}, { _id: false });
+// const sliderSchema = new mongoose.Schema({
+//     title: { type: String },
+//     range: { type: Number },
+//     weight: { type: Number }
+// }, { _id: false });
 
 const categorySchema = new mongoose.Schema({
-    inactive: { 
-        slider: { type: sliderSchema, default: undefined },
-        checkers: { type: mongoose.Schema.Types.Mixed, default: undefined },
-        counters: { type: mongoose.Schema.Types.Mixed, default: undefined }
-     },
-    active: {
-        slider: { type: sliderSchema, default: undefined },
-        checkers: { type: mongoose.Schema.Types.Mixed, default: undefined },
-        counters: { type: mongoose.Schema.Types.Mixed, default: undefined }
-     }
+    inactive: {},
+    active: {}
 });
 
 

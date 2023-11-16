@@ -34,15 +34,19 @@ const GoalSettings = () => {
                     if (entry.isIntersecting) {
                         switch(entry.target.id) {
                             case 'health-section':
+                                console.log('switching secction')
                                 setActiveTab('health');
                                 break;
                             case 'wealth-section':
+                                console.log('switching secction')
                                 setActiveTab('wealth');
                                 break;
                             case 'happiness-section':
+                                console.log('switching secction')
                                 setActiveTab('happiness');
                                 break;
                             case 'nodo-section':
+                                console.log('switching secction')
                                 setActiveTab('nodo');
                                 break;
                             default:
@@ -87,34 +91,34 @@ const GoalSettings = () => {
         console.log(`Before toggle: `, settings);
         setSettings(prevSettings => {
             const newSettings = {...prevSettings};
-            const accordionType = accordionKey.split('-')[0]
     
-            
-            if (!isActive) {
+                if (!isActive) {
 
-                // remove current active
-                if (newSettings[category].active[accordionType]) {
-                    console.log("type already exists")
-                    
-                    newSettings[category].inactive[accordionKey] = newSettings[category].inactive[accordionType]
-                    delete newSettings[category].active[accordionType]
+                    // if already in active
+                    if (newSettings[category].active[accordionKey]) {
+                        
+                        // delete old accoridon
+                        newSettings[category].inactive[accordionKey] = {...newSettings[category].active[accordionKey]}
+                        delete newSettings[category].active[accordionKey]
+                    }
+
+                    newSettings[category].active[accordionKey] = {...newSettings[category].inactive[accordionKey]}
+                    delete newSettings[category].inactive[accordionKey]
                 }
-                // adding to active
-                
-                newSettings[category].active[accordionType] = newSettings[category].inactive[accordionKey];
-                delete newSettings[category].inactive[accordionKey];
-                console.log("added new active iteme")
-            } else {
-                console.log("trying to deactivate:", accordionKey)
-                newSettings[category].inactive[accordionKey] = newSettings[category].inactive[accordionType] 
-                delete newSettings[category].active[accordionType]
-            }
 
-            console.log("the correct category is", category, "and the key is ", accordionType)
+                else {
+                    // Deactivating
+                    if (newSettings[category].active[accordionKey]) {
+                        newSettings[category].inactive[accordionKey] = {...newSettings[category].active[accordionKey]};
+                        delete newSettings[category].active[accordionKey];
+                    }
+                }
+    
             console.log(`After toggle: `, newSettings);
             return newSettings;
         });
     };
+    
     
     
 
@@ -157,25 +161,25 @@ const GoalSettings = () => {
                             <h5>actives</h5>
                         { settings.health && settings.health.active && 
                             Object.entries(settings.health.active).map(([key, value], index) => {
-                                const accordionType = key.split('-')[0];
+                                const accordionType = key.split('_')[0];
                                 return (
-                                    <div key={index} className='active-accordion'>
+                                    <div key={key} className='active-accordion'>
                                         {accordionType == "checkers" && <AccordionCheckers  
-                                            accordionKey={`${key}-${index}`} 
+                                            accordionKey={key} 
                                             category="health" 
                                             settings={value}
                                             isActive={true} 
                                             toggleAccordion={toggleAccordion}
                                         />}
                                         {accordionType == "counters" && <AccordionCounters 
-                                            accordionKey={`${key}-${index}`} 
+                                            accordionKey={key} 
                                             category="health" 
                                             settings={value} 
                                             isActive={true} 
                                             toggleAccordion={toggleAccordion}
                                         />}
                                         {accordionType == "slider" && <AccordionSlider 
-                                            accordionKey={`${key}-${index}`} 
+                                            accordionKey={key} 
                                             category="health" 
                                             settings={value} 
                                             isActive={true} 
@@ -190,25 +194,25 @@ const GoalSettings = () => {
                             <h5>inactives</h5>
                             { settings.health && settings.health.inactive && 
                             Object.entries(settings.health.inactive).map(([key, value], index) => {
-                                const accordionType = key.split('-')[0];
+                                const accordionType = key.split('_')[0];
                                 return (
-                                    <div key={index} className='inactive-accordion'>
+                                    <div key={key} className='inactive-accordion'>
                                         {accordionType == "checkers" && <AccordionCheckers  
-                                            accordionKey={`${key}-${index}`} 
+                                            accordionKey={key} 
                                             category="health" 
                                             settings={value} 
                                             isActive={false} 
                                             toggleAccordion={toggleAccordion}
                                         />}
                                         {accordionType == "counters" && <AccordionCounters 
-                                            accordionKey={`${key}-${index}`} 
+                                            accordionKey={key} 
                                             category="health" 
                                             settings={value} 
                                             isActive={false} 
                                             toggleAccordion={toggleAccordion}
                                         />}
                                         {accordionType == "slider" && <AccordionSlider 
-                                            accordionKey={`${key}-${index}`} 
+                                            accordionKey={key} 
                                             category="health" 
                                             settings={value} 
                                             isActive={false} 

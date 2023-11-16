@@ -19,37 +19,37 @@ const Register = ({ setLogReg, logIn, setLogIn, toggleSwitch }) => {
   const settings = {
     health: {
         inactive: {
-          slider: {},
-          checkers: { yoga: 100, run: 100, climb: 50 },
-          counters: { workout: 50, stretch: 50, walk: 50, }
+          slider_1000: {},
+          checkers_1001: { yoga: 100, run: 100, climb: 50 },
+          counters_1002: { workout: 50, stretch: 50, walk: 50, }
         },
         active: {
-          checkers: { yoga: 100, run: 100, climb: 50 },
-          counters: { workout: 50, stretch: 50, walk: 50, }
+          checkers_1003: { yoga: 100, run: 100, climb: 50 },
+          counters_1004: { workout: 50, stretch: 50, walk: 50, }
         }
     },
     wealth: {
         inactive: {},
         active: {
-          slider: { title: "hoursofwork", range: 10, weight: 50, },
-          checkers: { meetup: 100, },
-          counters: { learning: 50, application: 25, },
+          slider_1005: { title: "hoursofwork", range: 10, weight: 50, },
+          checkers_1006: { meetup: 100, },
+          counters_1007: { learning: 50, application: 25, },
         }
     },
     happiness: {
       inactive: {},
       active: {
-        slider: { title: "hoursofwork", range: 10, weight: 50, },
-        checkers: { meetup: 100, },
-        counters: { learning: 50, application: 25, },
+        slider_1008: { title: "hoursofwork", range: 10, weight: 50, },
+        checkers_1009: { meetup: 100, },
+        counters_1010: { learning: 50, application: 25, },
       }
     },
     nodo: {
       inactive: {},
       active: {
-        slider: { title: "hours of workkk", range: 10, weight: 50, },
-        checkers: { meetup: 100, },
-        counters: { learning: 50, application: 25, },
+        slider_1011: { title: "hours of workkk", range: 10, weight: 50, },
+        checkers_1012: { meetup: 100, },
+        counters_1013: { learning: 50, application: 25, },
       }
     }
   }

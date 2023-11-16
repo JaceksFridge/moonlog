@@ -55,33 +55,46 @@ const NodoForm = ({ settings }) => {
       initial='hidden'
       animate='visible'
     >
-      { settings.slider && Object.keys(settings.slider).length !== 0 && (
-        <motion.div>
-          <FormSlider
-            sliderChange={sliderChange}
-            form={settings.slider}  
-            stk="nodoSlider"
-          />
-        </motion.div>
-      )},
-      { settings.checkers && Object.keys(settings.checkers).length !== 0 && (
-        <motion.div>
-          <FormChecks
-            checksChange={checksChange}
-            form={settings.checkers}  
-            stk="nodoChecks"
-          />
-        </motion.div>
-      )},
-      { settings.counters && Object.keys(settings.counters).length !== 0 && (
-        <motion.div>
-          <FormCounters
-            countersChange={countersChange}
-            form={settings.counters}  
-            stk="nodoCounters"
-          />
-        </motion.div>
-      )}
+      {settings && Object.entries(settings).map(([key, form]) => {
+        const formType = key.split('_')[0];
+        switch(formType) {
+          case 'slider':
+            return (
+              <motion.div key={key}>
+                <FormSlider
+                  sliderChange={sliderChange}
+                  form={form}
+                  stk={key}
+                />
+              </motion.div>
+            );
+
+          case 'checkers':
+            return (
+              <motion.div key={key}>
+                <FormChecks
+                  checksChange={checksChange}
+                  form={form}
+                  stk={key}
+                />
+              </motion.div>
+            );
+
+          case 'counters':
+            return (
+              <motion.div key={key}>
+                <FormCounters
+                  countersChange={countersChange}
+                  form={form}
+                  stk={key}
+                />
+              </motion.div>
+            );
+
+          default:
+            return null
+          }
+        })}
       <h2 className="invisible">{JSON.stringify(nodoScores)}</h2>
     </motion.div>
   )
