@@ -72,7 +72,7 @@ const HappinessForm = ({ settings }) => {
                 <FormSlider
                   sliderChange={sliderChange}
                   form={form}
-                  stk={key}
+                  stk="happinessSlider"
                 />
               </motion.div>
             );
@@ -83,7 +83,7 @@ const HappinessForm = ({ settings }) => {
                 <FormChecks
                   checksChange={checksChange}
                   form={form}
-                  stk={key}
+                  stk="happinessCheckers"
                 />
               </motion.div>
             );
@@ -94,7 +94,7 @@ const HappinessForm = ({ settings }) => {
                 <FormCounters
                   countersChange={countersChange}
                   form={form}
-                  stk={key}
+                  stk="happinessCounters"
                 />
               </motion.div>
             );

@@ -84,7 +84,7 @@ const HealthForm = ({ settings }) => {
                 <FormSlider
                   sliderChange={sliderChange}
                   form={form}
-                  stk={key}
+                  stk="healthSlider"
                 />
               </motion.div>
             );
@@ -95,7 +95,7 @@ const HealthForm = ({ settings }) => {
                 <FormChecks
                   checksChange={checksChange}
                   form={form}
-                  stk={key}
+                  stk="healthCheckers"
                 />
               </motion.div>
             );
@@ -106,7 +106,7 @@ const HealthForm = ({ settings }) => {
                 <FormCounters
                   countersChange={countersChange}
                   form={form}
-                  stk={key}
+                  stk="healthCounters"
                 />
               </motion.div>
             );
@@ -115,33 +115,6 @@ const HealthForm = ({ settings }) => {
             return null
         }
       })}
-      {/* { settings.slider && Object.keys(settings.slider).length !== 0 && (
-        <motion.div>
-          <FormSlider
-            sliderChange={sliderChange}
-            form={settings.slider}  
-            stk="healthSlider"
-          />
-        </motion.div>
-      )},
-      { settings.checkers && Object.keys(settings.checkers).length !== 0 && (
-        <motion.div>
-          <FormChecks
-            checksChange={checksChange}
-            form={settings.checkers}  
-            stk="healthChecks"
-          />
-        </motion.div>
-      )},
-      { settings.counters && Object.keys(settings.counters).length !== 0 && (
-        <motion.div>
-          <FormCounters
-            countersChange={countersChange}
-            form={settings.counters}  
-            stk="healthCounters"
-          />
-        </motion.div>
-      )} */}
       <h2 className="invisible">{JSON.stringify(healthScores)}</h2>
     </motion.div>
   )

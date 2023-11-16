@@ -158,7 +158,7 @@ const Forms = () => {
         theData[category] = sum
         totalsum += sum
       }
-    })
+      })
 
 
     // console.log("subscores: ", subscores)
@@ -200,13 +200,15 @@ const Forms = () => {
       jump("/scores")
 
       const toTrash = ['health', 'wealth', 'happiness', 'nodo', 
-      'healthChecks', 'healthCounters', 'healthSlider', 'happinessSlider', 
-      'wealthSlider', 'wealthChecks', 'wealthCounters','happinessChecks', 
-      'happinessCounters', 'nodoChecks', 'nodoCounters', 'nodoSlider']
-  
+      'healthCheckers', 'healthCounters', 'healthSlider', 'happinessSlider', 
+      'wealthSlider', 'wealthCheckers', 'wealthCounters','happinessCheckers', 
+      'happinessCounters', 'nodoCheckers', 'nodoCounters', 'nodoSlider']
+
+      console.log("localStorage before clear:", localStorage);
       toTrash.forEach((item) => {
         localStorage.removeItem(item)
       })
+      console.log("localstorage after clear", localStorage)
 
       localStorage.setItem("lastSubmission" + user.username, currentDate)
       localStorage.setItem("prevSubmission", JSON.stringify(theData))

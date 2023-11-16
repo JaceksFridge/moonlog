@@ -62,7 +62,7 @@ const WealthForm = ({ settings }) => {
                 <FormSlider
                   sliderChange={sliderChange}
                   form={form}
-                  stk={key}
+                  stk="wealthSlider"
                 />
               </motion.div>
             );
@@ -73,7 +73,7 @@ const WealthForm = ({ settings }) => {
                 <FormChecks
                   checksChange={checksChange}
                   form={form}
-                  stk={key}
+                  stk="wealthCheckers"
                 />
               </motion.div>
             );
@@ -84,7 +84,7 @@ const WealthForm = ({ settings }) => {
                 <FormCounters
                   countersChange={countersChange}
                   form={form}
-                  stk={key}
+                  stk="wealthCounters"
                 />
               </motion.div>
             );
