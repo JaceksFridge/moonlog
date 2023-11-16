@@ -6,6 +6,7 @@
     height: 100%;
     overflow-x: hidden;
     border: 0px solid salmon;
+    background: #121212;
 
     .top-top{
         position: fixed;
@@ -105,6 +106,7 @@
                 padding: 1.5rem;
                 border-radius: 0.5rem;
                 border: 1px solid $white-20;
+                background: $black;
 
                 display: flex;
                 justify-content: flex-start;
@@ -310,6 +312,36 @@
                         }
                     }
                 }
+            }
+        }
+        .accordion-container{
+            width: 100%;
+            height: auto;
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            // gap: 1.5rem;
+            div{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 0.5rem;
+
+                h4{
+                    font-size: 0.75rem;
+                }
+            }
+            .add-accordion{
+                height: 3.5rem;
+                width: 3.5rem;
+                border-radius: 3rem;
+                background: black;
+
+                display: grid;
+                place-items: center;
+                font-size: 2rem;
             }
         }
     }

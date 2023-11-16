@@ -1,12 +1,13 @@
 
 import Header from "../blocks/Header"
-import HealthForm from "../blocks/HealthForm"
 import TopNav from "../blocks/TopNav"
 import { useState, useEffect, useRef, useContext } from "react"
 import AccordionCheckers from "../blocks/AccordionCheckers"
 import AccordionCounters from "../blocks/AccordionCounters"
 import AccordionSlider from "../blocks/AccordionSlider"
 import { UserContext } from "../blocks/userContext"
+import { v4 as uuidv4 } from 'uuid';
+
 
 const GoalSettings = () => {
 
@@ -150,6 +151,36 @@ const GoalSettings = () => {
         })
     }
     
+
+    const addNewCheckers = () => {
+        const newKey = `checkers_${uuidv4()}`
+        const newChekers = { activity: 100 }
+        updateAccoridonState(newKey, newChekers)
+    }
+    const addNewCounters = () => {
+        const newKey = `counters_${uuidv4()}`
+        const newCounters = { activity: 100 }
+        updateAccoridonState(newKey, newCounters)
+    }
+    const addNewSlider = () => {
+        const newKey = `slider_${uuidv4()}`
+        const newSlider = { activity: 100 }
+        updateAccoridonState(newKey, newSlider)
+    }
+    const updateAccoridonState = (newKey, newAccordion) => {
+        setSettings(prevSettings => {
+            return {
+                ...prevSettings,
+                [activeTab]: {
+                    ...prevSettings[activeTab],
+                    inactive: {
+                        ...prevSettings[activeTab].inactive,
+                        [newKey]: newAccordion
+                    }
+                }
+            };
+        });
+    }
     
 
     const saveSettings = async () => {
@@ -190,7 +221,7 @@ const GoalSettings = () => {
                         <h2 className="section-title">health section</h2>
                         <div className="actives-box">
                             <h5>actives</h5>
-                        { settings.health && settings.health.active && 
+                            { settings.health && settings.health.active && 
                             Object.entries(settings.health.active).map(([key, value], index) => {
                                 const accordionType = key.split('_')[0];
                                 return (
@@ -265,6 +296,29 @@ const GoalSettings = () => {
                                 )
                             })
                         }
+                        </div>
+                        <div className="accordion-container">
+                            <div 
+                                className="add-checkers"
+                                onClick={addNewCheckers}
+                            >
+                                <div className="add-accordion"></div>
+                                <h4 className="add-text">checkers</h4>
+                            </div>
+                            <div 
+                                className="add-checkers"
+                                onClick={addNewCounters}
+                            >
+                                <div className="add-accordion"></div>
+                                <h4 className="add-text">counters</h4>
+                            </div>
+                            <div 
+                                className="add-checkers"
+                                onClick={addNewSlider}
+                            >
+                                <div className="add-accordion"></div>
+                                <h4 className="add-text">slider</h4>
+                            </div>
                         </div>
                     </div>
                     <div ref={wealthRef} className="section" id="wealth-section" >
