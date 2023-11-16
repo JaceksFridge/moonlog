@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from "framer-motion"
 import { BoomerangSVG } from "../blocks/svg"
 
-const AccordionCheckers = ({ settings, category, accordionKey ,isActive, toggleAccordion }) => {
+const AccordionCheckers = ({ settings, category, accordionKey ,isActive, toggleAccordion, addActivity }) => {
 
     const addButtonRef = useRef(null)
     const [isOpen, setIsOpen] = useState(false)
@@ -26,10 +26,12 @@ const AccordionCheckers = ({ settings, category, accordionKey ,isActive, toggleA
         setActivityValue(e.target.value)
     }
     const handleAddButton = () => {
-        setActivities((prev) => ({
-            ...prev, 
+        const updatedActivities = {
+            ...activities, 
             [activityName]: parseInt(activityValue, 10)
-        }))
+        }
+        setActivities(updatedActivities)
+        addActivity(updatedActivities)
     }
 
     const deleteActivity = (key) => {
@@ -132,7 +134,7 @@ const AccordionCheckers = ({ settings, category, accordionKey ,isActive, toggleA
                             {
                                 Object.entries(activities).map(([key, value]) => {
                                 return (
-                                    <div className="activity">
+                                    <div className="activity" key={key}>
                                         <p className="activity-title">{key}</p>
                                         <p className="activity-value">{value}</p>
                                         <div 

@@ -1,12 +1,10 @@
 
 
-
-
 import React, { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from "framer-motion"
 import { BoomerangSVG } from "../blocks/svg"
 
-const AccordionCounters = ({ settings, category, accordionKey ,isActive, toggleAccordion  }) => {
+const AccordionCounters = ({ settings, category, accordionKey ,isActive, toggleAccordion, addActivity }) => {
 
     const addButtonRef = useRef(null)
     const [isOpen, setIsOpen] = useState(false)
@@ -18,6 +16,7 @@ const AccordionCounters = ({ settings, category, accordionKey ,isActive, toggleA
 
 
 
+    console.log(activities)
 
 
     const handleName = (e) => {
@@ -27,10 +26,12 @@ const AccordionCounters = ({ settings, category, accordionKey ,isActive, toggleA
         setActivityValue(e.target.value)
     }
     const handleAddButton = () => {
-        setActivities((prev) => ({
-            ...prev, 
+        const updatedActivities = {
+            ...activities, 
             [activityName]: parseInt(activityValue, 10)
-        }))
+        }
+        setActivities(updatedActivities)
+        addActivity(updatedActivities)
     }
 
     const deleteActivity = (key) => {
@@ -86,12 +87,12 @@ const AccordionCounters = ({ settings, category, accordionKey ,isActive, toggleA
     <div className="section-container">
         <div className={`accordion-header ${isActive ? 'active' : 'inactive'}`}>
             <div className="checkbox">
-                <input 
-                    type="checkbox" 
-                    checked={isActive} 
-                    onChange={() => toggleAccordion(category, accordionKey, isActive)} 
-                    // onChange={() => console.log(accordionKey)}
-                />
+            <input 
+                type="checkbox" 
+                checked={isActive} 
+                onChange={() => toggleAccordion(category, accordionKey, isActive)} 
+                // onChange={() => console.log(accordionKey)}
+            />
             </div>
             <h3 className="title">Counters</h3>
             <div className="miniscores-container">
@@ -133,7 +134,7 @@ const AccordionCounters = ({ settings, category, accordionKey ,isActive, toggleA
                             {
                                 Object.entries(activities).map(([key, value]) => {
                                 return (
-                                    <div className="activity">
+                                    <div className="activity" key={key}>
                                         <p className="activity-title">{key}</p>
                                         <p className="activity-value">{value}</p>
                                         <div 

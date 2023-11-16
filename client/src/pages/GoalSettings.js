@@ -88,41 +88,57 @@ const GoalSettings = () => {
     }
 
     const toggleAccordion = (category, accordionKey, isActive) => {
-        console.log(`Before toggle: `, settings);
         setSettings(prevSettings => {
             const newSettings = {...prevSettings};
+            const accordionType = accordionKey.split('_')[0];
     
                 if (!isActive) {
-
-                    // if already in active
-                    if (newSettings[category].active[accordionKey]) {
-                        
-                        // delete old accoridon
-                        newSettings[category].inactive[accordionKey] = {...newSettings[category].active[accordionKey]}
-                        delete newSettings[category].active[accordionKey]
-                    }
+                    Object.keys(newSettings[category].active).forEach(key => {
+                        if (key.startsWith(accordionType)) {
+                            newSettings[category].inactive[key] = { ...newSettings[category].active[key] };
+                            delete newSettings[category].active[key];
+                        }
+                    });
 
                     newSettings[category].active[accordionKey] = {...newSettings[category].inactive[accordionKey]}
                     delete newSettings[category].inactive[accordionKey]
                 }
-
                 else {
-                    // Deactivating
                     if (newSettings[category].active[accordionKey]) {
-                        newSettings[category].inactive[accordionKey] = {...newSettings[category].active[accordionKey]};
-                        delete newSettings[category].active[accordionKey];
+                        newSettings[category].inactive[accordionKey] = {...newSettings[category].active[accordionKey]}
+                        delete newSettings[category].active[accordionKey]
                     }
                 }
+            return newSettings
+        })
+    }
+
+
+    const addActivity = (category, accordionKey, updatedActivities) => {
+        setSettings(prevSettings => {
+
+            const isActive = prevSettings[category].active.hasOwnProperty(accordionKey);
+            let newCategorySettings = { ...prevSettings[category] };
     
-            console.log(`After toggle: `, newSettings);
-            return newSettings;
+            if (isActive) {
+                newCategorySettings.active[accordionKey] = updatedActivities;
+            } else {
+                newCategorySettings.inactive[accordionKey] = updatedActivities;
+            }
+    
+            return {
+                ...prevSettings,
+                [category]: newCategorySettings
+            };
         });
     };
     
     
     
+    
 
     const saveSettings = async () => {
+        console.log(settings)
         const userId = localStorage.getItem("userId");
         try {
             const response = await fetch(`${server}/user/settings/${userId}`, {
@@ -133,9 +149,9 @@ const GoalSettings = () => {
                 body: JSON.stringify(settings)
             });
             const data = await response.json();
-            // console.log("Data received:", data);
+            console.log("Data received:", data);
         } catch (error) {
-            // console.log("Fetch error:", error);
+            console.log("Fetch error:", error);
         }
     };
 
@@ -170,6 +186,7 @@ const GoalSettings = () => {
                                             settings={value}
                                             isActive={true} 
                                             toggleAccordion={toggleAccordion}
+                                            addActivity={(newActivity) => addActivity('health', key, newActivity)}
                                         />}
                                         {accordionType == "counters" && <AccordionCounters 
                                             accordionKey={key} 
@@ -177,6 +194,7 @@ const GoalSettings = () => {
                                             settings={value} 
                                             isActive={true} 
                                             toggleAccordion={toggleAccordion}
+                                            addActivity={(newActivity) => addActivity('health', key, newActivity)}
                                         />}
                                         {accordionType == "slider" && <AccordionSlider 
                                             accordionKey={key} 
@@ -184,6 +202,7 @@ const GoalSettings = () => {
                                             settings={value} 
                                             isActive={true} 
                                             toggleAccordion={toggleAccordion} 
+                                            addActivity={(newActivity) => addActivity('health', key, newActivity)}
                                         />}
                                     </div>
                                 )
@@ -203,6 +222,7 @@ const GoalSettings = () => {
                                             settings={value} 
                                             isActive={false} 
                                             toggleAccordion={toggleAccordion}
+                                            addActivity={(newActivity) => addActivity('health', key, newActivity)}
                                         />}
                                         {accordionType == "counters" && <AccordionCounters 
                                             accordionKey={key} 
@@ -210,6 +230,7 @@ const GoalSettings = () => {
                                             settings={value} 
                                             isActive={false} 
                                             toggleAccordion={toggleAccordion}
+                                            addActivity={(newActivity) => addActivity('health', key, newActivity)}
                                         />}
                                         {accordionType == "slider" && <AccordionSlider 
                                             accordionKey={key} 
@@ -217,6 +238,7 @@ const GoalSettings = () => {
                                             settings={value} 
                                             isActive={false} 
                                             toggleAccordion={toggleAccordion} 
+                                            addActivity={(newActivity) => addActivity('health', key, newActivity)}
                                         />}
                                     </div>
                                 )
@@ -240,8 +262,11 @@ const GoalSettings = () => {
                             <div className="icon">!</div>
                             <p className="text">you can only select one checker per page</p>
                         </div>
-                        <div className="save-btn active">
-                            save
+                        <div 
+                            className="save-btn active"
+                            onClick={saveSettings}
+                        >
+                            Save
                         </div>
                     </div>
                 
