@@ -35,7 +35,6 @@ const AccordionCheckers = ({ settings, category, accordionKey ,isActive, toggleA
             delete newActivities[key]
             return newActivities
         })
-        console.log("deleting", key)
     }
 
     

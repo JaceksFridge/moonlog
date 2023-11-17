@@ -61,10 +61,18 @@
         }
     }
     .scroll-progress{
-        height: 2px;
+        height: 3px;
         width: 100%;
         background: $white-20;
+
+        .progress-bar {
+            height: 20px;
+            background-color: $white-20;
+            width: 0%;
+            transition: width 0.01s ease-in-out, background-color 0.5s ease-in-out;
+        }
     }
+
     .invisible-top{
         width: 100%;
         height: 25vh;
@@ -107,7 +115,7 @@
             border: 0px solid $white-20;
 
             .accordion-header.active{
-                border: 1px solid $white-50;
+                border: 1px solid $white-35;
             }
             .accordion-header{
                 border: 0px solid purple;
@@ -379,8 +387,8 @@
                 }
                 50% {
                 transform: scale(1.02);
-                box-shadow: 0 0 10px 0 $button-line;
-                border-color: lighten($button-line, 50%);
+                box-shadow: 0 0 8px 0 $button-line;
+                border-color: lighten($button-line, 5%);
                 }
                 100% {
                 transform: scale(1);

@@ -15,10 +15,6 @@ const AccordionCounters = ({ settings, category, accordionKey ,isActive, toggleA
     const [maxValue, setMaxValue] = useState(0)
 
 
-
-    console.log(activities)
-
-
     const handleName = (e) => {
         setActivityName(e.target.value)
     }
@@ -40,7 +36,6 @@ const AccordionCounters = ({ settings, category, accordionKey ,isActive, toggleA
             delete newActivities[key]
             return newActivities
         })
-        console.log("deleting", key)
     }
 
     

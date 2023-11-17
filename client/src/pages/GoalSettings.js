@@ -15,12 +15,13 @@ const GoalSettings = () => {
     const server = process.env.REACT_APP_SERVER_URL;
     const { user, userLoading } = useContext(UserContext);
     const [ settings, setSettings ] = useState({})
-    const [activeTab, setActiveTab] = useState('health');
+    const [ activeTab, setActiveTab ] = useState('health');
     const healthRef = useRef(null);
     const wealthRef = useRef(null);
     const happinessRef = useRef(null);
     const nodoRef = useRef(null);
 
+    const [ progress, setProgress ] = useState(0)
  
 
     useEffect(() => {
@@ -33,6 +34,7 @@ const GoalSettings = () => {
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach(entry => {
+                    console.log(entry.target.id, entry.isIntersecting, entry.intersectionRatio);
                     if (entry.isIntersecting) {
                         switch(entry.target.id) {
                             case 'health-section':
@@ -71,8 +73,37 @@ const GoalSettings = () => {
             if (happinessRef.current) observer.unobserve(happinessRef.current);
             if (nodoRef.current) observer.unobserve(nodoRef.current);
         };
-      }, [])
+      }, [user])
+      useEffect(() => {
+        const handleScroll = () => {
+          const totalScroll = document.documentElement.scrollHeight - window.innerHeight
+          const currentScroll = window.scrollY
+          const progress = (currentScroll / totalScroll) * 100
+          setProgress(progress)
+        };
+      
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+      }, []);
 
+      const gradient = (progress) => {
+        let color;
+
+        if (progress <= 10) color = 'hsla(0, 0%, 100%, 0.2)';
+        else if (progress <= 20) color = 'hsla(0, 0%, 100%, 0.26)';
+        else if (progress <= 30) color = 'hsla(0, 0%, 100%, 0.34)';
+        else if (progress <= 40) color = 'hsla(0, 0%, 100%, 0.40)';
+        else if (progress <= 50) color = 'hsla(0, 0%, 100%, 0.46)';
+        else if (progress <= 60) color = 'hsla(0, 0%, 100%, 0.54)';
+        else if (progress <= 70) color = 'hsla(0, 0%, 100%, 0.60)';
+        else if (progress <= 80) color = 'hsla(0, 0%, 100%, 0.66)';
+        else if (progress <= 90) color = 'hsla(0, 0%, 100%, 0.74)';
+        else color = 'hsla(0, 0%, 100%, 0.8)';
+        return color;
+      }
+
+
+      
     const TabClick = (tab) => {
         const tabToRef = {
           health: healthRef,
@@ -83,7 +114,6 @@ const GoalSettings = () => {
     
         const ref = tabToRef[tab]
         if (ref && ref.current) {
-          console.log(ref)
           ref.current.scrollIntoView({ behavior: 'smooth'})
         }
         setActiveTab(tab)
@@ -185,7 +215,6 @@ const GoalSettings = () => {
     
 
     const saveSettings = async () => {
-        console.log(settings)
         const userId = localStorage.getItem("userId");
         try {
             const response = await fetch(`${server}/user/settings/${userId}`, {
@@ -203,15 +232,20 @@ const GoalSettings = () => {
     };
 
 
-    console.log("settings object", settings)
-
-
   return (
     <div className="goalsettings">
         <div className="top-top">
             <Header />
             <TopNav activeTab={activeTab} onTabClick={TabClick}/>
-            <div className="scroll-progress"></div>
+            <div className="scroll-progress">
+                <div 
+                    className="progress-bar" 
+                    style={{ 
+                        width: `${progress}%`,
+                        background: gradient(progress)
+                    }}
+                ></div>
+            </div>
         </div>
         { !settings ? (
             <div className="loading">loading...</div>
