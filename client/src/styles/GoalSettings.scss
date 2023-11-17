@@ -302,6 +302,10 @@
                             .topbar-title{
                                 padding: 1rem 1.25rem;
                                 flex: 1;
+                                font-family: satoshi;
+                                font-weight: 300;
+                                font-size: 0.875rem;
+                                color: $white-80;
                             }
                         }
                         .activity, .total-activity{
@@ -345,7 +349,9 @@
                         label{
                             font-family: satoshi;
                             font-size: 0.75rem;
-                            color: $white;
+                            font-weight: 300;
+                            color: $white-80;
+
                             
                         }
                         input{
@@ -376,6 +382,7 @@
                         .add-btn{
                             grid-column: 1 / -1;
                             height: 3rem;
+                            font-size: 0.875rem;
                             border-radius: 0.25rem;
                             border: 1px solid $white-50;
                             display: grid;
@@ -387,6 +394,146 @@
                             color: $dark;
                             font-weight: 500;
                         }
+                        .error-message{
+                            position: absolute;
+                            bottom: -0.5rem;
+                            font-size: 0.75rem;
+                            font-weight: 200;
+                            color: $white-80;
+                        }
+                    }
+                }
+            }
+            .accordion-content.slider-accordion{
+                .accordion-inner-content{
+                    height: 54rem;
+
+                    .value-box{
+                        height: auto;
+                        
+                        .display-content{
+                            border: 0px solid peru;
+            
+                            padding: 0 1.5rem 2rem 1.5rem;
+                            width: 100%;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                   
+
+                            .unit-value{
+                                height: auto;
+                                margin-top: 2rem;
+                                border: 0px solid green;
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: space-between;
+                                align-items: center;
+                                gap: 2rem;
+                                h1.value{
+                                    border: 0px solid purple;
+                                    color: $white-50;
+                                    font-size: 3rem;
+                                    margin: 0;
+                                    padding: 0;
+                                    line-height: 1;
+                                    letter-spacing: 2px;
+                                }
+                                p.unit{
+                                    border: 0px solid cyan;
+                                    color: $white-50;
+                                    margin: 0;
+                                    font-size: 0.875rem;
+                                }
+                            }
+                            .border-line{
+                                width: 3rem;
+                                background: $white-20;
+                                height: 1px;
+                                margin-bottom: 2rem;
+                                margin-top: 0.5rem;
+                              
+                            }
+
+                            .slider-container{
+                                width: 100%;
+                                padding: 0 0.5rem;
+                                margin-bottom: 2rem;
+                                .the-slider{
+                                    width: 100%;
+                                    height: 4px;
+                                    border-radius: 2px;
+                                    background: black;
+                                    -webkit-appearance: none; 
+                                    appearance: none;
+                    
+                                    --sliderValue: 0%;
+                                    background: linear-gradient(to right, white, pink var(--sliderValue), grey var(--sliderValue));
+                                }
+                    
+                                .the-slider::-webkit-slider-runnable-track{
+                                    -webkit-appearence: none;
+                                    height: 4px;
+                                }
+                    
+                                .the-slider::-moz-track{
+                                    -moz-appearance: none;
+                                    height: 4px;
+                                }
+                    
+                                .the-slider::-ms-track{
+                                    appearance: none;
+                                    height: 4px;
+                                }
+                    
+                    
+                                .the-slider::-webkit-slider-thumb {
+                                    -webkit-appearance: none;
+                                    appearance: none;
+                                    width: 0.75rem;
+                                    height: 1.75rem;
+                                    background: black;
+                                    border-radius: 4px;
+                                    border: 1px solid $white-20;
+                                    cursor: pointer;
+                                    margin-top: -10px;
+                                }
+                                
+                                .the-slider::-moz-range-thumb {
+                                    width: 10px;
+                                    height: 25px;
+                                    background: pink;
+                                    border-radius: 4px;
+                                    cursor: pointer;
+                                    margin-top: -10px;
+                                }
+                            }
+                        
+                            .value-displays{
+                                width: 100%;
+                                display: flex;
+                                justify-content: space-between;
+
+                                .min-display, .max-display{
+                                    background: black;
+                                    border: 1px solid $white-20;
+                                    padding: 0.5rem 1rem;
+                                    border-radius: 0.5rem;
+
+                                    p{
+                                        font-size: 0.875rem;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .settings-form{
+
+                        display: grid;
+                        grid-template-columns: 1fr 1fr;
+                        grid-template-rows: auto auto auto auto;
+                        gap: 1.5rem;
                     }
                 }
             }

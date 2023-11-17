@@ -7,7 +7,7 @@ import { BoomerangSVG } from "../blocks/svg"
 const AccordionCounters = ({ settings, category, accordionKey ,isActive, toggleAccordion, addActivity }) => {
 
 
-    console.log('counters object', accordionKey,'is active?', isActive)
+    // console.log('counters object', accordionKey,'is active?', isActive)
 
     const addButtonRef = useRef(null)
     const [isOpen, setIsOpen] = useState(false)

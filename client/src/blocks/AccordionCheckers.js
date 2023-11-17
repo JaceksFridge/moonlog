@@ -7,7 +7,7 @@ import { BoomerangSVG, SettingsBinSVG, SettingsBin2SVG } from "../blocks/svg"
 const AccordionCheckers = ({ settings, category, accordionKey ,isActive, toggleAccordion, addActivity, deleteAccordion }) => {
 
 
-    console.log('checkers object', accordionKey,'is active?', isActive)
+    // console.log('checkers object', accordionKey,'is active?', isActive)
 
     const addButtonRef = useRef(null)
     const [isOpen, setIsOpen] = useState(false)

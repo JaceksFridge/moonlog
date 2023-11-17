@@ -26,7 +26,7 @@ const GoalSettings = () => {
     useEffect(() => {
         if (!userLoading && user) {
             setSettings(user.settings)
-            console.log("seeettings:", settings)
+            // console.log("seeettings:", settings)
         }
     }, [user, userLoading]);
 
@@ -37,19 +37,19 @@ const GoalSettings = () => {
                     if (entry.isIntersecting) {
                         switch(entry.target.id) {
                             case 'health-section':
-                                console.log('switching secction')
+                                // console.log('switching secction')
                                 setActiveTab('health');
                                 break;
                             case 'wealth-section':
-                                console.log('switching secction')
+                                // console.log('switching secction')
                                 setActiveTab('wealth');
                                 break;
                             case 'happiness-section':
-                                console.log('switching secction')
+                                // console.log('switching secction')
                                 setActiveTab('happiness');
                                 break;
                             case 'nodo-section':
-                                console.log('switching secction')
+                                // console.log('switching secction')
                                 setActiveTab('nodo');
                                 break;
                             default:
@@ -130,6 +130,8 @@ const GoalSettings = () => {
                 Object.values(group).forEach(value => {
                     sum += value ?? 0;
                 });
+            } else if (key.startsWith('slider')) {
+                sum += parseInt(group.weight * group.range, 10);
             }
         });
     
@@ -138,6 +140,7 @@ const GoalSettings = () => {
     
 
     const healthTotal = useMemo(() => calculateTotal(activeTab), [settings, activeTab]);
+    const wealthTotal = useMemo(() => calculateTotal(activeTab), [settings, activeTab]);
     
 
 
@@ -217,7 +220,7 @@ const GoalSettings = () => {
     }
     const addNewSlider = () => {
         const newKey = `slider_${uuidv4()}`
-        const newSlider = { activity: 100 }
+        const newSlider = {}
         updateAccoridonState(newKey, newSlider)
     }
     const updateAccoridonState = (newKey, newAccordion) => {
@@ -247,6 +250,7 @@ const GoalSettings = () => {
                 body: JSON.stringify(settings)
             });
             const data = await response.json();
+            console.log("settings sent:", settings)
             console.log("Data received:", data);
         } catch (error) {
             console.log("Fetch error:", error);
@@ -395,7 +399,124 @@ const GoalSettings = () => {
                         </div>
                     </div>
                     <div ref={wealthRef} className="section" id="wealth-section" >
-                        <h2 className="section-title">wealth section</h2>
+                        <div className="section-top">
+                            <h2 className="section-title">wealth section</h2>
+                            <p className="section-number">0 - {wealthTotal}</p>
+                        </div>
+                        <div className="actives-box">
+                            <div className="info-box">
+                                <div className="circle"></div>
+                                <p>active</p>
+                            </div>
+                            { settings.wealth && settings.wealth.active && 
+                            Object.entries(settings.wealth.active).map(([key, value], index) => {
+                                const accordionType = key.split('_')[0];
+                                return (
+                                    <div key={key} className='active-accordion'>
+                                        {accordionType == "checkers" && <AccordionCheckers  
+                                            accordionKey={key} 
+                                            category="wealth" 
+                                            settings={value}
+                                            isActive={true} 
+                                            toggleAccordion={toggleAccordion}
+                                            addActivity={(newActivity) => addActivity('wealth', key, newActivity)}
+                                            deleteAccordion={deleteAccordion}
+                                        />}
+                                        {accordionType == "counters" && <AccordionCounters 
+                                            accordionKey={key} 
+                                            category="wealth" 
+                                            settings={value} 
+                                            isActive={true} 
+                                            toggleAccordion={toggleAccordion}
+                                            addActivity={(newActivity) => addActivity('wealth', key, newActivity)}
+                                            deleteAccordion={deleteAccordion}
+                                        />}
+                                        {accordionType == "slider" && <AccordionSlider 
+                                            accordionKey={key} 
+                                            category="wealth" 
+                                            settings={value} 
+                                            isActive={true} 
+                                            toggleAccordion={toggleAccordion} 
+                                            addActivity={(newActivity) => addActivity('wealth', key, newActivity)}
+                                            deleteAccordion={deleteAccordion}
+                                        />}
+                                    </div>
+                                )
+                            })
+                        }
+                        </div>
+                        <div className="inactives-box">
+                            <div className="info-box">
+                                <div className="circle"></div>
+                                <p>inactive</p>
+                            </div>
+                            { settings.wealth && settings.wealth.inactive && 
+                            Object.entries(settings.wealth.inactive).map(([key, value], index) => {
+                                const accordionType = key.split('_')[0];
+                                return (
+                                    <div key={key} className='inactive-accordion'>
+                                        {accordionType == "checkers" && <AccordionCheckers  
+                                            accordionKey={key} 
+                                            category="wealth" 
+                                            settings={value} 
+                                            isActive={false} 
+                                            toggleAccordion={toggleAccordion}
+                                            addActivity={(newActivity) => addActivity('wealth', key, newActivity)}
+                                            deleteAccordion={deleteAccordion}
+                                        />}
+                                        {accordionType == "counters" && <AccordionCounters 
+                                            accordionKey={key} 
+                                            category="wealth" 
+                                            settings={value} 
+                                            isActive={false} 
+                                            toggleAccordion={toggleAccordion}
+                                            addActivity={(newActivity) => addActivity('wealth', key, newActivity)}
+                                            deleteAccordion={deleteAccordion}
+                                        />}
+                                        {accordionType == "slider" && <AccordionSlider 
+                                            accordionKey={key} 
+                                            category="wealth" 
+                                            settings={value} 
+                                            isActive={false} 
+                                            toggleAccordion={toggleAccordion} 
+                                            addActivity={(newActivity) => addActivity('wealth', key, newActivity)}
+                                            deleteAccordion={deleteAccordion}
+                                        />}
+                                    </div>
+                                )
+                            })
+                        }
+                        </div>
+                        <div className="accordion-container">
+                            <div 
+                                className="add-checkers"
+                                onClick={addNewCheckers}
+                            >
+                                <div className="add-accordion">
+                                    <SettingsAccordionCheckers />
+                                </div>
+                                <h4 className="add-text">checkers</h4>
+                            </div>
+                            <div 
+                                className="add-slider"
+                                onClick={addNewSlider}
+                            >
+                                <div className="add-accordion">
+                                    <SettingsAccordionSlider />
+                                </div>
+                                <h4 className="add-text">slider</h4>
+                            </div>
+                            <div 
+                                className="add-counters"
+                                onClick={addNewCounters}
+                            >
+                                <div className="add-accordion">
+                                    <SettingsAccordionCounters />
+                                </div>
+                                <h4 className="add-text">counters</h4>
+                            </div>
+
+                        </div>
                     </div>
                     <div ref={happinessRef} className="section" id="happiness-section" >
                         <h2 className="section-title">happiness section</h2>

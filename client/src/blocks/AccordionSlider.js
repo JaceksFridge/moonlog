@@ -1,70 +1,97 @@
 
 
-
-
 import React, { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from "framer-motion"
-import { BoomerangSVG } from "../blocks/svg"
+import { BoomerangSVG, SettingsBinSVG, SettingsBin2SVG } from "../blocks/svg"
 
-const AccordionSlider = ({ settings }) => {
+const AccordionSlider = ({ settings, category, accordionKey ,isActive, toggleAccordion, addActivity, deleteAccordion }) => {
+
+
+
 
     const addButtonRef = useRef(null)
     const [isOpen, setIsOpen] = useState(false)
 
     const [activities, setActivities] = useState(settings || {})
     const [activityName, setActivityName] = useState('')
-    const [activityValue, setActivityValue] = useState('')
+    const [activityWeight, setActivityWeight] = useState('')
+    const [activityUnit, setActivityUnit ] = useState('')
+    const [activityRange, setActivityRange ] = useState('')
     const [maxValue, setMaxValue] = useState(0)
+    const [isButtonActive, setIsButtonActive] = useState(false)
+    const [errorMessage, setErrorMessage] = useState('')
 
-
-
-    console.log(activities)
-
+    const [sliderValue, setSliderValue] = useState(0)
 
     const handleName = (e) => {
         setActivityName(e.target.value)
     }
-    const handleValue = (e) => {
-        setActivityValue(e.target.value)
+    const handleWeight = (e) => {
+        setActivityWeight(e.target.value)
     }
+    const handleUnit = (e) => {
+        setActivityUnit(e.target.value)
+    }
+    const handleRange = (e) => {
+        setActivityRange(e.target.value)
+    }
+
+    const handleSliderValue = (e) => {
+        const value = e.target.value;
+        setSliderValue(value);
+    
+        const percentage = (value / e.target.max) * 100;
+    
+        const slider = document.querySelector('.the-slider');
+        slider.style.setProperty('--sliderValue', `${percentage}%`);
+    };
+
+
     const handleAddButton = () => {
-        setActivities((prev) => ({
-            ...prev, 
-            [activityName]: parseInt(activityValue, 10)
-        }))
+
+        if (!isButtonActive) {
+            setErrorMessage('* ensure that every field is in the correct format')
+            return
+        } else {
+            setErrorMessage('')
+            const updatedActivities = {
+                ...activities, 
+                ['title']: activityName,
+                ['unit']: activityUnit,
+                ['range']: parseInt(activityRange, 10),
+                ['weight']: parseInt(activityWeight, 10)
+            }
+            setMaxValue(parseInt(activityWeight * activityRange))
+            setActivities(updatedActivities)
+            addActivity(updatedActivities)
+            console.log("new slider", updatedActivities)
+        }
     }
 
-    const deleteActivity = (key) => {
-        setActivities(prevActivities => {
-            const newActivities = { ...prevActivities }
-            delete newActivities[key]
-            return newActivities
-        })
-        console.log("deleting", key)
-    }
-
+    useEffect(() => {
+        setSliderValue(0)
+        const slider = document.querySelector('.the-slider')
+        if (slider) {
+            slider.style.setProperty('--sliderValue', '0%')
+        }
+    }, [activityRange]);
     
     useEffect(() => {
-        if (addButtonRef.current && activityName && activityValue) {
-            addButtonRef.current.classList.add("active")
+        const isWeightNumeric = !isNaN(activityWeight) && isFinite(activityWeight);
+        const isRangeNumeric = !isNaN(activityRange) && isFinite(activityRange);
+        const isNameString = typeof activityName === 'string' && activityName.trim() !== '';
+        const isUnitString = typeof activityUnit === 'string' && activityUnit.trim() !== '';
+    
+        if (addButtonRef.current && isWeightNumeric && isRangeNumeric && isNameString && isUnitString) {
+            addButtonRef.current.classList.add("active");
+            setIsButtonActive(true)
+            
         } else if (addButtonRef.current) {
-            addButtonRef.current.classList.remove("active")
+            addButtonRef.current.classList.remove("active");
+            setIsButtonActive(false)
         }
-    }, [activityName, activityValue])
+    }, [activityName, activityUnit, activityWeight, activityRange]);
 
-    useEffect(() => {
-        let total = 0;
-        if (activities) {
-            Object.values(activities).forEach(value => {
-                total += value;
-            });
-            setMaxValue(total);
-        }
-    }, [activities])
-
-
-    const minValue = 0
-    // const maxValue = 250
 
 
 
@@ -85,15 +112,31 @@ const AccordionSlider = ({ settings }) => {
 
   return (
     <div className="section-container">
-        <div className="accordion-header">
-            <div className="checkbox"></div>
+        <div className={`accordion-header ${isActive ? 'active' : 'inactive'}`}>
+            <div className="checkbox">
+            <input 
+                type="checkbox"
+                checked={isActive}
+                onChange={() => toggleAccordion(category, accordionKey, isActive)} 
+                // onChange={() => console.log(category, accordionKey, isActive)}
+                name={accordionKey}
+                id={accordionKey}
+                className="cbx-hidden"
+            />
+            <label htmlFor={accordionKey} className="check">
+                <svg width="18px" height="18px" viewBox="0 0 18 18">
+                    <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                    <polyline points="1 9 7 14 15 4"></polyline>
+                </svg>
+            </label>
+            </div>
             <h3 className="title">Slider</h3>
             <div className="miniscores-container">
           
                 <div className="mini-score">
                     <div className="mini-title">points</div>
                     <div className="dot"></div>
-                    <div className="mini-value">{`${minValue} - ${maxValue}`}</div>
+                    <div className="mini-value">{`0 - ${maxValue}`}</div>
                 </div>
           
             </div>
@@ -105,7 +148,7 @@ const AccordionSlider = ({ settings }) => {
         <AnimatePresence initial={false}>
             { isOpen && (
                 <motion.div 
-                    className="accordion-content"
+                    className="accordion-content slider-accordion"
                     key="content"
                     variants={AccordionContentVariants}
                     initial="hidden"
@@ -114,49 +157,75 @@ const AccordionSlider = ({ settings }) => {
                     
                 >
                     <motion.div variants={ChildVariants} className="accordion-inner-content">
-                        <h3 className="content-title">Sliding For Ease</h3>
+                        <h3 className="content-title">The Things You do Once</h3>
                         <p className="content-text">
-                            Under the checkers tab you’ll find things which won’t be 
-                            possible to repeat during the day
+                        Under the checkers tab you’ll find things which won’t be possible to repeat during the day
                         </p>
+                        <div 
+                            className="bin-icon"
+                            onClick={() => deleteAccordion(category, accordionKey)}
+                        >
+                            <SettingsBinSVG />
+                        </div>
                         <div className="value-box">
                             <div className="topbar">
-                                <div className="topbar-title">activity</div>
-                                <div className="topbar-title">points</div>
+                                <div className="topbar-title">{activityName || 'some activity'}</div>
                             </div>
-                            {
-                                Object.entries(activities).map(([key, value]) => {
-                                return (
-                                    <div className="activity">
-                                        <p className="activity-title">{key}</p>
-                                        <p className="activity-value">{value}</p>
-                                        <div 
-                                            className="bin"
-                                            onClick={() => deleteActivity(key)}
-                                        >x</div>
-                                    </div>
-                                )
-                            })}
-                            <div className="total-activity">
-                                <p className="activity-title">total points</p>
-                                <p className="activity-value">{maxValue}</p>
+                            <div className="display-content">
+                                <div className="unit-value">
+                                    <h1 className="value">{sliderValue || 0}</h1>
+                                    <p className="unit">{activityUnit || 'hours of work'}</p>
+                                </div>
+                                <div className="border-line"></div>
+                                <div className="slider-container">
+                                    <input
+                                        className="the-slider"
+                                        type="range" 
+                                        onChange={handleSliderValue}
+                                        value={sliderValue || 0}
+                                        min="0"
+                                        max={activityRange || 10}
+                                        step="0.5"
+                                    />
+                                </div>
+                                <div className="value-displays">
+                                    <div className="min-display"><p>0</p></div>
+                                    <div className="max-display"><p>{activityRange || 10}</p></div>
+                                </div>
                             </div>
+ 
                         </div>
                         <div className="settings-form">
                             <div className="name-container">
-                                <label htmlFor="">Activity/Task</label>
+                                <label htmlFor="">Activity</label>
                                 <input 
                                     type="text" 
-                                    placeholder="some activity"
+                                    placeholder="worked today"
                                     onChange={handleName}
                                 />
                             </div>
-                            <div className="value-container">
-                                <label htmlFor="">Importance</label>
+                            <div className="unit-container">
+                                <label htmlFor="">Unit of Measure</label>
                                 <input 
                                     type="text" 
-                                    placeholder="250"
-                                    onChange={handleValue}
+                                    placeholder="hours"
+                                    onChange={handleUnit}
+                                />
+                            </div>
+                            <div className="weight-container">
+                                <label htmlFor="">Weight</label>
+                                <input 
+                                    type="text" 
+                                    placeholder="20"
+                                    onChange={handleWeight}
+                                />
+                            </div>
+                            <div className="range-container">
+                                <label htmlFor="">Range</label>
+                                <input 
+                                    type="text" 
+                                    placeholder="10"
+                                    onChange={handleRange}
                                 />
                             </div>
                             <div 
@@ -166,6 +235,9 @@ const AccordionSlider = ({ settings }) => {
                             >
                                 add
                             </div>
+                            <p className="error-message">
+                                {errorMessage}
+                            </p>
                         </div>
 
                     </motion.div>
