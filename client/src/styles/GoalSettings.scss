@@ -244,11 +244,16 @@
                 .icon-container{
                     margin-left: auto;
                     justify-self: flex-end;
+                    transition: transform 0.3s ease-in-out;
 
                     svg{
                         width: auto;
                         height: 1rem;
                     }
+                }
+                .icon-container.is-rotating{
+                    transform: rotate(90deg);
+                    transition: transform 0.3s ease-in-out;
                 }
             }
 

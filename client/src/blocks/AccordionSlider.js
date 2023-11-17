@@ -140,7 +140,7 @@ const AccordionSlider = ({ settings, category, accordionKey ,isActive, toggleAcc
                 </div>
           
             </div>
-            <div className="icon-container" onClick={() => setIsOpen(!isOpen)}>
+            <div className={`icon-container ${isOpen ? 'is-rotating' : ''}`} onClick={() => setIsOpen(!isOpen)}>
                 <BoomerangSVG />
             </div>
             
