@@ -29,14 +29,15 @@
         left: 0;
         overflow-x: auto;
         width: 100%;
-        padding: 1.5rem;
+        padding: 1rem;
 
         display: flex;
         justify-content: center;
         align-items: center;
         gap: 0.75rem;
         
-        border: 0px solid peru;
+        // border-top: 1px solid $white-20;
+        // border-top: 1px solid peru;
         color: white;
 
         .nav-item{
@@ -44,7 +45,8 @@
             width: 100%;
             height: auto;
             padding: 0.5rem 0.75rem;
-            background: #343434;
+            background: #121212;
+            border: 0.5px solid $white-20;
             border-radius: 0.5rem;
             display: grid;
             place-items: center;
@@ -66,7 +68,7 @@
         background: $white-20;
 
         .progress-bar {
-            height: 20px;
+            height: 100%;
             background-color: $white-20;
             width: 0%;
             transition: width 0.01s ease-in-out, background-color 0.5s ease-in-out;
@@ -91,22 +93,72 @@
         align-items: flex-start;
 
 
-        h2{
-            margin-bottom: 3rem;
-            font-size: 1.5rem;
-            font-family: reckless-middle;
-            text-transform: capitalize;
-            color: $white-80;
+        .section-top{
+            border: 0px solid peru;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
 
+            h2{
+                font-size: 1.5rem;
+                font-family: reckless-middle;
+                text-transform: capitalize;
+                color: $white-80;
+            }
+
+            .section-number{
+                font-size: 0.75rem;
+            }
         }
+
 
         .actives-box, .inactives-box{
             width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
 
-            h5{
-                display: none;
+            .info-box{
+                align-self: flex-end;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 0.5rem;
+                .circle{
+                    height: 0.5rem;
+                    width: 0.5rem;
+                    border-radius: 1rem;
+
+                }
+                p{
+                    font-size: 0.875rem;
+                    font-weight: 200;
+                }
             }
         }
+        .actives-box .info-box .circle{
+            background: $white-10;
+            animation: pulse 3s infinite ease-in-out;
+        }
+        .inactives-box .info-box .circle{
+            background: black;
+            border: 0.2px solid $white-50;
+        }
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 0 4px rgba(255, 255, 255, 0.1);
+                transform: scale(1);
+                background: $white-10;
+            }
+            50% {
+                box-shadow: 0 0 8px rgba(255, 255, 255, 0.9);
+                transform: scale(1.2);
+                background: $white-80;
+            }
+        }
+        
 
         .section-container{
             width: 100%;
@@ -134,7 +186,14 @@
                     height: auto;
                     width: 2rem;
                     margin-right: 1.5rem;
+
+                    input{
+                        height: 100%;
+                        width: 100%;
+                        border: 1px solid peru;
+                    }
                 }
+
 
                 h3.title{
                     font-family: satoshi;
@@ -410,23 +469,26 @@
 
         .info-message{
             display: flex;
-            gap: 1rem;
+            gap: 0.5rem;
             margin-bottom: 1.5rem;
+            display: none;
 
             .text{
                 color: $white-80;
                 font-family: satoshi;
+                font-size: 0.875rem;
+                font-weight: 200;
             }
 
             .icon{
-                width: 1.5rem;
-                height: 1.5rem;
+                width: 1.2rem;
+                height: 1.2rem;
                 border-radius: 1rem;
                 background: $white;
                 color: $dark;
                 display: grid;
                 place-items: center;
-                font-size: 1.5rem;
+                font-size: 1rem;
             }
         }
 

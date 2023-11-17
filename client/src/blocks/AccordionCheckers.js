@@ -6,6 +6,9 @@ import { BoomerangSVG, SettingsBinSVG, SettingsBin2SVG } from "../blocks/svg"
 
 const AccordionCheckers = ({ settings, category, accordionKey ,isActive, toggleAccordion, addActivity, deleteAccordion }) => {
 
+
+    console.log('checkers object', accordionKey,'is active?', isActive)
+
     const addButtonRef = useRef(null)
     const [isOpen, setIsOpen] = useState(false)
 
@@ -84,18 +87,20 @@ const AccordionCheckers = ({ settings, category, accordionKey ,isActive, toggleA
             {/* <input 
                 type="checkbox" 
                 checked={isActive} 
-                onChange={() => toggleAccordion(category, accordionKey, isActive)} 
-                // onChange={() => console.log(accordionKey)}
-            /> */}
-            <input 
-                type="checkbox" 
-                name="checkbox"
+                onChange={() => console.log(category, accordionKey, isActive)} 
                 id="checkbox"
                 className="cbx-hidden" 
-                onChange={() => toggleAccordion(category, accordionKey, isActive)} 
+            /> */}
+            <input 
+                type="checkbox"
                 checked={isActive}
+                onChange={() => toggleAccordion(category, accordionKey, isActive)} 
+                // onChange={() => console.log(category, accordionKey, isActive)}
+                name={accordionKey}
+                id={accordionKey}
+                className="cbx-hidden"
             />
-            <label htmlFor="checkbox" className="check">
+            <label htmlFor={accordionKey} className="check">
                 <svg width="18px" height="18px" viewBox="0 0 18 18">
                     <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
                     <polyline points="1 9 7 14 15 4"></polyline>
@@ -129,10 +134,9 @@ const AccordionCheckers = ({ settings, category, accordionKey ,isActive, toggleA
                     
                 >
                     <motion.div variants={ChildVariants} className="accordion-inner-content">
-                        <h3 className="content-title">Sliding For Ease</h3>
+                        <h3 className="content-title">The Things You do Once</h3>
                         <p className="content-text">
-                            Under the checkers tab you’ll find things which won’t be 
-                            possible to repeat during the day
+                        Under the checkers tab you’ll find things which won’t be possible to repeat during the day
                         </p>
                         <div 
                             className="bin-icon"

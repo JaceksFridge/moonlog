@@ -1,7 +1,7 @@
 
 import Header from "../blocks/Header"
 import TopNav from "../blocks/TopNav"
-import { useState, useEffect, useRef, useContext } from "react"
+import { useState, useEffect, useRef, useContext, useMemo } from "react"
 import AccordionCheckers from "../blocks/AccordionCheckers"
 import AccordionCounters from "../blocks/AccordionCounters"
 import AccordionSlider from "../blocks/AccordionSlider"
@@ -22,11 +22,11 @@ const GoalSettings = () => {
     const nodoRef = useRef(null);
 
     const [ progress, setProgress ] = useState(0)
- 
 
     useEffect(() => {
         if (!userLoading && user) {
             setSettings(user.settings)
+            console.log("seeettings:", settings)
         }
     }, [user, userLoading]);
 
@@ -34,7 +34,6 @@ const GoalSettings = () => {
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach(entry => {
-                    console.log(entry.target.id, entry.isIntersecting, entry.intersectionRatio);
                     if (entry.isIntersecting) {
                         switch(entry.target.id) {
                             case 'health-section':
@@ -102,8 +101,6 @@ const GoalSettings = () => {
         return color;
       }
 
-
-      
     const TabClick = (tab) => {
         const tabToRef = {
           health: healthRef,
@@ -118,6 +115,31 @@ const GoalSettings = () => {
         }
         setActiveTab(tab)
     }
+    const calculateTotal = (category) => {
+        if (!settings || !settings[category]) {
+            return 0;
+        }
+    
+        let sum = 0;
+        const actives = settings[category].active || {};
+    
+        // Loop through each property in actives
+        Object.entries(actives).forEach(([key, group]) => {
+            if (key.startsWith('checkers') || key.startsWith('counters')) {
+                // Sum the values of each activity in the group
+                Object.values(group).forEach(value => {
+                    sum += value ?? 0;
+                });
+            }
+        });
+    
+        return sum;
+    }
+    
+
+    const healthTotal = useMemo(() => calculateTotal(activeTab), [settings, activeTab]);
+    
+
 
     const toggleAccordion = (category, accordionKey, isActive) => {
         setSettings(prevSettings => {
@@ -253,9 +275,15 @@ const GoalSettings = () => {
             <div className="main">
                 <div className="invisible-top"></div>
                     <div ref={healthRef} className="section" id="health-section" >
-                        <h2 className="section-title">health section</h2>
+                        <div className="section-top">
+                            <h2 className="section-title">health section</h2>
+                            <p className="section-number">0 - {healthTotal}</p>
+                        </div>
                         <div className="actives-box">
-                            <h5>actives</h5>
+                            <div className="info-box">
+                                <div className="circle"></div>
+                                <p>active</p>
+                            </div>
                             { settings.health && settings.health.active && 
                             Object.entries(settings.health.active).map(([key, value], index) => {
                                 const accordionType = key.split('_')[0];
@@ -294,7 +322,10 @@ const GoalSettings = () => {
                         }
                         </div>
                         <div className="inactives-box">
-                            <h5>inactives</h5>
+                            <div className="info-box">
+                                <div className="circle"></div>
+                                <p>inactive</p>
+                            </div>
                             { settings.health && settings.health.inactive && 
                             Object.entries(settings.health.inactive).map(([key, value], index) => {
                                 const accordionType = key.split('_')[0];
@@ -377,7 +408,7 @@ const GoalSettings = () => {
                     <div className="save-container">
                         <div className="info-message">
                             <div className="icon">!</div>
-                            <p className="text">you can only select one checker per page</p>
+                            <p className="text">there can only be one of each</p>
                         </div>
                         <div 
                             className="save-btn active"

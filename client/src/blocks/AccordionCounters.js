@@ -6,6 +6,9 @@ import { BoomerangSVG } from "../blocks/svg"
 
 const AccordionCounters = ({ settings, category, accordionKey ,isActive, toggleAccordion, addActivity }) => {
 
+
+    console.log('counters object', accordionKey,'is active?', isActive)
+
     const addButtonRef = useRef(null)
     const [isOpen, setIsOpen] = useState(false)
 
@@ -13,6 +16,7 @@ const AccordionCounters = ({ settings, category, accordionKey ,isActive, toggleA
     const [activityName, setActivityName] = useState('')
     const [activityValue, setActivityValue] = useState('')
     const [maxValue, setMaxValue] = useState(0)
+
 
 
     const handleName = (e) => {
@@ -82,12 +86,28 @@ const AccordionCounters = ({ settings, category, accordionKey ,isActive, toggleA
     <div className="section-container">
         <div className={`accordion-header ${isActive ? 'active' : 'inactive'}`}>
             <div className="checkbox">
-            <input 
+            {/* <input 
                 type="checkbox" 
                 checked={isActive} 
+                onChange={() => console.log(category, accordionKey, isActive)} 
+                id="checkbox"
+                className="cbx-hidden" 
+            /> */}
+            <input 
+                type="checkbox"
+                checked={isActive}
                 onChange={() => toggleAccordion(category, accordionKey, isActive)} 
-                // onChange={() => console.log(accordionKey)}
+                // onChange={() => console.log(category, accordionKey, isActive)}
+                name={accordionKey}
+                id={accordionKey}
+                className="cbx-hidden"
             />
+            <label htmlFor={accordionKey} className="check">
+                <svg width="18px" height="18px" viewBox="0 0 18 18">
+                    <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                    <polyline points="1 9 7 14 15 4"></polyline>
+                </svg>
+            </label>
             </div>
             <h3 className="title">Counters</h3>
             <div className="miniscores-container">
