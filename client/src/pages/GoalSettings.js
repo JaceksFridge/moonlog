@@ -8,6 +8,8 @@ import AccordionSlider from "../blocks/AccordionSlider"
 import { UserContext } from "../blocks/userContext"
 import { v4 as uuidv4 } from 'uuid';
 import { SettingsAccordionCheckers, SettingsAccordionCounters, SettingsAccordionSlider } from "../blocks/svg"
+import { useMediaQuery } from 'react-responsive'
+import TopNavDesktop from "../Desktop/TopNavDesktop"
 
 
 const GoalSettings = () => {
@@ -22,6 +24,8 @@ const GoalSettings = () => {
     const nodoRef = useRef(null);
 
     const [ progress, setProgress ] = useState(0)
+
+    const isDesktopOrLaptop = useMediaQuery({ minWidth: "1224px" });
 
     useEffect(() => {
         if (!userLoading && user) {
@@ -261,8 +265,14 @@ const GoalSettings = () => {
   return (
     <div className="goalsettings">
         <div className="top-top">
-            <Header />
-            <TopNav activeTab={activeTab} onTabClick={TabClick}/>
+            { !isDesktopOrLaptop ? (
+                <>
+                    <Header />
+                    <TopNav activeTab={activeTab} onTabClick={TabClick}/>
+                </>
+            ) : (
+                <TopNavDesktop />
+            )}
             <div className="scroll-progress">
                 <div 
                     className="progress-bar" 
@@ -280,7 +290,7 @@ const GoalSettings = () => {
                 <div className="invisible-top"></div>
                     <div ref={healthRef} className="section" id="health-section" >
                         <div className="section-top">
-                            <h2 className="section-title">health section</h2>
+                            <h2 className="section-title">health settings</h2>
                             <p className="section-number">0 - {healthTotal}</p>
                         </div>
                         <div className="actives-box">
