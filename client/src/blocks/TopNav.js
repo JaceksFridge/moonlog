@@ -2,27 +2,27 @@
 
 import React from 'react'
 
-const TopNav = ({ activeTab, onTabClick }) => {
+const TopNav = ({ activeTab, TabClick }) => {
   return (
     <div className="topnav">
         <div 
             className={`nav-item health ${activeTab === 'health' ? 'active' : ''}`}
-            onClick={() => onTabClick('health')}
+            onClick={() => TabClick('health')}
         >health
         </div>
         <div 
             className={`nav-item wealth ${activeTab === 'wealth' ? 'active' : ''}`}
-            onClick={() => onTabClick('wealth')}
+            onClick={() => TabClick('wealth')}
         >wealth
         </div>
         <div 
             className={`nav-item happiness ${activeTab === 'happiness' ? 'active' : ''}`}
-            onClick={() => onTabClick('happiness')}
+            onClick={() => TabClick('happiness')}
         >happiness
         </div>
         <div 
             className={`nav-item nodo ${activeTab === 'nodo' ? 'active' : ''}`}
-            onClick={() => onTabClick('nodo')}
+            onClick={() => TabClick('nodo')}
         >nodo
         </div>
 

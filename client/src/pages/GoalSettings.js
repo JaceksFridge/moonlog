@@ -268,10 +268,10 @@ const GoalSettings = () => {
             { !isDesktopOrLaptop ? (
                 <>
                     <Header />
-                    <TopNav activeTab={activeTab} onTabClick={TabClick}/>
+                    <TopNav activeTab={activeTab} TabClick={TabClick} />
                 </>
             ) : (
-                <TopNavDesktop />
+                <TopNavDesktop activeTab={activeTab} TabClick={TabClick} />
             )}
             <div className="scroll-progress">
                 <div 
