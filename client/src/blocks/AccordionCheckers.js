@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from "framer-motion"
-import { BoomerangSVG, SettingsBinSVG, SettingsBin2SVG } from "../blocks/svg"
+import { BoomerangSVG, SettingsBinSVG, SettingsBin2SVG, SettingsBinDarkSVG } from "../blocks/svg"
 
 const AccordionCheckers = ({ settings, category, accordionKey ,isActive, toggleAccordion, addActivity, deleteAccordion }) => {
 
@@ -17,6 +17,9 @@ const AccordionCheckers = ({ settings, category, accordionKey ,isActive, toggleA
     const [activityValue, setActivityValue] = useState('')
     const [maxValue, setMaxValue] = useState(0)
 
+    const [isButtonActive, setIsButtonActive] = useState(false)
+    const [errorMessage, setErrorMessage] = useState('')
+
     const handleName = (e) => {
         setActivityName(e.target.value)
     }
@@ -24,12 +27,18 @@ const AccordionCheckers = ({ settings, category, accordionKey ,isActive, toggleA
         setActivityValue(e.target.value)
     }
     const handleAddButton = () => {
-        const updatedActivities = {
-            ...activities, 
-            [activityName]: parseInt(activityValue, 10)
+        if (!isButtonActive) {
+            setErrorMessage('* ensure that every field is in the correct format')
+            return
+        } else {
+            setErrorMessage('')
+            const updatedActivities = {
+                ...activities, 
+                [activityName]: parseInt(activityValue, 10)
+            }
+            setActivities(updatedActivities)
+            addActivity(updatedActivities)
         }
-        setActivities(updatedActivities)
-        addActivity(updatedActivities)
     }
 
     const deleteActivity = (key) => {
@@ -42,12 +51,17 @@ const AccordionCheckers = ({ settings, category, accordionKey ,isActive, toggleA
 
     
     useEffect(() => {
-        if (addButtonRef.current && activityName && activityValue) {
-            addButtonRef.current.classList.add("active")
+        const isValueNumeric = activityValue.trim() !== '' && !isNaN(activityValue) && isFinite(activityValue);
+        const isNameString = typeof activityName === 'string' && activityName.trim() !== '';
+    
+        if (addButtonRef.current && isValueNumeric && isNameString) {
+            addButtonRef.current.classList.add("active");
+            setIsButtonActive(true);
         } else if (addButtonRef.current) {
-            addButtonRef.current.classList.remove("active")
+            addButtonRef.current.classList.remove("active");
+            setIsButtonActive(false);
         }
-    }, [activityName, activityValue])
+    }, [activityName, activityValue]);
 
     useEffect(() => {
         let total = 0;
@@ -158,7 +172,9 @@ const AccordionCheckers = ({ settings, category, accordionKey ,isActive, toggleA
                                         <div 
                                             className="bin"
                                             onClick={() => deleteActivity(key)}
-                                        >x</div>
+                                        >
+                                            <SettingsBinSVG />
+                                        </div>
                                     </div>
                                 )
                             })}
@@ -191,6 +207,9 @@ const AccordionCheckers = ({ settings, category, accordionKey ,isActive, toggleA
                             >
                                 add
                             </div>
+                            <p className="error-message">
+                                {errorMessage}
+                            </p>
                         </div>
 
                     </motion.div>

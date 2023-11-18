@@ -64,7 +64,6 @@ const AccordionSlider = ({ settings, category, accordionKey ,isActive, toggleAcc
             setMaxValue(parseInt(activityWeight * activityRange))
             setActivities(updatedActivities)
             addActivity(updatedActivities)
-            console.log("new slider", updatedActivities)
         }
     }
 
@@ -157,9 +156,9 @@ const AccordionSlider = ({ settings, category, accordionKey ,isActive, toggleAcc
                     
                 >
                     <motion.div variants={ChildVariants} className="accordion-inner-content">
-                        <h3 className="content-title">The Things You do Once</h3>
+                        <h3 className="content-title">Sliding for Ease</h3>
                         <p className="content-text">
-                        Under the checkers tab you’ll find things which won’t be possible to repeat during the day
+                        The slider let's you set with ease things which you do often.
                         </p>
                         <div 
                             className="bin-icon"

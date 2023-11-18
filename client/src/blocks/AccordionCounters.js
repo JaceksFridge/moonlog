@@ -17,6 +17,9 @@ const AccordionCounters = ({ settings, category, accordionKey ,isActive, toggleA
     const [activityValue, setActivityValue] = useState('')
     const [maxValue, setMaxValue] = useState(0)
 
+    const [isButtonActive, setIsButtonActive] = useState(false)
+    const [errorMessage, setErrorMessage] = useState('')
+
 
 
     const handleName = (e) => {
@@ -26,12 +29,19 @@ const AccordionCounters = ({ settings, category, accordionKey ,isActive, toggleA
         setActivityValue(e.target.value)
     }
     const handleAddButton = () => {
-        const updatedActivities = {
-            ...activities, 
-            [activityName]: parseInt(activityValue, 10)
+        if (!isButtonActive) {
+            setErrorMessage('* ensure that every field is in the correct format')
+            return
+        } else {
+            setErrorMessage('')
+            const updatedActivities = {
+                ...activities, 
+                [activityName]: parseInt(activityValue, 10)
+            }
+            setActivities(updatedActivities)
+            addActivity(updatedActivities)
         }
-        setActivities(updatedActivities)
-        addActivity(updatedActivities)
+
     }
 
     const deleteActivity = (key) => {
@@ -44,12 +54,17 @@ const AccordionCounters = ({ settings, category, accordionKey ,isActive, toggleA
 
     
     useEffect(() => {
-        if (addButtonRef.current && activityName && activityValue) {
-            addButtonRef.current.classList.add("active")
+        const isValueNumeric = activityValue.trim() !== '' && !isNaN(activityValue) && isFinite(activityValue);
+        const isNameString = typeof activityName === 'string' && activityName.trim() !== '';
+    
+        if (addButtonRef.current && isValueNumeric && isNameString) {
+            addButtonRef.current.classList.add("active");
+            setIsButtonActive(true);
         } else if (addButtonRef.current) {
-            addButtonRef.current.classList.remove("active")
+            addButtonRef.current.classList.remove("active");
+            setIsButtonActive(false);
         }
-    }, [activityName, activityValue])
+    }, [activityName, activityValue]);
 
     useEffect(() => {
         let total = 0;
@@ -136,10 +151,10 @@ const AccordionCounters = ({ settings, category, accordionKey ,isActive, toggleA
                     
                 >
                     <motion.div variants={ChildVariants} className="accordion-inner-content">
-                        <h3 className="content-title">Sliding For Ease</h3>
+                        <h3 className="content-title">The Things You Repeat</h3>
                         <p className="content-text">
-                            Under the checkers tab you’ll find things which won’t be 
-                            possible to repeat during the day
+                        Under the checkers tab you’ll find things which won’t be 
+                        possible to repeat during the day
                         </p>
                         <div 
                             className="bin-icon"
@@ -161,7 +176,9 @@ const AccordionCounters = ({ settings, category, accordionKey ,isActive, toggleA
                                         <div 
                                             className="bin"
                                             onClick={() => deleteActivity(key)}
-                                        >x</div>
+                                        >
+                                            <SettingsBinSVG />
+                                        </div>
                                     </div>
                                 )
                             })}
@@ -194,6 +211,9 @@ const AccordionCounters = ({ settings, category, accordionKey ,isActive, toggleA
                             >
                                 add
                             </div>
+                            <p className="error-message">
+                                {errorMessage}
+                            </p>
                         </div>
 
                     </motion.div>
