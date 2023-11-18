@@ -41,7 +41,6 @@ const AccordionCounters = ({ settings, category, accordionKey ,isActive, toggleA
             setActivities(updatedActivities)
             addActivity(updatedActivities)
         }
-
     }
 
     const deleteActivity = (key) => {

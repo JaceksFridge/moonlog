@@ -1,0 +1,130 @@
+.top-progress {
+    position: relative;
+    width: 100%;
+    z-index: 100;
+    background: $black;
+    height: 5rem;
+
+    .top-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+
+        .health {
+            margin-left: 6rem;
+        }
+
+        .top-element {
+            flex: 1;
+            padding: 1rem;
+            color: $white-20;
+            cursor: pointer;
+            height: 3rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+
+            .number, .name {
+                transition: color 0.15s ease-in-out;
+            }
+
+            .number {
+                display: grid;
+                place-items: center;
+
+                .random-icon svg {
+                    width: 1.4rem;
+                    height: auto;
+
+                    path {
+                        fill: $white-20;
+                        stroke: $white-20;
+                        transition: fill 0.15s ease-in-out, stroke 0.15s ease-in-out;
+                    }
+                }
+            }
+
+            .name {
+                font-family: satoshi;
+                font-size: 1.2rem;
+                font-weight: 300;
+            }
+
+            &:hover, &.active {
+                color: $white-80;
+
+                .number .random-icon svg path {
+                    fill: $white-80;
+                    stroke: $white-80;
+                }
+
+                .name {
+                    color: $white-80;
+                }
+            }
+
+            &.nodo {
+                margin-right: 2rem;
+            }
+        }
+
+        .progress-line {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 2px;
+            background: $white-20;
+        }
+    }
+}
+
+
+// nodo problem
+.top-progress .top-container{
+    .top-element.nodo{
+        .name{
+            color: $white-20;
+        }
+    }
+    .top-element.nodo.active{
+        .name{
+            color: $white-80;
+        }
+    }
+    .top-element.nodo:hover{
+        .name{
+            color: $white-80;
+        }
+    }
+}
+
+
+// happiness
+.top-progress .top-container{
+    .top-element.nodo{
+        .number .random-icon svg{
+            fill: none;
+            path{
+                fill: none;
+            }
+        }
+    }
+    .top-element.nodo.active{
+        .number .random-icon svg{
+            fill: none;
+            path{
+                fill: none;
+            }
+        }
+    }
+    .top-element.nodo:hover{
+        .number .random-icon svg{
+            fill: none;
+            path{
+                fill: none;
+            }
+        }
+    }
+}
