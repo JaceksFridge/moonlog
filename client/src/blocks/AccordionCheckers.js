@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from "framer-motion"
 import { BoomerangSVG, SettingsBinSVG, SettingsBin2SVG, SettingsBinDarkSVG } from "../blocks/svg"
+import { useMediaQuery } from 'react-responsive'
 
 const AccordionCheckers = ({ settings, category, accordionKey ,isActive, toggleAccordion, addActivity, deleteAccordion }) => {
 
@@ -19,6 +20,8 @@ const AccordionCheckers = ({ settings, category, accordionKey ,isActive, toggleA
 
     const [isButtonActive, setIsButtonActive] = useState(false)
     const [errorMessage, setErrorMessage] = useState('')
+
+    const isDesktopOrLaptop = useMediaQuery({ minWidth: "1224px" });
 
     const handleName = (e) => {
         setActivityName(e.target.value)
@@ -98,18 +101,10 @@ const AccordionCheckers = ({ settings, category, accordionKey ,isActive, toggleA
     <div className="section-container">
         <div className={`accordion-header ${isActive ? 'active' : 'inactive'}`}>
             <div className="checkbox">
-            {/* <input 
-                type="checkbox" 
-                checked={isActive} 
-                onChange={() => console.log(category, accordionKey, isActive)} 
-                id="checkbox"
-                className="cbx-hidden" 
-            /> */}
             <input 
                 type="checkbox"
                 checked={isActive}
-                onChange={() => toggleAccordion(category, accordionKey, isActive)} 
-                // onChange={() => console.log(category, accordionKey, isActive)}
+                onChange={() => toggleAccordion(category, accordionKey, isActive)}
                 name={accordionKey}
                 id={accordionKey}
                 className="cbx-hidden"
@@ -146,7 +141,8 @@ const AccordionCheckers = ({ settings, category, accordionKey ,isActive, toggleA
                     animate="visible"
                     exit="hidden"
                     
-                >
+                >   
+                { !isDesktopOrLaptop ? (
                     <motion.div variants={ChildVariants} className="accordion-inner-content">
                         <h3 className="content-title">The Things You do Once</h3>
                         <p className="content-text">
@@ -213,7 +209,79 @@ const AccordionCheckers = ({ settings, category, accordionKey ,isActive, toggleA
                         </div>
 
                     </motion.div>
-
+                ) : (
+                    <motion.div variants={ChildVariants} className="accordion-inner-content">
+                        <div 
+                            className="bin-icon"
+                            onClick={() => deleteAccordion(category, accordionKey)}
+                        >
+                            <SettingsBinSVG />
+                        </div>
+                        <div className="left-side">
+                            <h3 className="content-title">The Things You do Once</h3>
+                            <p className="content-text">
+                                Under the checkers tab you’ll find things which won’t be possible to repeat during the day
+                            </p>
+                            <div className="settings-form">
+                            <div className="name-container">
+                                <label htmlFor="">activity/task</label>
+                                <input 
+                                    type="text" 
+                                    placeholder="some activity"
+                                    onChange={handleName}
+                                />
+                            </div>
+                            <div className="value-container">
+                                <label htmlFor="">importance</label>
+                                <input 
+                                    type="text" 
+                                    placeholder="250"
+                                    onChange={handleValue}
+                                />
+                            </div>
+                            <div className="add-btn-container">
+                                <div 
+                                    className="add-btn satoshi-btn"
+                                    ref={addButtonRef}
+                                    onClick={handleAddButton}
+                                >
+                                    add
+                                </div>
+                            </div>
+                            <p className="error-message">
+                                {errorMessage}
+                            </p>
+                        </div>
+                        </div>
+                        <div className="right-side">
+                            <div className="value-box">
+                                <div className="topbar">
+                                    <div className="topbar-title">activity</div>
+                                    <div className="topbar-title">points</div>
+                                </div>
+                                {
+                                    Object.entries(activities).map(([key, value]) => {
+                                    return (
+                                        <div className="activity" key={key}>
+                                            <p className="activity-title">{key}</p>
+                                            <p className="activity-value">{value}</p>
+                                            <div 
+                                                className="bin"
+                                                onClick={() => deleteActivity(key)}
+                                            >
+                                                <SettingsBinSVG />
+                                            </div>
+                                        </div>
+                                    )
+                                })}
+                                <div className="total-activity">
+                                    <p className="activity-title">total points</p>
+                                    <p className="activity-value">{maxValue}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </motion.div>
+                )}
                 </motion.div>
             )}
         </AnimatePresence>

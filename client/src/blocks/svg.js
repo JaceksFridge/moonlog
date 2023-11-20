@@ -234,7 +234,7 @@ export const SettingsBin2SVG = ({ variants }) => {
 }
 
 
-export const SettingsAccordionCheckers = ({ variants }) => {
+export const SettingsAccordionCheckersSVG = ({ variants }) => {
   return (
     <div className="random-icon">
       <svg width="77" height="55" viewBox="0 0 77 55" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -244,7 +244,7 @@ export const SettingsAccordionCheckers = ({ variants }) => {
   )
 }
 
-export const SettingsAccordionSlider = ({ variants }) => {
+export const SettingsAccordionSliderSVG = ({ variants }) => {
   return (
     <div className="random-icon">
       <svg width="94" height="68" viewBox="0 0 94 68" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -255,7 +255,7 @@ export const SettingsAccordionSlider = ({ variants }) => {
   )
 }
 
-export const SettingsAccordionCounters = ({ variants }) => {
+export const SettingsAccordionCountersSVG = ({ variants }) => {
   return (
     <div className="random-icon">
       <svg width="73" height="73" viewBox="0 0 73 73" fill="none" xmlns="http://www.w3.org/2000/svg">

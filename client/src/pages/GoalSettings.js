@@ -7,9 +7,10 @@ import AccordionCounters from "../blocks/AccordionCounters"
 import AccordionSlider from "../blocks/AccordionSlider"
 import { UserContext } from "../blocks/userContext"
 import { v4 as uuidv4 } from 'uuid';
-import { SettingsAccordionCheckers, SettingsAccordionCounters, SettingsAccordionSlider } from "../blocks/svg"
+import { SettingsAccordionCheckersSVG, SettingsAccordionCountersSVG, SettingsAccordionSliderSVG } from "../blocks/svg"
 import { useMediaQuery } from 'react-responsive'
 import TopNavDesktop from "../Desktop/TopNavDesktop"
+import SettingsSection from "../blocks/SettingSection"
 
 
 const GoalSettings = () => {
@@ -25,12 +26,13 @@ const GoalSettings = () => {
 
     const [ progress, setProgress ] = useState(0)
 
+
     const isDesktopOrLaptop = useMediaQuery({ minWidth: "1224px" });
 
     useEffect(() => {
         if (!userLoading && user) {
             setSettings(user.settings)
-            // console.log("seeettings:", settings)
+            console.log("seeettings:", settings)
         }
     }, [user, userLoading]);
 
@@ -145,6 +147,8 @@ const GoalSettings = () => {
 
     const healthTotal = useMemo(() => calculateTotal(activeTab), [settings, activeTab]);
     const wealthTotal = useMemo(() => calculateTotal(activeTab), [settings, activeTab]);
+    const happinessTotal = useMemo(() => calculateTotal(activeTab), [settings, activeTab]);
+    const nodoTotal = useMemo(() => calculateTotal(activeTab), [settings, activeTab]);
     
 
 
@@ -383,7 +387,7 @@ const GoalSettings = () => {
                                 onClick={addNewCheckers}
                             >
                                 <div className="add-accordion">
-                                    <SettingsAccordionCheckers />
+                                    <SettingsAccordionCheckersSVG />
                                 </div>
                                 <h4 className="add-text">checkers</h4>
                             </div>
@@ -392,7 +396,7 @@ const GoalSettings = () => {
                                 onClick={addNewSlider}
                             >
                                 <div className="add-accordion">
-                                    <SettingsAccordionSlider />
+                                    <SettingsAccordionSliderSVG />
                                 </div>
                                 <h4 className="add-text">slider</h4>
                             </div>
@@ -401,141 +405,49 @@ const GoalSettings = () => {
                                 onClick={addNewCounters}
                             >
                                 <div className="add-accordion">
-                                    <SettingsAccordionCounters />
+                                    <SettingsAccordionCountersSVG />
                                 </div>
                                 <h4 className="add-text">counters</h4>
                             </div>
 
                         </div>
                     </div>
-                    <div ref={wealthRef} className="section" id="wealth-section" >
-                        <div className="section-top">
-                            <h2 className="section-title">wealth section</h2>
-                            <p className="section-number">0 - {wealthTotal}</p>
-                        </div>
-                        <div className="actives-box">
-                            <div className="info-box">
-                                <div className="circle"></div>
-                                <p>active</p>
-                            </div>
-                            { settings.wealth && settings.wealth.active && 
-                            Object.entries(settings.wealth.active).map(([key, value], index) => {
-                                const accordionType = key.split('_')[0];
-                                return (
-                                    <div key={key} className='active-accordion'>
-                                        {accordionType == "checkers" && <AccordionCheckers  
-                                            accordionKey={key} 
-                                            category="wealth" 
-                                            settings={value}
-                                            isActive={true} 
-                                            toggleAccordion={toggleAccordion}
-                                            addActivity={(newActivity) => addActivity('wealth', key, newActivity)}
-                                            deleteAccordion={deleteAccordion}
-                                        />}
-                                        {accordionType == "counters" && <AccordionCounters 
-                                            accordionKey={key} 
-                                            category="wealth" 
-                                            settings={value} 
-                                            isActive={true} 
-                                            toggleAccordion={toggleAccordion}
-                                            addActivity={(newActivity) => addActivity('wealth', key, newActivity)}
-                                            deleteAccordion={deleteAccordion}
-                                        />}
-                                        {accordionType == "slider" && <AccordionSlider 
-                                            accordionKey={key} 
-                                            category="wealth" 
-                                            settings={value} 
-                                            isActive={true} 
-                                            toggleAccordion={toggleAccordion} 
-                                            addActivity={(newActivity) => addActivity('wealth', key, newActivity)}
-                                            deleteAccordion={deleteAccordion}
-                                        />}
-                                    </div>
-                                )
-                            })
-                        }
-                        </div>
-                        <div className="inactives-box">
-                            <div className="info-box">
-                                <div className="circle"></div>
-                                <p>inactive</p>
-                            </div>
-                            { settings.wealth && settings.wealth.inactive && 
-                            Object.entries(settings.wealth.inactive).map(([key, value], index) => {
-                                const accordionType = key.split('_')[0];
-                                return (
-                                    <div key={key} className='inactive-accordion'>
-                                        {accordionType == "checkers" && <AccordionCheckers  
-                                            accordionKey={key} 
-                                            category="wealth" 
-                                            settings={value} 
-                                            isActive={false} 
-                                            toggleAccordion={toggleAccordion}
-                                            addActivity={(newActivity) => addActivity('wealth', key, newActivity)}
-                                            deleteAccordion={deleteAccordion}
-                                        />}
-                                        {accordionType == "counters" && <AccordionCounters 
-                                            accordionKey={key} 
-                                            category="wealth" 
-                                            settings={value} 
-                                            isActive={false} 
-                                            toggleAccordion={toggleAccordion}
-                                            addActivity={(newActivity) => addActivity('wealth', key, newActivity)}
-                                            deleteAccordion={deleteAccordion}
-                                        />}
-                                        {accordionType == "slider" && <AccordionSlider 
-                                            accordionKey={key} 
-                                            category="wealth" 
-                                            settings={value} 
-                                            isActive={false} 
-                                            toggleAccordion={toggleAccordion} 
-                                            addActivity={(newActivity) => addActivity('wealth', key, newActivity)}
-                                            deleteAccordion={deleteAccordion}
-                                        />}
-                                    </div>
-                                )
-                            })
-                        }
-                        </div>
-                        <div className="accordion-container">
-                            <div 
-                                className="add-checkers"
-                                onClick={addNewCheckers}
-                            >
-                                <div className="add-accordion">
-                                    <SettingsAccordionCheckers />
-                                </div>
-                                <h4 className="add-text">checkers</h4>
-                            </div>
-                            <div 
-                                className="add-slider"
-                                onClick={addNewSlider}
-                            >
-                                <div className="add-accordion">
-                                    <SettingsAccordionSlider />
-                                </div>
-                                <h4 className="add-text">slider</h4>
-                            </div>
-                            <div 
-                                className="add-counters"
-                                onClick={addNewCounters}
-                            >
-                                <div className="add-accordion">
-                                    <SettingsAccordionCounters />
-                                </div>
-                                <h4 className="add-text">counters</h4>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div ref={happinessRef} className="section" id="happiness-section" >
-                        <h2 className="section-title">happiness section</h2>
-            
-                    </div>
-                    <div ref={nodoRef} className="section" id="nodo-section" >
-                        <h2 className="section-title">nodo section</h2>
-
-                    </div>
+                    <SettingsSection 
+                        categoryRef={wealthRef} 
+                        sectionId="wealth" 
+                        total={wealthTotal} 
+                        settings={settings} 
+                        toggleAccordion={toggleAccordion}
+                        addActivity={addActivity}
+                        deleteAccordion={deleteAccordion}
+                        addNewCheckers={addNewCheckers}
+                        addNewCounters={addNewCounters}
+                        addNewSlider={addNewSlider}
+                    />
+                    <SettingsSection 
+                        categoryRef={happinessRef} 
+                        sectionId="happiness" 
+                        total={happinessTotal} 
+                        settings={settings} 
+                        toggleAccordion={toggleAccordion}
+                        addActivity={addActivity}
+                        deleteAccordion={deleteAccordion}
+                        addNewCheckers={addNewCheckers}
+                        addNewCounters={addNewCounters}
+                        addNewSlider={addNewSlider}
+                    />
+                    <SettingsSection 
+                        categoryRef={nodoRef} 
+                        sectionId="nodo" 
+                        total={nodoTotal} 
+                        settings={settings} 
+                        toggleAccordion={toggleAccordion}
+                        addActivity={addActivity}
+                        deleteAccordion={deleteAccordion}
+                        addNewCheckers={addNewCheckers}
+                        addNewCounters={addNewCounters}
+                        addNewSlider={addNewSlider}
+                    />
                     <div className="save-container">
                         <div className="info-message">
                             <div className="icon">!</div>

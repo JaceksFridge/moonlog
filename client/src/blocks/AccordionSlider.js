@@ -3,11 +3,10 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from "framer-motion"
 import { BoomerangSVG, SettingsBinSVG, SettingsBin2SVG } from "../blocks/svg"
-
-const AccordionSlider = ({ settings, category, accordionKey ,isActive, toggleAccordion, addActivity, deleteAccordion }) => {
-
+import { useMediaQuery } from 'react-responsive'
 
 
+const AccordionSlider = ({ settings, category, accordionKey, isActive, toggleAccordion, addActivity, deleteAccordion }) => {
 
     const addButtonRef = useRef(null)
     const [isOpen, setIsOpen] = useState(false)
@@ -22,6 +21,7 @@ const AccordionSlider = ({ settings, category, accordionKey ,isActive, toggleAcc
     const [errorMessage, setErrorMessage] = useState('')
 
     const [sliderValue, setSliderValue] = useState(0)
+    const isDesktopOrLaptop = useMediaQuery({ minWidth: "1224px" });
 
     const handleName = (e) => {
         setActivityName(e.target.value)
@@ -155,6 +155,7 @@ const AccordionSlider = ({ settings, category, accordionKey ,isActive, toggleAcc
                     exit="hidden"
                     
                 >
+                { !isDesktopOrLaptop ? (
                     <motion.div variants={ChildVariants} className="accordion-inner-content">
                         <h3 className="content-title">Sliding for Ease</h3>
                         <p className="content-text">
@@ -192,7 +193,7 @@ const AccordionSlider = ({ settings, category, accordionKey ,isActive, toggleAcc
                                     <div className="max-display"><p>{activityRange || 10}</p></div>
                                 </div>
                             </div>
- 
+    
                         </div>
                         <div className="settings-form">
                             <div className="name-container">
@@ -238,10 +239,101 @@ const AccordionSlider = ({ settings, category, accordionKey ,isActive, toggleAcc
                                 {errorMessage}
                             </p>
                         </div>
-
                     </motion.div>
-
-                </motion.div>
+                ) : (
+                    <motion.div variants={ChildVariants} className="accordion-inner-content">
+                        <div 
+                            className="bin-icon"
+                            onClick={() => deleteAccordion(category, accordionKey)}
+                        >
+                            <SettingsBinSVG />
+                        </div>
+                        <div className="left-side">
+                            <h3 className="content-title">Sliding for Ease</h3>
+                            <p className="content-text">
+                            The slider let's you set with ease things which you do often.
+                            </p>
+                            <div className="settings-form">
+                                <div className="name-container">
+                                    <label htmlFor="">Activity</label>
+                                    <input 
+                                        type="text" 
+                                        placeholder="worked today"
+                                        onChange={handleName}
+                                    />
+                                </div>
+                                <div className="unit-container">
+                                    <label htmlFor="">Unit of Measure</label>
+                                    <input 
+                                        type="text" 
+                                        placeholder="hours"
+                                        onChange={handleUnit}
+                                    />
+                                </div>
+                                <div 
+                                    className="add-btn satoshi-btn"
+                                    ref={addButtonRef}
+                                    onClick={handleAddButton}
+                                >
+                                    add
+                                </div>
+                                <p className="error-message">
+                                    {errorMessage}
+                                </p>
+                            </div>
+                        </div>
+                        <div className="right-side">
+                            <div className="value-box">
+                                <div className="topbar">
+                                    <div className="topbar-title">{activityName || 'some activity'}</div>
+                                </div>
+                                <div className="display-content">
+                                    <div className="top-content">
+                                        <div className="unit-value">
+                                            <h1 className="value">{sliderValue || 0}</h1>
+                                            <p className="unit">{activityUnit || 'hours of work'}</p>
+                                        </div>
+                                        <div className="border-line"></div>
+                                    </div>
+                                    <div className="bottom-content">
+                                        <div className="min-display"><p>0</p></div>
+                                        <div className="slider-container">
+                                            <input
+                                                className="the-slider"
+                                                type="range" 
+                                                onChange={handleSliderValue}
+                                                value={sliderValue || 0}
+                                                min="0"
+                                                max={activityRange || 10}
+                                                step="0.5"
+                                            />
+                                        </div>
+                                        <div className="max-display"><p>{activityRange || 10}</p></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="settings-form-right">
+                                <div className="weight-container">
+                                    <label htmlFor="">Weight</label>
+                                    <input 
+                                        type="text" 
+                                        placeholder="20"
+                                        onChange={handleWeight}
+                                    />
+                                </div>
+                                <div className="range-container">
+                                    <label htmlFor="">Range</label>
+                                    <input 
+                                        type="text" 
+                                        placeholder="10"
+                                        onChange={handleRange}
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </motion.div>
+                )}
+            </motion.div>
             )}
         </AnimatePresence>
     </div>
