@@ -18,14 +18,39 @@
         .top-sidebar{
             height: 5rem;
             width: 100%;
-            border-bottom: 1px solid peru;
+            border-bottom: 0px solid peru;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.75rem;
+            cursor: pointer;
+
+    
+            .random-icon svg{
+                border: 0px solid orange;
+                width: 1.5rem;
+                height: 1.5rem;
+                vertical-align: middle;
+                // margin-top: auto;
+                // margin-bottom: auto;
+            }
+
+            .logo-text{
+                border: 0px solid purple;
+                font-family: reckless-middle;
+                font-size: 1.5rem;
+                line-height: 1;
+                vertical-align: middle;
+            }
+
         }
         .main-sidebar{
             position: relative;
             width: 100%;
             height: 100%;
-            border: 1px solid green;
+            border-right: 1px solid $white-20;
 
+            
             .toggle-btn{
                 position: absolute;
                 top: 6rem;
@@ -44,25 +69,171 @@
                     transform: rotate(180deg)
                 }
             }
-    
-            .menu-item{
+
+
+            .main-inner-content{
+                width: 100%;
+                height: 100%;
+                padding: 0.5rem 0 1.5rem 0;
+
                 display: flex;
-                align-items: center;
-                margin: 10px 0;
-                cursor: pointer;
-                border-top: 1px solid white;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: unset;
+                .big-menu{
+                    // width: 100%;
+
+                    .menu-group{
+                        padding: 1rem 1.5rem;
+                        .menu-label{
+                            padding: 0 1.5rem;
+                            font-size: 1rem;
+                            font-weight: 200;
+                            text-transform: capitalize;
+                            margin-bottom: 1rem;
+                        }
+                        .menu-line{
+                            width: 100%;
+                            height: 1px;
+                            background: $white-20;
+                            margin-bottom: 0.5rem;
+                        }
+                    }
+                    .menu-item{
+                        border: 0px solid peru;
+                        padding: 0rem 0;
+
+         
+                        .item-highlight{
+                            padding: 0.625rem 1.25rem;
+                            display: flex;
+                            align-items: center;
+                            gap: 1rem;
+               
+                            cursor: pointer;
+                            border-radius: 5px;
+                            transition: all 0.3s ease-in-out;
+
+                            .menu-item-icon .random-icon svg{
+                                border: 0px solid orange;
+                                height: 1.25rem;
+                                width: 1.25rem;
+                                opacity: 0.5;
+                                vertical-align: middle;
+                                padding-bottom: 0.125rem;
+                                transition: all 0.3s ease-in-out;
+                                path{
+                                    transition: all 0.3s ease-in-out;
+                                }
+                            }
+                            .menu-item-name{
+                                border: 0px solid green;
+                                // line-height: 1;
+                                vertical-align: middle;
+                                transition: all 0.3s ease-in-out;
+                                font-weight: 300;
+                                text-transform: capitalize;
+                            }
+                        }
+                        .item-highlight:hover{
+                            background: $white;
+                           .menu-item-name{
+                                color: black;
+                                font-weight: 400;
+                           }
+                           .menu-item-icon .random-icon.stroke svg{
+                                path{
+                                    // fill: black;
+                                    stroke: black;
+                                    stroke-width: 6px;
+                                }
+                           }
+                           .menu-item-icon .random-icon.fill svg{
+                            path{
+                                fill: black;
+                            }
+                            }
+                        }
+            
+
+                    }
+                }
+                .bottom-container{
+                    padding: 0 1.5rem;
+
+                    .bottom-menu{
+                        padding-top: 1rem;
+                        border-top: 1px solid $white-20;
+
+                        .menu-item{
+                            border: 0px solid peru;
+                            padding: 0rem 0;
     
+             
+                            .item-highlight{
+                                padding: 0.625rem 1.25rem;
+                                display: flex;
+                                align-items: center;
+                                gap: 1rem;
+                   
+                                cursor: pointer;
+                                border-radius: 5px;
+                                transition: all 0.3s ease-in-out;
     
-                .menu-item-name{
-                    margin-left: 10px;
+                                .menu-item-icon .random-icon svg{
+                                    border: 0px solid orange;
+                                    height: 1.25rem;
+                                    width: 1.25rem;
+                                    opacity: 0.5;
+                                    vertical-align: middle;
+                                    padding-bottom: 0.125rem;
+                                    transition: all 0.3s ease-in-out;
+                                    path{
+                                        transition: all 0.3s ease-in-out;
+                                    }
+                                    
+                                }
+                                .menu-item-name{
+                                    border: 0px solid green;
+                                    // line-height: 1;
+                                    vertical-align: middle;
+                                    transition: all 0.3s ease-in-out;
+                                    font-weight: 300;
+                                    text-transform: capitalize;
+                                }
+                            }
+                            .item-highlight:hover{
+                                background: #121212;
+                               .menu-item-name{
+                                color: $white-80;
+                               }
+                               .menu-item-icon .random-icon.stroke svg{
+                                path{
+                                    // fill: black;
+                                    stroke: $white;
+                                    stroke-width: 6px;
+                                }
+                           }
+                            .menu-item-icon .random-icon.fill svg{
+                                path{
+                                    fill: $white;
+                                }
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
-
+    }
+    .sidebar.collapsed{
+        .main-sidebar .main-inner-content{
+            align-items: center;
+        }
     }
 
     .dashboard-main{
-        border: 1px solid orange;
+        border: 0px solid orange;
         width: 100%;
         display: grid;
         place-items: center;
