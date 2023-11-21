@@ -1,353 +1,71 @@
 
 
 .dashboard-desktop{
-    position: relative;
-    width: 100%;
+    width: 100vw;
     height: 100%;
-
     display: flex;
-    justify-content: center;
-    align-items: center;
-    background: $black;
 
 
-    .open-button:hover{
-        border: 1px solid $white-80;
-    }
-
-
-    .sidebar-container{
-        width: 100%;
-        height: 100%;
-        align-self: flex-start;
-    }
-
-    .sidebar-placeholder{
-        width: 100%;
-        height: 100%;
-        align-self: flex-start;
-    }
-
-    .main{
-        width: 100%;
-        height: 100%;
-        background: none;
-        border: 0px solid white;
-
+    .sidebar{
         display: flex;
-        justify-content: center;
+        flex-direction: column;
         align-items: center;
-        gap: 1.5rem;
-        padding: 0 1.5rem;
-    
-        .main-big{
-            width: 75%;
-            height: 100%;
-
-            margin-top: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            border: 0px solid peru;
-
-            .main-top{
-                width: 100%;
-                display: flex;
-                gap: 1.5rem;
-                .cell{
-                    position: relative;
-                    width: 33.3%;
-                    background: linear-gradient(114.83deg, hsla(0, 0%, 100%, 0.1) 5.95%, hsla(0, 0%, 100%, 0.05) 93.77%);
-                    border-radius: 1rem;
-                }
-                .top1, .top2, .top3{
-                    height: 10rem;
-                }
-            }
-            .cell{
-                position: relative;
-                width: 100%;
-                background: $black;
-                border-radius: 1rem;
-                border: 1px solid $white-20;
-                overflow: hidden;
-            }
-            .box-scores{
-                margin-top: 1.5rem;
-                height: 24rem;
+        background: black;
+        color: #fff;
+        min-height: 100vh;
 
 
-            }
-            .box-logs{
-                margin-top: 1.5rem;
-                height: 30rem;
-
-                .log-grid{
-                    height: 100%;
-                    width: 100%;
-
-                    .ag-theme-alpine-dark {
-                        --ag-background-color: $black;
-                        width: 100%;
-
-                        .ag-center-cols-container{
-                            width: 100px;
-                        }
-                    }
-                    .ag-header{
-                        background: $black;
-                    }
-                    // .ag-row:nth-child(odd){
-                    //     background: peru;
-                    // }
-                    .super-dark{
-                        background: $black;
-                    }
-                    .soft-dark{
-                        background: $black;
-                    }
-                }
-            }
+        .top-sidebar{
+            height: 5rem;
+            width: 100%;
+            border-bottom: 1px solid peru;
         }
-
-        .main-placeholder-right{
+        .main-sidebar{
             position: relative;
-            width: 25%;
+            width: 100%;
             height: 100%;
-        }
-        .main-right{
-            position: fixed;
-            top: 0;
-            right: 1.5rem;
-            width: 25%;
-            height: 100vh;
-            align-self: flex-start;
-            padding: 1.5rem 0;
-            overflow: hidden;
-            border: 0px solid blue;
+            border: 1px solid green;
 
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-
-            .cell{
-                position: relative;
-                width: 100%;
-                height: 100%;
-                background: $black;
-                border-radius: 1rem;
-                border: 1px solid $white-20;
-                overflow: hidden;
-                padding-top: 2.5rem;
+            .toggle-btn{
+                position: absolute;
+                top: 6rem;
+                right: 0;
+                transform: translateX(50%);
+                background: $white;
+                height: 1.5rem;
+                width: 1.5rem;
+                border-radius: 100%;
+                cursor: pointer;
+                display: grid;
+                place-items: center;
             }
-            .box-rainbow{
-                height: 30%;   
+            .toggle-btn.collapsed{
+                .random-icon{
+                    transform: rotate(180deg)
+                }
             }
-            .box-circles{
-                height: 70%;
-
-                .subscores-container{
-                    height: 100%;
-                    width: 100%;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: center;
-                    margin-top: 2rem;
-
-                    .sub-box{
-                        border: 1px solid $white-20;
-                        height: 100%;
-                        width: 100%;
-                        // padding:  0 1rem;
-                        display: flex;
-
-                        .day-full-container{
-                            width: 100%;
-                            flex: 1;
-                            margin: 0 1rem;
-                            display: grid;
-                            place-items: center;
-                            border: 0px solid red;
-                        }
-
-                        .day-full-legend{
-                            flex: 1;
-                            height: 100%;
-                            width: 100%;
-                            border: 0px solid green;
-
-                            display: flex;
-                            flex-direction: column;
-                            justify-content: center;
-                            align-items: flex-start;
-                            gap: 5px;
-                            padding: 1rem;
-                        }
-                    }
+    
+            .menu-item{
+                display: flex;
+                align-items: center;
+                margin: 10px 0;
+                cursor: pointer;
+                border-top: 1px solid white;
+    
+    
+                .menu-item-name{
+                    margin-left: 10px;
                 }
             }
         }
+
+    }
+
+    .dashboard-main{
+        border: 1px solid orange;
+        width: 100%;
+        display: grid;
+        place-items: center;
+        color: white;
     }
 }
-
-.legend-title{
-    color: $white-80;
-    margin-bottom: 0.25rem;
-}
-.legend{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-
-    p{
-        color: $white-80;
-        font-size: 0.8rem;
-    }
-}
-.legend-block{
-    width: .8rem;
-    height: .8rem;
-    border-radius: 2px;
-    background: $dark;
-    border: .2px solid $white-20;
-}
-
-.legend-block.health-0{
-    background: linear-gradient(180deg, #FBA559 0%, #FFC364 100%);
-}
-.legend-block.health-1{
-    background: linear-gradient(180deg, #F7854E 0%, #FBA459 100%);
-}
-.legend-block.health-2{
-    background: linear-gradient(180deg, #F26743 0%, #F7854E 100%);
-}
-
-
-.legend-block.wealth-0{
-    background: linear-gradient(180deg, #E03C25 0%, #E8461A 100%);
-}
-.legend-block.wealth-1{
-    background: linear-gradient(180deg, #D83231 0%, #E03C25 100%);
-}
-.legend-block.wealth-2{
-    background: linear-gradient(180deg, #CF283C 0%, #D83231 100%);
-}
-
-
-
-.legend-block.happiness-0{
-    background: linear-gradient(180deg, #B53857 0%, #E33B4F 100%);
-}
-.legend-block.happiness-1{
-    background: linear-gradient(180deg, #86365F 0%, #B43857 100%);
-}
-.legend-block.happiness-2{
-    background: linear-gradient(180deg, #583468 0%, #86365F 100%);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.chart-title{
-    position: absolute;
-    top: 1.5rem; left: 1.5rem;
-    color: $white-50;
-    font-family: satoshi;
-    text-transform: capitalize;
-}
-
-.watermark-cover{
-    position: absolute;
-    bottom: 0;
-    height: 1.25rem;
-    width: 4rem;
-    background: $black;
-    z-index: 4000;
-}
-
-#day-half-doughnut{
-    width: 100%;
-    height: 100%;
-
-    margin-top: 0rem;
-    // color: white;
-    position: relative;
-    z-index: 21;
-    border: 0px solid yellow;
-
-    .day-main-score{
-        position: absolute;
-
-        bottom: 30%;
-        left: 50%; 
-        transform: translate(-50%, 0%);
-        color: $white;
-    }
-}
-#day-full-health{
-    width: 100%;
-    height: 100%;
-    border: 0px solid peru;
-}
-#day-full-happiness{
-    width: 100%;
-    height: 100%;
-    border: 0px solid peru;
-}
-#day-full-wealth{
-    width: 100%;
-    height: 100%;
-    border: 0px solid peru;
-}
-
-#chart-amlines{
-    width: 100%;
-    height: 27rem;
-}
-
-.piechart1{
-    height: 100%;
-    width: 100%;
-}   
-
-
-
-#main-bar-chart{
-    height: 100%;
-    width: 100%;
-}
-
-
-
-
-
-
-
-
-// background: linear-gradient(180deg, rgba(3, 3, 3, 0.6) 0.52%, rgba(3, 3, 3, 0.6) 38.02%, rgba(3, 3, 3, 0) 100%);

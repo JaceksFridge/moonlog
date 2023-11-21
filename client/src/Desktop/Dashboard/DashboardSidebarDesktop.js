@@ -1,84 +1,46 @@
 
 
-import React from 'react'
-import AdbIcon from '@mui/icons-material/Adb';
-import { SidebarArrowSVG, SidebarLogoSVG, SidebarNewLogSVG,
- SidebarLogEntriesSVG, SidebarGoalsettingsSVG, SidebarProgressSVG,
- SidebarHealthSVG
- } from '../../blocks/svg';
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { FaBars, FaHome, FaUser } from 'react-icons/fa'; // Example icons
+import { HealthIconSVG, WealthIconSVG, HappinessIconSVG, NodoIconSVG,
+    SidebarArrowSVG
+} from '../../blocks/svg';
 
-const DashboardSidebarDesktop = ({ toggleSidebar, isExpanded }) => {
+const DashboardSidebarDesktop = () => {
+    const [isCollapsed, setIsCollapsed] = useState(false);
+    const toggleCollapse = () => setIsCollapsed(!isCollapsed);
 
 
-  const TabItem = ({ icon: Icon, name, link }) => {
+
     return (
-      <div className={`tab chart-btn-${name}`}>
-        <Icon />
-        { isExpanded && (
-          <p>{name}</p>
-        )}
-      </div>
-    )
-  }
-
-  return (
-    <div className="desktop-sidebar">
-      <div className="inner-sidebar">
-        <div className="sidebar-heading">
-          <div className="icon">
-            <SidebarLogoSVG />
-          </div>
-          <h2 className="sidebar-title">
-            Moonlog
-          </h2>
-        </div>
-        <div className="menu">
-          <div className="menu-top">
-            Navigation
-          </div>
-          <div className="menu-item">
-            <div className="icon">
-              <SidebarNewLogSVG />
-            </div>
-            <div className="item-name">New Log</div>
-          </div>
-          <div className="menu-item">
-            <div className="icon">
-              <SidebarNewLogSVG />
-            </div>
-            <div className="item-name">Goalsettings</div>
-          </div>
-          <div className="menu-item">
-            <div className="icon">
-              <SidebarLogEntriesSVG />
-            </div>
-            <div className="item-name">Log Entries</div>
-          </div>
-          <div className="menu-item">
-            <div className="icon">
-              <SidebarProgressSVG />
-            </div>
-            <div className="item-name">Progress</div>
-          </div>
-          <div className="menu-item">
-            <div className="icon">
-              <SidebarHealthSVG />
-            </div>
-            <div className="item-name">Health</div>
-          </div>
-        </div>
-        <div 
-          className="sidebar-btn"
-          onClick={toggleSidebar}
+        <motion.div
+            className="sidebar"
+            animate={{ width: isCollapsed ? '4rem' : '18rem' }}
         >
-          <SidebarArrowSVG />
-        </div>
-      </div>
-    </div>
-  )
+            <div className="top-sidebar">
 
+            </div>
+            <div className="main-sidebar">
+                <div className={`toggle-btn ${isCollapsed ? 'collapsed' : 'expanded'}`} onClick={toggleCollapse} >
+                    <SidebarArrowSVG />
+                </div>
+                <div className="menu-item">
+                    <FaHome />
+                    {!isCollapsed && <span style={{ marginLeft: '10px' }}>Home</span>}
+                </div>
+                <div className="menu-item">
+                    <div className="menu-item-icon">
+                        <HealthIconSVG />
+                    </div>
+                    {!isCollapsed && 
+                        <span className="menu-item-name">Profile</span>
+                    }
+                </div>
+            </div>
 
+        </motion.div>
+    );
+};
 
-}
-
-export default DashboardSidebarDesktop
+export default DashboardSidebarDesktop;

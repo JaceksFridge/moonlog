@@ -1,17 +1,20 @@
 
 
 .desktop-sidebar{
-    position: relative;
+    position: sticky;
     width: 100%;
     height: 100vh;
-    border: 0px solid peru;
-    padding: 1rem 1.5rem;
+    border: 1px solid peru;
+    // padding: 1rem 0;
 
 
     .inner-sidebar{
+        border: 1px solid red;
         border-right: 1px solid $white-20;
         width: 100%;
         height: 100%;
+        display: flex;
+        flex-direction: column;
 
 
         .sidebar-heading{
@@ -22,6 +25,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            cursor: pointer;
             gap: 0.75rem;
 
             .icon .random-icon svg{
@@ -39,41 +43,47 @@
             }
         }
 
-        .menu{
-            width: 100%;
+        .inner-content{
             height: 100%;
 
-            .menu-top{
-                font-family: satoshi;
-                font-weight: 300;
-                font-size: 1rem;
-                color: $white-50;
-                padding: 0.75rem 1rem;
-                border-bottom: 1px solid $white-20;
-            }
-
-            .menu-item{
-                padding: 1rem;
-                cursor: pointer;
-                display: flex;
-                justify-content: flex-start;
-                align-items: center;
-                gap: 1rem;
-
-                &:hover{
-                    background: $white-50;
-                }
-
-                .icon .random-icon svg{
-                    width: 1rem; height: auto;
-                    border: 0px solid peru;
-                }
-                .item-name{
-                    border: 0px solid green;
+            .menu{
+                border: 1px solid green;
+                width: 100%;
+                height: 100%;
+                padding: 1rem 1.5rem;
+    
+                .menu-top{
                     font-family: satoshi;
                     font-weight: 300;
                     font-size: 1rem;
                     color: $white-50;
+                    padding: 0.75rem 1rem;
+                    border-bottom: 1px solid $white-20;
+                }
+    
+                .menu-item{
+                    padding: 1rem;
+                    cursor: pointer;
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    gap: 1rem;
+    
+                    &:hover{
+                        background: $white-50;
+                    }
+    
+                    .icon .random-icon svg{
+                        width: 1rem; height: auto;
+                        border: 0px solid peru;
+                    }
+                    .item-name{
+                        border: 0px solid green;
+                        font-family: satoshi;
+                        font-weight: 300;
+                        font-size: 1rem;
+                        color: $white-50;
+                    }
                 }
             }
         }
