@@ -2,10 +2,10 @@
 
 import React from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { SettingsInfoSVG, SettingsResetSVG, SettingsBinSVG } from './svg'
+import { SettingsInfoSVG, SettingsResetSVG, SettingsBinSVG, SettingsSVG } from './svg'
 import { useNavigate } from 'react-router-dom'
 
-const InfoModal = ({ modal, setModal, btnLogout, btnReset, btnDelete, SVGComponent }) => {
+const SettingsModal = ({ modal, setModal, btnLogout, btnReset, btnDelete }) => {
 
     const jump = useNavigate()
 
@@ -97,7 +97,7 @@ const InfoModal = ({ modal, setModal, btnLogout, btnReset, btnDelete, SVGCompone
             <div className="modal-close" onClick={closeModal}>
               <img src="/icons/iconmodalclose.png" alt="close" />
             </div>
-            <SVGComponent 
+            <SettingsSVG
               variants={pathVariantsOG}
               initial='hidden'
               animate='visible'
@@ -154,4 +154,4 @@ const InfoModal = ({ modal, setModal, btnLogout, btnReset, btnDelete, SVGCompone
   )
 }
 
-export default InfoModal
+export default SettingsModal

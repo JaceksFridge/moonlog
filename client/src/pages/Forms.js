@@ -10,6 +10,7 @@ import Header from '../blocks/Header'
 import TopNav1 from '../blocks/TopNav1'
 import TopNav2 from '../blocks/TopNav2'
 import TopNavDesktop from '../Desktop/TopNavDesktop'
+import DashboardSidebarDesktop from '../Desktop/Dashboard/DashboardSidebarDesktop'
 
 // import { settings } from '../blocks/constants'
 import HealthForm from '../blocks/HealthForm'
@@ -219,6 +220,10 @@ const Forms = () => {
     }
   }
 
+  const handleTabChange = (tab) => {
+    jump("/dashboard", { state: { activeTab: tab } });
+  }
+
   return (
     <div className="Forms">
     { !isDesktoporLaptop ? (
@@ -240,6 +245,7 @@ const Forms = () => {
       </>
       ) : (
       <>
+        <DashboardSidebarDesktop activePageProp='forms' handleTabChange={handleTabChange}/>
         { settings &&           
         <div className="forms-desktop">
           <TopNavDesktop activeTab={activeTab} TabClick={TabClick}/>

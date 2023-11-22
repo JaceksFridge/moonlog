@@ -186,8 +186,6 @@ const Home = () => {
         btnLogout={setLogoutModal}
         btnReset={setResetModal}
         btnDelete={setDeleteModal}
-        btn2Fun={newEntry}
-        SVGComponent={SettingsSVG}
       />
       <Modal 
         modalData={deleteModalData}
@@ -201,7 +199,7 @@ const Home = () => {
         modalData={resetModalData}
         modal={resetModal}
         setModal={setResetModal} 
-        btn1Fun={() => setRepeatModal(false)}
+        btn1Fun={() => setResetModal(false)}
         btn2Fun={console.log('resetting')}
         SVGComponent={SettingsResetSVG}
       />

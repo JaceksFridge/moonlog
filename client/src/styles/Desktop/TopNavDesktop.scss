@@ -1,3 +1,5 @@
+
+
 .top-progress {
     position: relative;
     width: 100%;
@@ -35,15 +37,18 @@
                 display: grid;
                 place-items: center;
 
-                .random-icon svg {
+                .random-icon svg{
                     width: 1.4rem;
                     height: auto;
-
-                    path {
-                        fill: $white-20;
-                        stroke: $white-20;
-                        transition: fill 0.15s ease-in-out, stroke 0.15s ease-in-out;
-                    }
+                    vertical-align: middle;
+                }
+                .random-icon.stroke svg path{
+                    stroke: $white-20;
+                    transition: fill 0.15s ease-in-out, stroke 0.15s ease-in-out;
+                }
+                .random-icon.fill svg path{
+                    fill: $white-20;
+                    transition: fill 0.15s ease-in-out, stroke 0.15s ease-in-out;
                 }
             }
 
@@ -51,14 +56,17 @@
                 font-family: satoshi;
                 font-size: 1.2rem;
                 font-weight: 300;
+                vertical-align: middle;
             }
 
             &:hover, &.active {
                 color: $white-80;
 
-                .number .random-icon svg path {
-                    fill: $white-80;
+                .number .random-icon.stroke svg path {
                     stroke: $white-80;
+                }
+                .number .random-icon.fill svg path {
+                    fill: $white-80;
                 }
 
                 .name {
@@ -102,30 +110,32 @@
 }
 
 
-// happiness
+// happiness problem
 .top-progress .top-container{
-    .top-element.nodo{
-        .number .random-icon svg{
-            fill: none;
-            path{
-                fill: none;
-            }
+    .top-element.happiness{
+
+        .number .random-icon.stroke svg path.eyes {
+            fill: $white-20;
         }
     }
-    .top-element.nodo.active{
-        .number .random-icon svg{
-            fill: none;
-            path{
-                fill: none;
-            }
+}
+
+
+.top-progress .top-container{
+    .top-element.happiness.active{
+        .number .random-icon.stroke svg path.eyes {
+            stroke: $white-80;
+            fill: $white-80;
         }
     }
-    .top-element.nodo:hover{
-        .number .random-icon svg{
-            fill: none;
-            path{
-                fill: none;
-            }
+}
+
+
+.top-progress .top-container{
+    .top-element.happiness:hover{
+        .number .random-icon.stroke svg path.eyes {
+            stroke: $white-80;
+            fill: $white-80;
         }
     }
 }

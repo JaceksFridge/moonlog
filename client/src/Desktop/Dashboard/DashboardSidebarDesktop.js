@@ -1,15 +1,31 @@
 
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FaBars, FaHome, FaUser } from 'react-icons/fa'; // Example icons
+import { useNavigate } from "react-router-dom"
 import { HealthIconSVG, WealthIconSVG, HappinessIconSVG, NodoIconSVG,
     SidebarArrowSVG, SidebarLogoSVG, SidebarNewLogSVG, SidebarGoalsettingsSVG,
     SidebarLogEntriesSVG, SidebarProgressSVG, SettingsIcon, LogoutIcon
 } from '../../blocks/svg';
 
-const DashboardSidebarDesktop = () => {
+const DashboardSidebarDesktop = ({ handleTabChange, activePageProp, handleSettings, handleLogout }) => {
+
+    const [activePage, setActivePage] = useState(activePageProp);
     const [isCollapsed, setIsCollapsed] = useState(false);
+    const jump = useNavigate()
+
+    useEffect(() => {
+        setActivePage(activePageProp)
+    }, [activePageProp])
+
+
+    const navigateToTab = (page, tab = null) => {
+        if (page === 'main' || page === 'health' || page === 'wealth' || page === 'happiness') {
+            handleTabChange(page);
+        } else {
+            jump(`/${page}`);
+        }
+    };
     const toggleCollapse = () => setIsCollapsed(!isCollapsed);
 
 
@@ -34,9 +50,9 @@ const DashboardSidebarDesktop = () => {
                     <div className="big-menu">
                         <div className="menu-group">
                             { !isCollapsed && <p className="menu-label">navigation</p> }
-                            <div className="menu-line"></div>
-                            <div className="menu-item">
-                                <div className="item-highlight">
+                            <div className={`menu-line ${activePage != 'dashboard' ? 'active' : ''}`}></div>
+                            <div className={`menu-item ${activePage === 'forms' ? 'active' : ''}`}>
+                                <div className="item-highlight" onClick={() => navigateToTab('forms')}>
                                     <div className="menu-item-icon">
                                         <SidebarNewLogSVG />
                                     </div>
@@ -45,8 +61,8 @@ const DashboardSidebarDesktop = () => {
                                     }
                                 </div>
                             </div>
-                            <div className="menu-item">
-                                <div className="item-highlight">
+                            <div className={`menu-item ${activePage === 'goalsettings' ? 'active' : ''}`}>
+                                <div className="item-highlight" onClick={() => navigateToTab('goalsettings')}>
                                     <div className="menu-item-icon">
                                         <SidebarGoalsettingsSVG />
                                     </div>
@@ -57,8 +73,8 @@ const DashboardSidebarDesktop = () => {
                             </div>
                         </div>
                         <div className="menu-group">
-                            { !isCollapsed && <p className="menu-label">dashboard</p> }
-                            <div className="menu-line"></div>
+                            { !isCollapsed && <p className={`menu-label ${activePage === 'dashboard' ? 'active' : ''}`}>dashboard</p> }
+                            <div className={`menu-line ${activePage === 'dashboard' ? 'active' : ''}`}></div>
                             <div className="menu-item">
                                 <div className="item-highlight">
                                     <div className="menu-item-icon">
@@ -70,7 +86,7 @@ const DashboardSidebarDesktop = () => {
                                 </div>
                             </div>
                             <div className="menu-item">
-                                <div className="item-highlight">
+                                <div className="item-highlight" onClick={ () => navigateToTab('main')}>
                                     <div className="menu-item-icon">
                                         <SidebarLogEntriesSVG />
                                     </div>
@@ -80,7 +96,7 @@ const DashboardSidebarDesktop = () => {
                                 </div>
                             </div>
                             <div className="menu-item">
-                                <div className="item-highlight">
+                                <div className="item-highlight" onClick={ () => navigateToTab('health')}>
                                     <div className="menu-item-icon">
                                         <HealthIconSVG />
                                     </div>
@@ -90,7 +106,7 @@ const DashboardSidebarDesktop = () => {
                                 </div>
                             </div>
                             <div className="menu-item">
-                                <div className="item-highlight">
+                                <div className="item-highlight" onClick={ () => navigateToTab('wealth')}>
                                     <div className="menu-item-icon">
                                         <WealthIconSVG />
                                     </div>
@@ -100,7 +116,7 @@ const DashboardSidebarDesktop = () => {
                                 </div>
                             </div>
                             <div className="menu-item">
-                                <div className="item-highlight">
+                                <div className="item-highlight" onClick={ () => navigateToTab('happiness')}>
                                     <div className="menu-item-icon">
                                         <HappinessIconSVG />
                                     </div>
@@ -124,7 +140,7 @@ const DashboardSidebarDesktop = () => {
                     <div className="bottom-container">
                         <div className="bottom-menu">
                             <div className="menu-item">
-                                <div className="item-highlight">
+                                <div className="item-highlight" onClick={handleSettings}>
                                     <div className="menu-item-icon">
                                         <SettingsIcon />
                                     </div>
@@ -134,7 +150,7 @@ const DashboardSidebarDesktop = () => {
                                 </div>
                             </div>
                             <div className="menu-item">
-                                <div className="item-highlight">
+                                <div className="item-highlight" onClick={handleLogout}>
                                     <div className="menu-item-icon">
                                         <LogoutIcon />
                                     </div>
