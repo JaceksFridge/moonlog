@@ -1,19 +1,159 @@
 
 
 .dashboard{
-    border: 1px solid salmon;
-    width: 100%;
-    height: 100%;
-    padding: 2rem;
 
-    .day-logs{
-        border: 1px solid white;
+    .topnav{
+        padding-left: 0rem;
+        padding-right: 0rem;
+    }
+    .main{
+        height: 100%;
+        width: 100%;
+        padding: 0 1.5rem;
+
+        .container-title{
+            color: $white-50;
+            font-family: reckless-middle;
+            font-size: 1.5rem;
+            text-transform: capitalize;
+            margin-bottom: 1.25rem;
+        }   
 
 
-        .object{
-            border: 1px solid blue;
-            color: white;
-            padding: 1rem;
+        .chart-container{
+            padding: 3rem 0;
+            .column-chartbox{
+                width: 100%;
+                height: 24rem;
+                border: 0px solid peru;
+
+                #main-bar-chart{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+        .stats-container{
+            padding: 3rem 0;
+            .stats-box{
+                border: 1px solid $white-20;
+                border-radius: 1.25rem;
+
+                .stat-item{
+                    border-bottom: 1px solid $white-20;
+                    height: 7rem;
+                    padding: 1.5rem;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    gap: 0.75rem;
+
+                    p{
+                        font-weight: 200;
+                    }
+
+                    h4{
+                        color: $white-80;
+                        font-family: satoshi;
+                        font-weight: 400;
+                        font-size: 1.5rem;
+                    }
+
+                    &:last-child{
+                        border-bottom: none;
+                    }
+                }
+            }
+        }
+        .entries-container{
+            .entries-box{
+                .entry-item{
+                    border: 1px solid $white-20;
+                    height: 12rem;
+                    border-radius: 1.25rem;
+                    margin-bottom: 1.5rem;
+
+                    display: flex;
+                    flex-direction: column;
+
+                    .top-bar{
+                        border: 0px solid peru;
+                        height: auto;
+                        padding: 0.75rem 1.5rem;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        justify-content: flex-start;
+                        border-bottom: 1px solid $white-20;
+
+                        p{
+                            font-size: 0.875rem;
+                        }
+                    }
+                    .main{
+                        border: 0px solid peru;
+                        height: auto;
+                        flex-grow: 1;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        .big-score{
+                            color: $white;
+                            font-size: 2rem;
+                        }
+                        .row-chart{
+                            height: 100%;
+                            width: 40%;
+                            border: 1px solid $white-20;
+
+                            .bar{
+                                height: 1rem;
+                                background: blue;
+                                transform-origin: right;
+                                animation: growBar 2s ease-out;
+                                margin-bottom: 0.75rem;
+                            }
+
+
+                            .health-bar { background-color: green; }
+                            .wealth-bar { background-color: gold; }
+                            .happiness-bar{
+                                background: purple;
+                            }
+                            .nodo-bar{
+                                background: grey;
+                            }
+                        }
+
+                        @keyframes growBar {
+                            from { width: 0; }
+                            to { width: 100%; }
+                        }
+                    }
+                    .bottom-scores{
+                        border: 0px solid green;
+                        padding: 0 1.5rem;
+                        justify-self: flex-end;
+                        height: 2.5rem;
+                        display: flex;
+            
+                        align-items: center;
+
+                        div{
+                            border: 0px solid purple;
+                            margin-right: 1rem;
+                            display: flex;
+
+                            p{
+                                font-size: 0.875rem;
+                            }
+                        }
+                        .nodo-box{
+                            margin-left: auto;
+                        }
+                    }
+                }
+            }
         }
     }
 }

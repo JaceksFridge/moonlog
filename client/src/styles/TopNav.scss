@@ -1,0 +1,38 @@
+
+
+.topnav{
+    position: relative;
+    top: 0;
+    left: 0;
+    overflow-x: auto;
+    width: 100%;
+    padding: 1rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+    color: white;
+
+    .nav-item{
+        flex: 1;
+        width: 100%;
+        height: auto;
+        padding: 0.5rem 0.75rem;
+        background: #121212;
+        border: 0.5px solid $white-20;
+        border-radius: 0.5rem;
+        display: grid;
+        place-items: center;
+
+        font-family: satoshi;
+        font-size: 0.95rem;
+        font-weight: 400;
+    }
+
+    .nav-item.active{
+        background: $white-80;
+        color: $black;
+        
+    }
+}

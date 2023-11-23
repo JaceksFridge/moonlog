@@ -7,7 +7,6 @@ import am5themes_Animated from "@amcharts/amcharts5/themes/Animated"
 
 const MainBarchart = ({ data }) => {
 
-
     let root
     // console.log("data is in MainBarchart", data)
 
@@ -25,8 +24,6 @@ const MainBarchart = ({ data }) => {
               wheelY: undefined,
               pinchZoomX: false,
           }));
-
-
 
           // Axis and Stuff
           let cursor = chart.set("cursor", am5xy.XYCursor.new(root, {}));
@@ -99,9 +96,6 @@ const MainBarchart = ({ data }) => {
               return am5.color("#F7F7F7");
           })
         
-
-
-
 
           let cutData = data.map((item, index) => {
             

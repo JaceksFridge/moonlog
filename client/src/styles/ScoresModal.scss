@@ -1,0 +1,140 @@
+
+
+
+.backdrop{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0; left: 0;
+    background: rgba(30, 30, 30, 0.9);
+    z-index: 21;
+
+
+
+    .scores-modal{
+        position: absolute;
+        bottom: 0;
+        height: 80%;
+        width: 100%;
+        background: black;
+        border: 0.5px solid $modal-grey;
+        border-top-left-radius: 2rem;
+        border-top-right-radius: 2rem;
+        padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+
+
+        .modal-inner-container{
+            position: relative;
+            overflow: hidden;
+            border: 1px solid pink;
+            height: 100%;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .modal-close{
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
+
+            .modal-icon{
+                margin-top: 3rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .modal-title{
+                font-size: 2rem;
+                color: white;
+                font-family: reckless-middle;
+                margin-bottom: 3rem;
+            }
+
+            .chart-container{
+                border: 1px solid red;
+                padding: 0 0 6rem 0;
+                width: 100%;
+                height: 100%;
+
+                #day-half-doughnut{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            .bars-container{
+                border: 1px solid peru;
+                background: black;
+                position: absolute;
+                z-index: 30;
+                bottom: 0;
+                width: 100%;
+                height: 6rem;
+                display: flex;
+
+                .box{
+                    border: 1px solid green;
+                    height: 100%;
+                    width: 100%;
+                    flex: 1;
+
+                    display: flex;
+                    flex-direction: column;
+
+                    .title{
+                        color: $white-50;
+                    }
+                    .value{
+                        color: $white-80;
+                    }
+
+                    .bar-container{
+                        width: 100%;
+                        height: 0.5rem;
+                        background: #3b3b3b;
+
+            
+                        .bar {
+                            height: 100%;
+                            background-color: green;
+                            transition: width 0.3s ease-in-out;
+                        }
+
+                    }
+                }
+            }
+            
+        }
+    }
+}
+
+
+@media (min-width: 1224px) {
+  .backdrop{
+    background: rgba(20, 20, 20, 0.95);
+    display: grid;
+    place-items: center;
+
+
+
+    .settings-modal{
+        // top: 10%;
+        // left: 20%;
+        // bottom: none;
+        position: relative;
+        padding: 1.5rem;
+        border-radius: 1.5rem;
+
+        width: 30%;
+        height: auto;
+        border: 0.5px $white-50;
+
+
+        .modal-inner-container{
+            .modal-btn{
+                margin-bottom: 0;
+            }
+        }
+    }
+  }
+}
