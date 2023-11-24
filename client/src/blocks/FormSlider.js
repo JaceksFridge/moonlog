@@ -4,6 +4,9 @@ import { useLocalStorage } from './useLocalStorage'
 
 const FormSlider = ({ sliderChange, form, stk }) => {
 
+
+
+
     const [slider, setSlider] = useLocalStorage(stk, 0)
     const [currentSlider, setCurrentSlider] = useState(slider)
 
@@ -13,7 +16,6 @@ const FormSlider = ({ sliderChange, form, stk }) => {
         const sliderObject = { [form.title]: newSliderValue * form.weight }
 
         setSlider(newSliderValue)
-        console.log("error chekc", sliderObject)
         sliderChange(sliderObject)
 
         setCurrentSlider(newSliderValue)

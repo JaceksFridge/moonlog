@@ -8,10 +8,17 @@ import { HealthIconSVG, WealthIconSVG, HappinessIconSVG, NodoIconSVG,
     SidebarLogEntriesSVG, SidebarProgressSVG, SettingsIcon, LogoutIcon
 } from '../../blocks/svg';
 
-const DashboardSidebarDesktop = ({ handleTabChange, activePageProp, handleSettings, handleLogout }) => {
+const DashboardSidebarDesktop = ({ 
+        handleTabChange, 
+        activePageProp, 
+        handleSettings, 
+        handleLogout,
+        isCollapsed,
+        setIsCollapsed
+}) => {
 
     const [activePage, setActivePage] = useState(activePageProp);
-    const [isCollapsed, setIsCollapsed] = useState(false);
+    
     const jump = useNavigate()
 
     useEffect(() => {
@@ -33,7 +40,7 @@ const DashboardSidebarDesktop = ({ handleTabChange, activePageProp, handleSettin
     return (
         <motion.div
             className={`sidebar ${isCollapsed ? 'collapsed' : 'expanded'}`}
-            animate={{ width: isCollapsed ? '5rem' : '18rem' }}
+            animate={{ width: isCollapsed ? '5rem' : '15rem' }}
         >
             <div className="top-sidebar">
                 <SidebarLogoSVG />

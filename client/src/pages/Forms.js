@@ -11,6 +11,7 @@ import TopNav1 from '../blocks/TopNav1'
 import TopNav2 from '../blocks/TopNav2'
 import TopNavDesktop from '../Desktop/TopNavDesktop'
 import DashboardSidebarDesktop from '../Desktop/Dashboard/DashboardSidebarDesktop'
+import { motion } from 'framer-motion'
 
 // import { settings } from '../blocks/constants'
 import HealthForm from '../blocks/HealthForm'
@@ -28,6 +29,8 @@ const Forms = () => {
   const happinessRef = useRef(null);
   const nodoRef = useRef(null);
 
+  // sidebar
+  const [isCollapsed, setIsCollapsed] = useState(false);
 
   // context trying
   const { user, loadingUser } = useContext(UserContext)
@@ -163,16 +166,11 @@ const Forms = () => {
       })
 
 
-    // console.log("subscores: ", subscores)
-    theData['subscores'] = subscores
-    // console.log("theData: ", theData)
 
+    theData['subscores'] = subscores
     theData['nodo'] = theData['nodo'] * -1
     const userId = localStorage.getItem("userId")
   
-
-    // add Sum
-    // const sum = Object.values(theData).reduce((a, b) => a + b, 0)
     theData['sum'] = totalsum
 
     // add Date
@@ -197,7 +195,7 @@ const Forms = () => {
     try {
       const response = await axios.post(`${server}/api/my-endpoint`, theData)
       setData(response.data)
-      // console.log("Data Submitted:", theData)
+      console.log("Data Submitted:", theData)
 
       jump("/scores")
 
@@ -245,10 +243,22 @@ const Forms = () => {
       </>
       ) : (
       <>
-        <DashboardSidebarDesktop activePageProp='forms' handleTabChange={handleTabChange}/>
-        { settings &&           
+        <DashboardSidebarDesktop 
+          activePageProp='forms' 
+          handleTabChange={handleTabChange}
+          isCollapsed={isCollapsed}
+          setIsCollapsed={setIsCollapsed}
+        />
+        <motion.div             
+          className={`placeholder-sidebar ${isCollapsed ? 'collapsed' : 'expanded'}`}
+          animate={{ width: isCollapsed ? '5rem' : '18rem' }}
+        ></motion.div>  
+        { settings &&     
         <div className="forms-desktop">
-          <TopNavDesktop activeTab={activeTab} TabClick={TabClick}/>
+          <div className="top-top">
+            <TopNavDesktop activeTab={activeTab} TabClick={TabClick}/>
+          </div>
+          <div className="topnav-placeholder"></div>
           <div className="section-container">
             <section id="health-form" ref={healthRef} >
               <h2>Health</h2>
@@ -256,23 +266,25 @@ const Forms = () => {
             </section>
             <section id="wealth-form" ref={wealthRef} >
               <h2>Wealth</h2>
-              { settings.wealth && <HealthForm settings={settings.wealth.active} /> }
+              { settings.wealth && <WealthForm settings={settings.wealth.active} /> }
             </section>
             <section id="happiness-form" ref={happinessRef} >
               <h2>Happiness</h2>
-              { settings.happiness && <HealthForm settings={settings.happiness.active} /> }
+              { settings.happiness && <HappinessForm settings={settings.happiness.active} /> }
             </section>
             <section id="nodo-form" ref={nodoRef} >
               <h2>Nodo</h2>
-              { settings.nodo && <HealthForm settings={settings.nodo.active} /> }
+              { settings.nodo && <NodoForm settings={settings.nodo.active} /> }
             </section>
           </div>
-          <button 
-            className="submit-btn"
-            onClick={dataToServer}
-          >
-            Save
-          </button>
+          <div className="button-container">
+            <button 
+              className="submit-btn"
+              onClick={dataToServer}
+            >
+              Save
+            </button>
+          </div>
         </div>
         }
       </>

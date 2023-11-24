@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from "react-router-dom"
+import { motion } from 'framer-motion'
 import DashboardSidebarDesktop from './DashboardSidebarDesktop';
 import ChartHealth from './ChartHealth'
 import ChartWealth from './ChartWealth'
@@ -22,6 +23,7 @@ const DashboardDesktop = ({ data }) => {
   const location = useLocation();
   const [activeTab, setActiveTab] = useState('main')
   const [userData, setUserData] = useState([])
+  const [isCollapsed, setIsCollapsed] = useState(false);
   const jump = useNavigate()
 
   const { 
@@ -84,7 +86,7 @@ const DashboardDesktop = ({ data }) => {
         btn1Fun={() => setDeleteModal(false)}
         btn2Fun={console.log("deleting")}
         SVGComponent={SettingsBinSVG}
-      />z
+      />
       <Modal 
         modalData={resetModalData}
         modal={resetModal}
@@ -98,7 +100,13 @@ const DashboardDesktop = ({ data }) => {
         activePageProp="dashboard"
         handleSettings={handleSettings}
         handleLogout={handleLogout}
+        setIsCollapsed={setIsCollapsed}
+        isCollapsed={isCollapsed}
       />
+      <motion.div             
+        className={`placeholder-sidebar ${isCollapsed ? 'collapsed' : 'expanded'}`}
+        animate={{ width: isCollapsed ? '5rem' : '18rem' }}
+      ></motion.div>  
       <div className="dashboard-main">
         { activeTab === 'main' &&  <MainView /> } 
         { activeTab === 'health' &&  <ChartHealth /> }

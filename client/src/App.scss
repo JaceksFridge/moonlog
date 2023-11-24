@@ -166,12 +166,14 @@ button {
 @import "./styles/About.scss";
 
 
+
 // Desktop Styles
 @import "./styles/Desktop/HomeDesktop.scss";
 @import "./styles/Desktop/IntroDesktop.scss";
 @import "./styles/Desktop/LogRegDesktop.scss";
 @import "./styles/Desktop/DashboardDesktop.scss";
-// @import "./styles/Desktop/Sidebar.scss";
+@import "./styles/Desktop/Sidebar.scss";
 @import "./styles/Desktop/FormsDesktop.scss";
 @import "./styles/Desktop/GoalSettingsDesktop.scss";
 @import "./styles/Desktop/TopNavDesktop.scss";
+@import "./styles/Desktop/PageTop.scss";

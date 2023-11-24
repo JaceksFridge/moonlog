@@ -1,3 +1,5 @@
+
+
 import React from 'react'
 import { useLocalStorage } from './useLocalStorage'
 import { motion } from 'framer-motion'
@@ -11,13 +13,15 @@ const FormChecks = ({ form, checksChange, stk }) => {
       const scoreDifference = checked 
         ? form[name] 
         : 0
+
+      console.log(`Checkbox ${name} changed: ${checked}`);
   
       const newCheckedBoxes = {
         ...checkedBoxes, 
         [name]: checked
       }
       setCheckedBoxes(newCheckedBoxes)
-  
+      console.log(`New checkedBoxes state:`, newCheckedBoxes);
       checksChange({ [name]: scoreDifference })
   }
 
