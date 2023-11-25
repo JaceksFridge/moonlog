@@ -64,7 +64,7 @@ const LogGrid = ({ data, setActiveDay }) => {
         if (data) {
             setRowData(data)
         }
-    }, [])
+    }, [data])
  
 
   return (

@@ -4,7 +4,7 @@
     width: 100vw;
     height: 100%;
     display: flex;
-}
+
 
     .placeholder-sidebar{
         position: relative;
@@ -18,4 +18,205 @@
         display: grid;
         place-items: center;
         color: white;
+
+        .mainview{
+            width: 100%;
+            height: 100%;
+            padding: 1.5rem;
+            display: flex;
+            gap: 1.5rem;
+
+            .main-center{
+                border: 0px solid peru;
+                width: 100%;
+                height: 100%;
+                flex: 3;
+    
+
+                .top-row{
+                    border: 0px solid red;
+                    display: flex;
+                    gap: 1.5rem;
+
+                    .title-box{
+                        width: 100%;
+                        flex: 1;
+                    }
+                    .info-box{
+                        height: 11rem;
+                        width: 100%;
+                        flex: 1;
+                        border-radius: 1rem;
+                        border: 1px solid $white-20;
+                    }
+                }
+                .middle-row{
+                    margin-top: 1.5rem;
+                    height: 24rem;
+                    border-radius: 1rem;
+                    border: 1px solid $white-20;
+
+                    #main-bar-chart{
+                        height: 100%;
+                        width: 100%;
+                    }
+                }
+                .bottom-row{
+                    margin-top: 1.5rem;
+                    height: 24rem;
+                    border-radius: 1rem;
+                    border: 1px solid $white-20;
+
+                    .log-grid{
+                        height: 100%;
+                        width: 100%;
+    
+                        .ag-theme-alpine-dark {
+                            --ag-background-color: $black;
+                            width: 100%;
+    
+                            .ag-center-cols-container{
+                                width: 100px;
+                            }
+                        }
+                        .ag-header{
+                            background: $black;
+                        }
+                        // .ag-row:nth-child(odd){
+                        //     background: peru;
+                        // }
+                        .super-dark{
+                            background: $black;
+                        }
+                        .soft-dark{
+                            background: $black;
+                        }
+                    }
+                }
+            }
+            .side-day{
+                width: 25%;
+                height: 100vh;
+                flex: 1;
+                padding: 2rem 1.5rem 4rem 1.5rem;
+                border-radius: 1rem;
+                border: 1px solid $white-20;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+
+                .day-info{
+                    border: 0px solid peru;
+                    .day-date{
+                        color: $white-80;
+                        font-size: 1.25rem;
+                        font-family: reckless-middle;
+                        margin-bottom: 0.5rem;
+                    }
+                    .day-line{
+                        font-size: 0.875rem;
+                        font-weight: 200;
+                    }
+                }
+                .day-chart{
+                    border: 0px solid pink;
+                    height: 40%;
+                    width: 100%;
+                    overflow: hidden;
+
+                    #day-half-doughnut{
+                        height: 100%;
+                        width: 100%;
+                    }
+                }
+
+                .day-subscores{
+                    width: 100%;
+                    height: auto;
+
+                    .subscore-grid{
+                        display: grid;
+                        grid-template-columns: 1fr 1fr;
+
+
+                        .grid-item{
+                            border: 0px solid pink;
+                            width: 100%;
+                            height: 6rem;
+
+                            p{
+                                color: $white-50;
+                            }
+                            .subscore-bar-container{
+                                height: 0.75rem;
+                                width: 100%;
+                                background: grey;
+
+                                .bar{
+                                    height: 100%;
+                                    transform-origin: right;
+                                    animation: growBar 2s ease-out;
+                                }
+                            }
+                        }
+                        .grid-item.health .bar{
+                            background: green;
+                        }
+                        .grid-item.wealth .bar{
+                            background: blue;
+                        }
+                        .grid-item.happiness .bar{
+                            background: yellow;
+                        }
+                        .grid-item.nodo .bar{
+                            background: red;
+                        }
+                    }
+
+
+                }
+
+                .day-bottom-info{
+                    margin-top: auto;
+                    border: 0px solid green;
+                    width: 100%;
+                    height: 7rem;
+                    display: flex;
+
+                    .change-box{
+                        border-right: 1px solid $white-20;
+                        width: 100%;
+                        flex: 1;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        gap: 0.5rem;
+                    }
+
+                    .average-box{
+                        width: 100%;
+                        flex: 1;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        gap: 0.5rem;
+                    }
+
+                    .title{
+                        font-size: 0.875rem;
+                    }
+
+                    .value{
+                        font-size: 1.25rem;
+                        font-family: satoshi;
+                        font-weight: 400;
+                    }
+                }
+            }
+        }
     }
+}
+
+

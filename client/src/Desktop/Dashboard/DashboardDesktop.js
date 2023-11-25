@@ -108,10 +108,10 @@ const DashboardDesktop = ({ data }) => {
         animate={{ width: isCollapsed ? '5rem' : '18rem' }}
       ></motion.div>  
       <div className="dashboard-main">
-        { activeTab === 'main' &&  <MainView /> } 
-        { activeTab === 'health' &&  <ChartHealth /> }
-        { activeTab === 'wealth' &&  <ChartWealth /> }
-        { activeTab === 'happiness' &&  <ChartHappiness /> }
+        { data && activeTab === 'main' &&  <MainView data={data} /> } 
+        { data && activeTab === 'health' &&  <ChartHealth data={data} /> }
+        { data && activeTab === 'wealth' &&  <ChartWealth data={data} /> }
+        { data && activeTab === 'happiness' &&  <ChartHappiness data={data} /> }
       </div>
     </div>
   );
