@@ -115,7 +115,10 @@ const DayHalfDoughnut = ({ dataDay }) => {
 
     <div id="day-half-doughnut">
         <div className="watermark-cover"></div>
-        <h2 className="day-main-score">{dataDay ? dataDay.sum : "0000"}</h2>
+        <div className="score-box">
+          <p className="total">total</p>
+          <h2 className="day-main-score">{dataDay ? dataDay.sum : "0000"}</h2>
+        </div>
     </div>
   
   );

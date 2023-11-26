@@ -8,12 +8,34 @@ import LogGrid from '../Dashboard/LogGrid'
 const MainView = ({ data }) => {
 
   const [activeDay, setActiveDay] = useState(null)
+  const [overAvg, setOverAvg] = useState(null)
+
+  const calculateAvgIncrease = (data) => {
+    if (activeDay) {
+      let sum = 0;
+      let count = 0;
+      data.forEach(entry => {
+        sum += entry.sum;
+        count += 1;
+      });
+      const averageSum = sum / count;
+      const percentIncrease = parseFloat((((activeDay.sum / averageSum) - 1) * 100).toFixed(2))
+      console.log("percent Increase", percentIncrease)
+      setOverAvg(percentIncrease)
+    }
+  };
 
   useEffect(() => {
     if (data && data[0]) {
       setActiveDay(data[0])
     }
   }, [data])
+
+  useEffect(() => {
+    if (activeDay) {
+      calculateAvgIncrease(data)
+    }
+  })
 
 
 
@@ -79,11 +101,11 @@ const MainView = ({ data }) => {
             <div className="day-bottom-info">
               <div className="change-box">
                 <p className="title">change</p>
-                <h3 className="value">+23.4%</h3>
+                <h3 className="value">{`${activeDay.change ? activeDay.change : 0 }%`}</h3>
               </div>
               <div className="average-box">
                 <p className="title">average</p>
-                <h3 className="value">+2.12%</h3>
+                <h3 className="value">{`${overAvg ? overAvg : 0 }%`}</h3>
               </div>
             </div>
           </div>
