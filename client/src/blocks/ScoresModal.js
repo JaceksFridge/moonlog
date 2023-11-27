@@ -1,28 +1,27 @@
 
 
 import React, { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, useAnimation } from 'framer-motion'
 import { SettingsInfoSVG, SettingsResetSVG, SettingsBinSVG, SettingsSVG } from './svg'
 import { useNavigate } from 'react-router-dom'
 import DayHalfDoughnut from '../Desktop/Dashboard/DayHalfDoughnutChart' 
 
+
+
 const ScoresModal = ({ modal, setModal, entry }) => {
 
     const jump = useNavigate()
-    const [healthPercentage, setHealthPercentage] = useState(0);
-    const [wealthPercentage, setWealthPercentage] = useState(0);
-    const [happinessPercentage, setHappinessPercentage] = useState(0);
-    const [nodoPercentage, setNodoPercentage] = useState(0);
 
-    useEffect(() => {
-        if (entry) {
-            const total = entry.sum;
-            setHealthPercentage(calculatePercentage(entry.health, total));
-            setWealthPercentage(calculatePercentage(entry.wealth, total));
-            setHappinessPercentage(calculatePercentage(entry.happiness, total));
-            setNodoPercentage(calculatePercentage(entry.nodo, total));
-        }
-    }, [entry]);
+
+    // useEffect(() => {
+    //     if (entry) {
+    //         const total = entry.sum;
+    //         percentage(calculatePercentage(entry.health, total));
+    //         setWealthPercentage(calculatePercentage(entry.wealth, total));
+    //         setHappinessPercentage(calculatePercentage(entry.happiness, total));
+    //         setNodoPercentage(calculatePercentage(entry.nodo, total));
+    //     }
+    // }, [entry]);
 
 
     const calculatePercentage = (value, total) => {
@@ -36,7 +35,7 @@ const ScoresModal = ({ modal, setModal, entry }) => {
       const month = date.toLocaleString('en-US', { month: 'long' });
   
       const getOrdinalSuffix = (day) => {
-          if (day > 3 && day < 21) return 'th'; // for teens
+          if (day > 3 && day < 21) return 'th';
           switch (day % 10) {
               case 1:  return "st";
               case 2:  return "nd";
@@ -44,9 +43,10 @@ const ScoresModal = ({ modal, setModal, entry }) => {
               default: return "th";
           }
       };
-  
       return `${month}, ${day}${getOrdinalSuffix(day)}`;
     };
+
+
 
       const backdropVariants = {
         hidden: {
@@ -78,19 +78,12 @@ const ScoresModal = ({ modal, setModal, entry }) => {
         }
       }
     
-      const pathVariantsOG = {
-        hidden: {
-          opacity: 0,
-          pathLength: 0,
-        },
-        visible: {
-          opacity: 1,
-          pathLength: 1,
-          transition: {
-            duration: 1.5,
-            ease: 'easeInOut'
-          }
-        }
+      const progressVariants = {
+        hidden: { width: "0px" },
+        visible: (custom) => ({
+          width: `${custom}%`,
+          transition: { duration: 1, ease: "easeInOut" } 
+        })
       }
 
 
@@ -128,21 +121,42 @@ const ScoresModal = ({ modal, setModal, entry }) => {
                       <p className="subscore-name">health</p>
                       <p className="subscore-value">{entry.health ? entry.health : 0 }</p>
                       <div className="subscore-bar-container">
-                        <div className="bar" style={{ width: `${(entry.health / entry.sum) * 100}%`}}></div>
+                        <motion.div 
+                          className="bar" 
+                          variants={progressVariants}
+                          initial="initial"
+                          animate="visible"
+                          custom={entry.health && entry.sum ? (entry.health / entry.sum) * 100 : 0 }
+                        >
+                        </motion.div>
                       </div>
                     </div>
                     <div className="wealth grid-item">
                       <p className="subscore-name">wealth</p>
                       <p className="subscore-value">{entry.wealth ? entry.wealth : 0 }</p>
                       <div className="subscore-bar-container">
-                        <div className="bar" style={{ width: `${(entry.wealth / entry.sum) * 100}%`}}></div>
+                        <motion.div 
+                          className="bar" 
+                          variants={progressVariants}
+                          initial="initial"
+                          animate="visible"
+                          custom={entry.health && entry.sum ? (entry.health / entry.sum) * 100 : 0 }
+                        >
+                        </motion.div>
                       </div>
                     </div>
                     <div className="happiness grid-item">
                       <p className="subscore-name">happiness</p>
                       <p className="subscore-value">{entry.happiness ? entry.happiness : 0 }</p>
                       <div className="subscore-bar-container">
-                        <div className="bar" style={{ width: `${(entry.happiness / entry.sum) * 100}%`}}></div>
+                        <motion.div 
+                          className="bar" 
+                          variants={progressVariants}
+                          initial="initial"
+                          animate="visible"
+                          custom={entry.health && entry.sum ? (entry.health / entry.sum) * 100 : 0 }
+                        >
+                        </motion.div>
                       </div>
                     </div>
                   </div>

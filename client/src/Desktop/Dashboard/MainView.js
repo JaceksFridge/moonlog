@@ -4,12 +4,21 @@ import React, { useState, useEffect } from 'react'
 import DayHalfDoughnutChart from '../Dashboard/DayHalfDoughnutChart'
 import MainBarchart from '../Dashboard/MainBarchart'
 import LogGrid from '../Dashboard/LogGrid'
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
+
 
 
 const MainView = ({ data }) => {
 
   const [activeDay, setActiveDay] = useState(null)
   const [overAvg, setOverAvg] = useState(null)
+  
+  const [index, setIndex] = useState(0)
+
+  const handleSelect = (selectedIndex) => {
+    setIndex(selectedIndex);
+  };
 
   const calculateAvgIncrease = (data) => {
     if (activeDay) {
@@ -41,6 +50,7 @@ const MainView = ({ data }) => {
 
 
 
+
   return (
     <div className="mainview">
       <div className="main-center">
@@ -48,7 +58,13 @@ const MainView = ({ data }) => {
           <div className="title-box">
             <h2 className="title">Main Overview</h2>
           </div>
-          <div className="info-box"></div>
+          <div className="info-box">
+            <Carousel autoPlay infiniteLoop emulateTouch swipeable>
+              <div className="minichart health">health</div>
+              <div className="minichart wealth">wealth</div>
+              <div className="minichart wealth">3</div>
+            </Carousel>
+          </div>
           <div className="info-box"></div>
         </div>
         <div className="middle-row">

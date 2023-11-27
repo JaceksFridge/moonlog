@@ -48,6 +48,12 @@
                         flex: 1;
                         border-radius: 1rem;
                         border: 1px solid $white-20;
+
+
+                        .minichart{
+                            width: 100%;
+                            height: 10rem;
+                        }
                     }
                 }
                 .middle-row{

@@ -8,6 +8,7 @@
     top: 0; left: 0;
     background: rgba(30, 30, 30, 0.9);
     z-index: 21;
+    overflow: hidden;
 
 
 
@@ -20,7 +21,7 @@
         border: 0.5px solid $modal-grey;
         border-top-left-radius: 2rem;
         border-top-right-radius: 2rem;
-        padding: 3rem 1.5rem 6rem 1.5rem;
+        padding: 3rem 2rem 6rem 2rem;
 
 
         .modal-inner-container{
@@ -156,9 +157,10 @@
 
                             .bar{
                                 height: 100%;
+                                width: 0;
                                 border-radius: 0.35rem;
                                 transform-origin: left;
-                                animation: growBar 2s ease-out;
+                                // animation: growBar 2s ease-out;
                             }
                         }
                     }

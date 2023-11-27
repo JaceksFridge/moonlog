@@ -26,6 +26,7 @@ const DashboardDesktop = ({ data }) => {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const jump = useNavigate()
 
+
   const { 
     settingsModal, setSettingsModal,
     logoutModal, setLogoutModal,
