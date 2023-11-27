@@ -383,7 +383,69 @@ export const BrokenRecordSVG = ({ variants }) => {
 
 
 
+export const HealthColorSVG = ({ variants }) => {
+  return (
+    <div className="random-icon stroke">
+      <svg width="84" height="79" viewBox="0 0 84 79" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M39.5304 68.6719L8.30016 37.7415C6.24024 35.737 4.61767 33.3277 3.53463 30.6653C2.45159 28.003 1.93154 25.1452 2.00722 22.2719C2.0829 19.3987 2.75269 16.5722 3.97439 13.9705C5.19609 11.3688 6.94325 9.04829 9.10584 7.15501C11.2684 5.26174 13.7996 3.83674 16.54 2.96975C19.2804 2.10277 22.1706 1.81258 25.0286 2.11746C27.8866 2.42234 30.6506 3.31568 33.1464 4.74124C35.6422 6.16679 37.8158 8.09367 39.5304 10.4005C42.8727 6.00515 47.8243 3.11754 53.2957 2.37294C58.7671 1.62835 64.3102 3.08776 68.7056 6.43014C73.101 9.77251 75.9886 14.724 76.7332 20.1955C77.4778 25.6669 76.0184 31.21 72.676 35.6054M56.1865 64.5079H81.1707M68.6786 52.0158V77" stroke="url(#paint0_linear_959_1203)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+      <defs>
+      <linearGradient id="paint0_linear_959_1203" x1="41.5853" y1="2" x2="41.5853" y2="77" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#A84257"/>
+      <stop offset="1" stop-color="#6E3371"/>
+      </linearGradient>
+      </defs>
+      </svg>
+    </div>
+  )
+}
 
+
+export const WealthColorSVG = ({ variants }) => {
+  return (
+    <div className="random-icon stroke">
+      <svg width="63" height="75" viewBox="0 0 63 75" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M56.6437 11.2875C52.3987 4.00875 46.665 0 40.5 0H22.5C16.335 0 10.6012 4.00875 6.375 11.2875C2.25 18.315 0 27.6225 0 37.5C0 47.3775 2.25 56.685 6.375 63.7125C10.6012 70.9912 16.335 75 22.5 75H40.5C46.665 75 52.3987 70.9912 56.6437 63.7125C60.75 56.685 63 47.3775 63 37.5C63 27.6225 60.75 18.315 56.6437 11.2875ZM55.2262 60H40.5375C43.2525 53.9475 44.8012 46.6763 44.9775 39H59.9775C59.79 46.7888 58.125 54.105 55.2262 60ZM44.9775 36C44.8012 28.3238 43.2525 21.0525 40.5375 15H55.2262C58.1287 20.895 59.79 28.2113 59.9775 36H44.9775ZM40.5 3C45.3337 3 49.9462 6.19125 53.565 12H39.0412C38.91 11.7638 38.7787 11.52 38.6437 11.2875C36.5512 7.7025 34.0987 4.9125 31.41 3H40.5ZM8.9475 62.2012C5.11125 55.6275 3 46.875 3 37.5C3 28.125 5.11125 19.3725 8.9475 12.7988C12.6337 6.48 17.445 3 22.5 3C27.555 3 32.3662 6.48 36.0525 12.7988C39.8887 19.3725 42 28.1437 42 37.5C42 46.8563 39.8887 55.6275 36.0525 62.2012C32.3662 68.52 27.555 72 22.5 72C17.445 72 12.6337 68.52 8.9475 62.2012ZM40.5 72H31.41C34.0987 70.0913 36.5512 67.2975 38.6437 63.7125C38.7787 63.48 38.91 63.2363 39.0412 63H53.565C49.9462 68.8088 45.3337 72 40.5 72Z" fill="url(#paint0_linear_792_1205)"/>
+      <defs>
+      <linearGradient id="paint0_linear_792_1205" x1="31.5" y1="0" x2="31.5" y2="75" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D4502F"/>
+      <stop offset="1" stop-color="#BF3A41"/>
+      </linearGradient>
+      </defs>
+      </svg>
+    </div>
+  )
+}
+
+export const HappinessColorSVG = ({ variants }) => {
+  return (
+    <div className="random-icon stroke">
+      <svg width="79" height="79" viewBox="0 0 79 79" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M50.75 54.5C47.5625 56.8625 43.6813 58.25 39.5 58.25C35.3187 58.25 31.4375 56.8625 28.25 54.5" stroke="url(#paint0_linear_963_1278)" stroke-width="4" stroke-linecap="round"/>
+      <path d="M52.5 33.875C52.5 35.0885 52.1685 36.0967 51.7375 36.7431C51.2973 37.4034 50.9088 37.5 50.75 37.5C50.5912 37.5 50.2027 37.4034 49.7625 36.7431C49.3315 36.0967 49 35.0885 49 33.875C49 32.6615 49.3315 31.6533 49.7625 31.0069C50.2027 30.3466 50.5912 30.25 50.75 30.25C50.9088 30.25 51.2973 30.3466 51.7375 31.0069C52.1685 31.6533 52.5 32.6615 52.5 33.875Z" fill="white" stroke="url(#paint1_linear_963_1278)" stroke-width="4"/>
+      <path d="M30 33.875C30 35.0885 29.6685 36.0967 29.2375 36.7431C28.7973 37.4034 28.4088 37.5 28.25 37.5C28.0912 37.5 27.7027 37.4034 27.2625 36.7431C26.8315 36.0967 26.5 35.0885 26.5 33.875C26.5 32.6615 26.8315 31.6533 27.2625 31.0069C27.7027 30.3466 28.0912 30.25 28.25 30.25C28.4088 30.25 28.7973 30.3466 29.2375 31.0069C29.6685 31.6533 30 32.6615 30 33.875Z" fill="white" stroke="url(#paint2_linear_963_1278)" stroke-width="4"/>
+      <path d="M77 39.5C77 57.1775 77 66.0162 71.5062 71.5062C66.02 77 57.1775 77 39.5 77C21.8225 77 12.9838 77 7.49 71.5062C2 66.02 2 57.1775 2 39.5C2 21.8225 2 12.9838 7.49 7.49C12.9875 2 21.8225 2 39.5 2C57.1775 2 66.0162 2 71.5062 7.49C75.1587 11.1425 76.3812 16.2762 76.7937 24.5" stroke="url(#paint3_linear_963_1278)" stroke-width="4" stroke-linecap="round"/>
+      <defs>
+      <linearGradient id="paint0_linear_963_1278" x1="39.5" y1="58.25" x2="39.5" y2="54.5" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F5C372"/>
+      <stop offset="1" stop-color="#E1714E"/>
+      </linearGradient>
+      <linearGradient id="paint1_linear_963_1278" x1="50.75" y1="28.25" x2="50.75" y2="39.5" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F5C372"/>
+      <stop offset="1" stop-color="#E1714E"/>
+      </linearGradient>
+      <linearGradient id="paint2_linear_963_1278" x1="28.25" y1="28.25" x2="28.25" y2="39.5" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F5C372"/>
+      <stop offset="1" stop-color="#E1714E"/>
+      </linearGradient>
+      <linearGradient id="paint3_linear_963_1278" x1="39.5" y1="2" x2="39.5" y2="77" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F5C372"/>
+      <stop offset="1" stop-color="#E1714E"/>
+      </linearGradient>
+      </defs>
+      </svg>
+    </div>
+  )
+}
 
 
 

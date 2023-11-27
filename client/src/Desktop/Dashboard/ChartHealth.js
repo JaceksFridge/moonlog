@@ -1,10 +1,17 @@
 
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import PageTop from './PageTop'
 import { HealthScoreSVG, LastIncreaseSVG, BrokenRecordSVG } from '../../blocks/svg'
+import HealthRecharts from './HealthRecharts'
 
-const ChartHealth = () => {
+const ChartHealth = ({ data }) => {
+
+  
+  useEffect(() => {
+    console.log("data is in healthchart", data)
+  }, [data])
+
   return (
     <div className="health-page">
       <PageTop 
@@ -22,7 +29,9 @@ const ChartHealth = () => {
         BoxThreeValue='7 days'
       />
       <div className="chart-container">
-        <div className="chart-box"></div>
+        <div className="chart-box">
+          {data && <HealthRecharts data={data} />}
+        </div>
       </div>
     </div>
   )

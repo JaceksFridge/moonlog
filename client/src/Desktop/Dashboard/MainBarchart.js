@@ -100,7 +100,9 @@ const MainBarchart = ({ data }) => {
           let cutData = data.map((item, index) => {
             
             return (
-              { day: item.date, value: item.sum }
+              { day: new Date(item.date), 
+                value: item.sum 
+              }
             )
           })
 
@@ -123,7 +125,9 @@ const MainBarchart = ({ data }) => {
     }, [data])
 
     return (
-        <div id="main-bar-chart"></div>
+        <div id="main-bar-chart">
+          <div className="watermark-cover"></div>
+        </div>
     )
 }
 

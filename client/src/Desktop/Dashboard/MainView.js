@@ -5,6 +5,7 @@ import DayHalfDoughnutChart from '../Dashboard/DayHalfDoughnutChart'
 import MainBarchart from '../Dashboard/MainBarchart'
 import LogGrid from '../Dashboard/LogGrid'
 
+
 const MainView = ({ data }) => {
 
   const [activeDay, setActiveDay] = useState(null)
@@ -20,7 +21,7 @@ const MainView = ({ data }) => {
       });
       const averageSum = sum / count;
       const percentIncrease = parseFloat((((activeDay.sum / averageSum) - 1) * 100).toFixed(2))
-      console.log("percent Increase", percentIncrease)
+      // console.log("percent Increase", percentIncrease)
       setOverAvg(percentIncrease)
     }
   };

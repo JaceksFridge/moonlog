@@ -38,7 +38,7 @@ const DayHalfDoughnut = ({ dataDay }) => {
         });
         
         series.slices.template.setAll({
-          cornerRadius: 3,
+          cornerRadius: 18,
           templateField: "sliceSettings",
           tooltipText: ""
         });

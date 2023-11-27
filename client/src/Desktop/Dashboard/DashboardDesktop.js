@@ -52,9 +52,9 @@ const DashboardDesktop = ({ data }) => {
   };
 
   const handleSettings = () => {
-    console.log('handling settings')
+    // console.log('handling settings')
     setSettingsModal(true)
-    console.log(settingsModal)
+    // console.log(settingsModal)
   }
 
 

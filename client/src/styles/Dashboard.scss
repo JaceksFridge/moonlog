@@ -28,8 +28,21 @@
                 border: 0px solid peru;
 
                 #main-bar-chart{
+                    position: relative;
+                    border: 0px solid blue;
                     width: 100%;
                     height: 100%;
+
+                    .watermark-cover{
+                        position: absolute;
+                        bottom: 0;
+                        z-index: 1000;
+                        border: 0px solid peru;
+                        background: black;
+                        height: 1.2rem;
+                        width: 100%;
+
+                    }
                 }
             }
         }
@@ -69,7 +82,7 @@
             .entries-box{
                 .entry-item{
                     border: 1px solid $white-20;
-                    height: 12rem;
+                    height: auto;
                     border-radius: 1.25rem;
                     margin-bottom: 1.5rem;
 
@@ -84,7 +97,7 @@
                         flex-direction: column;
                         justify-content: center;
                         justify-content: flex-start;
-                        border-bottom: 1px solid $white-20;
+                        border-bottom: 0px solid $white-20;
 
                         p{
                             font-size: 0.875rem;
@@ -99,29 +112,54 @@
                         align-items: center;
                         .big-score{
                             color: $white;
-                            font-size: 2rem;
+                            font-size: 2.5rem;
+
+                            span{
+                                margin-left: 0.1rem;
+                                color: $white-50;
+                                font-size: 0.875rem;
+                            }
                         }
                         .row-chart{
+                            position: relative;
                             height: 100%;
-                            width: 40%;
-                            border: 1px solid $white-20;
+                            width: 50%;
+                            padding: 1rem 1.5rem 1rem 0;
+                            border: 0px solid $white-20;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: flex-end;
 
                             .bar{
-                                height: 1rem;
-                                background: blue;
+                                height: 0.75rem;
                                 transform-origin: right;
-                                animation: growBar 2s ease-out;
+                                border-top-left-radius: 0.25rem;
+                                border-bottom-left-radius: 0.25rem;
+                                // animation: growBar 2s ease-out;
                                 margin-bottom: 0.75rem;
                             }
-
-
-                            .health-bar { background-color: green; }
-                            .wealth-bar { background-color: gold; }
-                            .happiness-bar{
-                                background: purple;
+                            .bar:last-child{
+                                margin: 0;
                             }
-                            .nodo-bar{
-                                background: grey;
+
+                            .row-chart-overlay{
+                                position: absolute;
+                                z-index: 10;
+                                top: 0;
+                                bottom: 2rem;
+                                left: 0;
+                                right: 0;
+                                background: linear-gradient(268.88deg, rgba(0, 0, 0, 0.9) -3%, rgba(4, 4, 4, 0.216146) 54.94%, rgba(6, 6, 6, 0) 99.06%);
+                            }
+                            
+
+                            .health-bar { background: $health; }
+                            .wealth-bar { background: $wealth; }
+                            .happiness-bar { background: $happiness; }
+                            .nodo-bar { 
+                                background: $nodo; 
+                                border: 0.5px solid $white-20;
                             }
                         }
 
@@ -141,15 +179,63 @@
 
                         div{
                             border: 0px solid purple;
-                            margin-right: 1rem;
+                            margin-right: 1.25rem;
                             display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            width: auto;
 
                             p{
                                 font-size: 0.875rem;
+                                font-weight: 200;
+                            }
+
+                            p.health-score{                               
+                                background: $health-text;
+                                -webkit-background-clip: text;
+                                -webkit-text-fill-color: transparent;
+                                background-clip: text;
+                                text-fill-color: transparent;
+                            }
+                            p.wealth-score{ 
+                                background: $wealth-text;
+                                -webkit-background-clip: text;
+                                -webkit-text-fill-color: transparent;
+                                background-clip: text;
+                                text-fill-color: transparent;
+                            }
+                            p.happiness-score{ 
+                                background: $happiness-text;
+                                -webkit-background-clip: text;
+                                -webkit-text-fill-color: transparent;
+                                background-clip: text;
+                                text-fill-color: transparent;
+                            }
+                            p.nodo-score{
+                                color: $white-50;
+                            }
+                            .icon{
+                                width: auto;
+                                margin: 0;
+                                margin-right: 0.35rem;
+
+                                .random-icon{
+                                    width: auto;
+                                    margin: 0;
+                                    svg{
+                                        height: 0.75rem;
+                                        width: 0.75rem;
+                                    }
+                                } 
                             }
                         }
                         .nodo-box{
                             margin-left: auto;
+                            .icon .random-icon{
+                                path{
+                                    stroke: $white-50;
+                                }
+                            }
                         }
                     }
                 }
@@ -157,3 +243,7 @@
         }
     }
 }
+
+
+
+

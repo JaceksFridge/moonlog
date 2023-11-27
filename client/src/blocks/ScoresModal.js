@@ -30,7 +30,23 @@ const ScoresModal = ({ modal, setModal, entry }) => {
       };
       
 
-
+    const formatDate = (dateString) => {
+      const date = new Date(dateString);
+      const day = date.getDate();
+      const month = date.toLocaleString('en-US', { month: 'long' });
+  
+      const getOrdinalSuffix = (day) => {
+          if (day > 3 && day < 21) return 'th'; // for teens
+          switch (day % 10) {
+              case 1:  return "st";
+              case 2:  return "nd";
+              case 3:  return "rd";
+              default: return "th";
+          }
+      };
+  
+      return `${month}, ${day}${getOrdinalSuffix(day)}`;
+    };
 
       const backdropVariants = {
         hidden: {
@@ -94,40 +110,42 @@ const ScoresModal = ({ modal, setModal, entry }) => {
             variants={modalVariants}
             >
             <div className="modal-inner-container">
-                <div className="modal-close" onClick={() => setModal(false)}>
-                <img src="/icons/iconmodalclose.png" alt="close" />
+              <div className="modal-top">
+                <div className="title-box">
+                  <h2 className="modal-title">{entry && entry.date ? formatDate(entry.date) : 'date'}</h2>
+                  <p className="modal-subtitle">+2.79%</p>
                 </div>
-                <SettingsSVG
-                variants={pathVariantsOG}
-                initial='hidden'
-                animate='visible'
-                />
-                <h2 className="modal-title">{entry && entry.date ? entry.date : 'date'}</h2>
+                <div className="modal-close" onClick={() => setModal(false)}>
+                  <img src="/icons/iconmodalclose.png" alt="close" />
+                </div>
+              </div>
                 <div className="chart-container">
                     <DayHalfDoughnut dataDay={entry}/>
                 </div>
-                <div className="bars-container">
-                    <div className="box health-box">
-                        <div className="title">Health</div>
-                        <div className="value">{entry.health ? entry.health : 0}</div>
-                        <div className="bar-container">
-                            <div className="bar" style={{ width: `${healthPercentage}%`, backgroundColor: 'green' }}></div>
-                        </div>
+                <div className="day-subscores">
+                  <div className="subscore-grid">
+                    <div className="health grid-item">
+                      <p className="subscore-name">health</p>
+                      <p className="subscore-value">{entry.health ? entry.health : 0 }</p>
+                      <div className="subscore-bar-container">
+                        <div className="bar" style={{ width: `${(entry.health / entry.sum) * 100}%`}}></div>
+                      </div>
                     </div>
-                    <div className="box wealth-box">
-                        <div className="title">Wealth</div>
-                        <div className="value">{entry.wealth ? entry.wealth : 0}</div>
-                        <div className="bar-container">
-                            <div className="bar" style={{ width: `${wealthPercentage}%`, backgroundColor: 'blue' }}></div>
-                        </div>
+                    <div className="wealth grid-item">
+                      <p className="subscore-name">wealth</p>
+                      <p className="subscore-value">{entry.wealth ? entry.wealth : 0 }</p>
+                      <div className="subscore-bar-container">
+                        <div className="bar" style={{ width: `${(entry.wealth / entry.sum) * 100}%`}}></div>
+                      </div>
                     </div>
-                    <div className="box happiness-box">
-                        <div className="title">Happiness</div>
-                        <div className="value">{entry.happiness ? entry.happiness : 0}</div>
-                        <div className="bar-container">
-                            <div className="bar" style={{ width: `${happinessPercentage}%`, backgroundColor: 'yellow' }}></div>
-                        </div>
+                    <div className="happiness grid-item">
+                      <p className="subscore-name">happiness</p>
+                      <p className="subscore-value">{entry.happiness ? entry.happiness : 0 }</p>
+                      <div className="subscore-bar-container">
+                        <div className="bar" style={{ width: `${(entry.happiness / entry.sum) * 100}%`}}></div>
+                      </div>
                     </div>
+                  </div>
                 </div>
                 </div>
             </motion.div>

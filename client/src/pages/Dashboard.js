@@ -6,7 +6,8 @@ import DashboardDesktop from '../Desktop/Dashboard/DashboardDesktop'
 import Header from '../blocks/Header'
 import MainBarchart from '../Desktop/Dashboard/MainBarchart'
 
-import { HealthIconSVG } from '../blocks/svg'
+import { HealthIconSVG, WealthIconSVG, HappinessIconSVG, NodoIconSVG,
+    HealthColorSVG, WealthColorSVG, HappinessColorSVG } from '../blocks/svg'
 import ScoresModal from '../blocks/ScoresModal'
 
 const Dashboard = () => {
@@ -27,7 +28,7 @@ const Dashboard = () => {
  
 
     useEffect(() => {
-        console.log("Dashboard")
+        // console.log("Dashboard")
 
         const fetchData = async () => {
             try {
@@ -48,7 +49,7 @@ const Dashboard = () => {
         if (data && data.length > 0) {
             const yearData = splitData('year')
             setMainChartData(yearData)
-            console.log("Data before getMetrics:", data)
+            // console.log("Data before getMetrics:", data)
             getMetrics(data)
         }
     }, [data])
@@ -97,7 +98,7 @@ const Dashboard = () => {
 
 
     const getMetrics = (data) => {
-        console.log("Data inside getMetrics:", data);
+        // console.log("Data inside getMetrics:", data);
         data.sort((a, b) => new Date(a.date) - new Date(b.date));
 
         if (data) {
@@ -121,7 +122,7 @@ const Dashboard = () => {
                     athCounter += 1
                     maxValue = entry.sum
                 }
-                console.log(index, entry.sum)
+                // console.log(index, entry.sum)
             })
     
             const aweek = 1000 * 60 * 60 * 24 * 7
@@ -231,30 +232,43 @@ const Dashboard = () => {
                                             <p>{entry.date}</p>
                                         </div>
                                         <div className="main">
-                                            <h2 className="big-score">{ entry.sum ? entry.sum : 0}</h2>
+                                            <h2 className="big-score">{ entry.sum ? entry.sum : 0}
+                                                <span>
+                                                    pts.
+                                                </span>
+                                            </h2>
                                             <div className="row-chart">
                                                 <div className="bar health-bar" style={{ width: `${calculateWidth(entry.health, data)}%` }}></div>
                                                 <div className="bar wealth-bar" style={{ width: `${calculateWidth(entry.wealth, data)}%` }}></div>
                                                 <div className="bar happiness-bar" style={{ width: `${calculateWidth(entry.happiness, data)}%` }}></div>
                                                 <div className="bar nodo-bar" style={{ width: `${calculateWidth(entry.nodo, data)}%` }}></div>
+                                                <div className="row-chart-overlay"></div>
                                             </div>
                                         </div>
                                         <div className="bottom-scores">
                                             <div className="health-box">
+                                                <div className="icon">
+                                                    <HealthColorSVG />
+                                                </div>
                                                 <p className="health-score">{entry.health}</p>
-                                                <div className="icon"></div>
                                             </div>
                                             <div className="wealth-box">
+                                                <div className="icon">
+                                                    <WealthColorSVG />
+                                                </div>
                                                 <p className="wealth-score">{entry.wealth}</p>
-                                                <div className="icon"></div>
                                             </div>
                                             <div className="happiness-box">
-                                                <p className="health-score">{entry.happiness}</p>
-                                                <div className="icon"></div>
+                                                <div className="icon">
+                                                    <HappinessColorSVG />
+                                                </div>
+                                                <p className="happiness-score">{entry.happiness}</p>
                                             </div>
                                             <div className="nodo-box">
-                                                <p className="health-score">{entry.nodo}</p>
-                                                <div className="icon"></div>
+                                                <div className="icon">
+                                                    <NodoIconSVG />
+                                                </div>
+                                                <p className="nodo-score">{entry.nodo}</p>
                                             </div>
                                         </div>
                                     </div>
