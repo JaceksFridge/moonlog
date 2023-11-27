@@ -10,25 +10,6 @@ import DayHalfDoughnut from '../Desktop/Dashboard/DayHalfDoughnutChart'
 
 const ScoresModal = ({ modal, setModal, entry }) => {
 
-    const jump = useNavigate()
-
-
-    // useEffect(() => {
-    //     if (entry) {
-    //         const total = entry.sum;
-    //         percentage(calculatePercentage(entry.health, total));
-    //         setWealthPercentage(calculatePercentage(entry.wealth, total));
-    //         setHappinessPercentage(calculatePercentage(entry.happiness, total));
-    //         setNodoPercentage(calculatePercentage(entry.nodo, total));
-    //     }
-    // }, [entry]);
-
-
-    const calculatePercentage = (value, total) => {
-        return total > 0 ? (value / total) * 100 : 0;
-      };
-      
-
     const formatDate = (dateString) => {
       const date = new Date(dateString);
       const day = date.getDate();

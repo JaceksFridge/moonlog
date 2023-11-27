@@ -11,6 +11,14 @@ const LogGrid = ({ data, setActiveDay }) => {
 
 
     console.log("data in loggrid", data)
+    const formatDate = (params) => {
+        const date = new Date(params.value)
+        const day = date.getDate().toString().padStart(2, '0')
+        const month = (date.getMonth() + 1).toString().padStart(2, '0')
+        const year = date.getFullYear()
+        return `${day}.${month}.${year}`
+    }
+
     const gridRef = useRef()
 
     const [rowData, setRowData] = useState([
@@ -18,19 +26,21 @@ const LogGrid = ({ data, setActiveDay }) => {
     ])
 
     const [columnDefs, setColumnDefs] = useState([
-        { field: "date" },
-        { field: "sum" },
-        { field: "change" },
-        { filed: "health" },
+        { field: "date", valueFormatter: formatDate, flex: 4},
+        { field: "sum", flex: 5},
+        { field: "change", flex: 4},
+        { field: "health" },
         { field: "wealth" },
         { field: "happiness" },
         { field: "nodo" },
-        { field: "time" } 
+        // { field: "time" } 
     ])
 
     const defaultColDef = useMemo(() => ({
         sortable: true,
-        filter: true
+        filter: true,
+        resizable: true,
+        flex: 3,
     }), [])
 
 
@@ -55,6 +65,7 @@ const LogGrid = ({ data, setActiveDay }) => {
             }
         },
     }
+
    
 
     useEffect(() => {
@@ -62,7 +73,11 @@ const LogGrid = ({ data, setActiveDay }) => {
         //     .then(response => response.json())
         //     .then(rowData => setRowData(rowData))
         if (data) {
-            setRowData(data)
+            const updatedData = data.map(item => ({
+                ...item,
+                change: (typeof item.change === 'number' ? item.change.toFixed(2) : item.change) + '%'
+            }));
+            setRowData(updatedData)
         }
     }, [data])
  

@@ -72,10 +72,12 @@
                     height: 24rem;
                     border-radius: 1rem;
                     border: 1px solid $white-20;
+                    overflow: hidden;
 
                     .log-grid{
                         height: 100%;
                         width: 100%;
+                   
     
                         .ag-theme-alpine-dark {
                             --ag-background-color: $black;
@@ -208,9 +210,9 @@
 
                                 .bar{
                                     height: 100%;
+                                    width: 0;
                                     border-radius: 0.35rem;
-                                    transform-origin: left;
-                                    animation: growBar 2s ease-out;
+                                    // transform-origin: left;
                                 }
                             }
                         }

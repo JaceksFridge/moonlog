@@ -1,6 +1,7 @@
 
 
 import React, { useState, useEffect } from 'react'
+import { motion } from 'framer-motion'
 import DayHalfDoughnutChart from '../Dashboard/DayHalfDoughnutChart'
 import MainBarchart from '../Dashboard/MainBarchart'
 import LogGrid from '../Dashboard/LogGrid'
@@ -48,6 +49,15 @@ const MainView = ({ data }) => {
   })
 
 
+  const progressVariants = {
+    hidden: { width: "0px" },
+    visible: (custom) => ({
+      width: `${custom}%`,
+      transition: { duration: 1, ease: "easeInOut" } 
+    })
+  }
+
+
 
 
 
@@ -89,28 +99,52 @@ const MainView = ({ data }) => {
                   <p className="subscore-name">health</p>
                   <p className="subscore-value">{activeDay.health ? activeDay.health : 0 }</p>
                   <div className="subscore-bar-container">
-                    <div className="bar" style={{ width: `${(activeDay.health / activeDay.sum) * 100}%`}}></div>
+                    <motion.div 
+                      className="bar" 
+                      variants={progressVariants}
+                      initial="initial"
+                      animate="visible"
+                      custom={activeDay.health && activeDay.sum ? (activeDay.health / activeDay.sum) * 100 : 0 }
+                    ></motion.div>
                   </div>
                 </div>
                 <div className="wealth grid-item">
                   <p className="subscore-name">wealth</p>
                   <p className="subscore-value">{activeDay.wealth ? activeDay.wealth : 0 }</p>
                   <div className="subscore-bar-container">
-                    <div className="bar" style={{ width: `${(activeDay.wealth / activeDay.sum) * 100}%`}}></div>
+                    <motion.div 
+                      className="bar" 
+                      variants={progressVariants}
+                      initial="initial"
+                      animate="visible"
+                      custom={activeDay.health && activeDay.sum ? (activeDay.health / activeDay.sum) * 100 : 0 }
+                    ></motion.div>
                   </div>
                 </div>
                 <div className="happiness grid-item">
                   <p className="subscore-name">happiness</p>
                   <p className="subscore-value">{activeDay.happiness ? activeDay.happiness : 0 }</p>
                   <div className="subscore-bar-container">
-                    <div className="bar" style={{ width: `${(activeDay.happiness / activeDay.sum) * 100}%`}}></div>
+                    <motion.div 
+                      className="bar" 
+                      variants={progressVariants}
+                      initial="initial"
+                      animate="visible"
+                      custom={activeDay.health && activeDay.sum ? (activeDay.health / activeDay.sum) * 100 : 0 }
+                    ></motion.div>
                   </div>
                 </div>
                 <div className="nodo grid-item">
                   <p className="subscore-name">nodo</p>
                   <p className="subscore-value">{activeDay.nodo ? activeDay.nodo : 0 }</p>
                   <div className="subscore-bar-container">
-                    <div className="bar" style={{ width: `${(activeDay.nodo / activeDay.sum) * 100}%`}}></div>
+                    <motion.div 
+                      className="bar" 
+                      variants={progressVariants}
+                      initial="initial"
+                      animate="visible"
+                      custom={activeDay.health && activeDay.sum ? (activeDay.health / activeDay.sum) * 100 : 0 }
+                    ></motion.div>
                   </div>
                 </div>
               </div>
