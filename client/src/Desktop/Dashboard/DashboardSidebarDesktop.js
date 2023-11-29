@@ -18,12 +18,19 @@ const DashboardSidebarDesktop = ({
 }) => {
 
     const [activePage, setActivePage] = useState(activePageProp);
+    const [showText, setShowText] = useState(false)
     
     const jump = useNavigate()
 
     useEffect(() => {
         setActivePage(activePageProp)
     }, [activePageProp])
+
+    useEffect(() => {
+        if (isCollapsed) {
+            setShowText(false);
+        }
+    }, [isCollapsed]);
 
 
     const navigateToTab = (page, tab = null) => {
@@ -36,11 +43,18 @@ const DashboardSidebarDesktop = ({
     const toggleCollapse = () => setIsCollapsed(!isCollapsed);
 
 
+    const onSidebarAnimationComplete = () => {
+        if (!isCollapsed) {
+            setShowText(true);
+        }
+    };
+
 
     return (
         <motion.div
             className={`sidebar ${isCollapsed ? 'collapsed' : 'expanded'}`}
             animate={{ width: isCollapsed ? '5rem' : '15rem' }}
+            onAnimationComplete={onSidebarAnimationComplete}
         >
             <div className="top-sidebar">
                 <SidebarLogoSVG />
@@ -56,14 +70,16 @@ const DashboardSidebarDesktop = ({
                 <div className="main-inner-content">
                     <div className="big-menu">
                         <div className="menu-group">
-                            { !isCollapsed && <p className="menu-label">navigation</p> }
+                            <div className="label-container">
+                            { showText && <p className={`menu-label ${activePage === 'dashboard' ? 'active' : ''}`}>navigation</p> }
+                            </div>
                             <div className={`menu-line ${activePage != 'dashboard' ? 'active' : ''}`}></div>
                             <div className={`menu-item ${activePage === 'forms' ? 'active' : ''}`}>
                                 <div className="item-highlight" onClick={() => navigateToTab('forms')}>
                                     <div className="menu-item-icon">
                                         <SidebarNewLogSVG />
                                     </div>
-                                    {!isCollapsed && 
+                                    {showText && 
                                         <p className="menu-item-name">New Log</p>
                                     }
                                 </div>
@@ -73,21 +89,23 @@ const DashboardSidebarDesktop = ({
                                     <div className="menu-item-icon">
                                         <SidebarGoalsettingsSVG />
                                     </div>
-                                    {!isCollapsed && 
+                                    {showText && 
                                         <p className="menu-item-name">goal settings</p>
                                     }
                                 </div>
                             </div>
                         </div>
                         <div className="menu-group">
-                            { !isCollapsed && <p className={`menu-label ${activePage === 'dashboard' ? 'active' : ''}`}>dashboard</p> }
+                            <div className="label-container">
+                                { showText && <p className={`menu-label ${activePage === 'dashboard' ? 'active' : ''}`}>dashboard</p> }
+                            </div>
                             <div className={`menu-line ${activePage === 'dashboard' ? 'active' : ''}`}></div>
                             <div className="menu-item">
                                 <div className="item-highlight">
                                     <div className="menu-item-icon">
                                         <SidebarProgressSVG />
                                     </div>
-                                    {!isCollapsed && 
+                                    {showText && 
                                         <p className="menu-item-name">progress</p>
                                     }
                                 </div>
@@ -97,7 +115,7 @@ const DashboardSidebarDesktop = ({
                                     <div className="menu-item-icon">
                                         <SidebarLogEntriesSVG />
                                     </div>
-                                    {!isCollapsed && 
+                                    {showText && 
                                         <p className="menu-item-name">log entries</p>
                                     }
                                 </div>
@@ -107,7 +125,7 @@ const DashboardSidebarDesktop = ({
                                     <div className="menu-item-icon">
                                         <HealthIconSVG />
                                     </div>
-                                    {!isCollapsed && 
+                                    {showText && 
                                         <p className="menu-item-name">health</p>
                                     }
                                 </div>
@@ -117,7 +135,7 @@ const DashboardSidebarDesktop = ({
                                     <div className="menu-item-icon">
                                         <WealthIconSVG />
                                     </div>
-                                    {!isCollapsed && 
+                                    {showText && 
                                         <p className="menu-item-name">wealth</p>
                                     }
                                 </div>
@@ -127,7 +145,7 @@ const DashboardSidebarDesktop = ({
                                     <div className="menu-item-icon">
                                         <HappinessIconSVG />
                                     </div>
-                                    {!isCollapsed && 
+                                    {showText && 
                                         <p className="menu-item-name">happiness</p>
                                     }
                                 </div>
@@ -137,7 +155,7 @@ const DashboardSidebarDesktop = ({
                                     <div className="menu-item-icon">
                                         <NodoIconSVG />
                                     </div>
-                                    {!isCollapsed && 
+                                    {showText && 
                                         <p className="menu-item-name">nodo</p>
                                     }
                                 </div>
@@ -151,7 +169,7 @@ const DashboardSidebarDesktop = ({
                                     <div className="menu-item-icon">
                                         <SettingsIcon />
                                     </div>
-                                    {!isCollapsed && 
+                                    {showText && 
                                         <p className="menu-item-name">settings</p>
                                     }
                                 </div>
@@ -161,7 +179,7 @@ const DashboardSidebarDesktop = ({
                                     <div className="menu-item-icon">
                                         <LogoutIcon />
                                     </div>
-                                    {!isCollapsed && 
+                                    {showText && 
                                         <p className="menu-item-name">logout</p>
                                     }
                                 </div>

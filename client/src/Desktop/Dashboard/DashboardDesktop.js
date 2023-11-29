@@ -23,7 +23,7 @@ const DashboardDesktop = ({ data }) => {
   const location = useLocation();
   const [activeTab, setActiveTab] = useState('main')
   const [userData, setUserData] = useState([])
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(true);
   const jump = useNavigate()
 
 
