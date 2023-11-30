@@ -4,7 +4,7 @@
     height: 100%;
     top: 0; left: 0;
     background: rgba(30, 30, 30, 0.9);
-    z-index: 21;
+    z-index: 6000;
 
 
 
@@ -85,6 +85,7 @@
 
 @media (min-width: 1224px) {
   .backdrop{
+    z-index: 6000;
     background: rgba(20, 20, 20, 0.95);
     display: grid;
     place-items: center;

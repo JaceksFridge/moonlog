@@ -1,6 +1,11 @@
 import React, { useState, useEffect, useContext, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { UserContext } from '../blocks/userContext'
+import { ModalContext } from '../blocks/modalContext';
+import SettingsModal from '../blocks/SettingsModal'
+import Modal from '../blocks/Modal'
+import { repeatModalData, logoutModalData, resetModalData, deleteModalData } from '../blocks/constants'
+import { RepeatSVG, LogoutSVG, SettingsSVG, SettingsInfoSVG, SettingsResetSVG, SettingsBinSVG } from '../blocks/svg'
 import useCurrentDate from '../blocks/useCurrentDate'
 import { useMediaQuery } from 'react-responsive'
 import axios from 'axios'
@@ -23,17 +28,28 @@ const Forms = () => {
 
   const server = process.env.REACT_APP_SERVER_URL
   const [settings, setSettings] = useState({})
-  const [activedTab, setActivedTab] = useState('health');
+  const [userData, setUserData] = useState([])
+  const [activedTab, setActivedTab] = useState('forms');
   const healthRef = useRef(null);
   const wealthRef = useRef(null);
   const happinessRef = useRef(null);
   const nodoRef = useRef(null);
 
   // sidebar
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(true);
 
   // context trying
   const { user, loadingUser } = useContext(UserContext)
+
+  const { 
+    settingsModal, setSettingsModal,
+    logoutModal, setLogoutModal,
+    resetModal, setResetModal,
+    deleteModal, setDeleteModal,
+    logReg, setLogReg
+  } = useContext(ModalContext)
+
+
  
   // checking if settings loaded
   useEffect(() => {
@@ -243,6 +259,37 @@ const Forms = () => {
       </>
       ) : (
       <>
+        <SettingsModal 
+          modal={settingsModal}
+          setModal={setSettingsModal} 
+          btnLogout={setLogoutModal}
+          btnReset={setResetModal}
+          btnDelete={setDeleteModal}
+        />
+        <Modal 
+            modalData={logoutModalData}
+            modal={logoutModal}
+            setModal={setLogoutModal}
+            btn1Fun={() => {setLogoutModal(false); setLogReg(true); localStorage.clear(); setUserData([]); jump('/')}}
+            btn2Fun={() => setLogoutModal(false)}
+            SVGComponent={LogoutSVG}
+        />
+        <Modal 
+          modalData={deleteModalData}
+          modal={deleteModal}
+          setModal={setDeleteModal} 
+          btn1Fun={() => setDeleteModal(false)}
+          btn2Fun={console.log("deleting")}
+          SVGComponent={SettingsBinSVG}
+        />
+        <Modal 
+          modalData={resetModalData}
+          modal={resetModal}
+          setModal={setResetModal} 
+          btn1Fun={() => setResetModal(false)}
+          btn2Fun={console.log('resetting')}
+          SVGComponent={SettingsResetSVG}
+        />
         <DashboardSidebarDesktop 
           activePageProp='forms' 
           handleTabChange={handleTabChange}

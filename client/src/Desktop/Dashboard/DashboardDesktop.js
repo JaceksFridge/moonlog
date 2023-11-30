@@ -33,7 +33,7 @@ const DashboardDesktop = ({ data }) => {
     resetModal, setResetModal,
     deleteModal, setDeleteModal,
     logReg, setLogReg
-  } = useContext(ModalContext);
+  } = useContext(ModalContext)
 
 
 
@@ -76,7 +76,7 @@ const DashboardDesktop = ({ data }) => {
           modalData={logoutModalData}
           modal={logoutModal}
           setModal={setLogoutModal}
-          btn1Fun={() => {setLogoutModal(false); setLogReg(true); localStorage.clear(); setUserData([]); jump('/')}}
+          btn1Fun={() => {setLogoutModal(false); setLogReg(true); localStorage.clear(); setUserData([]); }}
           btn2Fun={() => setLogoutModal(false)}
           SVGComponent={LogoutSVG}
       />

@@ -56,7 +56,7 @@ const DashboardSidebarDesktop = ({
             animate={{ width: isCollapsed ? '5rem' : '15rem' }}
             onAnimationComplete={onSidebarAnimationComplete}
         >
-            <div className="top-sidebar">
+            <div className="top-sidebar" onClick={() => jump('/')}>
                 <SidebarLogoSVG />
                 {!isCollapsed && <div className="logo-text">Moonlog.</div>}
             </div>

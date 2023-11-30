@@ -26,7 +26,7 @@ const Home = () => {
 
   const [ repeatModal, setRepeatModal ] = useState(false)
   const [ logoutModal, setLogoutModal ] = useState(false)
-  const [ settingsModal, setSettingsModal ] = useState(true)
+  const [ settingsModal, setSettingsModal ] = useState(false)
   const [ resetModal, setResetModal ] = useState(false)
   const [ deleteModal, setDeleteModal ] = useState(false)
   const [ logReg, setLogReg ] = useState(false)
