@@ -170,7 +170,7 @@ const Home = () => {
       </Link>
       <div className="mini-cards">
         <button onClick={() => setLogoutModal(true)} className="btn-logout">Logout</button>
-        <button onClick={() => setLogoutModal(true)} className="btn-logout">Settings</button>
+        <button onClick={() => setSettingsModal(true)} className="btn-logout">Settings</button>
       </div>
     </div>
   )
