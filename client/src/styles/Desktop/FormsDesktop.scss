@@ -1,17 +1,108 @@
 
 
-.forms-desktop{
-    background: #121212;
-    .section-container{
-        section{
-            height: 100%;
-            padding: 10rem 6rem;
+@media (min-width: 1224px) {
+    
+    .Forms{
+        display: flex;
+
+        .placeholder-sidebar{
+            position: relative;
+            height: 100vh;
+            padding: 1rem 0;
+            border: 0px solid peru;
         }
-    }
-    .submit-btn{
-        background: white;
-        color: black;
-        width: 200px;
-        height: 50px;
+        .forms-desktop{
+            width: 100%;
+
+            .top-top{
+                position: fixed;
+                z-index: 101;
+                background: black;
+                width: 100%;
+                overflow-x: hidden;
+            }
+
+            .top-top.collapsed {
+                .health{
+                    margin-left: 0%;
+                }
+                .nodo{
+                    margin-right: 5rem;
+                }
+            }
+            
+            .top-top.expanded {
+                .health{
+                    margin-left: 0%;
+                }
+                .nodo{
+                    margin-right: 16rem;
+                }
+            }
+
+            .topnav-placeholder{
+                width: 100%;
+                height: 5rem;
+                border: 0px solid sandybrown;
+            }
+
+            .section-container{
+                // padding: 0 12.5%;
+                
+                section{
+                    padding: 7.5% 20% 10% 20%;
+                    h2{
+                        text-align: left;
+                        font-family: reckless-middle;
+                        color: $white-50;
+                        font-size: 2rem;
+                        padding: 0 1.5rem;
+                    }
+
+                    .healthForm, .wealthForm, .happinessForm, .nodoForm{
+                        // padding: 0 12.5%;
+                        .form-container{
+                            border-radius: 1rem;
+                        }
+
+                        .slider-container{
+                            height: 24rem;
+                            padding: 0 10%;
+                            gap: 1.5rem;
+
+                            .hour-count h2{
+                                font-size: 5rem;
+                                padding: 2rem;
+                            }
+                            .hour-desc{
+                                display: none;
+                            }
+                        }
+                    }
+                }
+
+            }
+            .button-container{
+                width: 100%;
+                padding: 0% 20% 7.5% 20%;
+                display: flex;
+                justify-content: flex-end;
+                button{
+                    border-radius: 1rem;
+                    // background: white;
+                    border: 1px solid $white-20;
+                    color: $white-20;
+                    width: 14rem;
+                    height: 4rem;
+                    margin-right: 1.5rem;
+                    transition: all 0.3s ease-in-out;
+                    cursor: pointer;
+                }
+                button:hover{
+                    border: 1.2px solid $white-80;
+                    color: $white-80;
+                }
+            }
+        }
     }
 }

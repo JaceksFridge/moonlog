@@ -115,7 +115,7 @@ const HealthForm = ({ settings }) => {
             return null
         }
       })}
-      <h2 className="invisible">{JSON.stringify(healthScores)}</h2>
+      {/* <h2 className="invisible">{JSON.stringify(healthScores)}</h2> */}
     </motion.div>
   )
 }

@@ -59,7 +59,7 @@ const Forms = () => {
   useEffect(() => {
     if (user && user.settings) {
       setSettings(user.settings);
-      console.log('user SETTINGS arrived:', user.settings)
+      // console.log('user SETTINGS arrived:', user.settings)
     }
   }, [user, user?.settings]);
 
@@ -357,25 +357,34 @@ const Forms = () => {
         ></motion.div>  
         { settings &&     
         <div className="forms-desktop">
-          <div className="top-top">
+          <div className={`top-top ${isCollapsed ? 'collapsed' : 'expanded'}`}>
             <TopNavDesktop activeTab={activeTab} TabClick={TabClick}/>
+            <div className="scroll-progress">
+              <div 
+                  className="progress-bar" 
+                  style={{ 
+                      width: `${progress}%`,
+                      background: gradient(progress)
+                  }}
+              ></div>
+            </div>
           </div>
           <div className="topnav-placeholder"></div>
           <div className="section-container">
             <section id="health-form" ref={healthRef} >
-              <h2>Health</h2>
+              <h2>Health-form</h2>
               { settings.health && <HealthForm settings={settings.health.active} /> }
             </section>
             <section id="wealth-form" ref={wealthRef} >
-              <h2>Wealth</h2>
+              <h2>Wealth-form</h2>
               { settings.wealth && <WealthForm settings={settings.wealth.active} /> }
             </section>
             <section id="happiness-form" ref={happinessRef} >
-              <h2>Happiness</h2>
+              <h2>Happiness-form</h2>
               { settings.happiness && <HappinessForm settings={settings.happiness.active} /> }
             </section>
             <section id="nodo-form" ref={nodoRef} >
-              <h2>Nodo</h2>
+              <h2>Nodo-form</h2>
               { settings.nodo && <NodoForm settings={settings.nodo.active} /> }
             </section>
           </div>

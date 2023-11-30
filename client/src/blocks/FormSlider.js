@@ -5,7 +5,7 @@ import { useLocalStorage } from './useLocalStorage'
 const FormSlider = ({ sliderChange, form, stk }) => {
 
 
-
+    console.log('sliiiiiider:::', form)
 
     const [slider, setSlider] = useLocalStorage(stk, 0)
     const [currentSlider, setCurrentSlider] = useState(slider)
@@ -31,12 +31,13 @@ const FormSlider = ({ sliderChange, form, stk }) => {
 
     return (
         <div className="slider-container">
+            <div className="form-title">{form ? form.title : "slider"}</div>
             <div className="hour-count">
             <h2
                 className={slider > 0 ? "slider active" : ""}
             >
                 {slider}</h2>
-            <div className="small-slider">{form ? form.title : ""}</div>
+            <div className="small-slider">{form ? form.unit : ""}</div>
             </div>
             <h6 className="hour-desc">some explanation</h6>
             <div className="hour-slider">

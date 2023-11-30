@@ -61,7 +61,7 @@ const FormChecks = ({ form, checksChange, stk }) => {
 
   return (
     <motion.div className="form-container morning">
-        <div className="form-title">checks</div>
+        <div className="form-title">checkers</div>
         <form action="">
         {Object.keys(form).map((key, i) => (
 
