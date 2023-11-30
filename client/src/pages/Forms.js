@@ -59,8 +59,9 @@ const Forms = () => {
   useEffect(() => {
     if (user && user.settings) {
       setSettings(user.settings);
+      console.log('user SETTINGS arrived:', user.settings)
     }
-  }, [user]);
+  }, [user, user?.settings]);
 
   // observer for scrolling
   useEffect(() => {
@@ -104,6 +105,7 @@ const Forms = () => {
   }, []);
 
   useEffect(() => {
+   
     const handleScroll = () => {
       const totalScroll = document.documentElement.scrollHeight - window.innerHeight
       const currentScroll = window.scrollY
@@ -147,7 +149,6 @@ const Forms = () => {
   }
 
   const TabSwitch = (tab) => {
-    console.log('this tab was clicker', tab)
     setActiveTab(tab)
     
     const tabToPercent = {
@@ -157,7 +158,7 @@ const Forms = () => {
       nodo: 100,
     }
     setProgress(tabToPercent[tab])
-    console.log("progress baby", progress)
+
   }
 
 
@@ -282,6 +283,11 @@ const Forms = () => {
     jump("/dashboard", { state: { activeTab: tab } });
   }
 
+
+  if (!user.settings) {
+    return <div>loading</div>
+  }
+
   return (
     <div className="Forms">
     { !isDesktoporLaptop ? (
@@ -328,7 +334,7 @@ const Forms = () => {
           modal={deleteModal}
           setModal={setDeleteModal} 
           btn1Fun={() => setDeleteModal(false)}
-          btn2Fun={console.log("deleting")}
+          // btn2Fun={console.log("deleting")}
           SVGComponent={SettingsBinSVG}
         />
         <Modal 
@@ -336,7 +342,7 @@ const Forms = () => {
           modal={resetModal}
           setModal={setResetModal} 
           btn1Fun={() => setResetModal(false)}
-          btn2Fun={console.log('resetting')}
+          // btn2Fun={console.log('resetting')}
           SVGComponent={SettingsResetSVG}
         />
         <DashboardSidebarDesktop 

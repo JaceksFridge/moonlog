@@ -18,7 +18,7 @@ export function UserProvider({ children }) {
 
             if (response.ok) {
                 const userData = await response.json()
-                setUser(userData)
+                setUser((currentUser) => ({ ...currentUser, settings: userData.settings }));
             } else {
                 console.log("error fetching user data")
             }
@@ -35,21 +35,28 @@ export function UserProvider({ children }) {
         const userId = localStorage.getItem('userId')
     
         if (token && username && userId) {
-          setUser({ token, username, userId });
-          fetchUserData(userId)
-          console.log('userData', user)
+            setUser({ token, username, userId });
+            fetchUserData(userId)
+          
+        } else {
+            setUser(null)
         }
+        setLoadingUser(false)
     }, []);
+
+
 
     const logout = (navigateFunction) => {
         localStorage.clear()
-        console.log("Logging OUT")
         setUser(null)
         navigateFunction('/logreg')
     };
+    if (loadingUser) {
+        return <div>Loading...</div>;
+    }
 
     return (
-        <UserContext.Provider value={{ user, setUser, logout, loadingUser }}>
+        <UserContext.Provider value={{ user, setUser, logout, loadingUser, fetchUserData }}>
             {children}
         </UserContext.Provider>
     )

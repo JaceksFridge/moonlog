@@ -12,7 +12,7 @@ const Register = ({ setLogReg, logIn, setLogIn, toggleSwitch }) => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [errorMessage, setErrorMessage] = useState('')
-  const { setUser } = useContext(UserContext)
+  const { setUser, fetchUserData } = useContext(UserContext)
   const jump = useNavigate()
 
   // Dummy Settings
@@ -68,14 +68,17 @@ const Register = ({ setLogReg, logIn, setLogIn, toggleSwitch }) => {
         body: JSON.stringify({ username, password, settings })
       })
 
+      
       const user = await response.json()
       if (response.ok) {
-       
-        setUser({token: user.token, username: user.username})
+        
+        setUser({token: user.token, username: user.username, userId: user.userId})
 
         localStorage.setItem('username', user.username)
         localStorage.setItem('userId', user.userId)
         localStorage.setItem('token', user.token)
+
+        await fetchUserData(user.userId);
 
         jump('/intro1')
         setLogReg(false)

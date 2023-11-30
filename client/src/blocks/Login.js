@@ -16,7 +16,7 @@ const Login = ({ setLogReg, logIn, setLogIn, toggleSwitch }) => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [errorMessage, setErrorMessage] = useState('')
-  const { setUser } = useContext(UserContext)
+  const { setUser, fetchUserData } = useContext(UserContext)
   const jump = useNavigate()
 
 
@@ -37,14 +37,14 @@ const Login = ({ setLogReg, logIn, setLogIn, toggleSwitch }) => {
 
       const user = await response.json()
       if (response.ok) {
-        console.log("user", user)
-        setUser({token: user.token, username: user.username})
+   
+        setUser({token: user.token, username: user.username, userId: user.userId})
         
-        // Save the token in localStorage
         localStorage.setItem('username', user.username)
         localStorage.setItem('userId', user.userId)
         localStorage.setItem('token', user.token)
         
+        await fetchUserData(user.userId);
         setLogReg(false)
 
 
@@ -62,11 +62,11 @@ const Login = ({ setLogReg, logIn, setLogIn, toggleSwitch }) => {
     const token = urlParams.get('token')
 
     if (token) {
-      // Save the token in local storage
+   
       localStorage.setItem('token', token);
-      // Set the user in context
+
       setUser({token: token});
-      // Clear the URL query string
+
       window.history.replaceState(null, null, window.location.pathname);
       setLogReg(false)
     }

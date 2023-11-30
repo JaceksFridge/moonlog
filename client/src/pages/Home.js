@@ -40,12 +40,12 @@ const Home = () => {
   const [ checkingUser, setCheckingUser ] = useState(true)
 
 
-  console.log("LogRegDesktop::: ",typeof setLogReg)
+  // console.log("LogRegDesktop::: ",typeof setLogReg)
 
 
   // Scroll to top on page load
   useEffect(() => {
-    console.log("LogReg Changin")
+    // console.log("LogReg Changin")
     if (!logReg) {
       window.scrollTo(0,0)
     }
@@ -115,7 +115,7 @@ const Home = () => {
       })
       // console.log("Deleted DB entry")
     } catch (error) {
-      console.log("Error deleting entry:", error)
+      // console.log("Error deleting entry:", error)
     }
 
     localStorage.removeItem('lastSubmission' + user.username)
@@ -192,7 +192,7 @@ const Home = () => {
         modal={deleteModal}
         setModal={setDeleteModal} 
         btn1Fun={() => setDeleteModal(false)}
-        btn2Fun={console.log("deleting")}
+        // btn2Fun={console.log("deleting")}
         SVGComponent={SettingsBinSVG}
       />
       <Modal 
@@ -200,7 +200,7 @@ const Home = () => {
         modal={resetModal}
         setModal={setResetModal} 
         btn1Fun={() => setResetModal(false)}
-        btn2Fun={console.log('resetting')}
+        // btn2Fun={console.log('resetting')}
         SVGComponent={SettingsResetSVG}
       />
       <Modal 
