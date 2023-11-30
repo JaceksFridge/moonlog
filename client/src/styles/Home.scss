@@ -6,8 +6,11 @@
     background: black;
 
     .home-container{
+        // testing
+        position: fixed;
+        //
         border: 0px solid white;
-        position: relative;
+        // position: relative;
 
         height: 60vh;
         width: 100vw;
@@ -98,10 +101,17 @@
         background: black;
         width: 100%;
         height: auto;
-        padding: 1.5rem;
-        padding-bottom: 3rem;
+        // testing
+        padding: 60vh 1.5rem;
+        // padding-bottom: 3rem;
 
-
+        .mini-cards{
+            position: relative;
+            z-index: 11;
+            margin-top: 2rem;
+            display: flex;
+            gap: 1.5rem;
+        }
         .home-card{
             position: relative;
             z-index: 10;
