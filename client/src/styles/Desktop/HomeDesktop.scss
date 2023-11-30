@@ -9,16 +9,27 @@
       position: fixed;
       z-index: 20;
       top: 0;
-      height: 7rem;
+      height: 8rem;
       width: 100%;
-      background: rgba(3, 3, 3, 0.8);
-      display: grid;
-      place-items: center;
+      padding: 0 10%;
+    //   background: rgba(3, 3, 3, 0.8);
+      background: linear-gradient(180deg, rgba(3, 3, 3, 0.8) 0.52%, rgba(3, 3, 3, 0.8) 43.23%, rgba(3, 3, 3, 0) 100%);
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
   
       .logo-block {
         color: white;
         font-family: reckless-4;
         font-size: 2rem;
+      }
+      .logo-block2{
+        .random-icon svg{
+            width: 1.5rem;
+            height: 1.5rem;
+            cursor: pointer;
+            opacity: 0.5;
+        }
       }
     }
     
@@ -107,6 +118,12 @@
                                 color: $white;
                                 font-family: reckless-middle;
                                 font-size: 1.5rem;
+                                display: flex;
+                                div{
+                                    color: $white;
+                                    font-family: reckless-middle;
+                                    font-size: 1.5rem;
+                                }   
                             }
                         }
                     }
