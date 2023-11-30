@@ -32,7 +32,6 @@ const GoalSettings = () => {
     useEffect(() => {
         if (!userLoading && user) {
             setSettings(user.settings)
-            console.log("seeettings:", settings)
         }
     }, [user, userLoading]);
 

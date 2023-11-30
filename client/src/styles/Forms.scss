@@ -1,5 +1,17 @@
 
+.scroll-progress{
+    height: 3px;
+    width: 100%;
+    background: $white-20;
 
+    .progress-bar {
+        height: 100%;
+        background-color: $white-20;
+        width: 0%;
+        // transition: width 0.3s ease-in-out, background-color 0.5s ease-in-out;
+        transition: width 0.5s cubic-bezier(0.19, 1, 0.22, 1), background-color 0.5s ease-in-out;
+    }
+}
 
 .healthForm, .wealthForm, .nodoForm, .happinessForm{
 

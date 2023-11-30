@@ -23,6 +23,8 @@ import HealthForm from '../blocks/HealthForm'
 import WealthForm from '../blocks/WealthForm'
 import HappinessForm from '../blocks/HappinessForm'
 import NodoForm from '../blocks/NodoForm'
+import TopNav from '../blocks/TopNav';
+
 
 const Forms = () => {
 
@@ -34,6 +36,8 @@ const Forms = () => {
   const wealthRef = useRef(null);
   const happinessRef = useRef(null);
   const nodoRef = useRef(null);
+
+  const [ progress, setProgress ] = useState(0)
 
   // sidebar
   const [isCollapsed, setIsCollapsed] = useState(true);
@@ -55,7 +59,6 @@ const Forms = () => {
   useEffect(() => {
     if (user && user.settings) {
       setSettings(user.settings);
-      console.log("logging user",user)
     }
   }, [user]);
 
@@ -100,7 +103,35 @@ const Forms = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const totalScroll = document.documentElement.scrollHeight - window.innerHeight
+      const currentScroll = window.scrollY
+      const progress = (currentScroll / totalScroll) * 100
+      setProgress(progress)
+    };
+  
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+  const gradient = (progress) => {
+    let color;
+
+    if (progress <= 10) color = 'hsla(0, 0%, 100%, 0.2)';
+    else if (progress <= 20) color = 'hsla(0, 0%, 100%, 0.26)';
+    else if (progress <= 30) color = 'hsla(0, 0%, 100%, 0.34)';
+    else if (progress <= 40) color = 'hsla(0, 0%, 100%, 0.40)';
+    else if (progress <= 50) color = 'hsla(0, 0%, 100%, 0.46)';
+    else if (progress <= 60) color = 'hsla(0, 0%, 100%, 0.54)';
+    else if (progress <= 70) color = 'hsla(0, 0%, 100%, 0.60)';
+    else if (progress <= 80) color = 'hsla(0, 0%, 100%, 0.66)';
+    else if (progress <= 90) color = 'hsla(0, 0%, 100%, 0.74)';
+    else color = 'hsla(0, 0%, 100%, 0.8)';
+    return color;
+  }
+
   const TabClick = (tab) => {
+    
     const tabToRef = {
       health: healthRef,
       wealth: wealthRef,
@@ -110,10 +141,23 @@ const Forms = () => {
 
     const ref = tabToRef[tab]
     if (ref && ref.current) {
-      console.log(ref)
       ref.current.scrollIntoView({ behavior: 'smooth'})
     }
     setActivedTab(tab)
+  }
+
+  const TabSwitch = (tab) => {
+    console.log('this tab was clicker', tab)
+    setActiveTab(tab)
+    
+    const tabToPercent = {
+      health: 25,
+      wealth: 50,
+      happiness: 75,
+      nodo: 100,
+    }
+    setProgress(tabToPercent[tab])
+    console.log("progress baby", progress)
   }
 
 
@@ -202,7 +246,7 @@ const Forms = () => {
       const per = ((totalsum/currSum) - 1) * 100
       theData.change = Number(per.toFixed(2))
     } else {
-      console.log("currSum is not a number or it's zero. Can't calculate change.")
+      // console.log("currSum is not a number or it's zero. Can't calculate change.")
       theData.change = 100
     }
     
@@ -211,7 +255,7 @@ const Forms = () => {
     try {
       const response = await axios.post(`${server}/api/my-endpoint`, theData)
       setData(response.data)
-      console.log("Data Submitted:", theData)
+      // console.log("Data Submitted:", theData)
 
       jump("/scores")
 
@@ -220,11 +264,11 @@ const Forms = () => {
       'wealthSlider', 'wealthCheckers', 'wealthCounters','happinessCheckers', 
       'happinessCounters', 'nodoCheckers', 'nodoCounters', 'nodoSlider']
 
-      console.log("localStorage before clear:", localStorage);
+      // console.log("localStorage before clear:", localStorage);
       toTrash.forEach((item) => {
         localStorage.removeItem(item)
       })
-      console.log("localstorage after clear", localStorage)
+      // console.log("localstorage after clear", localStorage)
 
       localStorage.setItem("lastSubmission" + user.username, currentDate)
       localStorage.setItem("prevSubmission", JSON.stringify(theData))
@@ -243,15 +287,20 @@ const Forms = () => {
     { !isDesktoporLaptop ? (
       <>
         <Header />
+        <TopNav activeTab={activeTab} TabClick={TabSwitch}/>
         { loadingUser ? (
           <div>Loading...</div>
         ) : (
           <>
-            {currentIndex !== 3 ? (
-              <TopNav1 activeTab={activeTab} setActiveTab={setActiveTab} />
-            ) : (
-              <TopNav2 submit={dataToServer} setActiveTab={setActiveTab} />
-            )}
+            <div className="scroll-progress">
+              <div 
+                  className="progress-bar" 
+                  style={{ 
+                      width: `${progress}%`,
+                      background: gradient(progress)
+                  }}
+              ></div>
+            </div>
             {forms[activeTab]}
             <Footer currentIndex={currentIndex} toBack={handleBack} toNext={handleNext} submit={dataToServer}/>
           </>
