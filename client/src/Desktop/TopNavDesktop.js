@@ -43,7 +43,7 @@ const TopNavDesktop = ({ activeTab, TabClick }) => {
           </div>
           <div className="name">nodo</div>
         </div>
-        <div className="progress-line"></div>
+        {/* <div className="progress-line"></div> */}
       </div>
     </div>
   )

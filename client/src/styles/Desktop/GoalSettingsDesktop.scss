@@ -1,8 +1,40 @@
 
 @media (min-width: 1224px) {
     .goalsettings{
+        .top-top{
+            position: fixed;
+            z-index: 101;
+            background: black;
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        .top-top.collapsed {
+            .health{
+                margin-left: 5%;
+            }
+            .nodo{
+                margin-right: 5rem;
+            }
+        }
+        
+        .top-top.expanded {
+            .health{
+                margin-left: 5%;
+            }
+            .nodo{
+                margin-right: 16rem;
+            }
+        }
+
+        .topnav-placeholder{
+            width: 100%;
+            height: 5rem;
+            border: 0px solid sandybrown;
+        }
         .section{
             padding: 7.5% 12.5% 7.5% 12.5%;
+            height: auto;
 
             .section-top{
                 gap: 0.75rem;
@@ -13,6 +45,230 @@
         }
         .save-container{
             padding: 1.5rem 12.5% 5% 12.5%;
+        }
+    }
+}
+
+
+@media (min-width: 1224px) {
+
+    .goalsettings .section .section-container{
+
+        .accordion-content .accordion-inner-content{
+            border: 0px solid peru;
+            height: 100%;
+            display: flex;
+            // gap: 4rem;
+            padding-left: 4rem;
+            padding-right: 4rem;
+    
+            .left-side{
+                width: 35%;
+                padding: 1.5rem;
+                padding-bottom: 2.5rem;
+                border: 0px solid green;
+    
+                .content-title{
+                    font-size: 1.5rem;
+                }
+    
+                .content-text{
+                    font-size: 0.875rem;
+                    line-height: 1.5rem;
+                }
+                .settings-form{
+                    position: relative;
+                    grid-template-columns: 1fr;
+                    grid-template-rows: auto;
+                    bottom: 0;
+                    right: 0;
+                    left: 0;
+                    gap: 2.5rem;
+    
+                    .name-container, 
+                    .value-container,
+                    .unit-container,
+                    .weight-container,
+                    .range-container{
+                        label{
+                            font-size: 0.875rem;
+                        }
+                        input{
+                            height: 2.5rem;
+                        }
+                    }
+    
+                    .add-btn.satoshi-btn{
+                        margin-top: 1rem;
+                        height: 2.5rem;
+                        width: 30%;
+                    }
+    
+                    .error-message{
+                        bottom: -2.5rem;
+                    }
+                }
+            }
+            .right-side{
+                width: 65%;
+                padding: 1.5rem 4rem;
+                padding-bottom: 2.5rem;
+                border: 0px solid orange;
+    
+                .value-box{
+                    height: 100%;
+                    .topbar div{
+                        font-size: 1rem;
+                    }
+                    .activity{
+                        p{
+                            padding: 0.75rem 1.25rem;
+                        }
+                        .bin{
+                            right: 1.5rem;
+                        }
+                    }
+                }
+            }
+        }
+        .accordion-content.slider-accordion .accordion-inner-content{
+            border: 0px solid peru;
+            height: 100%;
+            display: flex;
+            // gap: 4rem;
+            padding-left: 4rem;
+            padding-right: 4rem;
+    
+            .left-side{
+                width: 35%;
+                padding: 1.5rem;
+                padding-bottom: 2.5rem;
+                border: 0px solid green;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+    
+                .content-title{
+                    font-size: 1.5rem;
+                }
+    
+                .content-text{
+                    font-size: 0.875rem;
+                    line-height: 1.5rem;
+                    padding-right: 1rem;
+                }
+                .settings-form{
+                    position: relative;
+                    margin-top: auto;
+                    grid-template-columns: 1fr;
+                    grid-template-rows: auto;
+                    bottom: 0;
+                    right: 0;
+                    left: 0;
+                    gap: 3rem;
+    
+                    .name-container, 
+                    .value-container,
+                    .unit-container,
+                    .weight-container,
+                    .range-container{
+                        label{
+                            font-size: 0.875rem;
+                        }
+                        input{
+                            height: 2.5rem;
+                        }
+                    }
+    
+                    .add-btn.satoshi-btn{
+                        margin-top: 1rem;
+                        height: 2.5rem;
+                        width: 30%;
+                    }
+    
+                    .error-message{
+                        bottom: -2.5rem;
+                    }
+                }
+            }
+            .right-side{
+                width: 65%;
+                padding: 1.5rem 4rem;
+                padding-bottom: 2.5rem;
+                border: 0px solid orange;
+    
+                .value-box{
+                    height: auto;
+                    .topbar div{
+                        font-size: 1rem;
+                    }
+                    .display-content{
+                        .top-content{
+                            .unit-value{
+                                gap: 1rem;
+                                h1{
+                                    font-size: 5.5rem;
+                                }
+                                p{
+                                    font-size: 0.875rem;
+                                }
+                            }
+                            .border-line{
+                                margin-top: 1rem;
+                                margin-left: auto;
+                                margin-right: auto;
+                                margin-bottom: 2.5rem;
+                                height: 0;
+                            }
+                        }
+                        .bottom-content{
+                            border: 0px solid red;
+                            width: 100%;
+                            display: flex;
+                            align-items: center;
+                            gap: 1.5rem;
+                            div{
+                                width: 3.5rem;
+                                height: 2.5rem;
+                            }
+
+                            .slider-container{
+                                margin-top: auto;
+                                margin-bottom: auto;
+                                width: 100%;
+                                display: flex;
+                                align-items: center;
+                            }
+                        }
+                    }
+                }
+                .settings-form-right{
+                    position: relative;
+                    margin-top: 3rem;
+                    bottom: 0; right: 0; left: 0;
+                    border: 0px solid peru;
+                    width: 100%;
+                    display: flex;
+                    gap: 2.5rem;
+
+                    div{
+                        flex: 1;
+                    }
+                    .name-container, 
+                    .value-container,
+                    .unit-container,
+                    .weight-container,
+                    .range-container{
+                        label{
+                            font-size: 0.875rem;
+                        }
+                        input{
+                            height: 2.5rem;
+                        }
+                    }
+                }
+            }
         }
     }
 }

@@ -41,6 +41,8 @@ const AccordionCheckers = ({ settings, category, accordionKey ,isActive, toggleA
             }
             setActivities(updatedActivities)
             addActivity(updatedActivities)
+            setActivityName('')
+            setActivityValue('')
         }
     }
 
@@ -185,6 +187,7 @@ const AccordionCheckers = ({ settings, category, accordionKey ,isActive, toggleA
                                 <input 
                                     type="text" 
                                     placeholder="some activity"
+                                    value={activityName}
                                     onChange={handleName}
                                 />
                             </div>
@@ -193,6 +196,7 @@ const AccordionCheckers = ({ settings, category, accordionKey ,isActive, toggleA
                                 <input 
                                     type="text" 
                                     placeholder="250"
+                                    value={activityValue}
                                     onChange={handleValue}
                                 />
                             </div>
@@ -228,6 +232,7 @@ const AccordionCheckers = ({ settings, category, accordionKey ,isActive, toggleA
                                 <input 
                                     type="text" 
                                     placeholder="some activity"
+                                    value={activityName}
                                     onChange={handleName}
                                 />
                             </div>
@@ -236,6 +241,7 @@ const AccordionCheckers = ({ settings, category, accordionKey ,isActive, toggleA
                                 <input 
                                     type="text" 
                                     placeholder="250"
+                                    value={activityValue}
                                     onChange={handleValue}
                                 />
                             </div>

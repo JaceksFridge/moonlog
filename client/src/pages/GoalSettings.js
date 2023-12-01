@@ -2,6 +2,8 @@
 import Header from "../blocks/Header"
 import TopNav from "../blocks/TopNav"
 import { useState, useEffect, useRef, useContext, useMemo } from "react"
+import { motion } from 'framer-motion'
+import { useNavigate } from 'react-router-dom'
 import AccordionCheckers from "../blocks/AccordionCheckers"
 import AccordionCounters from "../blocks/AccordionCounters"
 import AccordionSlider from "../blocks/AccordionSlider"
@@ -11,6 +13,7 @@ import { SettingsAccordionCheckersSVG, SettingsAccordionCountersSVG, SettingsAcc
 import { useMediaQuery } from 'react-responsive'
 import TopNavDesktop from "../Desktop/TopNavDesktop"
 import SettingsSection from "../blocks/SettingSection"
+import DashboardSidebarDesktop from "../Desktop/Dashboard/DashboardSidebarDesktop"
 
 
 const GoalSettings = () => {
@@ -19,14 +22,17 @@ const GoalSettings = () => {
     const { user, userLoading } = useContext(UserContext);
     const [ settings, setSettings ] = useState({})
     const [ activeTab, setActiveTab ] = useState('health');
+    const [ message, setMessage ] = useState('')
     const healthRef = useRef(null);
     const wealthRef = useRef(null);
     const happinessRef = useRef(null);
     const nodoRef = useRef(null);
 
+    const [ isCollapsed, setIsCollapsed ] = useState(true)
     const [ progress, setProgress ] = useState(0)
 
 
+    const jump = useNavigate()
     const isDesktopOrLaptop = useMediaQuery({ minWidth: "1224px" });
 
     useEffect(() => {
@@ -259,37 +265,71 @@ const GoalSettings = () => {
             const data = await response.json();
             console.log("settings sent:", settings)
             console.log("Data received:", data);
+            setMessage('data saved successfully!')
+            if (!isDesktopOrLaptop) {
+                jump('/')
+            }
         } catch (error) {
             console.log("Fetch error:", error);
+            setMessage('couldn\'t save the data')
         }
     };
 
 
+    // sidebar stuff
+    const handleTabChange = (tab) => {
+        jump("/dashboard", { state: { activeTab: tab } });
+      }
+
+
   return (
     <div className="goalsettings">
-        <div className="top-top">
-            { !isDesktopOrLaptop ? (
-                <>
-                    <Header />
-                    <TopNav activeTab={activeTab} TabClick={TabClick} />
-                </>
-            ) : (
-                <TopNavDesktop activeTab={activeTab} TabClick={TabClick} />
-            )}
-            <div className="scroll-progress">
-                <div 
-                    className="progress-bar" 
-                    style={{ 
-                        width: `${progress}%`,
-                        background: gradient(progress)
-                    }}
-                ></div>
-            </div>
-        </div>
+        { isDesktopOrLaptop && (
+            <>
+            <DashboardSidebarDesktop 
+                activePageProp='goalsettings' 
+                handleTabChange={handleTabChange}
+                isCollapsed={isCollapsed}
+                setIsCollapsed={setIsCollapsed}
+            />
+            <motion.div             
+            className={`placeholder-sidebar ${isCollapsed ? 'collapsed' : 'expanded'}`}
+            animate={{ width: isCollapsed ? '5rem' : '18rem' }}
+            ></motion.div>  
+            </>
+        )}
         { !settings ? (
             <div className="loading">loading...</div>
         ) : (
             <div className="main">
+                { !isDesktopOrLaptop ? (
+                    <div className="top-top">
+                        <Header />
+                        <TopNav activeTab={activeTab} TabClick={TabClick} />
+                        <div className="scroll-progress">
+                            <div 
+                                className="progress-bar" 
+                                style={{ 
+                                    width: `${progress}%`,
+                                    background: gradient(progress)
+                                }}
+                            ></div>
+                        </div>
+                    </div>
+                ) : (
+                    <div className={`top-top ${isCollapsed ? 'collapsed' : 'expanded'}`}>
+                        <TopNavDesktop activeTab={activeTab} TabClick={TabClick} />
+                        <div className="scroll-progress">
+                            <div 
+                                className="progress-bar" 
+                                style={{ 
+                                    width: `${progress}%`,
+                                    background: gradient(progress)
+                                }}
+                            ></div>
+                        </div>
+                    </div>
+                )}
                 <div className="invisible-top"></div>
                     <div ref={healthRef} className="section" id="health-section" >
                         <div className="section-top">
@@ -458,6 +498,7 @@ const GoalSettings = () => {
                         >
                             Save
                         </div>
+                        <p className="message">{ message ? message : ''}</p>
                     </div>
                 
             </div>
