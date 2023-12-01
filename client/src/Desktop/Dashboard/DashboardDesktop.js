@@ -18,7 +18,7 @@ import { repeatModalData, logoutModalData, resetModalData, deleteModalData } fro
 import { RepeatSVG, LogoutSVG, SettingsSVG, SettingsInfoSVG, SettingsResetSVG, SettingsBinSVG } from '../../blocks/svg'
 
 
-const DashboardDesktop = ({ data }) => {
+const DashboardDesktop = ({ data, message }) => {
 
   const location = useLocation();
   const [activeTab, setActiveTab] = useState('main')
@@ -109,7 +109,7 @@ const DashboardDesktop = ({ data }) => {
         animate={{ width: isCollapsed ? '5rem' : '18rem' }}
       ></motion.div>  
       <div className="dashboard-main">
-        { data && activeTab === 'main' &&  <MainView data={data} /> } 
+        { data && activeTab === 'main' &&  <MainView data={data} message={message}/> } 
         { data && activeTab === 'health' &&  <ChartHealth data={data} /> }
         { data && activeTab === 'wealth' &&  <ChartWealth data={data} /> }
         { data && activeTab === 'happiness' &&  <ChartHappiness data={data} /> }

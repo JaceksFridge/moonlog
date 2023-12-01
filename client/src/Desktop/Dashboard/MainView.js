@@ -10,7 +10,7 @@ import { Carousel } from 'react-responsive-carousel';
 
 
 
-const MainView = ({ data }) => {
+const MainView = ({ data, message }) => {
 
   const [activeDay, setActiveDay] = useState(null)
   const [overAvg, setOverAvg] = useState(null)
@@ -67,6 +67,7 @@ const MainView = ({ data }) => {
         <div className="top-row">
           <div className="title-box">
             <h2 className="title">Main Overview</h2>
+            <p className="message">{message ? message : ''}</p>
           </div>
           <div className="info-box">
             <Carousel autoPlay infiniteLoop emulateTouch swipeable>

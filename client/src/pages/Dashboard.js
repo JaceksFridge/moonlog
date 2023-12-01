@@ -18,6 +18,7 @@ const Dashboard = () => {
     const [mainChartData, setMainChartData] = useState([])
     const [scoresModal, setScoresModal] = useState(false)
     const [selectedDay, setSelectedDay] = useState(null)
+    const [message, setMessage] = useState('')
 
     // metrics
     const [totalLogs, setTotalLogs] = useState(0)
@@ -25,6 +26,37 @@ const Dashboard = () => {
     const [avgPoints, setAvgPoints] = useState(0)
     const [newATHs, setNewATHs] = useState(0)
     const [logsPerWeek, setLogsPerWeek] = useState(0)
+
+
+    const generateDummyData = () => {
+        const dummyData = [];
+        const today = new Date();
+    
+        for (let i = 0; i < 90; i++) {
+            // Set each date to be one day before the last
+            const date = new Date(today.getFullYear(), today.getMonth(), today.getDate() - i);
+    
+            // Generate random values for each metric
+            const health = Math.floor(Math.random() * 25);
+            const wealth = Math.floor(Math.random() * 25);
+            const happiness = Math.floor(Math.random() * 25);
+            const nodo = Math.floor(Math.random() * 10);
+    
+            // Calculate sum
+            const sum = health + wealth + happiness - nodo;
+    
+            dummyData.push({
+                date: date.toISOString().split('T')[0], // Format date as 'YYYY-MM-DD'
+                sum,
+                health,
+                wealth,
+                happiness,
+                nodo,
+            });
+        }
+        return dummyData.reverse(); // Reverse to have the most recent date first
+    }
+    
  
 
     useEffect(() => {
@@ -36,7 +68,17 @@ const Dashboard = () => {
 
                 const response = await fetch(`${server}/user/scores/${userId}`)
                 const data = await response.json()
-                setData(data)
+
+                if (!data || data.length === 0) {
+                    const dummyData = generateDummyData();
+                    console.log("dummyData:::", dummyData)
+                    setData(dummyData);
+                    setMessage('showing dummy data')
+                } else {
+                    setData(data)
+                    setMessage(`showing real data from the last ${data.length} days`);
+                }
+                // setData(data)
                 console.log("Data fetched:", data)
             } catch (error) {
                 console.log('Error: ', error)
@@ -165,7 +207,7 @@ const Dashboard = () => {
     return (
         <>
         { isDesktoporLaptop  ? (
-                <DashboardDesktop data={data} />
+                <DashboardDesktop data={data} message={message}/>
             ) : (
                 <div className="dashboard">
                     <Header />
@@ -173,6 +215,7 @@ const Dashboard = () => {
                     <div className="main">
                         <div className="chart-container">
                             <h2 className="container-title">Overview</h2>
+                            <p className="message">{message ? message : ''}</p>
                             <div className="topnav">
                                 <div 
                                     className={`nav-item week ${activeTab === 'week' ? 'active' : ''}`}
