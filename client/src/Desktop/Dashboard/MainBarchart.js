@@ -15,6 +15,7 @@ const MainBarchart = ({ data }) => {
         am5.ready(() => {
 
           root = am5.Root.new("main-bar-chart")
+          root._logo.dispose();
           root.setThemes([am5themes_Animated.new(root)])
 
           let chart = root.container.children.push(am5xy.XYChart.new(root, {
@@ -29,12 +30,13 @@ const MainBarchart = ({ data }) => {
           let cursor = chart.set("cursor", am5xy.XYCursor.new(root, {}));
           cursor.lineY.set("visible", false);
 
-          let xRenderer = am5xy.AxisRendererX.new(root, { minGridDistance: 30 });
+          // minGridDistance = distance xAxis Words
+          let xRenderer = am5xy.AxisRendererX.new(root, { minGridDistance: 1000 });
           xRenderer.labels.template.setAll({
-              rotation: -90,
+              rotation: 0,
               centerY: am5.p50,
               centerX: am5.p100,
-              paddingRight: 15
+              paddingTop: 10
           })
 
           xRenderer.grid.template.setAll({
@@ -47,6 +49,7 @@ const MainBarchart = ({ data }) => {
               renderer: xRenderer,
               tooltip: am5.Tooltip.new(root, {})
           }));
+  
             
           let yAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
               maxDeviation: 0.3,
@@ -74,14 +77,16 @@ const MainBarchart = ({ data }) => {
               yAxis: yAxis,
               valueXField: "day",
               valueYField: "value",
-              fill: am5.color(0xFFFFFF),
+              fill: am5.color(0xFF0000),
               sequencedInterpolation: true,
               categoryXField: "day",
               tooltip: am5.Tooltip.new(root, {
-                labelText: "{valueY}"
+                labelText: "{valueY}",
               })
           }))
+
             
+          // column styles
           series.columns.template.setAll({ 
             cornerRadiusTL: 3, 
             cornerRadiusTR: 3, 

@@ -1,21 +1,23 @@
 
 
+
 import React, { useEffect } from 'react'
 import PageTop from './PageTop'
 import { HealthScoreSVG, LastIncreaseSVG, BrokenRecordSVG } from '../../blocks/svg'
 import HappinessLineChart from './HappinessLineChart'
 
-const ChartHappiness = ({ data }) => {
+
+const ChartNodo = ({ data }) => {
 
   
   useEffect(() => {
-    console.log("data is in healthchart", data)
+    console.log("data is in nodochart", data)
   }, [data])
 
   return (
     <div className="health-page">
       <PageTop 
-        pageName='Happiness'
+        pageName='Nodo'
         BoxOneIcon={HealthScoreSVG}
         BoxOneTitle='average health score'
         BoxOneValue={440}
@@ -30,11 +32,11 @@ const ChartHappiness = ({ data }) => {
       />
       <div className="chart-container">
         <div className="chart-box">
-          {data && <HappinessLineChart data={data}/>}
+          {data && <HappinessLineChart data={data} />}
         </div>
       </div>
     </div>
   )
 }
 
-export default ChartHappiness
+export default ChartNodo

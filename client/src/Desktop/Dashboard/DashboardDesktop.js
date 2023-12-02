@@ -8,6 +8,7 @@ import DashboardSidebarDesktop from './DashboardSidebarDesktop';
 import ChartHealth from './ChartHealth'
 import ChartWealth from './ChartWealth'
 import ChartHappiness from './ChartHappiness'
+import ChartNodo from './ChartNodo'
 import MainView from './MainView'
 import SettingsModal from '../../blocks/SettingsModal'
 import Modal from '../../blocks/Modal'
@@ -113,6 +114,7 @@ const DashboardDesktop = ({ data, message }) => {
         { data && activeTab === 'health' &&  <ChartHealth data={data} /> }
         { data && activeTab === 'wealth' &&  <ChartWealth data={data} /> }
         { data && activeTab === 'happiness' &&  <ChartHappiness data={data} /> }
+        { data && activeTab === 'nodo' &&  <ChartNodo data={data} /> }
       </div>
     </div>
   );

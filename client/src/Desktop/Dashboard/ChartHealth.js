@@ -3,7 +3,8 @@
 import React, { useEffect } from 'react'
 import PageTop from './PageTop'
 import { HealthScoreSVG, LastIncreaseSVG, BrokenRecordSVG } from '../../blocks/svg'
-import HealthRecharts from './HealthRecharts'
+// import HealthRecharts from './HealthRecharts'
+import HealthLineChart from './HealthLineChart'
 
 const ChartHealth = ({ data }) => {
 
@@ -30,7 +31,7 @@ const ChartHealth = ({ data }) => {
       />
       <div className="chart-container">
         <div className="chart-box">
-          {data && <HealthRecharts data={data} />}
+          {data && <HealthLineChart data={data} />}
         </div>
       </div>
     </div>
