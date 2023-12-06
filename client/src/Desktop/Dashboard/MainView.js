@@ -89,7 +89,7 @@ const MainView = ({ data, message }) => {
           <div className="side-day">
             <div className="day-info">
               <h3 className="day-date">December, 25th</h3>
-              <p className="day-line">+2.7% AVG.</p>
+              <p className="day-line">{`${overAvg ? overAvg : 0 }% AVG`}</p>
             </div>
             <div className="day-chart">
               <DayHalfDoughnutChart dataDay={activeDay}/>
@@ -153,7 +153,7 @@ const MainView = ({ data, message }) => {
             <div className="day-bottom-info">
               <div className="change-box">
                 <p className="title">change</p>
-                <h3 className="value">{`${activeDay.change ? activeDay.change : 0 }%`}</h3>
+                <h3 className="value">{`${activeDay.change ? parseFloat(activeDay.change).toFixed(2) : 0 }%`}</h3>
               </div>
               <div className="average-box">
                 <p className="title">average</p>

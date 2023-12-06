@@ -65,7 +65,7 @@
 }
 
 
-.health-page, .wealth-page{
+.health-page, .wealth-page, .happiness-page, .nodo-page{
     width: 100%;
     height: 100vh;
     display: flex;
@@ -80,6 +80,7 @@
             border: 1px solid $white-20;
             height: 100%;
             border-radius: 1rem;
+            overflow: hidden;
 
             #wealth-line-chart{
                 width: 100%;

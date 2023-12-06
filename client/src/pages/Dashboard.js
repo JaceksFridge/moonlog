@@ -40,21 +40,23 @@ const Dashboard = () => {
             const health = Math.floor(Math.random() * 25);
             const wealth = Math.floor(Math.random() * 25);
             const happiness = Math.floor(Math.random() * 25);
-            const nodo = Math.floor(Math.random() * 10);
+            const nodo = Math.floor(Math.random() * 10) * -1;
+            const change = Math.random() * 100
     
             // Calculate sum
-            const sum = health + wealth + happiness - nodo;
+            const sum = health + wealth + happiness + nodo;
     
             dummyData.push({
-                date: date.toISOString().split('T')[0], // Format date as 'YYYY-MM-DD'
+                date: date.toISOString().split('T')[0],
                 sum,
+                change,
                 health,
                 wealth,
                 happiness,
                 nodo,
             });
         }
-        return dummyData.reverse(); // Reverse to have the most recent date first
+        return dummyData.reverse();
     }
     
  

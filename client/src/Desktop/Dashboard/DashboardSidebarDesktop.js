@@ -34,7 +34,7 @@ const DashboardSidebarDesktop = ({
 
 
     const navigateToTab = (page, tab = null) => {
-        if (page === 'main' || page === 'health' || page === 'wealth' || page === 'happiness') {
+        if (page === 'main' || page === 'health' || page === 'wealth' || page === 'happiness' || page === 'nodo' || page === 'log-entries') {
             handleTabChange(page);
         } else {
             jump(`/${page}`);
@@ -101,7 +101,7 @@ const DashboardSidebarDesktop = ({
                             </div>
                             <div className={`menu-line ${activePage === 'dashboard' ? 'active' : ''}`}></div>
                             <div className="menu-item">
-                                <div className="item-highlight">
+                                <div className="item-highlight" onClick={ () => navigateToTab('main')}>
                                     <div className="menu-item-icon">
                                         <SidebarProgressSVG />
                                     </div>
@@ -111,7 +111,7 @@ const DashboardSidebarDesktop = ({
                                 </div>
                             </div>
                             <div className="menu-item">
-                                <div className="item-highlight" onClick={ () => navigateToTab('main')}>
+                                <div className="item-highlight" onClick={ () => navigateToTab('log-entries')}>
                                     <div className="menu-item-icon">
                                         <SidebarLogEntriesSVG />
                                     </div>
@@ -151,7 +151,7 @@ const DashboardSidebarDesktop = ({
                                 </div>
                             </div>
                             <div className="menu-item">
-                                <div className="item-highlight">
+                                <div className="item-highlight" onClick={ () => navigateToTab('nodo')}>
                                     <div className="menu-item-icon">
                                         <NodoIconSVG />
                                     </div>

@@ -1,32 +1,62 @@
 
 
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import PageTop from './PageTop'
 import { HealthScoreSVG, LastIncreaseSVG, BrokenRecordSVG } from '../../blocks/svg'
 import HappinessLineChart from './HappinessLineChart'
 
+
 const ChartHappiness = ({ data }) => {
+
+  const [avg, setAvg] = useState(0)
+  const [newHigh, setNewHigh] = useState(0)
+  const [lastIncrease, setLastIncrease] = useState(0)
 
   
   useEffect(() => {
-    console.log("data is in healthchart", data)
+    calcMetrics()
   }, [data])
 
+
+
+  const calcMetrics = () => {
+    let total = 0
+    let entries = 0
+    let newH = 0
+    let newHighs = 0
+
+    data.map((entry) => {
+      total += entry.happiness
+      entries += 1
+      if (entry.happiness > newH) {
+        console.log("new record incoming::: ", entry.happiness)
+        newHighs += 1
+      }
+      newH = Math.max(newH, entry.happiness)
+    })
+
+    setAvg(parseInt(entries > 0 ? parseInt((total / entries), 10) : 0))
+    setLastIncrease(parseFloat((( data[data.length - 1].happiness / data[data.length -2].happiness )  - 1 ) * 100).toFixed(2))
+    setNewHigh(newHighs)
+  }
+
+
+
   return (
-    <div className="health-page">
+    <div className="happiness-page">
       <PageTop 
         pageName='Happiness'
         BoxOneIcon={HealthScoreSVG}
-        BoxOneTitle='average health score'
-        BoxOneValue={440}
+        BoxOneTitle='average happiness score'
+        BoxOneValue={avg ? avg : 0}
 
         BoxTwoIcon={LastIncreaseSVG}
-        BoxTwoTitle='last increase'
-        BoxTwoValue='2.45%'
+        BoxTwoTitle='last change'
+        BoxTwoValue={`${lastIncrease ? lastIncrease : 0}%`}
 
         BoxThreeIcon={BrokenRecordSVG}
         BoxThreeTitle='broken record'
-        BoxThreeValue='7 days'
+        BoxThreeValue={`${newHigh ? newHigh : 0} days`}
       />
       <div className="chart-container">
         <div className="chart-box">

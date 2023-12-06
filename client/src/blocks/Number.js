@@ -8,6 +8,7 @@ const Number = ({ n, onRest }) => {
   
     useEffect(() => {
       setDisplayNumber(n);
+      console.log(`Type of n: ${typeof n}, Value of n:`, n);
     }, [n]);
   
     const animationProps = useSpring({ 

@@ -73,33 +73,6 @@
                     border-radius: 1rem;
                     border: 1px solid $white-20;
                     overflow: hidden;
-
-                    .log-grid{
-                        height: 100%;
-                        width: 100%;
-                   
-    
-                        .ag-theme-alpine-dark {
-                            --ag-background-color: $black;
-                            width: 100%;
-    
-                            .ag-center-cols-container{
-                                width: 100px;
-                            }
-                        }
-                        .ag-header{
-                            background: $black;
-                        }
-                        // .ag-row:nth-child(odd){
-                        //     background: peru;
-                        // }
-                        .super-dark{
-                            background: $black;
-                        }
-                        .soft-dark{
-                            background: $black;
-                        }
-                    }
                 }
             }
             .side-day{
@@ -287,6 +260,34 @@
     #nodo-line-chart{
         height: 100%;
         width: 100%;
+    }
+
+
+    .log-grid{
+        height: 100%;
+        width: 100%;
+        border-radius: 1rem;
+
+        .ag-theme-alpine-dark {
+            --ag-background-color: $black;
+            width: 100%;
+
+            .ag-center-cols-container{
+                width: 100px;
+            }
+        }
+        .ag-header{
+            background: $black;
+        }
+        // .ag-row:nth-child(odd){
+        //     background: peru;
+        // }
+        .super-dark{
+            background: $black;
+        }
+        .soft-dark{
+            background: $black;
+        }
     }
 }
 
