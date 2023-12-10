@@ -34,7 +34,7 @@ const DashboardSidebarDesktop = ({
 
 
     const navigateToTab = (page, tab = null) => {
-        if (page === 'main' || page === 'health' || page === 'wealth' || page === 'happiness' || page === 'nodo' || page === 'log-entries') {
+        if (page === 'main' || page === 'health' || page === 'wealth' || page === 'happiness' || page === 'nodo' || page === 'log-entries' || page === 'progress') {
             handleTabChange(page);
         } else {
             jump(`/${page}`);
@@ -102,6 +102,16 @@ const DashboardSidebarDesktop = ({
                             <div className={`menu-line ${activePage === 'dashboard' ? 'active' : ''}`}></div>
                             <div className="menu-item">
                                 <div className="item-highlight" onClick={ () => navigateToTab('main')}>
+                                    <div className="menu-item-icon">
+                                        <SidebarProgressSVG />
+                                    </div>
+                                    {showText && 
+                                        <p className="menu-item-name">progress</p>
+                                    }
+                                </div>
+                            </div>
+                            <div className="menu-item">
+                                <div className="item-highlight" onClick={ () => navigateToTab('progress')}>
                                     <div className="menu-item-icon">
                                         <SidebarProgressSVG />
                                     </div>

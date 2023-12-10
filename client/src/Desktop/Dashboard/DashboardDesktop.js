@@ -18,6 +18,7 @@ import { ModalContext } from '../../blocks/modalContext';
 import { repeatModalData, logoutModalData, resetModalData, deleteModalData } from '../../blocks/constants'
 import { RepeatSVG, LogoutSVG, SettingsSVG, SettingsInfoSVG, SettingsResetSVG, SettingsBinSVG } from '../../blocks/svg'
 import ChartLogGrid from './ChartLogGrid';
+import ChartProgress from './ChartProgress';
 
 
 const DashboardDesktop = ({ data, message }) => {
@@ -112,6 +113,7 @@ const DashboardDesktop = ({ data, message }) => {
       ></motion.div>  
       <div className="dashboard-main">
         { data && activeTab === 'main' &&  <MainView data={data} message={message}/> } 
+        { data && activeTab === 'progress' &&  <ChartProgress data={data} /> } 
         { data && activeTab === 'log-entries' &&  <ChartLogGrid data={data} /> } 
         { data && activeTab === 'health' &&  <ChartHealth data={data} /> }
         { data && activeTab === 'wealth' &&  <ChartWealth data={data} /> }
