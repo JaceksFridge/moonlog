@@ -31,7 +31,6 @@ const MainView = ({ data, message }) => {
       });
       const averageSum = sum / count;
       const percentIncrease = parseFloat((((activeDay.sum / averageSum) - 1) * 100).toFixed(2))
-      // console.log("percent Increase", percentIncrease)
       setOverAvg(percentIncrease)
     }
   };
@@ -66,7 +65,7 @@ const MainView = ({ data, message }) => {
       <div className="main-center">
         <div className="top-row">
           <div className="title-box">
-            <h2 className="title">Main Overview</h2>
+            <h2 className="title">Overview</h2>
             <p className="message">{message ? message : ''}</p>
           </div>
           <div className="info-box">
