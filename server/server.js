@@ -30,7 +30,9 @@ app.use(passport.session());
 app.use('/user', userRoutes)
 app.use(authRoutes)
 
-
+app.get('/lol', (req, res) => {
+    res.send('Hello, loll!');
+});
 
 connectDB();
 
@@ -50,6 +52,7 @@ app.post('/api/my-endpoint', async (req, res) => {
         res.status(500).json({message: 'Error saving data.'});
     }
 })
+
 
 
 // const moment = require('moment');
