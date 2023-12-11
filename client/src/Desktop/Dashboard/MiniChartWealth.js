@@ -1,18 +1,25 @@
 
 
-import React, { useEffect } from 'react'
+
+
+
+
+
+
+import React, { useState ,useEffect } from 'react'
 import * as am5 from '@amcharts/amcharts5'
 import * as am5xy from "@amcharts/amcharts5/xy"
 import am5themes_Animated from "@amcharts/amcharts5/themes/Animated"
 
-const HealthLineChart = ({ data }) => {
 
+const MiniChartWealth = ({ data }) => {
 
+    const [chartId] = useState(`chart-wealth${Math.random().toString(36).substr(2, 9)}`);
     let root
     useEffect(() => {
         am5.ready(() => {
 
-            root = am5.Root.new("health-line-chart")
+            root = am5.Root.new(`${chartId}`)
             root._logo.dispose();
             root.setThemes([am5themes_Animated.new(root)])
 
@@ -23,24 +30,14 @@ const HealthLineChart = ({ data }) => {
                 wheelX: undefined,
                 wheelY: undefined,
                 pinchZoomX: false,
-
-                // setting zoom to false
               }));
 
 
-            // create cursor
-            let cursor = chart.set("cursor", am5xy.XYCursor.new(root, {
-                behavior: "none"
-            }));
-            cursor.lineY.set("visible", false);
-
-
-
             // use own data instead
-            let preppedData = data.slice(-30).map((item) => {
+            let preppedData = data.slice(-15).map((item) => {
                 return {
                     date: new Date(item.date).getTime(),
-                    value: item.health
+                    value: item.wealth
                 };
             });
             let values = preppedData.map(item => item.value);
@@ -51,15 +48,12 @@ const HealthLineChart = ({ data }) => {
             maxValue = maxValue * 1.05;
 
 
-
-
             // create axis
             let xAxis = chart.xAxes.push(am5xy.DateAxis.new(root, {
                 baseInterval: { timeUnit: "day", count: 1 },
                 renderer: am5xy.AxisRendererX.new(root, {
                     minGridDistance: 80,
                     minorGridEnabled: false,
-                    pan: "zoom",
                   }),
                 tooltip: am5.Tooltip.new(root, {})
             }));
@@ -72,32 +66,9 @@ const HealthLineChart = ({ data }) => {
                 max: maxValue,
             }));
 
-            // xAxis.renderer.grid.template.stroke = "#ff0000";
-            // yAxis.renderer.grid.template.stroke = "#ff0000";
-            
-            xAxis.onPrivate("selectionMin", function(value, target) {
-                let start = new Date(value);
-                console.log("Start date changed:", start);
-            });
-            
-            xAxis.onPrivate("selectionMax", function(value, target) {
-                let end = new Date(value);
-                console.log("End date changed:", end);
-            });
-
-
- 
-            // axis styles
-            const XaxisLabelsTemplate = xAxis.get("renderer").labels.template;
-            XaxisLabelsTemplate.setAll({ fill: am5.color("#FCFCFC"), stroke: am5.color(0xFFFFFF), fillOpacity: 0.5 });
-  
-            const YaxisLabelsTemplate = yAxis.get("renderer").labels.template;
-            YaxisLabelsTemplate.setAll({ fill: am5.color("#F7F7F7"), stroke: am5.color(0xFFFFFF), fillOpacity: 0.5 });
-
-    
 
             let gradient = am5.LinearGradient.new(root, {
-                rotation: 90, // Adjust the rotation for the desired orientation
+                rotation: 90,
                 stops: [
                     { color: am5.color("#E33A4E") },
                     { color: am5.color("#584063") }
@@ -112,14 +83,12 @@ const HealthLineChart = ({ data }) => {
                 yAxis: yAxis,
                 valueYField: "value",
                 valueXField: "date",
-                stroke: am5.color("#8B3E5D"),
+                stroke: am5.color("#CF4A33"),
                 tensionX: 5,
                 tensionY: 5 
             }));
 
             const test = preppedData
-            console.log('test')
-            console.log(test)
             series.data.setAll(test);
             
             let tooltip = am5.Tooltip.new(root, {
@@ -136,11 +105,6 @@ const HealthLineChart = ({ data }) => {
               
             series.set("tooltip", tooltip);
 
-
-            // let scrollbar = chart.set("scrollbarX", am5.Scrollbar.new(root, {
-            //     orientation: "horizontal"
-            // }));
-
             series.appear(1000);
             chart.appear(1000, 100);
         })
@@ -153,13 +117,9 @@ const HealthLineChart = ({ data }) => {
 
 
 
-
-
-
-
   return (
-    <div id="health-line-chart"></div>
+    <div id={chartId} style={{ width: '100%', height: '100%' }}></div>
   )
 }
 
-export default HealthLineChart
+export default MiniChartWealth

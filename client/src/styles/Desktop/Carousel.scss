@@ -1,0 +1,155 @@
+
+
+.info-box{
+    flex: 1;
+    max-width: 100%;
+    #health-line-chart, #minichart-health{
+        height: 100%;
+        width: 100%;
+    }
+}
+.info-box .carousel-root{
+    box-sizing: border-box;
+
+    .carousel{
+        box-sizing: border-box;
+        margin-top: auto;
+        cursor: pointer;
+        .control-dots{
+            border: 0px solid peru;
+            height: auto;
+            top: 0rem; bottom: none;
+            right: 0;
+            width: auto;
+            padding-top: 0.75rem;
+            padding-right: 1.5rem;
+            height: 1rem;
+
+            .dot{
+                margin: 0 3px;
+            }
+        }
+    }
+    .mini-chart{
+        width: 100%;
+    }
+    .minichart{
+        border: 0px solid yellow;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+
+        .top{
+            border: 0px solid yellow;
+            position: absolute;
+            top: 1rem;
+            height: 2rem;
+            width: 100%;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            
+            .icon {
+                .random-icon svg{
+                    width: 0.75rem;
+                    height: 0.75rem;
+                    opacity: 0.5;
+                    // vertical-align: middle;
+                }   
+                margin-right: 0.5rem;
+            }
+
+            p{
+                color: $white-50;
+                font-size: 0.75rem;
+                text-transform: capitalize;
+            }
+        }
+        .top.health{
+            p{
+                // background: $health-text;
+                // -webkit-background-clip: text;
+                // -webkit-text-fill-color: transparent;
+                // background-clip: text;
+                // text-fill-color: transparent;
+            }
+        }
+        .middle{
+            margin-top: 2rem;
+            border: 0px solid orange;
+            height: 100%;
+            width: 100%;
+            display: flex;
+
+            .points{
+                border: 0px solid blue;
+                flex: 1;
+                width: auto;
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+
+
+                h3{
+                    position: absolute;
+                    z-index: 11;
+                    left: 3rem;
+                    font-family: reckless-middle;
+                    font-size: 1.75rem;
+                    // margin-right: -1.25rem;
+                    margin-bottom: 1.25rem;
+                    color: $white-80;
+                    span{
+                        font-family: satoshi;
+                        font-weight: 200;
+                        font-size: 0.7rem;
+                    }
+                }
+            }
+            .chart{
+                flex: 4;
+                border: 0px solid peru;
+                height: 100%;
+                width: 100%;
+                padding: 0 1rem 1rem 0;
+            }
+        }
+        .bottom{
+            position: absolute;
+            bottom: 0;
+            // border: 1px solid $white-50;
+            width: 100%;
+            padding: 0 2rem;
+            height: 2rem;
+            display: flex;
+            justify-content: space-between;
+            .metric-item{
+                // border: 1px solid blue;
+                height: 100%;
+                width: auto;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                p{
+                    color: $white-50;
+                    font-size: 0.7rem;
+                }
+                .icon {
+                    opacity: 0.5;
+                    margin-right: 0.2rem;
+                    .random-icon svg{
+                        border: 0px solid peru;
+                        height: 0.75rem;
+                        width: 0.75rem;
+                    }
+                }
+            }
+        }
+    }
+
+    .carousel-status{
+        display: none;
+    }
+}

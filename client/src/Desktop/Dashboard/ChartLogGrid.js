@@ -49,6 +49,8 @@ const ChartLogGrid = ({ data }) => {
         BoxThreeIcon={HappinessIconSVG}
         BoxThreeTitle='avg happiness score'
         BoxThreeValue={avgHappiness ? avgHappiness : 0}
+
+        subtitle='Every Log-Entry'
       />
       <div className="chart-container">
         <div className="chart-box">

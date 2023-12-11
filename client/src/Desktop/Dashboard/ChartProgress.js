@@ -33,7 +33,11 @@ const ChartProgress = ({ data }) => {
 
     })
     setAvg(parseInt(entries > 0 ? parseInt((total / entries), 10) : 0))
-    setLastIncrease(parseFloat((( data[data.length - 1].sum / data[data.length -2].sum )  - 1 ) * 100).toFixed(2))
+    if ( !data[data.length -2]) {
+      setLastIncrease(0)
+    } else {
+      setLastIncrease(parseFloat((( data[data.length - 1].sum / data[data.length -2].sum )  - 1 ) * 100).toFixed(2))
+    } 
     setNewHigh(newHighs)
   }
 

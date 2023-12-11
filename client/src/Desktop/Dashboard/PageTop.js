@@ -6,12 +6,13 @@ const PageTop = ({ pageName,
     BoxOneIcon, BoxOneTitle, BoxOneValue,
     BoxTwoIcon, BoxTwoTitle, BoxTwoValue,
     BoxThreeIcon, BoxThreeTitle, BoxThreeValue,
+    subtitle
 }) => {
   return (
     <div className="page-top">
         <div className="title-box">
             <h2 className="title">{pageName}</h2>
-            <p>total sum progress</p>
+            <p>{subtitle ? subtitle : 'total sum progress'}</p>
         </div>
         <div className="info-box one">
             <div className="icon-container">

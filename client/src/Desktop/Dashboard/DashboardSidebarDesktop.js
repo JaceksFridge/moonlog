@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { useNavigate } from "react-router-dom"
 import { HealthIconSVG, WealthIconSVG, HappinessIconSVG, NodoIconSVG,
     SidebarArrowSVG, SidebarLogoSVG, SidebarNewLogSVG, SidebarGoalsettingsSVG,
-    SidebarLogEntriesSVG, SidebarProgressSVG, SettingsIcon, LogoutIcon
+    SidebarLogEntriesSVG, SidebarProgressSVG, SidebarDashboardSVG, SettingsIcon, LogoutIcon
 } from '../../blocks/svg';
 
 const DashboardSidebarDesktop = ({ 
@@ -103,7 +103,7 @@ const DashboardSidebarDesktop = ({
                             <div className="menu-item">
                                 <div className="item-highlight" onClick={ () => navigateToTab('main')}>
                                     <div className="menu-item-icon">
-                                        <SidebarProgressSVG />
+                                        <SidebarDashboardSVG />
                                     </div>
                                     {showText && 
                                         <p className="menu-item-name">progress</p>

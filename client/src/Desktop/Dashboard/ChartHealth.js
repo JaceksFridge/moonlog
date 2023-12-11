@@ -34,7 +34,12 @@ const ChartHealth = ({ data }) => {
 
     })
     setAvg(parseInt(entries > 0 ? parseInt((total / entries), 10) : 0))
-    setLastIncrease(parseFloat((( data[data.length - 1].health / data[data.length -2].health )  - 1 ) * 100).toFixed(2))
+    setAvg(parseInt(entries > 0 ? parseInt((total / entries), 10) : 0))
+    if ( !data[data.length -2]) {
+      setLastIncrease(0)
+    } else {
+        setLastIncrease(parseFloat((( data[data.length - 1].health / data[data.length -2].health )  - 1 ) * 100).toFixed(2))
+    } 
     setNewHigh(newHighs)
   }
 
@@ -53,6 +58,8 @@ const ChartHealth = ({ data }) => {
         BoxThreeIcon={BrokenRecordSVG}
         BoxThreeTitle='broken record'
         BoxThreeValue={`${newHigh ? newHigh : 0} days`}
+
+        subtitle='health score progress'
       />
       <div className="chart-container">
         <div className="chart-box">

@@ -6,14 +6,34 @@
     height: 100vw;
     padding: 1.5rem;
 
-
-
-    .header{
-        border-bottom: 0.5px solid $white-20;
-    }
-
-    .page-top{
-        padding-top: 6rem;
+    .topbar {
+        position: fixed;
+        z-index: 20;
+        top: 0;
+        height: 8rem;
+        width: 100%;
+        padding: 0 0%;
+        background: linear-gradient(180deg, rgba(3, 3, 3, 0.8) 0.52%, rgba(3, 3, 3, 0.8) 43.23%, rgba(3, 3, 3, 0) 100%);
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    
+        .logo-block {
+          color: white;
+          font-family: reckless-4;
+          font-size: 2rem;
+        }
+        .logo-block2{
+          .random-icon svg{
+              width: 1.5rem;
+              height: 1.5rem;
+              cursor: pointer;
+              opacity: 0.5;
+          }
+        }
+      }
+    .about-top{
+        padding-top: 8rem;
 
         h2{
             color: $white-80;

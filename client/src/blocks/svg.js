@@ -199,6 +199,29 @@ export const SidebarProgressSVG = ({ variants }) => {
 }
 
 
+export const SidebarDashboardSVG = ({ variants }) => {
+  return (
+    <div className="random-icon stroke nothick">
+      <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M25.0384 12.5385H17.3461C16.815 12.5385 16.3845 12.9689 16.3845 13.5V25.0385C16.3845 25.5695 16.815 26 17.3461 26H25.0384C25.5694 26 25.9999 25.5695 25.9999 25.0385V13.5C25.9999 12.9689 25.5694 12.5385 25.0384 12.5385Z" stroke="#FFFFFF" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M25.0384 1H17.3461C16.815 1 16.3845 1.4305 16.3845 1.96154V5.82692C16.3845 6.35797 16.815 6.78846 17.3461 6.78846H25.0384C25.5694 6.78846 25.9999 6.35797 25.9999 5.82692V1.96154C25.9999 1.4305 25.5694 1 25.0384 1Z" stroke="#FFFFFF" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M9.65385 1H1.96154C1.4305 1 1 1.4305 1 1.96154V13.5C1 14.031 1.4305 14.4615 1.96154 14.4615H9.65385C10.1849 14.4615 10.6154 14.031 10.6154 13.5V1.96154C10.6154 1.4305 10.1849 1 9.65385 1Z" stroke="#FFFFFF" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M9.65385 20.212H1.96154C1.4305 20.212 1 20.6425 1 21.1735V25.0389C1 25.5699 1.4305 26.0004 1.96154 26.0004H9.65385C10.1849 26.0004 10.6154 25.5699 10.6154 25.0389V21.1735C10.6154 20.6425 10.1849 20.212 9.65385 20.212Z" stroke="#FFFFFF" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    </div>
+  )
+}
+
+
+<svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M25.0384 12.5385H17.3461C16.815 12.5385 16.3845 12.9689 16.3845 13.5V25.0385C16.3845 25.5695 16.815 26 17.3461 26H25.0384C25.5694 26 25.9999 25.5695 25.9999 25.0385V13.5C25.9999 12.9689 25.5694 12.5385 25.0384 12.5385Z" stroke="#F8F8F8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M25.0384 1H17.3461C16.815 1 16.3845 1.4305 16.3845 1.96154V5.82692C16.3845 6.35797 16.815 6.78846 17.3461 6.78846H25.0384C25.5694 6.78846 25.9999 6.35797 25.9999 5.82692V1.96154C25.9999 1.4305 25.5694 1 25.0384 1Z" stroke="#F8F8F8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M9.65385 1H1.96154C1.4305 1 1 1.4305 1 1.96154V13.5C1 14.031 1.4305 14.4615 1.96154 14.4615H9.65385C10.1849 14.4615 10.6154 14.031 10.6154 13.5V1.96154C10.6154 1.4305 10.1849 1 9.65385 1Z" stroke="#F8F8F8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M9.65385 20.212H1.96154C1.4305 20.212 1 20.6425 1 21.1735V25.0389C1 25.5699 1.4305 26.0004 1.96154 26.0004H9.65385C10.1849 26.0004 10.6154 25.5699 10.6154 25.0389V21.1735C10.6154 20.6425 10.1849 20.212 9.65385 20.212Z" stroke="#F8F8F8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+
+
 export const SidebarLogEntriesSVG = ({ variants }) => {
   return (
     <div className="random-icon stroke">
@@ -421,25 +444,25 @@ export const HappinessColorSVG = ({ variants }) => {
     <div className="random-icon stroke">
       <svg width="79" height="79" viewBox="0 0 79 79" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M50.75 54.5C47.5625 56.8625 43.6813 58.25 39.5 58.25C35.3187 58.25 31.4375 56.8625 28.25 54.5" stroke="url(#paint0_linear_963_1278)" stroke-width="4" stroke-linecap="round"/>
-      <path d="M52.5 33.875C52.5 35.0885 52.1685 36.0967 51.7375 36.7431C51.2973 37.4034 50.9088 37.5 50.75 37.5C50.5912 37.5 50.2027 37.4034 49.7625 36.7431C49.3315 36.0967 49 35.0885 49 33.875C49 32.6615 49.3315 31.6533 49.7625 31.0069C50.2027 30.3466 50.5912 30.25 50.75 30.25C50.9088 30.25 51.2973 30.3466 51.7375 31.0069C52.1685 31.6533 52.5 32.6615 52.5 33.875Z" fill="white" stroke="url(#paint1_linear_963_1278)" stroke-width="4"/>
-      <path d="M30 33.875C30 35.0885 29.6685 36.0967 29.2375 36.7431C28.7973 37.4034 28.4088 37.5 28.25 37.5C28.0912 37.5 27.7027 37.4034 27.2625 36.7431C26.8315 36.0967 26.5 35.0885 26.5 33.875C26.5 32.6615 26.8315 31.6533 27.2625 31.0069C27.7027 30.3466 28.0912 30.25 28.25 30.25C28.4088 30.25 28.7973 30.3466 29.2375 31.0069C29.6685 31.6533 30 32.6615 30 33.875Z" fill="white" stroke="url(#paint2_linear_963_1278)" stroke-width="4"/>
-      <path d="M77 39.5C77 57.1775 77 66.0162 71.5062 71.5062C66.02 77 57.1775 77 39.5 77C21.8225 77 12.9838 77 7.49 71.5062C2 66.02 2 57.1775 2 39.5C2 21.8225 2 12.9838 7.49 7.49C12.9875 2 21.8225 2 39.5 2C57.1775 2 66.0162 2 71.5062 7.49C75.1587 11.1425 76.3812 16.2762 76.7937 24.5" stroke="url(#paint3_linear_963_1278)" stroke-width="4" stroke-linecap="round"/>
+      <path d="M52.5 33.875C52.5 35.0885 52.1685 36.0967 51.7375 36.7431C51.2973 37.4034 50.9088 37.5 50.75 37.5C50.5912 37.5 50.2027 37.4034 49.7625 36.7431C49.3315 36.0967 49 35.0885 49 33.875C49 32.6615 49.3315 31.6533 49.7625 31.0069C50.2027 30.3466 50.5912 30.25 50.75 30.25C50.9088 30.25 51.2973 30.3466 51.7375 31.0069C52.1685 31.6533 52.5 32.6615 52.5 33.875Z" fill="white" stroke="url(#paint1_linear_963_1278)" strokeWidth="4"/>
+      <path d="M30 33.875C30 35.0885 29.6685 36.0967 29.2375 36.7431C28.7973 37.4034 28.4088 37.5 28.25 37.5C28.0912 37.5 27.7027 37.4034 27.2625 36.7431C26.8315 36.0967 26.5 35.0885 26.5 33.875C26.5 32.6615 26.8315 31.6533 27.2625 31.0069C27.7027 30.3466 28.0912 30.25 28.25 30.25C28.4088 30.25 28.7973 30.3466 29.2375 31.0069C29.6685 31.6533 30 32.6615 30 33.875Z" fill="white" stroke="url(#paint2_linear_963_1278)" strokeWidth="4"/>
+      <path d="M77 39.5C77 57.1775 77 66.0162 71.5062 71.5062C66.02 77 57.1775 77 39.5 77C21.8225 77 12.9838 77 7.49 71.5062C2 66.02 2 57.1775 2 39.5C2 21.8225 2 12.9838 7.49 7.49C12.9875 2 21.8225 2 39.5 2C57.1775 2 66.0162 2 71.5062 7.49C75.1587 11.1425 76.3812 16.2762 76.7937 24.5" stroke="url(#paint3_linear_963_1278)" strokeWidth="4" strokeLinecap="round"/>
       <defs>
       <linearGradient id="paint0_linear_963_1278" x1="39.5" y1="58.25" x2="39.5" y2="54.5" gradientUnits="userSpaceOnUse">
       <stop stop-color="#F5C372"/>
-      <stop offset="1" stop-color="#E1714E"/>
+      <stop offset="1" stopColor="#E1714E"/>
       </linearGradient>
       <linearGradient id="paint1_linear_963_1278" x1="50.75" y1="28.25" x2="50.75" y2="39.5" gradientUnits="userSpaceOnUse">
       <stop stop-color="#F5C372"/>
-      <stop offset="1" stop-color="#E1714E"/>
+      <stop offset="1" stopColor="#E1714E"/>
       </linearGradient>
       <linearGradient id="paint2_linear_963_1278" x1="28.25" y1="28.25" x2="28.25" y2="39.5" gradientUnits="userSpaceOnUse">
       <stop stop-color="#F5C372"/>
-      <stop offset="1" stop-color="#E1714E"/>
+      <stop offset="1" stopColor="#E1714E"/>
       </linearGradient>
       <linearGradient id="paint3_linear_963_1278" x1="39.5" y1="2" x2="39.5" y2="77" gradientUnits="userSpaceOnUse">
       <stop stop-color="#F5C372"/>
-      <stop offset="1" stop-color="#E1714E"/>
+      <stop offset="1" stopColor="#E1714E"/>
       </linearGradient>
       </defs>
       </svg>
@@ -448,6 +471,38 @@ export const HappinessColorSVG = ({ variants }) => {
 }
 
 
+
+export const MiniChartChange = ({ variants }) => {
+  return (
+    <div className="random-icon stroke">
+      <svg width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4.68359 7.84211H9.94675V1" stroke="white" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M7.84128 5.21053H2.57812V11M11.5255 2.57895L9.94655 1L8.3676 2.57895" stroke="white" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M4.15789 9.4209L2.57895 10.9998L1 9.4209" stroke="white" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    </div>
+  )
+}
+
+export const MiniChartAvg = ({ variants }) => {
+  return (
+    <div className="random-icon stroke">
+      <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1 10L10 1M1.5 5.5C1.5 6.56087 1.92143 7.57828 2.67157 8.32843C3.42172 9.07857 4.43913 9.5 5.5 9.5C6.56087 9.5 7.57828 9.07857 8.32843 8.32843C9.07857 7.57828 9.5 6.56087 9.5 5.5C9.5 4.43913 9.07857 3.42172 8.32843 2.67157C7.57828 1.92143 6.56087 1.5 5.5 1.5C4.43913 1.5 3.42172 1.92143 2.67157 2.67157C1.92143 3.42172 1.5 4.43913 1.5 5.5Z" stroke="white" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    </div>
+  )
+}
+
+export const MiniChartTop = ({ variants }) => {
+  return (
+    <div className="random-icon stroke">
+      <svg width="9" height="10" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M5.52941 1.17647H8.82353V7.05882H4.70588L4.47059 5.88235H1.17647V10H0V0H5.29412L5.52941 1.17647ZM5.29412 5.88235H6.47059V4.70588H7.64706V3.52941H6.47059V2.35294H5.29412V3.52941L4.70588 2.35294V1.17647H3.52941V2.35294H2.35294V1.17647H1.17647V2.35294H2.35294V3.52941H1.17647V4.70588H2.35294V3.52941H3.52941V4.70588H4.70588V3.52941L5.29412 4.70588V5.88235ZM3.52941 3.52941V2.35294H4.70588V3.52941H3.52941ZM5.29412 3.52941H6.47059V4.70588H5.29412V3.52941Z" fill="white"/>
+      </svg>
+    </div>
+  )
+}
 
 
 

@@ -17,34 +17,40 @@ const ChartNodo = ({ data }) => {
 
 
   const calcMetrics = () => {
-    let total = 0
-    let entries = 0
-    let newL = Infinity
-    let newLows = 0
-
-    data.map((entry) => {
-      total += entry.nodo
-      entries += 1
-      if (entry.nodo < newL) {
-        console.log("new record incoming::: ", entry.nodo)
-        newLows += 1
-      }
-      newL = Math.min(newL, entry.nodo)
-
-    })
-    setAvg(parseInt(entries > 0 ? parseInt((total / entries), 10) : 0))
-    const previousValue = data[data.length - 2].nodo;
-    const currentValue = data[data.length - 1].nodo;
+    let total = 0;
+    let entries = 0;
+    let newL = Infinity;
+    let newLows = 0;
   
-    let change;
-    if (previousValue < 0) {
-      change = ((currentValue - previousValue) / Math.abs(previousValue)) * 100;
+    data.forEach((entry) => {
+      total += entry.nodo;
+      entries += 1;
+      if (entry.nodo < newL) {
+        newLows += 1;
+      }
+      newL = Math.min(newL, entry.nodo);
+    });
+  
+    setAvg(parseInt(entries > 0 ? parseInt((total / entries), 10) : 0));
+  
+    if (data.length > 1) {
+      const previousValue = data[data.length - 2].nodo;
+      const currentValue = data[data.length - 1].nodo;
+    
+      let change;
+      if (previousValue < 0) {
+        change = ((currentValue - previousValue) / Math.abs(previousValue)) * 100;
+      } else {
+        change = ((currentValue / previousValue) - 1) * 100;
+      }
+      setLastChange(parseFloat(change).toFixed(2));
     } else {
-      change = ((currentValue / previousValue) - 1) * 100;
+      setLastChange(0);
     }
-    setLastChange(parseFloat(change).toFixed(2));
-    setNewLow(newLows)
+    
+    setNewLow(newLows);
   }
+  
 
   return (
     <div className="nodo-page">
@@ -61,6 +67,8 @@ const ChartNodo = ({ data }) => {
         BoxThreeIcon={BrokenRecordSVG}
         BoxThreeTitle='broken record'
         BoxThreeValue={`${newLow ? newLow : 0} days`}
+
+        subtitle='nodo score progress'
       />
       <div className="chart-container">
         <div className="chart-box">

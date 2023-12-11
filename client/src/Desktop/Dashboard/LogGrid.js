@@ -10,7 +10,7 @@ import "ag-grid-community/styles/ag-theme-alpine.css";
 const LogGrid = ({ data, setActiveDay }) => {
 
 
-    console.log("data in loggrid", data)
+    // console.log("data in loggrid", data)
     const formatDate = (params) => {
         const date = new Date(params.value)
         const day = date.getDate().toString().padStart(2, '0')
@@ -46,11 +46,11 @@ const LogGrid = ({ data, setActiveDay }) => {
 
     const cellClickedListener = useCallback( e => {
         const clickedDate = e.data.date
-        console.log('cellClicked', clickedDate)
+        // console.log('cellClicked', clickedDate)
 
         const newActiveDay = data.find(day => day.date === clickedDate)
         setActiveDay(newActiveDay)
-        console.log("new day set")
+        // console.log("new day set")
     })
 
     const pushMeClicked = useCallback( e => {
@@ -77,7 +77,7 @@ const LogGrid = ({ data, setActiveDay }) => {
                 ...item,
                 change: (typeof item.change === 'number' ? item.change.toFixed(2) : item.change) + '%'
             }));
-            setRowData(updatedData)
+            setRowData(updatedData.reverse())
         }
     }, [data])
  

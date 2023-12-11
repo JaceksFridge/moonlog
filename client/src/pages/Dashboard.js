@@ -73,7 +73,7 @@ const Dashboard = () => {
 
                 if (!data || data.length === 0) {
                     const dummyData = generateDummyData();
-                    console.log("dummyData:::", dummyData)
+                    // console.log("dummyData:::", dummyData)
                     setData(dummyData);
                     setMessage('showing dummy data')
                 } else {
@@ -81,7 +81,7 @@ const Dashboard = () => {
                     setMessage(`showing real data from the last ${data.length} days`);
                 }
                 // setData(data)
-                console.log("Data fetched:", data)
+                // console.log("Data fetched:", data)
             } catch (error) {
                 console.log('Error: ', error)
             }
@@ -93,7 +93,6 @@ const Dashboard = () => {
         if (data && data.length > 0) {
             const yearData = splitData('year')
             setMainChartData(yearData)
-            // console.log("Data before getMetrics:", data)
             getMetrics(data)
         }
     }, [data])
@@ -103,7 +102,6 @@ const Dashboard = () => {
         setActiveTab(tab)
         const newTime = splitData(tab)
         setMainChartData(newTime)
-        console.log(mainChartData)
     }
 
     const isDesktoporLaptop = useMediaQuery({
@@ -142,7 +140,6 @@ const Dashboard = () => {
 
 
     const getMetrics = (data) => {
-        // console.log("Data inside getMetrics:", data);
         data.sort((a, b) => new Date(a.date) - new Date(b.date));
 
         if (data) {
@@ -166,7 +163,6 @@ const Dashboard = () => {
                     athCounter += 1
                     maxValue = entry.sum
                 }
-                // console.log(index, entry.sum)
             })
     
             const aweek = 1000 * 60 * 60 * 24 * 7

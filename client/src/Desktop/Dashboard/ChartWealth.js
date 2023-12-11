@@ -29,14 +29,18 @@ const ChartWealth = ({ data }) => {
       entries += 1
     
       if (entry.wealth > newH) {
-        console.log("new record incoming::: ", entry.wealth)
         newHighs += 1
       }
       newH = Math.max(newH, entry.wealth)
     })
 
     setAvg(parseInt(entries > 0 ? parseInt((total / entries), 10) : 0))
-    setLastIncrease(parseFloat((( data[data.length - 1].wealth / data[data.length -2].wealth )  - 1 ) * 100).toFixed(2))
+    setAvg(parseInt(entries > 0 ? parseInt((total / entries), 10) : 0))
+    if ( !data[data.length -2]) {
+      setLastIncrease(0)
+    } else {
+        setLastIncrease(parseFloat((( data[data.length - 1].wealth / data[data.length -2].wealth )  - 1 ) * 100).toFixed(2))
+    } 
     setNewHigh(newHighs)
   }
 
@@ -55,6 +59,8 @@ const ChartWealth = ({ data }) => {
         BoxThreeIcon={BrokenRecordSVG}
         BoxThreeTitle='broken record'
         BoxThreeValue={`${newHigh ? newHigh : 0} days`}
+
+        subtitle='wealth score progress'
       />
       <div className="chart-container">
         <div className="chart-box">

@@ -4,6 +4,8 @@ import React from 'react'
 import Header from '../blocks/Header'
 import { CalendarSVG, TechnologySVG, GithubSVG } from '../blocks/svg'
 import { useMediaQuery } from 'react-responsive'
+import { useNavigate } from 'react-router-dom';
+import { SidebarLogoSVG } from '../blocks/svg';
 
 
 const About = () => {
@@ -11,12 +13,18 @@ const About = () => {
     const isDesktoporLaptop = useMediaQuery({
         query: '(min-device-width: 1224px)'
     })
-
+    const jump = useNavigate()
 
   return (
     <div className="about-page">
         { !isDesktoporLaptop && <Header /> }
-        <div className="page-top">
+        { isDesktoporLaptop &&       
+        <div className="topbar">
+            <div className="logo-block2" onClick={() => jump('/')}>
+                <SidebarLogoSVG />
+            </div>
+        </div>}
+        <div className="about-top">
             <h2>About</h2>
             <p>Information about Moonlog</p>
         </div>

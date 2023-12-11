@@ -29,14 +29,18 @@ const ChartHappiness = ({ data }) => {
       total += entry.happiness
       entries += 1
       if (entry.happiness > newH) {
-        console.log("new record incoming::: ", entry.happiness)
+        // console.log("new record incoming::: ", entry.happiness)
         newHighs += 1
       }
       newH = Math.max(newH, entry.happiness)
     })
 
     setAvg(parseInt(entries > 0 ? parseInt((total / entries), 10) : 0))
-    setLastIncrease(parseFloat((( data[data.length - 1].happiness / data[data.length -2].happiness )  - 1 ) * 100).toFixed(2))
+    if ( !data[data.length -2]) {
+      setLastIncrease(0)
+    } else {
+        setLastIncrease(parseFloat((( data[data.length - 1].happiness / data[data.length -2].happiness )  - 1 ) * 100).toFixed(2))
+    } 
     setNewHigh(newHighs)
   }
 
@@ -57,6 +61,8 @@ const ChartHappiness = ({ data }) => {
         BoxThreeIcon={BrokenRecordSVG}
         BoxThreeTitle='broken record'
         BoxThreeValue={`${newHigh ? newHigh : 0} days`}
+
+        subtitle='happiness score progress'
       />
       <div className="chart-container">
         <div className="chart-box">

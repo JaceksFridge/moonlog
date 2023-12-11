@@ -144,14 +144,6 @@ const Home = () => {
           icon="/icons/newcard.svg"
         />
       </div>
-      <Link to="/about" className="link">
-        <Card 
-          title="About"
-          text="Enter your activities and find out your score"
-          id="checkscores"
-          icon="/icons/checkcard.svg"
-        />
-      </Link>
       <Link to="/dashboard" className="link">
         <Card 
           title="dashboard"

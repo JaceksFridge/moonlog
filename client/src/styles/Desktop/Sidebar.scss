@@ -161,14 +161,19 @@
                                 stroke-width: 6px;
                             }
                        }
+                       .menu-item-icon .random-icon.stroke.nothick svg{
+                        path{
+                            // fill: black;
+                            stroke: black;
+                            stroke-width: 1.5px;
+                        }
+                        }
                        .menu-item-icon .random-icon.fill svg{
                         path{
                             fill: black;
                         }
                         }
                     }
-        
-
                 }
             }
             .bottom-container{

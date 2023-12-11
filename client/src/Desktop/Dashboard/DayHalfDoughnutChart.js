@@ -15,6 +15,7 @@ const DayHalfDoughnut = ({ dataDay }) => {
       am5.ready(function () {
 
         root = am5.Root.new("day-half-doughnut");
+        root._logo.dispose();
         root.setThemes([am5themes_Animated.new(root)]);
   
         let chart = root.container.children.push(am5percent.PieChart.new(root, {
@@ -63,9 +64,9 @@ const DayHalfDoughnut = ({ dataDay }) => {
           2: "rgba(102, 67, 104, 0.5)"
         }
         const gradientColors = {
-          0: ["#F26642", "#FFC363"],
-          1: ["#E84519", "#CF283C"],
-          2: ["#E33A4E", "#584063"],
+          0: ["#E33A4E", "#584063"],
+          1: ["#CF283C", "#E84519"],
+          2: ["#F26642", "#FFC363"],
         }
    
         let dataArray = [
@@ -114,7 +115,6 @@ const DayHalfDoughnut = ({ dataDay }) => {
   return (
 
     <div id="day-half-doughnut">
-        <div className="watermark-cover"></div>
         <div className="score-box">
           <p className="total">total</p>
           <h2 className="day-main-score">{dataDay ? dataDay.sum : "0000"}</h2>

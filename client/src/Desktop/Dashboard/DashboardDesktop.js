@@ -88,7 +88,7 @@ const DashboardDesktop = ({ data, message }) => {
         modal={deleteModal}
         setModal={setDeleteModal} 
         btn1Fun={() => setDeleteModal(false)}
-        btn2Fun={console.log("deleting")}
+        btn2Fun={() => null}
         SVGComponent={SettingsBinSVG}
       />
       <Modal 
@@ -96,7 +96,7 @@ const DashboardDesktop = ({ data, message }) => {
         modal={resetModal}
         setModal={setResetModal} 
         btn1Fun={() => setResetModal(false)}
-        btn2Fun={console.log('resetting')}
+        btn2Fun={() => null}
         SVGComponent={SettingsResetSVG}
       />
       <DashboardSidebarDesktop 
@@ -112,7 +112,7 @@ const DashboardDesktop = ({ data, message }) => {
         animate={{ width: isCollapsed ? '5rem' : '18rem' }}
       ></motion.div>  
       <div className="dashboard-main">
-        { data && activeTab === 'main' &&  <MainView data={data} message={message}/> } 
+        { data && activeTab === 'main' &&  <MainView data={data} message={message} setActiveTab={setActiveTab} /> } 
         { data && activeTab === 'progress' &&  <ChartProgress data={data} /> } 
         { data && activeTab === 'log-entries' &&  <ChartLogGrid data={data} /> } 
         { data && activeTab === 'health' &&  <ChartHealth data={data} /> }

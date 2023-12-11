@@ -69,6 +69,7 @@
                 .middle-row{
                     margin-top: 1.5rem;
                     height: 24rem;
+                    cursor: pointer;
                     border-radius: 1rem;
                     border: 1px solid $white-20;
 
@@ -200,13 +201,14 @@
                             }
                         }
                         .grid-item.health .bar{
-                            background: linear-gradient(90deg, #F5C373 -2.08%, #E57F53 100%);
+                            background: linear-gradient(90deg, #803242 -2.08%, #6C3961 100%);
+                            
                         }
                         .grid-item.wealth .bar{
                             background: linear-gradient(90deg, #CF4A33 -2.08%, #C23D3F 100%);
                         }
                         .grid-item.happiness .bar{
-                            background: linear-gradient(90deg, #803242 -2.08%, #6C3961 100%);
+                            background: linear-gradient(90deg, #F5C373 -2.08%, #E57F53 100%);
                         }
                         .grid-item.nodo .bar{
                             background: #646464;
