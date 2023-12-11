@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react'
 import PageTop from './PageTop'
-import { HealthScoreSVG, LastIncreaseSVG, BrokenRecordSVG } from '../../blocks/svg'
+import { HealthScoreSVG, LastIncreaseSVG, BrokenRecordSVG, SidebarProgressSVG } from '../../blocks/svg'
 import ProgressBarChart from './ProgressBarChart'
 
 const ChartProgress = ({ data }) => {
@@ -45,7 +45,7 @@ const ChartProgress = ({ data }) => {
     <div className="progress-page">
       <PageTop 
         pageName='Progress'
-        BoxOneIcon={HealthScoreSVG}
+        BoxOneIcon={SidebarProgressSVG}
         BoxOneTitle='average score'
         BoxOneValue={avg ? avg : 0}
 

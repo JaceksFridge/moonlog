@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react'
 import PageTop from './PageTop'
-import { HealthScoreSVG, LastIncreaseSVG, BrokenRecordSVG } from '../../blocks/svg'
+import { NodoIconSVG, LastIncreaseSVG, BrokenRecordSVG } from '../../blocks/svg'
 import NodoLineChart from './NodoLineChart'
 
 const ChartNodo = ({ data }) => {
@@ -56,7 +56,7 @@ const ChartNodo = ({ data }) => {
     <div className="nodo-page">
       <PageTop 
         pageName='Nodo'
-        BoxOneIcon={HealthScoreSVG}
+        BoxOneIcon={NodoIconSVG}
         BoxOneTitle='average nodo score'
         BoxOneValue={avg ? avg : 0}
 

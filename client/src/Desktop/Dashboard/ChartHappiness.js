@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react'
 import PageTop from './PageTop'
-import { HealthScoreSVG, LastIncreaseSVG, BrokenRecordSVG } from '../../blocks/svg'
+import { HappinessIconSVG, LastIncreaseSVG, BrokenRecordSVG } from '../../blocks/svg'
 import HappinessLineChart from './HappinessLineChart'
 
 
@@ -50,7 +50,7 @@ const ChartHappiness = ({ data }) => {
     <div className="happiness-page">
       <PageTop 
         pageName='Happiness'
-        BoxOneIcon={HealthScoreSVG}
+        BoxOneIcon={HappinessIconSVG}
         BoxOneTitle='average happiness score'
         BoxOneValue={avg ? avg : 0}
 

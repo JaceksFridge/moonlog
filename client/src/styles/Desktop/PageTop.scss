@@ -31,8 +31,11 @@
             .random-icon svg{
                 width: 1rem;
                 height: 1rem;
-                opacity: 0.8;
+                opacity: 1;
                 vertical-align: middle;
+            }
+            .random-icon.stroke.lower{
+                opacity: 0.8;
             }
         }
         .box-title{

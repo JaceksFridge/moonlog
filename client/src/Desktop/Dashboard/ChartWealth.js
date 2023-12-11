@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react'
 import PageTop from './PageTop'
-import { HealthScoreSVG, LastIncreaseSVG, BrokenRecordSVG } from '../../blocks/svg'
+import { WealthIconSVG, LastIncreaseSVG, BrokenRecordSVG } from '../../blocks/svg'
 import WealthLineChart from './WealthLineChart'
 
 
@@ -48,7 +48,7 @@ const ChartWealth = ({ data }) => {
     <div className="wealth-page">
       <PageTop 
         pageName='Wealth'
-        BoxOneIcon={HealthScoreSVG}
+        BoxOneIcon={WealthIconSVG}
         BoxOneTitle='average wealth score'
         BoxOneValue={avg ? avg : 0}
 

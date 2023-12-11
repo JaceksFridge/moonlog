@@ -38,7 +38,7 @@ const ChartHealth = ({ data }) => {
     if ( !data[data.length -2]) {
       setLastIncrease(0)
     } else {
-        setLastIncrease(parseFloat((( data[data.length - 1].health / data[data.length -2].health )  - 1 ) * 100).toFixed(2))
+      setLastIncrease(parseFloat((( data[data.length - 1].health / data[data.length -2].health )  - 1 ) * 100).toFixed(2))
     } 
     setNewHigh(newHighs)
   }
