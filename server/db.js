@@ -10,7 +10,7 @@ async function connectDB() {
 
     try {
         await mongoose.connect(
-            'mongodb+srv://natasha:dFVeMrmryyXQvIlH@cluster0.dglcvxz.mongodb.net/moonlog',
+            process.env.MONGODB_URI,
             connectionParams
         )
         console.log("Database connected successfully")
