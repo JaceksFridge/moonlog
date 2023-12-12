@@ -1,3 +1,3 @@
 # moonlog.io
 
-### Welcom to moonlog
+### Gamifying Life
