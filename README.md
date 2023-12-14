@@ -1,3 +1,0 @@
-# moonlog.io
-
-### Gamifying Life
