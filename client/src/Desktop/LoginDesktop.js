@@ -1,6 +1,6 @@
 
 
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 
 const LoginDesktop = ({
   onSubmit, 
@@ -13,6 +13,21 @@ const LoginDesktop = ({
   handleGoogleSignIn,
   toggleSwitch
 }) => {
+
+  const buttonRef = useRef()
+  useEffect(() => {
+    const handleEnterKey = (event) => {
+      if (event.key === 'Enter' || event.keyCode === 13) {
+          buttonRef.current.click();
+      }
+    }
+    document.addEventListener('keydown', handleEnterKey)
+
+    return () => {
+      document.removeEventListener('keydown', handleEnterKey);
+    }
+  }, [])
+
 
   return (
     <div className="login-desktop">

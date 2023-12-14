@@ -1,8 +1,8 @@
 
 
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 
-const LoginDesktop = ({
+const RegisterDesktop = ({
   onSubmit, 
   username, 
   setUsername, 
@@ -13,6 +13,22 @@ const LoginDesktop = ({
   handleGoogleSignIn,
   toggleSwitch
 }) => {
+
+  const buttonRef = useRef()
+  useEffect(() => {
+    const handleEnterKey = (event) => {
+      if (event.key === 'Enter' || event.keyCode === 13) {
+          buttonRef.current.click();
+      }
+    }
+    document.addEventListener('keydown', handleEnterKey)
+
+    return () => {
+      document.removeEventListener('keydown', handleEnterKey);
+    }
+  }, [])
+
+
   return (
     <div className="login-desktop">
       <h2 className="logreg-title">Start your Journey!</h2>
@@ -37,6 +53,7 @@ const LoginDesktop = ({
         </div>
         <div className="button-block">
           <button 
+            ref={buttonRef}
             className="submit-btn"
             type="button"
             onClick={onSubmit}
@@ -48,7 +65,11 @@ const LoginDesktop = ({
             <div className="or">or</div>
             <div className="line"></div>
           </div>
-          <button className="google-btn" onClick={handleGoogleSignIn}>
+          <button 
+            className="google-btn" 
+            type="button"
+            onClick={handleGoogleSignIn}
+          >
             <div className="google-logo"></div>
             <div>Sign in with Google</div>
           </button>
@@ -66,4 +87,4 @@ const LoginDesktop = ({
   )
 }
 
-export default LoginDesktop
+export default RegisterDesktop

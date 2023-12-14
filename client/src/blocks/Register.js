@@ -94,6 +94,10 @@ const Register = ({ setLogReg, logIn, setLogIn, toggleSwitch }) => {
     }
   }
 
+  const handleGoogleSignIn = () => {
+    window.open(`${server}/auth/google/`);
+  }
+
   const isDesktoporLaptop = useMediaQuery({
     query: '(min-device-width: 1224px)'
   })
@@ -109,6 +113,7 @@ const Register = ({ setLogReg, logIn, setLogIn, toggleSwitch }) => {
           setPassword={setPassword}
           errorMessage={errorMessage}
           setErrorMessage={setErrorMessage}
+          handleGoogleSignIn={handleGoogleSignIn}
           setLogReg={setLogReg}
           logIn={logIn}
           setLogIn={setLogIn}
