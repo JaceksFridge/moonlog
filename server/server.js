@@ -2,10 +2,14 @@ const express = require("express")
 const cors = require('cors');
 const passport = require("passport")
 const session = require('express-session')
+const RedisStore = require('connect-redis')(session);
 const bodyParser = require('body-parser')
 require('dotenv').config();
 
-
+const redisClient = require('redis').createClient({
+    host: 'localhost',
+    port: 6379
+  });
 
 const connectDB = require("./db.js")
 const ScoreLog = require("./schema.js")
@@ -18,7 +22,8 @@ app.use(cors());
 app.use(bodyParser.json())
 
 app.use(session({
-    secret: 'hellotherer',
+    store: new RedisStore({ client: redisClient }),
+    secret: 'your_secret',
     resave: false,
     saveUninitialized: false
   }));
