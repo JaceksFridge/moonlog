@@ -136,7 +136,7 @@ const Login = ({ setLogReg, logIn, setLogIn, toggleSwitch }) => {
               </div>
               <button className="google-btn" onClick={handleGoogleSignIn}>
                 <div className="google-logo"></div>
-                <div>Sign in with Google</div>
+                <div>Coming Soon</div>
               </button>
             </div>
           </form>

@@ -71,7 +71,7 @@ const LoginDesktop = ({
             onClick={handleGoogleSignIn}
           >
             <div className="google-logo"></div>
-            <div>Sign in with Google</div>
+            <div>Coming Soon</div>
           </button>
           <div className="logreg-toggle">
             <p>Don't have an account? </p>

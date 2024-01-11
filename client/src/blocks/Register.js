@@ -156,7 +156,7 @@ const Register = ({ setLogReg, logIn, setLogIn, toggleSwitch }) => {
               </div>
               <button className="google-btn">
                 <div className="google-logo"></div>
-                <div>Sign in with Google</div>
+                <div>Coming Soon</div>
               </button>
             </div>
           </form>
