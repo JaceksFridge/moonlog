@@ -1,6 +1,7 @@
 import './App.scss';
 import React, { useContext } from 'react'
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { AnimatePresence } from 'framer-motion';
 import { Navigate } from 'react-router-dom';
 import { UserContext } from './blocks/userContext';
 
@@ -56,35 +57,41 @@ function App() {
           />
           <Route index path="/intro1" element={
             <ProtectedRoute>
-              <IntroPage
-                bg="/images/intro1.png"
-                title="growth"
-                text="Set goals. Make strides. See results. Welcome to Moonlog."
-                prog="/icons/prog1.png"
-                next="/intro2"
-              />
+              <AnimatePresence>
+                <IntroPage
+                  bg="/images/intro1.png"
+                  title="growth"
+                  text="Set goals. Make strides. See results. Welcome to Moonlog."
+                  prog="/icons/prog1.png"
+                  next="/intro2"
+                />
+              </AnimatePresence>
             </ProtectedRoute>
           } />
           <Route path="/intro2" element={
             <ProtectedRoute>
-              <IntroPage
-                bg="/images/intro2.png"
-                title="progress"
-                text="Track. Improve. Repeat. Achieving goals has never been this easy."
-                prog="/icons/prog2.png"
-                next="/intro3"
-              />
+              <AnimatePresence>
+                <IntroPage
+                  bg="/images/intro2.png"
+                  title="progress"
+                  text="Track. Improve. Repeat. Achieving goals has never been this easy."
+                  prog="/icons/prog2.png"
+                  next="/intro3"
+                />
+              </AnimatePresence>
             </ProtectedRoute>
           } />
           <Route path="/intro3" element={
             <ProtectedRoute>
-              <IntroPage
-                bg="/images/intro3.png"
-                title="potential"
-                text="Harness the power of consistency. Make progress visible."
-                prog="/icons/prog3.png"
-                next="/"
-            />
+              <AnimatePresence>
+                <IntroPage
+                  bg="/images/intro3.png"
+                  title="potential"
+                  text="Harness the power of consistency. Make progress visible."
+                  prog="/icons/prog3.png"
+                  next="/"
+              />
+              </AnimatePresence>
             </ProtectedRoute>
           } />
       </Routes>

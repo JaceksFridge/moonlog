@@ -52,7 +52,8 @@ const LoginDesktop = ({
           </div>
         </div>
         <div className="button-block">
-          <button 
+          <button
+            ref={buttonRef}
             className="submit-btn"
             type="button"
             onClick={onSubmit}
@@ -64,7 +65,11 @@ const LoginDesktop = ({
             <div className="or">or</div>
             <div className="line"></div>
           </div>
-          <button className="google-btn" onClick={handleGoogleSignIn}>
+          <button 
+            className="google-btn"
+            type='button'
+            onClick={handleGoogleSignIn}
+          >
             <div className="google-logo"></div>
             <div>Sign in with Google</div>
           </button>

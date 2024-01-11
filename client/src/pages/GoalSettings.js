@@ -99,16 +99,17 @@ const GoalSettings = () => {
       const gradient = (progress) => {
         let color;
 
-        if (progress <= 10) color = 'hsla(0, 0%, 100%, 0.2)';
-        else if (progress <= 20) color = 'hsla(0, 0%, 100%, 0.26)';
-        else if (progress <= 30) color = 'hsla(0, 0%, 100%, 0.34)';
-        else if (progress <= 40) color = 'hsla(0, 0%, 100%, 0.40)';
-        else if (progress <= 50) color = 'hsla(0, 0%, 100%, 0.46)';
-        else if (progress <= 60) color = 'hsla(0, 0%, 100%, 0.54)';
-        else if (progress <= 70) color = 'hsla(0, 0%, 100%, 0.60)';
-        else if (progress <= 80) color = 'hsla(0, 0%, 100%, 0.66)';
-        else if (progress <= 90) color = 'hsla(0, 0%, 100%, 0.74)';
-        else color = 'hsla(0, 0%, 100%, 0.8)';
+        if (progress <= 3) color = 'hsla(0, 0%, 100%, 0)';
+        else if (progress <= 10) color = 'hsla(0, 0%, 100%, 0.16)';
+        else if (progress <= 20) color = 'hsla(0, 0%, 100%, 0.20)';
+        else if (progress <= 30) color = 'hsla(0, 0%, 100%, 0.24)';
+        else if (progress <= 40) color = 'hsla(0, 0%, 100%, 0.32)';
+        else if (progress <= 50) color = 'hsla(0, 0%, 100%, 0.40)';
+        else if (progress <= 60) color = 'hsla(0, 0%, 100%, 0.48)';
+        else if (progress <= 70) color = 'hsla(0, 0%, 100%, 0.56)';
+        else if (progress <= 80) color = 'hsla(0, 0%, 100%, 0.64)';
+        else if (progress <= 90) color = 'hsla(0, 0%, 100%, 0.72)';
+        else color = 'hsla(0, 0%, 100%, 0.80)';
         return color;
       }
 
@@ -294,7 +295,7 @@ const GoalSettings = () => {
             />
             <motion.div             
             className={`placeholder-sidebar ${isCollapsed ? 'collapsed' : 'expanded'}`}
-            animate={{ width: isCollapsed ? '5rem' : '18rem' }}
+            animate={{ width: isCollapsed ? '5.25rem' : '18rem' }}
             ></motion.div>  
             </>
         )}
@@ -492,15 +493,21 @@ const GoalSettings = () => {
                             <div className="icon">!</div>
                             <p className="text">there can only be one of each</p>
                         </div>
-                        <div 
+                        <button 
+                            id='work' 
+                            type="button" 
+                            className="save-btn"
+                            onClick={saveSettings}
+                            name="Hover"
+                        >Save</button>
+                        {/* <div 
                             className="save-btn active"
                             onClick={saveSettings}
                         >
                             Save
-                        </div>
+                        </div> */}
                         <p className="message">{ message ? message : ''}</p>
                     </div>
-                
             </div>
         )}
 

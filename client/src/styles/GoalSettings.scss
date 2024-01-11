@@ -21,6 +21,7 @@
         overflow-x: hidden;
         justify-content: center;
         align-items: center;
+        // margin-left: 0.25rem;
     }
     .main{
         width: 100%;
@@ -33,6 +34,7 @@
         height: 3px;
         width: 100%;
         background: $white-20;
+        
 
         .progress-bar {
             height: 100%;
@@ -630,6 +632,7 @@
             display: grid;
             place-items: center;
             border: 1px solid $white-20;
+            background: $black;
             border-radius: 0.5rem;
             font-family: satoshi;
             font-weight: 400;
@@ -638,11 +641,16 @@
             transition: 0.3s ease-in-out;
             color: $white-50;
             cursor: pointer;
+
+
         }
+
         .save-btn:hover{
             background: $white;
-            color: $dark;
+            color: $black;
+            border: 1px solid $white;
         }
+        
         .message{
             font-size: 0.875rem;
             color: $white-50;
