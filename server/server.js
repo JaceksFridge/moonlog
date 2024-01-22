@@ -2,14 +2,10 @@ const express = require("express")
 const cors = require('cors');
 const passport = require("passport")
 const session = require('express-session')
-const RedisStore = require('connect-redis')(session);
+const MongoStore = require('connect-mongo');
 const bodyParser = require('body-parser')
 require('dotenv').config();
 
-const redisClient = require('redis').createClient({
-    host: 'localhost',
-    port: 6379
-  });
 
 const connectDB = require("./db.js")
 const ScoreLog = require("./schema.js")
@@ -18,15 +14,18 @@ const authRoutes = require('./auth.js')
 
 const app = express()
 
-app.use(cors());
-app.use(bodyParser.json())
 
 app.use(session({
-    store: new RedisStore({ client: redisClient }),
-    secret: 'your_secret',
+    secret: 'some secret',
     resave: false,
-    saveUninitialized: false
-  }));
+    saveUninitialized: false,
+    store: MongoStore.create({
+        mongoUrl: process.env.MONGODB_URI
+    })
+}))
+
+app.use(cors());
+app.use(bodyParser.json())
 app.use(passport.initialize());
 app.use(passport.session());
 
